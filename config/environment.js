@@ -24,11 +24,8 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
-    // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
+        ENV.APP.API_URL = "https://sbs.whise.eu/websiteservices/EstateService.svc/GetEstateList?EstateServiceGetEstateListRequest=" 
+        ENV.APP.API_TOKEN = "e211fe6d9f374b6f9760";
   }
 
   if (environment === 'test') {

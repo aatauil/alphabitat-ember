@@ -13,3 +13,8 @@
     background-size: contain;
     height: 100%;
 }
+
+.b-gray{
+    border-width: 2px;
+    border-color: rgba(128, 128, 128, 0.178);
+}
