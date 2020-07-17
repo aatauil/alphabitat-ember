@@ -1,0 +1,10 @@
+<svg id="bath" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="Group_3" data-name="Group 3">
+    <rect id="Rectangle_12" data-name="Rectangle 12" width="24" height="24" fill="none"/>
+  </g>
+  <g id="Group_5" data-name="Group 5" transform="translate(0 -2)">
+    <g id="Group_4" data-name="Group 4">
+      <path id="Path_2" data-name="Path 2" d="M20,13V4.83a2.828,2.828,0,0,0-4.83-2L13.92,4.08A1.7,1.7,0,0,0,13.41,4a1.986,1.986,0,0,0-1.08.32l2.76,2.76A1.986,1.986,0,0,0,15.41,6a2.163,2.163,0,0,0-.07-.51l1.25-1.25A.827.827,0,0,1,18,4.83V13H11.15c.056.015-6.15,0-6.15,0H2v6a2.006,2.006,0,0,0,2,2,1,1,0,0,0,1,1H19a1,1,0,0,0,1-1,2.006,2.006,0,0,0,2-2V13Zm0,6H4V15H20Z" transform="translate(0 2)"/>
+    </g>
+  </g>
+</svg>

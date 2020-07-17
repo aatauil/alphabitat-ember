@@ -1,0 +1,8 @@
+<svg id="bed" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="Group_1" data-name="Group 1">
+    <rect id="Rectangle_11" data-name="Rectangle 11" width="24" height="24" fill="none"/>
+  </g>
+  <g id="Group_2" data-name="Group 2" transform="translate(0 -1.4)">
+    <path id="Path_1" data-name="Path 1" d="M24,12.7a2.206,2.206,0,0,0-2.2-2.2V7.2A2.206,2.206,0,0,0,19.6,5H6.4A2.206,2.206,0,0,0,4.2,7.2v3.3A2.206,2.206,0,0,0,2,12.7v5.5H3.463L4.2,20.4H5.3l.737-2.2H19.974l.726,2.2h1.1l.737-2.2H24Zm-4.4-2.2H14.1V7.2h5.5ZM6.4,7.2h5.5v3.3H6.4ZM4.2,12.7H21.8V16H4.2Z" transform="translate(-1 5)"/>
+  </g>
+</svg>
