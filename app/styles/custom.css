@@ -1,0 +1,15 @@
+
+.bg-hero{
+    background: url("../../assets/pixel/Alphabitat-hero-min.jpg") rgba(34, 34, 34, 0.356);
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+
+.bg-clip{
+    background-image: url(../../assets/pixel/building-mask.png);
+    background-repeat: no-repeat;
+    background-position:  top right;
+    background-size: contain;
+    height: 100%;
+}
