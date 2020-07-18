@@ -1,0 +1,12 @@
+import Route from '@ember/routing/route';
+import axios from 'axios';
+import ENV from 'alphabitat-ember/config/environment'
+
+export default class SearchRoute extends Route {
+    async model() {
+        const response = await axios.get(`${ENV.APP.API_URL}{"ClientId":"${ENV.APP.API_TOKEN}","Page":0,"RowsPerPage":20,"Language":"en-be","displayStatusIdList":3}`)
+        const data = await response.data.d.EstateList
+        await console.log(data)
+        return data
+      }
+}
