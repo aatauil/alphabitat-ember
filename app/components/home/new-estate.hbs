@@ -1,15 +1,18 @@
  <section class="container py-16">
-      <h2 class="text-3xl font-bold py-6 text-gray-800">New Properties</h2>
+      <div class="flex justify-between items-center">
+        <h1 class="text-2xl text-gray-800">Filter</h1>
+        <button>Reset filter</button>
+    </div>
       <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 sm:grid-cols-2 grid-cols-1">
         {{#each @estate as |item|}}
         <article class="rounded-lg b-gray hover:shadow-xl p-2">
               <div style="background-image: url('{{ item.Pictures.[0].UrlLarge}}')" class="relative h-64 w-full rounded-lg bg-cover">
-                <div class="absolute bottom-0 right-0 mr-0 mb-2 text-xl text-white px-4 py-1 font-bold bg-black rounded-sm">{{item.Currency}} {{item.Price}}</div>
+                <div class="absolute bottom-0 right-0 mr-0 mb-2 text-xl text-white px-4 py-1 font-bold bg-black rounded-l-lg">{{item.Currency}} {{parse-price item.Price}}</div>
               </div>
           
             <div class="p-3">
                 <h3 class="text-xl font-bold">{{item.City}}</h3>
-                <div class="text-sm text-gray-600 pb-2 font-bold">{{item.CategoryId}}</div>
+                <div class="text-sm text-gray-600 pb-2 font-bold">{{category-converter item.CategoryId}}</div>
                  <div class="flex py-2">
                     <div class="inline-block pr-3 text-sm text-gray-600 border-r flex items-end">
                         <img src="../../assets/vector/bed.svg" alt="icon of a bed" class="mr-4">
@@ -27,8 +30,7 @@
 
                     </div>
                     <div>
-                        Purpose
-                         {{item.Purposes.[0].PurposeStatusId}}
+                         {{item.Purposes.[0].PurposeStatus}}
                     </div>
                     
                 </div>
