@@ -1,20 +1,34 @@
 
 .bg-hero{
     background: url("../../assets/pixel/Alphabitat-hero-min.jpg") rgba(34, 34, 34, 0.356);
-    background-position: center;
+    background-position: right;
     background-size: cover;
     background-blend-mode: multiply;
 }
 
-.bg-clip{
-    background-image: url(../../assets/pixel/building-mask.png);
-    background-repeat: no-repeat;
-    background-position:  top right;
-    background-size: contain;
-    height: 100%;
-}
 
 .b-gray{
     border-width: 2px;
     border-color: rgba(128, 128, 128, 0.178);
+}
+
+.opacity-90{
+    opacity: 95%;
+}
+
+.opacity-10{
+    opacity: 10%;
+}
+
+.bg-dark-gray{
+    background: rgb(14, 14, 14);
+}
+
+.bg-grey{
+    background-color: rgb(22, 22, 22);
+}
+
+.absolute-center{
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
