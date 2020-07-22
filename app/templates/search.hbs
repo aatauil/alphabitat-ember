@@ -1,5 +1,6 @@
-<main class="pt-32 flex w-full px-3 md:px-12 gap-0 md:gap-5">
+<main class="flex gap-0 md:gap-5 container relative">
     <Search::filter/>
     <Search::Results @estate={{@model}}/>
     <Search::map/>
+    <button class="fixed md:hidden bottom-0 w-11/12 z-50 mb-2 py-4 bg-red-600 shadow-xl font-bold text-gray-100 absolute-center rounded">Filter</button>
 </main>

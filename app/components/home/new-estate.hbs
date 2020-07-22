@@ -1,11 +1,8 @@
  <section class="container py-16">
-      <div class="flex justify-between items-center">
-        <h1 class="text-2xl text-gray-800">Filter</h1>
-        <button>Reset filter</button>
-    </div>
+            <h2 class="text-3xl font-bold py-6 text-gray-800">New Properties</h2>
       <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 sm:grid-cols-2 grid-cols-1">
         {{#each @estate as |item|}}
-        <article class="rounded-lg b-gray hover:shadow-xl p-2">
+        <article class="rounded-lg b-gray hover:shadow-xl transform hover:-translate-y-1 p-2 anim">
               <div style="background-image: url('{{ item.Pictures.[0].UrlLarge}}')" class="relative h-64 w-full rounded-lg bg-cover">
                 <div class="absolute bottom-0 right-0 mr-0 mb-2 text-xl text-white px-4 py-1 font-bold bg-black rounded-l-lg">{{item.Currency}} {{parse-price item.Price}}</div>
               </div>
