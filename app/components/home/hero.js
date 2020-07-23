@@ -9,11 +9,9 @@ export default class HeroComponent extends Component {
     @tracked region = false;
 
     // Button content Purpose
-    @tracked cbPurposeAll = false;
-    @tracked cbForSale = false;
-    @tracked cbForRent = false;
-    @tracked cbSold = false;
-    @tracked cbRented = false;
+    @tracked purposeState = "For sale"
+    @tracked radioForSale = true;
+    @tracked radioForRent = false;
 
      // Button content Region
     @tracked cbRegionAll = false
@@ -22,6 +20,11 @@ export default class HeroComponent extends Component {
     @tracked cbWall = false
     @tracked cbFlan = false
     @tracked cbOther = false
+
+    // Button select price
+
+    @tracked minBudget = 0 
+    @tracked maxBudget = 9999999
 
 
     // Dropdown open state logic
@@ -53,47 +56,12 @@ export default class HeroComponent extends Component {
     }
 
     // PURPOSE LOGIC
-    // logic to only keep 1 dropdown open at a time and close the other 2
 
-    // Main Logic function
-
-    @action verifyPurpose(element, event){
-        
-        this.updateState(element, event.target.checked)
-
-        if(element == "cbPurposeAll" && this.cbPurposeAll == true){
-            this.checkAllPurpose(event)
-        } else {
-            this.purposeAllLogic()
-        }
+    @action setPurpose(element){
+        this.updateState(element)
+        this.purposeState = element
     }
-
-
-    // side functions 
-
-    purposeAllLogic(){
-
-         if (!this.cbForSale|| !this.cbForRent || !this.cbSold || !this.cbRented){
-            this.cbPurposeAll = false
-
-        }
-
-        if (this.cbForSale && this.cbForRent && this.cbSold && this.cbRented){
-            this.cbPurposeAll = true
-            this.checkAllPurpose()
-
-        }
-    }
-
-    checkAllPurpose(){
-            this.cbForSale = true;
-            this.cbForRent = true;
-            this.cbSold = true;
-            this.cbRented = true
-    }
-
     
-
 
     // ---------------------------------------------------------------------------------------------------
 
@@ -110,7 +78,6 @@ export default class HeroComponent extends Component {
             this.regionAllLogic()
         }
     }
-
 
 
     regionAllLogic(){
@@ -135,33 +102,33 @@ export default class HeroComponent extends Component {
         this.cbOther = true;
     }
 
+
+    // PRICE LOGIC
+
+    @action updateMinBudget(event){
+        console.log(event.target.value)
+        this.minBudget = event.target.value
+    }
+
+
     // Shared Logic
 
     updateState(element, state){
+        console.log(element)
 
-        if (element == "cbPurposeAll"){
-            this.cbPurposeAll = state
+        // Radio
+
+        if(element == "For sale"){
+            this.radioForSale = true
+            this.radioForRent = false
         }
 
-        if (element == "cbForSale"){
-            this.cbForSale = state
-
+        if(element == "For rent"){
+            this.radioForRent = true
+            this.radioForSale = false
         }
 
-        if (element == "cbForRent"){
-            this.cbForRent = state
-
-        }
-
-        if (element == "cbRented"){
-            this.cbRented = state
-
-        }
-
-        if (element == "cbSold"){
-            this.cbSold = state
-
-        }
+        // Dropdown
 
         if (element == "cbRegionAll"){
             this.cbRegionAll = state
