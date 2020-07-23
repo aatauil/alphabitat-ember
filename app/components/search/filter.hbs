@@ -1,15 +1,19 @@
-<section class="absolute top-0 left-0 z-30 bg-white w-full p-6 font-bold hidden">
-    <div class="container">
+<section class="fixed top-0 w-full xl:block xl:relative left-0 z-30 xl:w-1/3 md:mt-6 bg-white p-6 font-bold ">
+    <div class="md:container">
     <div class="flex justify-between items-center border-b pb-4">
         <h1 class="text-2xl text-gray-800">Filter</h1>
-        <button class="bg-gray-900 text-white font-bold py-2 px-6 rounded">Reset filter</button>
+        <div class="flex">
+            <button class="bg-gray-200 text-gray-900 text-base font-bold py-2 px-5 rounded hover:bg-gray-800 hover:text-white anim">Reset filter</button>
+            <button class="bg-gray-200 text-gray-900 text-base font-bold py-2 px-5 rounded block md:hidden ml-3"><img src="/assets/vector/close.svg" alt=""></button>
+            
+        </div>
     </div>
 
        <div class="mt-6">
         <h2 class="text-gray-600 py-2">Purpose</h2>
         <div class="flex flex-col pl-2 ">
             <label class="inline-flex items-center mt-3">
-                <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-2 text-gray-500">For sale</span>
+                <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">For sale</span>
             </label>
             <label class="inline-flex items-center mt-3">
                 <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">For rent</span>
@@ -29,13 +33,10 @@
         <h2 class="text-gray-600 py-2">Property Type</h2>
         <div class="flex flex-col pl-2 ">
             <label class="inline-flex items-center mt-3">
-                <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-2 text-gray-500">Houses</span>
+                <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Houses</span>
             </label>
             <label class="inline-flex items-center mt-3">
                 <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Flats</span>
-            </label>
-            <label class="inline-flex items-center mt-3">
-                <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Plots</span>
             </label>
             <label class="inline-flex items-center mt-3">
                 <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Plots</span>
@@ -58,32 +59,24 @@
 
     </div>
     <div class="mt-12">
-        <h2 class="text-gray-600 py-2">Bedrooms</h2>
-        <div class="flex">
-                <select class="border w-5/12 mr-6 py-2 px-2 rounded" name="" id="">
-                    <option value=0>Min</option>
-                    <option value=1>1 Room</option>
-                    <option value=2>2 Room</option>
-                    <option value=3>3 Rooms</option>
-                    <option value=4>4 Rooms</option>
-                    <option value=5>5 Rooms</option>
-                </select>
-    
-
-                <select class="border w-5/12  py-2 px-2 rounded">
-                    <option value=20>Max</option>
-                    <option value=1>1 Room</option>
-                    <option value=2>2 Room</option>
-                    <option value=3>3 Room</option>
-                    <option value=4>4 Rooms</option>
-                    <option value=5>5 Rooms</option>
-                    <option value=20>6+ Rooms</option>
-                </select>
+        <h2 class="text-gray-600 py-3 flex items-end mb-2"> <img src="/assets/vector/bed.svg" alt="bed icon" class="mr-2 opacity-50"> <span class="leading-none"> Bedrooms </span></h2>
+        <div class="flex justify-start">
+            <div class=" w-1/2 flex items-center justify-between">
+                <button {{on 'click' this.subBed }} class="{{if this.minBed "opacity-25 cursor-not-allowed" }}"> 
+                    <img src="/assets/vector/substract.svg" class="h-8 opacity-50 " alt="">
+                </button>
+                <div class="font-bold text-xl">
+                     > {{this.bedrooms}}
+                </div>
+                <button {{on 'click' this.addBed }} class="{{if this.maxBed "opacity-25 cursor-not-allowed" }}">
+                    <img src="/assets/vector/add.svg" class="h-8 opacity-50 " alt="">
+                </button>
+            </div>
         </div>
     </div>
 
      <div class="mt-6">
-        <h2 class="text-gray-600 py-2">Price</h2>
+        <h2 class="text-gray-600 py-3 flex items-end "><img src="/assets/vector/euro.svg" alt="bed icon" class="mr-2 opacity-50 h-5"> <span class="leading-tight"> Price </span></h2>
         <div class="flex">
                 <select class="border w-5/12 mr-6 py-2 px-2 rounded" name="" id="">
                     <option value=0>Min</option>
@@ -107,7 +100,24 @@
         </div>
     </div>
     <div class="mt-6">
-        <h2 class="text-gray-600 py-2">Bathrooms</h2>
+        <h2 class="text-gray-600 py-3 flex items-end  mb-2"><img src="/assets/vector/bath.svg" alt="bed icon" class="mr-2 opacity-50"> <span class="leading-none"> Bathrooms </span></h2>
+        <div class="flex justify-start">
+            <div class=" w-1/2 flex items-center justify-between">
+                <button {{on 'click' this.subBath }}  class="{{if this.minBath "opacity-25 cursor-not-allowed" }}">
+                    <img src="/assets/vector/substract.svg" class="h-8 opacity-50 " alt="">
+                </button>
+                <div class="font-bold text-xl">
+                   > {{this.bathrooms}}
+                </div>
+                <button {{on 'click' this.addBath }}  class="{{if this.maxBath "opacity-25 cursor-not-allowed" }}">
+                    <img src="/assets/vector/add.svg" class="h-8 opacity-50" alt="">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-6">
+          <h2 class="text-gray-600 py-3 flex items-end"><img src="/assets/vector/area.svg" alt="bed icon" class="mr-2 opacity-50"> <span class=""> Area </span></h2>
         <div class="flex">
                 <select class="border w-5/12 mr-6 py-2 px-2 rounded" name="" id="">
                     <option value=0>Min</option>
@@ -131,29 +141,21 @@
         </div>
     </div>
 
-    <div class="mt-6">
-        <h2 class="text-gray-600 py-2">Area</h2>
-        <div class="flex">
-                <select class="border w-5/12 mr-6 py-2 px-2 rounded" name="" id="">
-                    <option value=0>Min</option>
-                    <option value=1>1 Room</option>
-                    <option value=2>2 Room</option>
-                    <option value=3>3 Rooms</option>
-                    <option value=4>4 Rooms</option>
-                    <option value=5>5 Rooms</option>
-                </select>
-    
-
-                <select class="border w-5/12  py-2 px-2 rounded">
-                    <option value=20>Max</option>
-                    <option value=1>1 Room</option>
-                    <option value=2>2 Room</option>
-                    <option value=3>3 Room</option>
-                    <option value=4>4 Rooms</option>
-                    <option value=5>5 Rooms</option>
-                    <option value=20>6+ Rooms</option>
-                </select>
+     <div class="mt-12 border rounded shadow-md p-4">
+        <h2 class="text-gray-600 pb-2">Options</h2>
+        <div class="flex flex-col pl-2 ">
+            <label class="inline-flex items-center mt-3">
+                <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Garage</span>
+            </label>
+            <label class="inline-flex items-center mt-3">
+                <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Garden</span>
+            </label>
+            <label class="inline-flex items-center mt-3">
+                <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Furnished</span>
+            </label>
         </div>
+
+
     </div>
 </div>
 </section>
