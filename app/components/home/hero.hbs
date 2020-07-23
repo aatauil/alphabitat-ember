@@ -1,76 +1,83 @@
-<section class="w-full h-full bg-hero py-24">
-    <div class="container mx-auto z-10 relative">
-    <article class="w-full flex justify-center pt-48 flex flex-col pb-16">
-        <h1 class="text-3xl md:text-5xl text-center pb-12 font-bold text-gray-100 ">Real Estate Agency Woluwe-Saint-Pierre</h1>
-        <div class="flex flex justify-center">
+<section class="w-full h-full bg-hero ">
+    <div {{ on 'click' this.toggleAll}} class="absolute transparent top-0 left-0 h-full w-full">
+
+    </div>
+    <div class="container z-10 relative">
+    <article class="flex justify-center py-24 flex flex-col">
+        <h1 class="text-3xl md:text-5xl text-center pb-12 font-bold text-gray-100 " {{ on 'click' this.toggleAll}}>Real Estate Agency Woluwe-Saint-Pierre</h1>
+        <div class="flex justify-center">
             <div class="relative">
-            <button {{ on 'click' this.togglePurpose}}  class="py-5 px-3 md:px-6 bg-white border flex justify-between w-32 md:w-64 font-bold"><span>For sale</span> <img src="/assets/vector/down-arrow-black.svg" alt=""></button>
+            <button {{ on 'click' this.togglePurpose}} class="py-5 px-3 md:px-6 bg-white border flex justify-between w-32 md:w-64 font-bold hover:bg-blue-100 ">Purpose<img src="/assets/vector/down-arrow-black.svg" alt=""></button>
                 {{#if this.purpose}}
+                
                 <div class="absolute w-64 mt-2 shadow-xl p-5 flex flex-col bg-white font-bold rounded">
                      <label class="inline-flex items-center mt-3">
-                        <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600"><span class="ml-2 text-gray-700">All</span>
+                        <Input @type="checkbox" class="h-5 w-5 text-gray-600" @checked={{this.cbPurposeAll}}  {{ on 'click' (fn this.verifyPurpose 'cbPurposeAll')  }}/><span class="ml-4 text-gray-700">All</span>
                     </label>
                     <div class="w-full border-b py-2"></div>
+
                     <label class="inline-flex items-center mt-3">
-                        <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-700">For sale</span>
+                        <Input @type="checkbox" class="h-5 w-5 text-gray-600" @checked={{this.cbForSale}} {{ on 'click' (fn this.verifyPurpose 'cbForSale')}} /><span class="ml-4 text-gray-700">For sale</span>
                     </label>
                     <label class="inline-flex items-center mt-3">
-                        <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-700">For rent</span>
+                        <Input @type="checkbox" class="h-5 w-5 text-gray-600" @checked={{this.cbForRent}} {{ on 'click' (fn this.verifyPurpose 'cbForRent')}} /><span class="ml-4 text-gray-700">For rent</span>
                     </label>
                     <label class="inline-flex items-center mt-3">
-                        <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-700">Sold</span>
+                        <Input @type="checkbox" class="h-5 w-5 text-gray-600" @checked={{this.cbSold}} {{ on 'click' (fn this.verifyPurpose 'cbSold')}} /><span class="ml-4 text-gray-700">Sold</span>
                     </label>
                     <label class="inline-flex items-center mt-3">
-                        <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-700">Rented</span>
+                        <Input @type="checkbox" class="h-5 w-5 text-gray-600"  @checked={{this.cbRented}} {{ on 'click' (fn this.verifyPurpose 'cbRented')}} /><span class="ml-4 text-gray-700">Rented</span>
                     </label>
                 </div>
                 {{/if}}
             </div>
             <div class="relative">
-            <button {{ on 'click' this.togglePrice}}  class="py-5 px-6 bg-white border xl:flex justify-between w-64 font-bold hidden"><span>Price</span> <img src="/assets/vector/down-arrow-black.svg" alt=""></button>
+            <button {{ on 'click' this.togglePrice}}  class="py-5 px-6 bg-white border xl:flex justify-between w-64 font-bold hidden  hover:bg-blue-100 "><span>Price</span> <img src="/assets/vector/down-arrow-black.svg" alt=""></button>
                 {{#if this.price}}
-                <div class="absolute  w-64 mt-2 shadow-xl p-5 flex flex-col bg-white font-bold rounded">
+                <div class="absolute w-64 mt-2 shadow-xl p-5 flex flex-col bg-white font-bold rounded">
                     <div>
                         <label for="price" class="block text-sm text-gray-800">min.</label>
-                        <input id="price" class="form-input block w-full p-2 mt-2 border rounded" placeholder="0">
+                        <Input id="price" class="form-Input block w-full p-2 mt-2 border rounded" placeholder="0" />
                     </div>
                     <div class="mt-6">
                         <label for="price" class="block text-sm text-gray-800">max.</label>
-                        <input id="price" class="form-input block w-full p-2 mt-2 border rounded" placeholder="0">
+                        <Input id="price" class="form-Input block w-full p-2 mt-2 border rounded" placeholder="0" />
                     </div>
                 </div>
                 {{/if}}
             </div>
             <div class="relative">
-            <button {{ on 'click' this.toggleRegion}} class="py-5 px-3 md:px-6  bg-white border flex justify-between w-32 md:w-64 font-bold"><span>Region</span> <img src="/assets/vector/down-arrow-black.svg" alt=""></button>
+            <button {{ on 'click' this.toggleRegion}} class="py-5 px-3 md:px-6  bg-white border flex justify-between w-32 md:w-64 font-bold  hover:bg-blue-100 "><span>Region</span> <img src="/assets/vector/down-arrow-black.svg" alt=""></button>
                 {{#if this.region}}
                 <div class="absolute w-64 mt-2 shadow-xl p-5 flex flex-col bg-white font-bold rounded">
-                     <label class="inline-flex items-center mt-3">
-                        <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600"><span class="ml-2 text-gray-700">All</span>
+                    
+                    <label class="inline-flex items-center mt-3">
+                        <Input @type="checkbox" class="h-5 w-5 text-gray-600" @checked={{this.cbRegionAll}} {{ on 'click' (fn this.verifyRegion 'cbRegionAll')}} /><span class="ml-4 text-gray-700">All</span>
                     </label>
                     <div class="w-full border-b py-2"></div>
+                    
                     <label class="inline-flex items-center mt-3">
-                        <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-700">Brussels</span>
+                        <Input @type="checkbox" class="h-5 w-5 text-gray-600" @checked={{this.cbBrux}} {{ on 'click' (fn this.verifyRegion 'cbBrux')}}  /><span class="ml-4 text-gray-700">Brussels</span>
                     </label>
                     <label class="inline-flex items-center mt-3">
-                        <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-700">Flemish Brabant</span>
+                        <Input @type="checkbox" class="h-5 w-5 text-gray-600" @checked={{this.cbFlem}} {{ on 'click' (fn this.verifyRegion 'cbFlem')}}  /><span class="ml-4 text-gray-700">Flemish Brabant</span>
                     </label>
                     <label class="inline-flex items-center mt-3">
-                        <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-700">Walloon Brabant</span>
+                        <Input @type="checkbox" class="h-5 w-5 text-gray-600" @checked={{this.cbWall}} {{ on 'click' (fn this.verifyRegion 'cbWall')}}  /><span class="ml-4 text-gray-700">Walloon Brabant</span>
                     </label>
                     <label class="inline-flex items-center mt-3">
-                        <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-700">East Flanders</span>
+                        <Input @type="checkbox" class="h-5 w-5 text-gray-600" @checked={{this.cbFlan}} {{ on 'click' (fn this.verifyRegion 'cbFlan')}}  /><span class="ml-4 text-gray-700">East Flanders</span>
                     </label>
                     <label class="inline-flex items-center mt-3">
-                        <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-700">Other</span>
+                        <Input @type="checkbox" class="h-5 w-5 text-gray-600" @checked={{this.cbOther}} {{ on 'click' (fn this.verifyRegion 'cbOther')}}  /><span class="ml-4 text-gray-700">Other</span>
                     </label>
                 </div>
                 {{/if}}
             </div>
-            <button class="py-5 px-5 md:px-12  bg-red-600 font-bold text-white">Search</button>
+            <button class="py-5 px-5 md:px-12  bg-red-600 font-bold text-white hover:bg-blue-600 anim" {{ on 'click' this.toggleAll}}>Search</button>
         </div>
-        <div class="flex justify-center mt-6 ">
-            <button class="font-bold text-gray-100 border px-6 py-2 border-gray-500 ">Advanced search</button>
+        <div class="flex justify-center mt-6 " {{ on 'click' this.toggleAll}}>
+            <button class="font-bold text-gray-100 border px-6 py-2 border-gray-500 hover:bg-blue-600 anim ">Advanced search</button>
         </div>
   
     </article>
