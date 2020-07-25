@@ -12,8 +12,16 @@ export default class SearchFilterComponent extends Component {
     @tracked minBath = false;
     @tracked maxBath = false;
 
-    @action addBed(){
+    @tracked radioForSale = true;
+    @tracked radioForRent = false;
 
+    @tracked garage = false;
+    @tracked garden = false;
+    @tracked furnished = false;
+    
+    // BEDROOM LOGIC
+
+    @action addBed(){
         this.minBed = false
 
         if (this.bedrooms < 8){
@@ -23,13 +31,9 @@ export default class SearchFilterComponent extends Component {
         if (this.bedrooms == 8){
             this.maxBed = true;
         }
-        
-
-
     }
 
     @action subBed(){
-
         this.maxBed = false
 
         if (this.bedrooms > 0){
@@ -42,8 +46,10 @@ export default class SearchFilterComponent extends Component {
         }
     }
 
-    @action addBath(){
+        
+    // BATHROOM LOGIC
 
+    @action addBath(){
         this.minBath = false
 
         if (this.bathrooms < 8){
@@ -53,27 +59,43 @@ export default class SearchFilterComponent extends Component {
         if (this.bathrooms == 8){
             this.maxBath = true;
         }
-        
-
-
     }
 
     @action subBath(){
-
         this.maxBath = false
 
         if (this.bathrooms > 0){
         this.bathrooms--
-
         }
-        
+
         if (this.bathrooms == 0){
             this.minBath = true;
         }
     }
 
-
     @action returnFalse(){
         return true
+    }
+
+    
+    // Shared Logic
+
+    @action updateState(element){
+        console.log(element)
+        // Radio
+
+        if(element == "For sale"){
+            console.log(1)
+            this.radioForSale = true
+            this.radioForRent = false
+            this.buyRent = 1
+        }
+
+        if(element == "For rent"){
+            console.log(2)
+            this.radioForRent = true
+            this.radioForSale = false
+            this.buyRent = 2
+        }
     }
 }

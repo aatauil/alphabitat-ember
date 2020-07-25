@@ -1,161 +1,246 @@
-<section class="fixed top-0 w-full xl:block xl:relative left-0 z-30 xl:w-1/3 md:mt-6 bg-white p-6 font-bold ">
+<section
+    class="fixed top-0 w-full xl:block xl:relative h-full left-0 z-30 xl:w-1/3 md:mt-6 bg-white py-6 px-2 font-bold rounded pb-12">
     <div class="md:container">
-    <div class="flex justify-between items-center border-b pb-4">
-        <h1 class="text-2xl text-gray-800">Filter</h1>
-        <div class="flex">
-            <button class="bg-gray-200 text-gray-900 text-base font-bold py-2 px-5 rounded hover:bg-gray-800 hover:text-white anim">Reset filter</button>
-            <button class="bg-gray-200 text-gray-900 text-base font-bold py-2 px-5 rounded block md:hidden ml-3"><img src="/assets/vector/close.svg" alt=""></button>
-            
-        </div>
-    </div>
+        <div class="flex justify-between items-center border-b pb-4">
+            <h1 class="text-2xl text-gray-800">Filter</h1>
+            <div class="flex">
+                <button type="reset"
+                    class="bg-gray-200 text-gray-900 text-base font-bold py-2 px-5 rounded hover:bg-gray-800 hover:text-white anim">Reset
+                    filter</button>
+                <button type="button"
+                    class="bg-gray-200 text-gray-900 text-base font-bold py-2 px-5 rounded block md:hidden ml-3"><img
+                        src="/assets/vector/close.svg" alt="Black close icon"></button>
 
-       <div class="mt-6">
-        <h2 class="text-gray-600 py-2">Purpose</h2>
-        <div class="flex flex-col pl-2 ">
-            <label class="inline-flex items-center mt-3">
-                <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">For sale</span>
-            </label>
-            <label class="inline-flex items-center mt-3">
-                <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">For rent</span>
-            </label>
-            <label class="inline-flex items-center mt-3">
+            </div>
+        </div>
+
+        <div class="mt-6">
+            <h2 class="text-gray-600 py-2">Purpose</h2>
+            <div class="flex flex-col pl-2 ">
+                <label class="inline-flex items-center mt-3">
+                    <input type="radio" name="purpose" checked={{this.radioForSale}}
+                        {{on "change" (fn this.updateState 'For sale')}}class="h-5 w-5 text-gray-600"><span
+                        class="ml-4 text-gray-500">For sale</span>
+                </label>
+                <label class="inline-flex items-center mt-3">
+                    <input type="radio" name="purpose" checked={{this.radioForRent²}}
+                        {{on "change" (fn this.updateState 'For rent')}} class="h-5 w-5 text-gray-600"><span
+                        class="ml-4 text-gray-500">For rent</span>
+                </label>
+                {{!-- <label class="inline-flex items-center mt-3">
                 <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Sold</span>
             </label>
             <label class="inline-flex items-center mt-3">
                 <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Rented</span>
-            </label>
-           
-        </div>
+            </label> --}}
 
-
-    </div>
-    <div class="mt-12">
-        <h2 class="text-gray-600 py-2">Property Type</h2>
-        <div class="flex flex-col pl-2 ">
-            <label class="inline-flex items-center mt-3">
-                <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Houses</span>
-            </label>
-            <label class="inline-flex items-center mt-3">
-                <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Flats</span>
-            </label>
-            <label class="inline-flex items-center mt-3">
-                <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Plots</span>
-            </label>
-            <label class="inline-flex items-center mt-3">
-                <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Offices</span>
-            </label>
-            <label class="inline-flex items-center mt-3">
-                <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Stores</span>
-            </label>
-            <label class="inline-flex items-center mt-3">
-                <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Industrial</span>
-            </label>
-            <label class="inline-flex items-center mt-3">
-                <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Garage & Parking
-                    lots</span>
-            </label>
-        </div>
-
-
-    </div>
-    <div class="mt-12">
-        <h2 class="text-gray-600 py-3 flex items-end mb-2"> <img src="/assets/vector/bed.svg" alt="bed icon" class="mr-2 opacity-50"> <span class="leading-none"> Bedrooms </span></h2>
-        <div class="flex justify-start">
-            <div class=" w-1/2 flex items-center justify-between">
-                <button {{on 'click' this.subBed }} class="{{if this.minBed "opacity-25 cursor-not-allowed" }}"> 
-                    <img src="/assets/vector/substract.svg" class="h-8 opacity-50 " alt="">
-                </button>
-                <div class="font-bold text-xl">
-                     > {{this.bedrooms}}
-                </div>
-                <button {{on 'click' this.addBed }} class="{{if this.maxBed "opacity-25 cursor-not-allowed" }}">
-                    <img src="/assets/vector/add.svg" class="h-8 opacity-50 " alt="">
-                </button>
             </div>
         </div>
-    </div>
 
-     <div class="mt-6">
+    <div class="mt-6">
         <h2 class="text-gray-600 py-3 flex items-end "><img src="/assets/vector/euro.svg" alt="bed icon" class="mr-2 opacity-50 h-5"> <span class="leading-tight"> Price </span></h2>
-        <div class="flex">
-                <select class="border w-5/12 mr-6 py-2 px-2 rounded" name="" id="">
-                    <option value=0>Min</option>
-                    <option value=1>1 Room</option>
-                    <option value=2>2 Room</option>
-                    <option value=3>3 Rooms</option>
-                    <option value=4>4 Rooms</option>
-                    <option value=5>5 Rooms</option>
-                </select>
-    
+        <div class="flex justify-between item-center">
+                <select class="border w-5/12 py-2 px-2 rounded appearance-none" name="" id="">
+                        <option default="" value="0">Min</option>
+                     {{#if this.radioForRent }}
 
-                <select class="border w-5/12  py-2 px-2 rounded">
-                    <option value=20>Max</option>
-                    <option value=1>1 Room</option>
-                    <option value=2>2 Room</option>
-                    <option value=3>3 Room</option>
-                    <option value=4>4 Rooms</option>
-                    <option value=5>5 Rooms</option>
-                    <option value=20>6+ Rooms</option>
+                        <option value="500" >€ 500</option>
+                        <option value="500" >€ 750</option>
+                        <option value="1000" >€ 1000</option>
+                        <option value="1250" >€ 1250</option>
+                        <option value="1500" >€ 1500</option>
+                        <option value="1750" >€ 1750</option>
+                        <option value="2000" >€ 2000</option>
+                        <option value="2250" >€ 2250</option>
+                        <option value="2500" >€ 2500</option>
+                        <option value="2750" >€ 2750</option>
+                        <option value="3000" >€ 3000</option>
+                        <option value="3250" >€ 3250</option>
+                        <option value="3500" >€ 3500</option>
+                        <option value="3750" >€ 3750</option>
+                    {{/if}}
+
+                    {{#if this.radioForSale }}
+                    
+
+                    <option value="100000" >€ 100 000</option>
+                    <option value="150000" >€ 150 000</option>
+                    <option value="200000" >€ 200 000</option>
+                    <option value="250000" >€ 250 000</option>
+                    <option value="300000" >€ 300 000</option>
+                    <option value="350000" >€ 350 000</option>
+                    <option value="400000" >€ 400 000</option>
+                    <option value="450000" >€ 450 000</option>
+                    <option value="500000" >€ 500 000</option>
+                    <option value="550000" >€ 550 000</option>
+                    <option value="600000" >€ 600 000</option>
+                    <option value="650000" >€ 650 000</option> 
+
+                    {{/if}}
+                    
+                </select>
+
+                <span class="text-gray-600 leading-10">to</span>
+
+                <select class="border w-5/12  py-2 px-2 rounded appearance-none">
+                    <option default="9999999" value="0">Max</option>
+                    {{#if this.radioForRent }}
+                            
+        
+                    <option value="500" >€ 500</option>
+                    <option value="500" >€ 750</option>
+                    <option value="1000" >€ 1000</option>
+                    <option value="1250" >€ 1250</option>
+                    <option value="1500" >€ 1500</option>
+                    <option value="1750" >€ 1750</option>
+                    <option value="2000" >€ 2000</option>
+                    <option value="2250" >€ 2250</option>
+                    <option value="2500" >€ 2500</option>
+                    <option value="2750" >€ 2750</option>
+                    <option value="3000" >€ 3000</option>
+                    <option value="3250" >€ 3250</option>
+                    <option value="3500" >€ 3500</option>
+                    <option value="3750" >€ 3750</option>
+                    {{/if}}
+
+                    {{#if this.radioForSale }}
+                    
+                    <option value="100000" >€ 100 000</option>
+                    <option value="150000" >€ 150 000</option>
+                    <option value="200000" >€ 200 000</option>
+                    <option value="250000" >€ 250 000</option>
+                    <option value="300000" >€ 300 000</option>
+                    <option value="350000" >€ 350 000</option>
+                    <option value="400000" >€ 400 000</option>
+                    <option value="450000" >€ 450 000</option>
+                    <option value="500000" >€ 500 000</option>
+                    <option value="550000" >€ 550 000</option>
+                    <option value="600000" >€ 600 000</option>
+                    <option value="650000" >€ 650 000</option> 
+                    <option value="700000" >€ 700 000+</option> 
+
+                    {{/if}}
                 </select>
         </div>
     </div>
-    <div class="mt-6">
-        <h2 class="text-gray-600 py-3 flex items-end  mb-2"><img src="/assets/vector/bath.svg" alt="bed icon" class="mr-2 opacity-50"> <span class="leading-none"> Bathrooms </span></h2>
-        <div class="flex justify-start">
-            <div class=" w-1/2 flex items-center justify-between">
-                <button {{on 'click' this.subBath }}  class="{{if this.minBath "opacity-25 cursor-not-allowed" }}">
-                    <img src="/assets/vector/substract.svg" class="h-8 opacity-50 " alt="">
-                </button>
-                <div class="font-bold text-xl">
-                   > {{this.bathrooms}}
-                </div>
-                <button {{on 'click' this.addBath }}  class="{{if this.maxBath "opacity-25 cursor-not-allowed" }}">
-                    <img src="/assets/vector/add.svg" class="h-8 opacity-50" alt="">
-                </button>
+
+        <div class="mt-6">
+            <h2 class="text-gray-600 py-2">Property Type</h2>
+            <div class="flex flex-col pl-2 ">
+                <label class="inline-flex items-center mt-3">
+                    <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Houses</span>
+                </label>
+                <label class="inline-flex items-center mt-3">
+                    <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Flats</span>
+                </label>
+                <label class="inline-flex items-center mt-3">
+                    <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Plots</span>
+                </label>
+                <label class="inline-flex items-center mt-3">
+                    <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Offices</span>
+                </label>
+                <label class="inline-flex items-center mt-3">
+                    <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Stores</span>
+                </label>
+                <label class="inline-flex items-center mt-3">
+                    <input type="checkbox" class="h-5 w-5 text-gray-600"><span
+                        class="ml-4 text-gray-500">Industrial</span>
+                </label>
+                <label class="inline-flex items-center mt-3">
+                    <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Garage &
+                        Parking
+                        lots</span>
+                </label>
             </div>
         </div>
-    </div>
 
-    <div class="mt-6">
-          <h2 class="text-gray-600 py-3 flex items-end"><img src="/assets/vector/area.svg" alt="bed icon" class="mr-2 opacity-50"> <span class=""> Area </span></h2>
-        <div class="flex">
-                <select class="border w-5/12 mr-6 py-2 px-2 rounded" name="" id="">
-                    <option value=0>Min</option>
-                    <option value=1>1 Room</option>
-                    <option value=2>2 Room</option>
-                    <option value=3>3 Rooms</option>
-                    <option value=4>4 Rooms</option>
-                    <option value=5>5 Rooms</option>
-                </select>
-    
-
-                <select class="border w-5/12  py-2 px-2 rounded">
-                    <option value=20>Max</option>
-                    <option value=1>1 Room</option>
-                    <option value=2>2 Room</option>
-                    <option value=3>3 Room</option>
-                    <option value=4>4 Rooms</option>
-                    <option value=5>5 Rooms</option>
-                    <option value=20>6+ Rooms</option>
-                </select>
-        </div>
-    </div>
-
-     <div class="mt-12 border rounded shadow-md p-4">
-        <h2 class="text-gray-600 pb-2">Options</h2>
-        <div class="flex flex-col pl-2 ">
-            <label class="inline-flex items-center mt-3">
-                <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Garage</span>
-            </label>
-            <label class="inline-flex items-center mt-3">
-                <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Garden</span>
-            </label>
-            <label class="inline-flex items-center mt-3">
-                <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Furnished</span>
-            </label>
+        <div class="mt-6">
+            <h2 class="text-gray-600 py-2">Region</h2>
+            <div class="flex flex-col pl-2 ">
+                <label class="inline-flex items-center mt-3">
+                    <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Brussels</span>
+                </label>
+                <label class="inline-flex items-center mt-3">
+                    <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Flemish Brabant</span>
+                </label>
+                <label class="inline-flex items-center mt-3">
+                    <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Walloon Brabant</span>
+                </label>
+                <label class="inline-flex items-center mt-3">
+                    <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">East Flanders</span>
+                </label>
+                <label class="inline-flex items-center mt-3">
+                    <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Other</span>
+                </label>
+            </div>
         </div>
 
+        <div class="mt-6">
+            <h2 class="text-gray-600 py-3 flex items-end mb-2"> <img src="/assets/vector/bed.svg" alt="bed icon"
+                    class="mr-2 opacity-50"> <span class="leading-none"> Bedrooms </span></h2>
+            <div class="flex justify-start">
+                <div class=" w-1/2 flex items-center justify-between">
+                    <button type="button" {{on 'click' this.subBed }}
+                        class="{{if this.minBed "opacity-25 cursor-not-allowed" }}">
+                        <img src="/assets/vector/substract.svg" class="h-8 opacity-50 " alt="Black substract icon">
+                    </button>
+                    <div class="font-bold text-xl">
+                        > {{this.bedrooms}}
+                    </div>
+                    <button type="button" {{on 'click' this.addBed }}
+                        class="{{if this.maxBed "opacity-25 cursor-not-allowed" }}">
+                        <img src="/assets/vector/add.svg" class="h-8 opacity-50 " alt="Black add icon">
+                    </button>
+                </div>
+            </div>
+        </div>
 
+
+        <div class="mt-6">
+            <h2 class="text-gray-600 py-3 flex items-end  mb-2"><img src="/assets/vector/bath.svg" alt="bed icon"
+                    class="mr-2 opacity-50"> <span class="leading-none"> Bathrooms </span></h2>
+            <div class="flex justify-start">
+                <div class=" w-1/2 flex items-center justify-between">
+                    <button type="button" {{on 'click' this.subBath }}
+                        class="{{if this.minBath "opacity-25 cursor-not-allowed" }}">
+                        <img src="/assets/vector/substract.svg" class="h-8 opacity-50 " alt="Black substract icon">
+                    </button>
+                    <div class="font-bold text-xl">
+                        > {{this.bathrooms}}
+                    </div>
+                    <button type="button" {{on 'click' this.addBath }}
+                        class="{{if this.maxBath "opacity-25 cursor-not-allowed" }}">
+                        <img src="/assets/vector/add.svg" class="h-8 opacity-50" alt="Black add icon">
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-6">
+            <h2 class="text-gray-600 py-3 flex items-end"><img src="/assets/vector/area.svg" alt="bed icon"
+                    class="mr-2 opacity-50"> <span class=""> Area </span></h2>
+            <div class="flex items-center">
+                <input type="number" class="border w-5/12  py-2 px-4 rounded" step="10" value="">
+                <span class="ml-2 font-bold text-xl text-gray-600"> m²</span>
+            </div>
+        </div>
+
+        <div class="mt-6">
+            <h2 class="text-gray-600 pb-2">Options</h2>
+            <div class="flex flex-col pl-2 ">
+                <label class="inline-flex items-center mt-3">
+                    <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Garage</span>
+                </label>
+                <label class="inline-flex items-center mt-3">
+                    <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Garden</span>
+                </label>
+                <label class="inline-flex items-center mt-3">
+                    <input type="checkbox" class="h-5 w-5 text-gray-600"><span
+                        class="ml-4 text-gray-500">Furnished</span>
+                </label>
+            </div>
+
+
+        </div>
     </div>
-</div>
 </section>
