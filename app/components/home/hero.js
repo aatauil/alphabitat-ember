@@ -13,6 +13,8 @@ export default class HeroComponent extends Component {
     @tracked radioForSale = true;
     @tracked radioForRent = false;
 
+    @tracked buyRent = 1;
+
      // Button content Region
     @tracked cbRegionAll = false
     @tracked cbBrux = false
@@ -20,6 +22,8 @@ export default class HeroComponent extends Component {
     @tracked cbWall = false
     @tracked cbFlan = false
     @tracked cbOther = false
+
+    @tracked regionList = [];
 
     // Button select price
 
@@ -61,6 +65,20 @@ export default class HeroComponent extends Component {
         this.updateState(element)
         this.purposeState = element
     }
+
+    regionAllLogic(){
+
+        if (!this.cbBrux || !this.cbFlem || !this.cbWall || !this.cbFlan || !this.cbOther){
+        this.cbRegionAll = false
+        
+    }
+
+    if (this.cbBrux && this.cbFlem && this.cbWall && this.cbFlan && this.cbOther){
+        this.cbRegionAll = true
+        this.checkAllRegion()
+        
+        }   
+    }
     
 
     // ---------------------------------------------------------------------------------------------------
@@ -68,31 +86,11 @@ export default class HeroComponent extends Component {
     // REGION LOGIC
 
     @action verifyRegion(element, event){
-        console.log("region logic:")
-        
-        this.updateState(element, event.target.checked)
+ 
+        this.updateState(element, event.target.checked, event.target.value)
 
-        if(element == "cbRegionAll" && this.cbRegionAll == true){
-            this.checkAllRegion(event)
-        } else {
-            this.regionAllLogic()
-        }
     }
 
-
-    regionAllLogic(){
-
-        if (!this.cbBrux || !this.cbFlem || !this.cbWall || !this.cbFlan || !this.cbOther){
-        this.cbRegionAll = false
-        console.log('1')
-    }
-
-    if (this.cbBrux && this.cbFlem && this.cbWall && this.cbFlan && this.cbOther){
-        this.cbRegionAll = true
-        this.checkAllRegion()
-        console.log('2')
-        }   
-    }
 
     checkAllRegion(){
         this.cbBrux = true;
@@ -102,57 +100,122 @@ export default class HeroComponent extends Component {
         this.cbOther = true;
     }
 
+    unCheckAllRegion(){
+        this.cbBrux = false;
+        this.cbFlem = false;
+        this.cbWall = false;
+        this.cbFlan = false;
+        this.cbOther = false;
+    }
+
+    regionArray(state, value){
+        if(state == true ){
+            this.addRegion(value)
+        } else if (state == false){
+            this.removeRegion(value)
+        }
+        
+    }
+
+    addRegion(value){
+        let split = value.split(",")
+        this.regionList.push(split)
+        console.log("regionlist added =" + this.regionList)
+    }
+
+    removeRegion(value){
+        const index = this.regionList.indexOf(value);
+        if(index != -1){
+            this.regionList.splice(index, 1)
+         
+        }
+        console.log("regionlist spliced =" + this.regionList)
+    }
+
+    addAllRegion(){
+        this.regionList = ["1", "2", "3", "4", "5"]
+    }
+
+    removeAllRegion(){
+        this.regionList = []
+    }
+
+
 
     // PRICE LOGIC
 
     @action updateMinBudget(event){
-        console.log(event.target.value)
+      
         this.minBudget = event.target.value
+    }
+
+    @action updateMaxBudget(event){
+    
+        this.maxBudget = event.target.value
     }
 
 
     // Shared Logic
 
-    updateState(element, state){
-        console.log(element)
+    updateState(element, state, value){
 
         // Radio
 
         if(element == "For sale"){
             this.radioForSale = true
             this.radioForRent = false
+            this.buyRent = 1
         }
 
         if(element == "For rent"){
             this.radioForRent = true
             this.radioForSale = false
+            this.buyRent = 2
         }
 
         // Dropdown
 
         if (element == "cbRegionAll"){
             this.cbRegionAll = state
+            if (this.cbRegionAll == true) {
+                this.addAllRegion()
+                this.checkAllRegion()
+            } else {
+                this.removeAllRegion()
+                this.unCheckAllRegion()
+            }
         }
 
         if (element == "cbBrux"){
             this.cbBrux = state
+            this.regionArray(state, value)
+            this.regionAllLogic()
         }
 
         if (element == "cbFlem"){
             this.cbFlem = state
+            this.regionArray(state, value)
+            this.regionAllLogic()
         }
 
         if (element == "cbWall"){
             this.cbWall = state
+            this.regionArray(state, value)
+            this.regionAllLogic()
         }
 
         if (element == "cbFlan"){
             this.cbFlan = state
+            this.regionArray(state, value)
+            this.regionAllLogic()
         }
 
         if (element == "cbOther"){
             this.cbOther = state
+            this.regionArray(state, value)
+            this.regionAllLogic()
         }
+        
     }
 
 }
