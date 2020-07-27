@@ -12,12 +12,16 @@ export default class SearchFilterComponent extends Component {
     @tracked minBath = false;
     @tracked maxBath = false;
 
-    @tracked radioForSale = true;
-    @tracked radioForRent = false;
+    @tracked radioForSale = this.args.query.sale;
+    @tracked radioForRent = this.args.query.rent;
 
     @tracked garage = false;
     @tracked garden = false;
     @tracked furnished = false;
+
+    
+
+
     
     // BEDROOM LOGIC
 
