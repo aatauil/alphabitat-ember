@@ -1,0 +1,23 @@
+
+<div class="container py-64">
+    <div class="fixed top-0 left-0 w-full h-full bg-gray-100" {{on 'click' this.toggleAll}}></div>
+    <div class="border rounded inline-block relative">
+        <Input type="number" placeholder="Min" @value={{this.minValue}} class="flex w-64 justify-between p-2" {{on 'click' this.toggleMin}} />
+
+        <ul class="absolute top-0 left-0 mt-12  rounded shadow-xl w-full {{if this.openStateMin 'block' 'hidden'}}">
+            {{#each this.list as |item|}}
+                <li class="p-2 hover:bg-gray-100 cursor-pointer bg-white" {{on 'click' (fn this.selectMin item)}}>{{item}}</li> 
+            {{/each}}
+        </ul>
+    </div>
+    <div class="border rounded inline-block relative">
+
+       <Input type="number" placeholder="Max" @value={{this.maxValue}} step="10000" min="0" class="flex w-64 justify-between p-2" {{on 'click' this.toggleMax}}/>
+       
+        <ul class="absolute top-0 left-0 mt-12  rounded shadow-xl w-full {{if this.openStateMax 'block' 'hidden'}}">
+            {{#each this.list as |item|}}
+                <li class="p-2 hover:bg-gray-100 cursor-pointer bg-white" {{on 'click' (fn this.selectMax item)}}>{{item}}</li> 
+            {{/each}}
+        </ul>
+    </div>
+</div>-
