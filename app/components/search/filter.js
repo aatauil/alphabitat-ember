@@ -12,6 +12,9 @@ export default class SearchFilterComponent extends Component {
     @tracked minBath = false;
     @tracked maxBath = false;
 
+    @tracked minPrice = "400000"
+    @tracked maxPrice = this.args.query.maxPrice
+
     @tracked radioForSale = this.args.query.sale;
     @tracked radioForRent = this.args.query.rent;
 

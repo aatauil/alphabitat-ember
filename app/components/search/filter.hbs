@@ -4,7 +4,7 @@
         <div class="flex justify-between items-center border-b pb-4">
             <h1 class="text-2xl text-gray-800">Filter</h1>
             <div class="flex">
-                <button type="reset"
+                <button type="reset" 
                     class="bg-gray-200 text-gray-900 text-base font-bold py-2 px-5 rounded hover:bg-gray-800 hover:text-white anim">Reset
                     filter</button>
                 <button type="button"
@@ -23,7 +23,7 @@
                         class="ml-4 text-gray-500">For sale</span>
                 </label>
                 <label class="inline-flex items-center mt-3">
-                    <input type="radio" name="purpose" checked={{this.radioForRent²}}
+                    <input type="radio" name="purpose" checked={{this.radioForRent}}
                         {{on "change" (fn this.updateState 'For rent')}} class="h-5 w-5 text-gray-600"><span
                         class="ml-4 text-gray-500">For rent</span>
                 </label>
@@ -40,14 +40,14 @@
     <div class="mt-6">
         <h2 class="text-gray-600 py-3 flex items-end "><img src="/assets/vector/euro.svg" alt="bed icon" class="mr-2 opacity-50 h-5"> <span class="leading-tight"> Price </span></h2>
         <div class="flex justify-between item-center">
-                <select class="border w-5/12 py-2 px-2 rounded appearance-none" name="" id="">
-                        <option default="" value="0">Min</option>
+                <select class="border w-5/12 py-2 px-2 rounded appearance-none" name="" id="" >
+                        <option  value="0">Min</option>
                      {{#if this.radioForRent }}
 
                         <option value="500" >€ 500</option>
                         <option value="500" >€ 750</option>
                         <option value="1000" >€ 1000</option>
-                        <option value="1250" >€ 1250</option>
+                        <option value="1250"  >€ 1250</option>
                         <option value="1500" >€ 1500</option>
                         <option value="1750" >€ 1750</option>
                         <option value="2000" >€ 2000</option>
@@ -82,7 +82,7 @@
 
                 <span class="text-gray-600 leading-10">to</span>
 
-                <select class="border w-5/12  py-2 px-2 rounded appearance-none">
+                <select class="border w-5/12  py-2 px-2 rounded appearance-none" value={{this.maxPrice}}>
                     <option default="9999999" value="0">Max</option>
                     {{#if this.radioForRent }}
                             
