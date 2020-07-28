@@ -1,27 +1,27 @@
 <main class="min-h-screen bg-gray-light bg-light-gray relative pt-6">
     <section class="flex container relative pt-12 gap-12">
-        <article class=" flex-1 z-10 relative bg-dark-gray rounded shadow-xl p-12 text-white text-center">
+        <article class=" flex-1 z-10 relative bg-dark-gray rounded shadow-xl p-10 text-white text-center">
             <h1 class="text-3xl text-left font-bold pb-6 ">Contact</h1>
-            <div class="flex flex-col p-6 font-bold m-2 bg-gray-900 ">
+            <div class="flex flex-col py-8 font-bold m-2 bg-gray-900 ">
                 <img src="/assets/vector/mail.svg" class="h-6" alt="email envelope">
                 <span class=" p-2 text-gray-500 block">Email</span>
                 <span class=" block">info@alphabitat.be</span>
             </div>
 
-            <div class=" flex flex-col p-6 font-bold m-2 bg-gray-900">
+            <div class=" flex flex-col py-8 font-bold m-2 bg-gray-900">
                 <img src="/assets/vector/call.svg" alt="telephone">
                 <span class="text-center p-2 text-gray-500">Call us</span>
                 <span class=" text-center">+32 (2) 770 31 21</span>
             </div>
 
-            <div class=" flex flex-col justify-center p-6 font-bold m-2 bg-gray-900">
+            <div class=" flex flex-col justify-center py-8 font-bold m-2 bg-gray-900">
                 <img src="/assets/vector/pin.svg" alt="location pin">
                 <span class="text-center p-2 text-gray-500">Address</span>
                 <span class=" text-center">Avenue Jules du Jardin 43, <br>
                     1150 Woluwe-Saint-Pierre</span>
             </div>
         </article>
-        <article class=" z-10 relative bg-white rounded container p-12 w-2/3">
+        <article class=" z-10 relative bg-white rounded container p-12 w-2/3 shadow">
         <h1 class="text-3xl text-left font-bold ">We care for you!</h1>
         <p class="pb-10 font-bold text-gray-600">Contact us and we will get back to you as soon as possible</p>
             <form name="contact" action="#" method="POST" class="flex flex-col">
@@ -30,29 +30,32 @@
                 <div class="w-full flex gap-8">
                     <label class=" uppercase tracking-wide text-black text-xs font-bold mb-4 flex-1" for="grid-password">
                         Name
-                        <input class="appearance-none w-full bg-light-gray text-black border border-gray-800 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="input" placeholder="">
+                        <input class="appearance-none w-full bg-light-gray text-black border border-gray-800 mt-2  rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="input" placeholder="">
                     </label>
                     <label class=" uppercase tracking-wide text-black text-xs font-bold mb-4 flex-1" for="grid-password">
                         Lastname
-                        <input class="appearance-none w-full bg-light-gray text-black border border-gray-800 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="password" placeholder="">
+                        <input class="appearance-none w-full bg-light-gray text-black border border-gray-800 mt-2  rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="password" placeholder="">
                     </label>
                 </div>
 
                  <div class="w-full flex gap-8">
                     <label class=" uppercase tracking-wide text-black text-xs font-bold mb-4 flex-1" for="grid-password">
                         E-mail
-                        <input class="appearance-none w-full bg-light-gray text-black border border-gray-800 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="input" placeholder="">
+                        <input class="appearance-none w-full bg-light-gray text-black border border-gray-800 mt-2 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="input" placeholder="">
                     </label>
                     <label class=" uppercase tracking-wide text-black text-xs font-bold mb-4 flex-1" for="grid-password">
                         Tel.
-                        <input class="appearance-none w-full bg-light-gray text-black border border-gray-800 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="password" placeholder="">
+                        <input class="appearance-none w-full bg-light-gray text-black border border-gray-800 mt-2  rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="password" placeholder="">
                     </label>
                 </div>
                 <div class="w-full flex ">
 
                 </div>
                 <label class="uppercase tracking-wide text-black text-xs font-bold mb-4 flex-1">Message
-                    <textarea name="" id="" cols="30" rows="10" class="appearance-none w-full bg-light-gray text-black border border-gray-800 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"></textarea>
+                    <textarea name="" id="" cols="30" rows="10" class="appearance-none w-full bg-light-gray mt-2  text-black border border-gray-800 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"></textarea>
+                </label>
+                <label class="text-center m-auto pb-6 font-bold">
+                <input type="checkbox" name="" id="" class="p-2" > I agreed to the terms & services of Alphabitat
                 </label>
                 <input type="submit" value="Send" class="py-4 text-white bg-red-600 font-bold rounded">
                 </form>
