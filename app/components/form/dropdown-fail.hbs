@@ -1,0 +1,29 @@
+
+<div class="container py-64">
+    <div class="border rounded inline-block relative">
+
+        <button type="button" class="flex w-64 justify-between p-2" {{on 'click' this.toggleMin}}>
+            <h3>{{this.minValue}}</h3>
+            <img src="/assets/vector/down-arrow-black.svg" alt="black down pointing arrow">
+        </button>
+
+        <ul class="absolute top-0 left-0 mt-12  rounded shadow-xl w-full {{if this.openStateMin 'block' 'hidden'}}">
+            {{#each this.minList as |item|}}
+                <li class="p-2 hover:bg-gray-100 cursor-pointer" {{on 'click' (fn this.selectMin item)}}>{{item}}</li> 
+            {{/each}}
+        </ul>
+    </div>
+    <div class="border rounded inline-block relative">
+
+        <button type="button" class="flex w-64 justify-between p-2" {{on 'click' this.toggleMax}}>
+            <h3>{{this.maxValue}}</h3>
+            <img src="/assets/vector/down-arrow-black.svg" alt="black down pointing arrow">
+        </button>
+
+        <ul class="absolute top-0 left-0 mt-12  rounded shadow-xl w-full {{if this.openStateMax 'block' 'hidden'}}">
+            {{#each this.maxList as |item|}}
+                <li class="p-2 hover:bg-gray-100 cursor-pointer" {{on 'click' (fn this.selectMax item)}}>{{item}}</li> 
+            {{/each}}
+        </ul>
+    </div>
+</div>-
