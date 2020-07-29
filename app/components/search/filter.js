@@ -12,11 +12,11 @@ export default class SearchFilterComponent extends Component {
     @tracked minBath = false;
     @tracked maxBath = false;
 
-    @tracked minPrice = "400000"
-    @tracked maxPrice = this.args.query.maxPrice
+    @tracked minPrice = this.args.query.minPrice || "0"
+    @tracked maxPrice = this.args.query.maxPrice || "9999999"
 
-    @tracked radioForSale = this.args.query.sale;
-    @tracked radioForRent = this.args.query.rent;
+    @tracked radioForSale = this.args.query.sale || true;
+    @tracked radioForRent = this.args.query.rent || false;
 
     @tracked garage = false;
     @tracked garden = false;
@@ -96,6 +96,8 @@ export default class SearchFilterComponent extends Component {
             this.radioForSale = true
             this.radioForRent = false
             this.buyRent = 1
+            this.minPrice = "0"
+            this.maxPrice = "9999999"
         }
 
         if(element == "For rent"){
@@ -103,6 +105,8 @@ export default class SearchFilterComponent extends Component {
             this.radioForRent = true
             this.radioForSale = false
             this.buyRent = 2
+            this.minPrice = "0"
+            this.maxPrice = "9999999"
         }
     }
 }
