@@ -42,12 +42,17 @@
         <div class="flex justify-between item-center">
                 <select class="border w-5/12 py-2 px-2 rounded appearance-none" name="" id="" >
                         <option  value="0">Min</option>
+
+                        {{#if (not-eq this.minPrice "0")}}
+                             <option value={{this.minPrice}} selected class="hidden">€ {{this.minPrice}}</option>
+                        {{/if}}
+                        
                      {{#if this.radioForRent }}
 
                         <option value="500" >€ 500</option>
                         <option value="500" >€ 750</option>
                         <option value="1000" >€ 1000</option>
-                        <option value="1250"  >€ 1250</option>
+                        <option value="1250" >€ 1250</option>
                         <option value="1500" >€ 1500</option>
                         <option value="1750" >€ 1750</option>
                         <option value="2000" >€ 2000</option>
@@ -82,8 +87,13 @@
 
                 <span class="text-gray-600 leading-10">to</span>
 
-                <select class="border w-5/12  py-2 px-2 rounded appearance-none" value={{this.maxPrice}}>
-                    <option default="9999999" value="0">Max</option>
+                <select class="border w-5/12  py-2 px-2 rounded appearance-none">
+                     <option default="" value="0">Max</option>
+
+                    {{#if (not-eq this.maxPrice "9999999" undefined)}}
+                            <option value={{this.maxPrice}} selected class="hidden">€ {{this.maxPrice}}</option>
+                    {{/if}}
+
                     {{#if this.radioForRent }}
                             
         
