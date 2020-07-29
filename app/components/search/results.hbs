@@ -21,7 +21,7 @@
           
             <div class="p-3">
                 <h3 class="text-xl font-bold">{{item.City}}</h3>
-                <div class="text-sm text-gray-600 pb-2 font-bold">{{category-converter item.CategoryId}}</div>
+                <div class="text-sm text-gray-600 pb-2 font-bold">{{category-converter item.CategoryId}} {{item.Purposes.[0].Name}}</div>
                  <div class="flex py-2">
                     <div class="inline-block pr-3 text-sm text-gray-600 border-r flex items-end">
                         <img src="../../assets/vector/bed.svg" alt="icon of a bed" class="mr-4">
@@ -37,9 +37,6 @@
                         <span>{{item.Area}} m²</span>
                         
 
-                    </div>
-                    <div>
-                         {{item.Purposes.[0].PurposeStatus}}
                     </div>
                     
                 </div>
