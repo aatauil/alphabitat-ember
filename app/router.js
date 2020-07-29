@@ -12,4 +12,5 @@ Router.map(function() {
   this.route('estimation', {path: '/estimation'})
   this.route('contact', {path: '/contact'})
   this.route('favorites', {path: '/favorites'})
+  this.route('property', {path: '/property'});
 });
