@@ -1,0 +1,53 @@
+<div class="bg-light-gray">
+    <section class="container flex flex-col gap-6 py-10 md:flex-row">
+        <div class="flex flex-col gap-2 md:w-2/3">
+            <article class=" bg-white px-6 py-3 rounded shadow-sm">
+                <div class="flex justify-between anim h-auto " {{on "click" this.toggleDcptState }}>
+                    <h2 class="font-bold text-xl text-gray-900" > Description</h2>
+                    <img src="/assets/vector/down-arrow-black.svg " alt="black down pointing arrow" class="anim {{unless this.dcptState "transform rotate-180"}}">
+                </div>
+                <p class="text-sm {{if this.dcptState "hidden" "block my-6"}}">{{ safe-string @estate.data.[0].ShortDescription  }}</p>
+            </article>
+            {{!-- <article class=" bg-white px-6 py-3 rounded shadow-sm">
+                <div class="flex justify-between anim h-auto " {{on "click" this.toggleIntState }}>
+                    <h2 class="font-bold text-xl text-gray-900" >Interior</h2>
+                    <img src="/assets/vector/down-arrow-black.svg " alt="black down pointing arrow" class="anim {{unless this.intState "transform rotate-180"}}">
+                </div>
+            </article> --}}
+        
+        </div>
+        <div class="md:w-1/3">
+            <form action=""  class=" bg-white row-span-3 col-span-1 p-8 flex flex-col gap-5">
+
+                <label>
+                    <select name="" id="" class="w-full border p-2">
+                        <option value="">1</option>
+                        <option value="">1</option>
+                        <option value="">1</option>
+                        <option value="">1</option>
+                    </select>
+                </label>
+
+                <label >
+                    <textarea name="" id="" class="w-full h-full border p-2"></textarea>
+                </label>
+
+                <label class="border">
+                    <input type="text" name="" placeholder="First Name *" class="p-2">
+                </label>
+
+                 <label class="border">
+                    <input type="text" name="" placeholder="Last Name *" class="p-2">
+                </label>
+
+                 <label class="border">
+                    <input type="email" name="" placeholder="E-mail *" class="p-2">
+                </label>
+
+                 <label class="border">
+                    <input type="tel" name="" placeholder="Phone number" class="p-2">
+                </label>
+            </form>
+        </div>
+    </section>
+        </div>
