@@ -1,11 +1,39 @@
-{{!-- <section class="container flex gap-6 py-10">
-        <div class="w-2/3 bg-gray-200">
+<section class="container flex gap-6 py-10">
+        <div class="w-2/3">
             <article>
                 <div style={{safe-string (concat "background-image: url('" @estate.Pictures.[0].UrlLarge "')" )}}  class="relative h-64 w-full rounded-lg bg-cover">
                 </div>
-                <div class="flex overflow-none w-full">
-               
-            </div>
+                <div>
+                    <div class="flex w-full flex justify-between items-end pt-6">
+                        <div>
+                            <span class="text-3xl leading-none">{{@estate.City}}</span> <span class="text-sm ml-2">ref {{@estate.EstateID}}</span>
+                        </div>
+                        <span class="text-3xl leading-none">{{ parse-price @estate.Price }} €</span>
+                    </div>
+                    <div class="text-gray-500 pb-2 font-bold">
+                        {{category-converter @estate.CategoryId}} {{@estate.Purposes.[0].Name}}
+                    </div>
+                    <div class="mt-6 flex justify-between">
+                        <ul class="flex gap-3">
+                            <li class="flex justify-between bg-light-gray py-3 px-5 w-20">
+                                <img src="assets/vector/bath.svg" alt="icon of a shower">
+                                <span>{{@estate.BathRooms}}</span>
+                            </li>
+                             <li class="flex justify-between bg-light-gray py-3 px-5 w-20">
+                                <img src="assets/vector/bed.svg" alt="icon of a shower">
+                                <span>{{@estate.Rooms}}</span>
+                            </li> 
+                            <li class="flex justify-between bg-light-gray py-3 px-5 w-auto">
+                                <img src="assets/vector/area.svg" alt="icon of a shower">
+                                <span>{{@estate.Area}} m²</span>
+                            </li>
+                        </ul>
+                        <div>
+                            <button type="button" class="px-12 py-2 shadow rounded">Share</button>
+                            <button type="button" class="px-12 py-2 shadow rounded">Favorite</button>
+                        </div>
+                    </div>
+                </div>
             </article>
             <article>
                 
@@ -16,8 +44,8 @@
             Map comes here
         </div>
 
-    </section> --}}
-
+    </section>
+{{!-- 
 <div class="min-h-screen container">
     PhotoSwipe:
     <PhotoSwipe @items={{@estate.Pictures}} as |photoswipe|>
@@ -25,7 +53,6 @@
             <img class="h-64 w-64" src={{@estate.Pictures.[0].UrlLarge}} {{on 'click' (fn photoswipe.actions.open (hash index=@index)) }} alt="smth"/>
 
     </PhotoSwipe>
-</div>
+</div> --}}
 
-<div>{{@estate.Pictures.[0].UrlLarge}}</div>
 
