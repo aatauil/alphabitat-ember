@@ -14,7 +14,7 @@
     
       <section class="grid lg:grid-cols-2 gap-5 sm:grid-cols-2 grid-cols-1">
         {{#each @estate as |item|}}
-        <article class="rounded-lg b-gray hover:shadow-xl p-2 transform hover:-translate-y-1 p-2 anim bg-white">
+        <LinkTo @route='property' @query={{hash estateID=item.EstateID}} class="rounded-lg b-gray hover:shadow-xl p-2 transform hover:-translate-y-1 p-2 anim bg-white">
               <div style={{safe-string (concat "background-image: url('" item.Pictures.[0].UrlLarge "')" )}}  class="relative h-64 w-full rounded-lg bg-cover">
                 <div class="absolute bottom-0 right-0 mr-0 mb-2 text-xl text-white px-4 py-1 font-bold bg-black rounded-l-lg">{{item.Currency}} {{parse-price item.Price}}</div>
               </div>
@@ -41,7 +41,7 @@
                     
                 </div>
             </div>
-        </article>
+        </LinkTo>
       {{/each}}
       </section>
   </section>

@@ -1,14 +1,13 @@
 import Route from '@ember/routing/route';
 import axios from 'axios';
 import ENV from 'alphabitat-ember/config/environment'
-import { typeOf } from '@ember/utils';
 
 
 export default class SearchRoute extends Route {
     async model(param) { 
-      console.log(param)
 
-        let regionParam = param.regions.split(",")
+        
+        let regionParam = param.regions.split(",") 
 
         let regionList = []
         
@@ -33,6 +32,7 @@ export default class SearchRoute extends Route {
             case '5':
               regionList.push(20347,20346,20345,20344,20343,20342)
               break;
+              
          }
         });
         
