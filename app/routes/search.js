@@ -5,11 +5,11 @@ import ENV from 'alphabitat-ember/config/environment'
 
 export default class SearchRoute extends Route {
     async model(param) { 
+      console.log(param)
 
-        
         let regionParam = param.regions.split(",") 
 
-        let regionList = []
+        let regionList = [""]
         
         regionParam.forEach(element => {
          switch (element) {
