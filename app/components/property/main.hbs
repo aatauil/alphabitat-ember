@@ -1,0 +1,31 @@
+{{!-- <section class="container flex gap-6 py-10">
+        <div class="w-2/3 bg-gray-200">
+            <article>
+                <div style={{safe-string (concat "background-image: url('" @estate.Pictures.[0].UrlLarge "')" )}}  class="relative h-64 w-full rounded-lg bg-cover">
+                </div>
+                <div class="flex overflow-none w-full">
+               
+            </div>
+            </article>
+            <article>
+                
+            </article>
+        </div>
+
+        <div class="w-1/3 bg-gray-300">
+            Map comes here
+        </div>
+
+    </section> --}}
+
+<div class="min-h-screen container">
+    PhotoSwipe:
+    <PhotoSwipe @items={{@estate.Pictures}} as |photoswipe|>
+       
+            <img class="h-64 w-64" src={{@estate.Pictures.[0].UrlLarge}} {{on 'click' (fn photoswipe.actions.open (hash index=@index)) }} alt="smth"/>
+
+    </PhotoSwipe>
+</div>
+
+<div>{{@estate.Pictures.[0].UrlLarge}}</div>
+
