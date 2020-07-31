@@ -4,6 +4,12 @@ import ENV from 'alphabitat-ember/config/environment'
 
 
 export default class SearchRoute extends Route {
+  queryParams = {
+    buyRent: {
+      refreshModel: true
+    }
+  };
+  
     async model(param) { 
       console.log(param)
 
