@@ -1,7 +1,12 @@
-<section class="container flex gap-6 py-10">
+<section class="container flex gap-6 pb-10">
         <div class="w-2/3">
             <article>
-                <div style={{safe-string (concat "background-image: url('" @estate.Pictures.[0].UrlLarge "')" )}}  class="relative h-64 w-full rounded-lg bg-cover">
+                <div style={{safe-string (concat "background-image: url('" @estate.Pictures.[0].UrlXXL "')" )}}  class="relative h-64 py-40 w-full rounded bg-cover">
+                </div>
+                <div class="flex h-32 justify-evenly gap-6 mt-6">
+                    <div style={{safe-string (concat "background-image: url('" @estate.Pictures.[1].UrlLarge "')" )}}  class="relative h-32 flex-1 rounded bg-cover"></div>
+                    <div style={{safe-string (concat "background-image: url('" @estate.Pictures.[2].UrlLarge "')" )}}  class="relative h-32 flex-1 rounded bg-cover"></div>
+                    <div style={{safe-string (concat "background-image: url('" @estate.Pictures.[3].UrlLarge "')" )}}  class="relative h-32 flex-1 rounded bg-cover"></div>
                 </div>
                 <div>
                     <div class="flex w-full flex justify-between items-end pt-6">
