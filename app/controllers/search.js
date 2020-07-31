@@ -4,8 +4,8 @@ export default class SearchController extends Controller {
     queryParams= ['buyRent', 'minPrice', "maxPrice", "regions"]
 
     buyRent = 1;
-    minPrice = 0;
-    maxPrice = 9999999;
+    minPrice = "0";
+    maxPrice = "9999999";
     regions = "1,2,3,4,5"
 
     get myQuery(){
