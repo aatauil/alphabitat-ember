@@ -41,7 +41,7 @@
         <h2 class="text-gray-600 py-3 flex items-end "><img src="/assets/vector/euro.svg" alt="bed icon" class="mr-2 opacity-50 h-5"> <span class="leading-tight"> Price </span></h2>
         <div class="flex justify-between item-center">
                 <select class="border w-5/12 py-2 px-2 rounded appearance-none" name="" id="" >
-                        <option  value="0">Min</option>
+                        <option value="0">Min</option>
 
                         {{#if (not-eq this.minPrice "0")}}
                              <option value={{this.minPrice}} selected class="hidden">€ {{this.minPrice}}</option>
@@ -88,9 +88,9 @@
                 <span class="text-gray-600 leading-10">to</span>
 
                 <select class="border w-5/12  py-2 px-2 rounded appearance-none">
-                     <option default="" value="0">Max</option>
+                     <option default="" value="9999999">Max</option>
 
-                    {{#if (not-eq this.maxPrice "9999999" undefined)}}
+                    {{#if (not-eq this.maxPrice "9999999")}}
                             <option value={{this.maxPrice}} selected class="hidden">€ {{this.maxPrice}}</option>
                     {{/if}}
 

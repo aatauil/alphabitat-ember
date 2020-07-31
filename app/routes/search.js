@@ -9,7 +9,7 @@ export default class SearchRoute extends Route {
 
         let regionParam = param.regions.split(",") 
 
-        let regionList = [""]
+        let regionList = new Array
         
         regionParam.forEach(element => {
          switch (element) {
@@ -35,6 +35,7 @@ export default class SearchRoute extends Route {
               
          }
         });
+        console.log(regionList)
         
         const response = await axios.get(`${ENV.APP.API_URL}{"ClientId":"${ENV.APP.API_TOKEN}","Page":0,"RowsPerPage":20,"Language":"en-gb","PurposeIDList": [${param.buyRent}], "PriceRange":["${param.minPrice}", "${param.maxPrice}"}], "RegionIDList": [${regionList}] }`)
         const data = await response.data.d.EstateList
