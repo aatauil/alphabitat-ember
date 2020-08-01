@@ -12,6 +12,11 @@
     border-color: rgba(128, 128, 128, 0.178);
 }
 
+
+.bg-white-trans{
+    background-color: rgba(255, 255, 255, 0.274);
+}
+
 .opacity-90{
     opacity: 95%;
 }
@@ -46,6 +51,10 @@
     transition-duration: .3s;
     transition-timing-function: ease-in-out;
 
+}
+
+.min-h{
+    min-height: calc(100vh - 130px);
 }
 
 /* Nav item underline stroke animation */
