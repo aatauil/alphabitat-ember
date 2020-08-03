@@ -48,6 +48,7 @@
     "ember-photoswipe": "^0.6.0",
     "ember-qunit": "^4.6.0",
     "ember-resolver": "^8.0.0",
+    "ember-set-helper": "^1.0.1",
     "ember-source": "~3.19.0",
     "ember-template-lint": "^2.8.0",
     "ember-truth-helpers": "^2.1.0",
