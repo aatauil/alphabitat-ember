@@ -13,13 +13,13 @@
                     <div class="flex flex-col justify-between h-auto " {{on "click" this.toggleIntState }}>
                         <div class="flex gap-3">
                             <img src="/assets/vector/interior.svg" alt="icon of a couch">
-                            <h2 class="font-bold text-xl text-gray-900">Interior</h2>
+                            <h2 class="font-bold text-xl text-gray-900">General</h2>
                         </div>
                         <img src="/assets/vector/down-arrow-black.svg " alt="black down pointing arrow" class="anim md:hidden {{unless this.intState "transform rotate-180"}}">
                         <ul class="p-2">
-                            {{#each @estate.interior as |item|}}
+                            {{#each @estate.general as |item|}}
 
-                            <li class="flex justify-between py-2 border-b"> <span>{{item.Name}}</span><span>{{item.Subdetails.[0].Value}}</span></li>
+                            <li class="flex justify-between py-2 border-b"> <span class="capitalize">{{item.Name}}</span><span>{{item.Subdetails.[0].Value}}</span></li>
                             {{/each}}
                         </ul>
                     </div>
@@ -32,9 +32,9 @@
                         </div>
                         <img src="/assets/vector/down-arrow-black.svg " alt="black down pointing arrow" class="anim md:hidden {{unless this.intState "transform rotate-180"}}">
                         <ul class="p-2">
-                            {{#each @estate.exterior as |item|}}
+                            {{#each @estate.interior as |item|}}
 
-                            <li class="flex justify-between py-2 border-b"> <span>{{item.Name}}</span><span>{{item.Subdetails.[0].Value}}</span></li>
+                            <li class="flex justify-between py-2 border-b"> <span class="capitalize">{{item.Name}}</span><span>{{item.Subdetails.[0].Value}}</span></li>
                             {{/each}}
                         </ul>
                     </div>
@@ -43,12 +43,41 @@
                     <div class="flex flex-col justify-between h-auto " {{on "click" this.toggleIntState }}>
                         <div class="flex gap-3">
                             <img src="/assets/vector/interior.svg" alt="icon of a couch">
-                            <h2 class="font-bold text-xl text-gray-900">Interior</h2>
+                            <h2 class="font-bold text-xl text-gray-900">Surfaces</h2>
                         </div>
                         <img src="/assets/vector/down-arrow-black.svg " alt="black down pointing arrow" class="anim md:hidden {{unless this.intState "transform rotate-180"}}">
                         <ul class="p-2">
-                            {{#each @estate.communication as |item|}}
+                            {{#each @estate.surface as |item|}}
+                            <li class="flex justify-between py-2 border-b "> <span class="capitalize">{{item.Name}}</span><span>{{item.Subdetails.[0].Value}} m²</span></li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </article>
+                 <article class="bg-white px-6 py-6 rounded shadow-sm">
+                    <div class="flex flex-col justify-between h-auto " {{on "click" this.toggleIntState }}>
+                        <div class="flex gap-3">
+                            <img src="/assets/vector/interior.svg" alt="icon of a couch">
+                            <h2 class="font-bold text-xl text-gray-900">Energy</h2>
+                        </div>
+                        <img src="/assets/vector/down-arrow-black.svg " alt="black down pointing arrow" class="anim md:hidden {{unless this.intState "transform rotate-180"}}">
+                        <ul class="p-2">
+                            {{#each @estate.energy as |item|}}
                             <li class="flex justify-between py-2 border-b"> <span>{{item.Name}}</span><span>{{item.Subdetails.[0].Value}}</span></li>
+                            {{/each}}
+                            <li class="flex justify-between py-2 border-b"> <span>{{ @estate.data.[0].energyClass}}</span><span>{{item.Subdetails.[0].Value}}</span></li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="bg-white px-6 py-6 rounded shadow-sm">
+                    <div class="flex flex-col justify-between h-auto " {{on "click" this.toggleIntState }}>
+                        <div class="flex gap-3">
+                            <img src="/assets/vector/interior.svg" alt="icon of a couch">
+                            <h2 class="font-bold text-xl text-gray-900">Environment</h2>
+                        </div>
+                        <img src="/assets/vector/down-arrow-black.svg " alt="black down pointing arrow" class="anim md:hidden {{unless this.intState "transform rotate-180"}}">
+                        <ul class="p-2">
+                            {{#each @estate.environment as |item|}}
+                            <li class="flex justify-between py-2 border-b"> <span>{{item.Name}}</span><span>{{if (eq item.Subdetails.[0].Type "yes/no") "yes" item.Subdetails.[0].Value }}</span></li>
                             {{/each}}
                         </ul>
                     </div>
