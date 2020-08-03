@@ -4,7 +4,7 @@
         <div class="flex justify-between items-center border-b pb-4">
             <h1 class="text-2xl text-gray-800">Filter</h1>
             <div class="flex">
-                <button type="reset" 
+                <button type="reset" {{on 'click' this.reset}}
                     class="bg-gray-200 text-gray-900 text-base font-bold py-2 px-5 rounded hover:bg-gray-800 hover:text-white anim">Reset
                     filter</button>
                 <button type="button"
@@ -165,22 +165,22 @@
         </div>
 
         <div class="mt-6">
-            <h2 class="text-gray-600 py-2">Region</h2>
+            <h2 class="text-gray-600 py-2" {{on 'click' this.debug}}>Region</h2>
             <div class="flex flex-col pl-2 ">
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Brussels</span>
+                    <input type="checkbox" class="h-5 w-5 text-gray-600" checked={{this.cbBxl}} {{on "click" (set this.cbBxl (get _ "target.checked")) }}><span class="ml-4 text-gray-500">Brussels</span>
                 </label>
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Flemish Brabant</span>
+                    <input type="checkbox" class="h-5 w-5 text-gray-600" checked={{this.cbFlem}} ><span class="ml-4 text-gray-500">Flemish Brabant</span>
                 </label>
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Walloon Brabant</span>
+                    <input type="checkbox" class="h-5 w-5 text-gray-600" checked={{this.cbWall}} ><span class="ml-4 text-gray-500">Walloon Brabant</span>
                 </label>
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">East Flanders</span>
+                    <input type="checkbox" class="h-5 w-5 text-gray-600" checked={{this.cbFlan}} ><span class="ml-4 text-gray-500">East Flanders</span>
                 </label>
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Other</span>
+                    <input type="checkbox" class="h-5 w-5 text-gray-600" checked={{this.cbOther}} ><span class="ml-4 text-gray-500">Other</span>
                 </label>
             </div>
         </div>

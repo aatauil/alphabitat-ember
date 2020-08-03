@@ -3,6 +3,10 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class SearchFilterComponent extends Component {
+    init(){
+        _super()
+    }
+
     @tracked bedrooms = 1
     @tracked bathrooms = 1
 
@@ -18,13 +22,24 @@ export default class SearchFilterComponent extends Component {
     @tracked radioForSale = this.args.query.sale || true;
     @tracked radioForRent = this.args.query.rent || false;
 
+    @tracked regionList = this.args.query.regions
+
     @tracked garage = false;
     @tracked garden = false;
     @tracked furnished = false;
 
+    @tracked cbBxl = this.checkRegion("1") || false
+    @tracked cbFlem = this.checkRegion("2") || false
+    @tracked cbWall = this.checkRegion("3") || false
+    @tracked cbFlan = this.checkRegion("4") || false
+    @tracked cbOther = this.checkRegion("5") || false
+
+
     
 
-
+    @action reset(){
+        this.get('model').update();
+    }
     
     // BEDROOM LOGIC
 
@@ -52,6 +67,24 @@ export default class SearchFilterComponent extends Component {
             this.minBed = true;
         }
     }
+    
+    @action debug(){
+        console.log(this.cbBxl)
+    }
+
+
+    checkRegion(id){
+        let exists = this.regionList.indexOf(id)
+        
+        if (exists == -1){
+            console.log("false")
+            return false
+        } else {
+            console.log("true")
+            return true
+        }
+        
+    }
 
         
     // BATHROOM LOGIC
@@ -78,10 +111,6 @@ export default class SearchFilterComponent extends Component {
         if (this.bathrooms == 0){
             this.minBath = true;
         }
-    }
-
-    @action returnFalse(){
-        return true
     }
 
     
