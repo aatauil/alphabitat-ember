@@ -1,0 +1,15 @@
+<div class="triangle absolute w-64 mt-2 flex  shadow-xl p-5 flex-col bg-white font-bold rounded ">
+
+    <label class="inline-flex items-center mt-3">
+        <input type="radio" name="purpose" class="h-5 w-5 text-gray-600" value="1"
+            checked={{@forSale}} {{ on 'click'  (fn @setPurpose 'For sale')}} /><span
+            class="ml-4 text-gray-700">For sale</span>
+    </label>
+
+    <label class="inline-flex items-center mt-3">
+        <input type="radio" name="purpose" class="h-5 w-5 text-gray-600" value="2"
+            checked={{@forRent}} {{ on 'click' (fn @setPurpose 'For rent')}} /><span
+            class="ml-4 text-gray-700">For rent</span>
+    </label>
+
+</div>

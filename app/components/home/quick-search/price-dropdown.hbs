@@ -1,0 +1,90 @@
+<div class="triangle absolute mt-2 shadow-xl p-5 flex justify-between bg-white font-bold rounded">
+    <div class="w-48 mr-6">
+
+        <label for="price" class="block text-sm text-gray-800">min.
+        </label>
+
+        <select name="min-budget" {{on 'change' @updateMin}}
+            class="form-Input block w-full p-2 mt-2 border rounded appearance-none">
+            {{#if @forRent }}
+            <option default="" value="0">Min</option>
+            <option value="500">€ 500</option>
+            <option value="500">€ 750</option>
+            <option value="1000">€ 1000</option>
+            <option value="1250">€ 1250</option>
+            <option value="1500">€ 1500</option>
+            <option value="1750">€ 1750</option>
+            <option value="2000">€ 2000</option>
+            <option value="2250">€ 2250</option>
+            <option value="2500">€ 2500</option>
+            <option value="2750">€ 2750</option>
+            <option value="3000">€ 3000</option>
+            <option value="3250">€ 3250</option>
+            <option value="3500">€ 3500</option>
+            <option value="3750">€ 3750</option>
+            {{/if}}
+
+            {{#if @forSale }}
+
+            <option default="" value="0">Min</option>
+            <option value="100000">€ 100 000</option>
+            <option value="150000">€ 150 000</option>
+            <option value="200000">€ 200 000</option>
+            <option value="250000">€ 250 000</option>
+            <option value="300000">€ 300 000</option>
+            <option value="350000">€ 350 000</option>
+            <option value="400000">€ 400 000</option>
+            <option value="450000">€ 450 000</option>
+            <option value="500000">€ 500 000</option>
+            <option value="550000">€ 550 000</option>
+            <option value="600000">€ 600 000</option>
+            <option value="650000">€ 650 000</option>
+
+            {{/if}}
+
+        </select>
+    </div>
+    <div class="w-48">
+        <label for="price" class="block text-sm text-gray-800">max. </label>
+        <select name="max-budget" {{on 'change' @updateMax}}
+            class="form-Input block w-full p-2 mt-2 border rounded appearance-none">
+            {{#if @forRent }}
+
+            <option default="" value="9999999">Max</option>
+            <option value="500">€ 500</option>
+            <option value="500">€ 750</option>
+            <option value="1000">€ 1000</option>
+            <option value="1250">€ 1250</option>
+            <option value="1500">€ 1500</option>
+            <option value="1750">€ 1750</option>
+            <option value="2000">€ 2000</option>
+            <option value="2250">€ 2250</option>
+            <option value="2500">€ 2500</option>
+            <option value="2750">€ 2750</option>
+            <option value="3000">€ 3000</option>
+            <option value="3250">€ 3250</option>
+            <option value="3500">€ 3500</option>
+            <option value="3750">€ 3750</option>
+            {{/if}}
+
+            {{#if @forSale}}
+
+            <option default="" value="9999999">Max</option>
+            <option value="100000">€ 100 000</option>
+            <option value="150000">€ 150 000</option>
+            <option value="200000">€ 200 000</option>
+            <option value="250000">€ 250 000</option>
+            <option value="300000">€ 300 000</option>
+            <option value="350000">€ 350 000</option>
+            <option value="400000">€ 400 000</option>
+            <option value="450000">€ 450 000</option>
+            <option value="500000">€ 500 000</option>
+            <option value="550000">€ 550 000</option>
+            <option value="600000">€ 600 000</option>
+            <option value="650000">€ 650 000</option>
+            <option value="700000">€ 700 000+</option>
+
+            {{/if}}
+        </select>
+    </div>
+</div>
