@@ -1,6 +1,8 @@
 import Controller from '@ember/controller';
 
+
 export default class SearchController extends Controller {
+    
     queryParams= ['buyRent', 'minPrice', "maxPrice", "regions", "minBed", "maxBed", "property", "minBath", "maxBath", "area"]
 
     buyRent = 1;
@@ -17,6 +19,8 @@ export default class SearchController extends Controller {
 
     area = '0'
 
+
+    
 
 
     get myQuery(){

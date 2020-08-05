@@ -13,4 +13,5 @@ Router.map(function() {
   this.route('contact', {path: '/contact'})
   this.route('favorites', {path: '/favorites'})
   this.route('property', {path: '/property'});
+  this.route('not-found', {path: '/*path'});
 });

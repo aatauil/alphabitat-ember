@@ -33,9 +33,9 @@
                                 <span>{{@estate.Area}} m²</span>
                             </li>
                         </ul>
-                        <div>
-                            <button type="button" class="px-12 py-2 shadow rounded">Share</button>
-                            <button type="button" class="px-12 py-2 shadow rounded">Favorite</button>
+                        <div class="flex gap-5">
+                            <button type="button" class="px-12 py-2 shadow rounded" {{on 'click' this.showList}}>Share</button>
+                            <button type="button" class="px-6 py-2 shadow rounded bg-grey flex gap-3 items-center hover:bg-red-700" {{on 'click' (fn this.addRemove @estate.EstateID)}}><img src="/assets/vector/heart.svg" alt="white outline of a heart"> <span class="text-white">Favorite</span> </button>
                         </div>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
             </article>
         </div>
 
-        <div class="w-1/3 bg-gray-300">
+        <div class="w-1/3 bg-light-gray">
             Map comes here
         </div>
 

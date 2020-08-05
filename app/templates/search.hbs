@@ -1,6 +1,6 @@
 <div class="bg-light-gray">
 <main class="flex gap-0 md:gap-5 md:container ">
-    <Search::filter @query={{this.myQuery}}/>
+    <Search::filter @query={{this.myQuery}} @controller={{this.controller}}/>
     <Search::Results @estate={{@model}}/>
     <button type="button" class="fixed md:hidden bottom-0 w-11/12 z-50 mb-2 py-4 bg-red-600 shadow-xl font-bold text-gray-100 absolute-center rounded">Filter</button>
 </main>

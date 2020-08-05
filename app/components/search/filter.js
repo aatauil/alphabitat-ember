@@ -3,9 +3,6 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class SearchFilterComponent extends Component {
-    init(){
-        _super()
-    }
 
     @tracked bedrooms = 1
     @tracked bathrooms = 1
@@ -34,12 +31,6 @@ export default class SearchFilterComponent extends Component {
     @tracked cbFlan = this.checkRegion("4") || false
     @tracked cbOther = this.checkRegion("5") || false
 
-
-    
-
-    @action reset(){
-        this.get('model').update();
-    }
     
     // BEDROOM LOGIC
 
