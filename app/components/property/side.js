@@ -4,9 +4,11 @@ import { action } from '@ember/object';
 
 export default class PropertySideComponent extends Component {
 
+    // TRACKED
     @tracked dcptState = false;
     @tracked intState = true;
 
+    // ACTIONS
     @action toggleDcptState(){
         this.dcptState = !this.dcptState
     }
