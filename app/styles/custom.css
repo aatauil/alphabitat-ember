@@ -105,3 +105,7 @@
 .bg-blur{
     backdrop-filter: blur(8px) brightness(25%);
 }
+
+.map-height{
+    min-height: 640px;
+}
