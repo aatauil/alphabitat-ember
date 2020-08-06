@@ -1,13 +1,24 @@
 <section class="container flex gap-6 pb-10">
-        <div class="w-2/3">
+        <div class=" w-full lg:w-2/3">
             <article>
-                <div style={{safe-string (concat "background-image: url('" @estate.Pictures.[0].UrlXXL "')" )}}  class="relative h-64 py-40 w-full rounded bg-cover">
+                <SwiperContainer>
+                    {{#each @estate.Pictures as |picture|}}
+
+                        <SwiperSlide>
+                            <div>
+                                <img alt="House/appartment inside and outside" src={{picture.UrlLarge}}  class="relative h-full flex-1 rounded bg-cover"/>
+                            </div>
+                        </SwiperSlide>
+
+                    {{/each}}
+                </SwiperContainer>
+                {{!-- <div style={{safe-string (concat "background-image: url('" @estate.Pictures.[0].UrlXXL "')" )}}  class="relative h-64 py-40 w-full rounded bg-cover">
                 </div>
                 <div class="flex h-32 justify-evenly gap-6 mt-6">
-                    <div style={{safe-string (concat "background-image: url('" @estate.Pictures.[1].UrlLarge "')" )}}  class="relative h-32 flex-1 rounded bg-cover"></div>
+                   
                     <div style={{safe-string (concat "background-image: url('" @estate.Pictures.[2].UrlLarge "')" )}}  class="relative h-32 flex-1 rounded bg-cover"></div>
                     <div style={{safe-string (concat "background-image: url('" @estate.Pictures.[3].UrlLarge "')" )}}  class="relative h-32 flex-1 rounded bg-cover"></div>
-                </div>
+                </div> --}}
                 <div>
                     <div class="flex w-full flex justify-between items-end pt-6">
                         <div>
@@ -35,7 +46,7 @@
                         </ul>
                         <div class="flex gap-5">
                             <button type="button" class="px-12 py-2 shadow rounded" {{on 'click' this.showList}}>Share</button>
-                            <button type="button" class="px-6 py-2 shadow rounded bg-grey flex gap-3 items-center hover:bg-red-700" {{on 'click' (fn this.addRemove @estate.EstateID)}}><img src="/assets/vector/heart.svg" alt="white outline of a heart"> <span class="text-white">Favorite</span> </button>
+                            <button type="button" class="px-6 py-2 shadow rounded  flex gap-3 items-center hover:bg-red-700 {{if this.favoriteActive "bg-red-700"  "bg-grey"}}" {{on 'click' (fn this.addRemove @estate.EstateID)}}><img src="/assets/vector/heart.svg" alt="white outline of a heart"> <span class="text-white">Favorite</span> </button>
                         </div>
                     </div>
                 </div>
@@ -45,7 +56,7 @@
             </article>
         </div>
 
-        <div class="w-1/3 bg-light-gray">
+        <div class="w-1/3 bg-light-gray hidden lg:block">
             Map comes here
         </div>
 
