@@ -1,9 +1,14 @@
 import Route from '@ember/routing/route';
 import axios from 'axios';
 import ENV from 'alphabitat-ember/config/environment'
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 
 
 export default class SearchRoute extends Route {
+
+
+  // SEARCH QUERY PARAMS
   queryParams = {
     buyRent: {
       refreshModel: true
