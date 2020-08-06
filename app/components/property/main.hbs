@@ -5,8 +5,10 @@
                     {{#each @estate.Pictures as |picture|}}
 
                         <SwiperSlide>
-                            <div>
-                                <img alt="House/appartment inside and outside" src={{picture.UrlLarge}}  class="relative h-full flex-1 rounded bg-cover"/>
+                            <div style={{safe-string (concat "background-image: url('" picture.UrlLarge "')" )}}  class=" rounded bg-no-repeat bg-cover ">
+                                <div class="w-full h-full bg-blur">
+                                    <img alt="House/appartment inside and outside" src={{picture.UrlLarge}}  class="rounded object-fit  m-auto"/>
+                                </div>
                             </div>
                         </SwiperSlide>
 

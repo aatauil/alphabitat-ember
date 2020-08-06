@@ -101,3 +101,7 @@
     border-width: 0 10.5px 14px 10.5px;
     border-color: transparent transparent #ffffff transparent
 }
+
+.bg-blur{
+    backdrop-filter: blur(8px) brightness(25%);
+}
