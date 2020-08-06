@@ -58,8 +58,26 @@ export default class PropertyRoute extends Route {
         }
         )
 
+        let coordinates = detailsArray.filter(details => {
+          let gpsIDList = [1211]
 
+          if (gpsIDList.indexOf(details.DetailId) !== -1){
+            return true
+          }
+        })
 
-        return {data , general, interior, energy, surface, environment}
+        // LEAFLET COORDINATED
+        var commaToPoint = (val) => {
+          return val.replace(",", ".");
+        }
+
+        let gps = new Object()
+        gps.Longitude = commaToPoint(coordinates[0].Subdetails[0].Value)
+        gps.Latitude = commaToPoint(coordinates[0].Subdetails[1].Value)
+        gps.List = new Array(commaToPoint(coordinates[0].Subdetails[0].Value), commaToPoint(coordinates[0].Subdetails[1].Value))
+
+        console.log(gps)
+
+        return {data , general, interior, energy, surface, environment, gps}
       }
 }
