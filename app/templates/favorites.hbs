@@ -1,10 +1,11 @@
 
 
 {{#if @model}}
-    {{#each @model as |item|}}
+    
      <section class="container pt-6 pb-12">
           <h2 class="text-3xl font-bold py-6 text-gray-800">Saved Favorites</h2>
      <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 sm:grid-cols-2 grid-cols-1">
+         {{#each @model as |item|}}
         <LinkTo @route='property' @query={{hash estateID=item.EstateID}} class="rounded-lg b-gray hover:shadow-xl transform hover:-translate-y-1 p-2 anim">
               <div style={{safe-string (concat "background-image: url('" item.Pictures.[0].UrlLarge "')" )}} class="relative h-64 w-full rounded-lg bg-cover">
                 <div class="absolute bottom-0 right-0 mr-0 mb-2 text-xl text-white px-4 py-1 font-bold bg-black rounded-l-lg">{{item.Currency}} {{parse-price item.Price}}</div>
@@ -33,18 +34,20 @@
                 </div>
             </div>
         </LinkTo>
+              {{/each}}
         </section>
+        
         </section>
-      {{/each}}
-{{else }}
 
-    <main class="container py-6 flex flex-col justify-center items-center text-center min-h">
-        <h1 class="font-bold text-3xl">You currently do not have any properties saved.</h1>
-        <p class="font-bold text-gray-600" >You can save a property by pressing on the heart button. No need to login! </p>
-        <button type="button" class="py-4 rounded bg-red-700 font-bold text-white w-1/4 mt-6">Go to searchpage</button>
+    {{else }}
 
-        <img class="mt-10 w-2/3" src="/assets/vector/favorite.svg" alt="Steps on how to save a property to my favorites">
-    </main>
+        <main class="container py-6 flex flex-col justify-center items-center text-center min-h">
+            <h1 class="font-bold text-3xl">You currently do not have any properties saved.</h1>
+            <p class="font-bold text-gray-600" >You can save a property by pressing on the heart button. No need to login! </p>
+            <button type="button" class="py-4 rounded bg-red-700 font-bold text-white w-1/4 mt-6">Go to searchpage</button>
 
-{{/if}}
+            <img class="mt-10 w-2/3" src="/assets/vector/favorite.svg" alt="Steps on how to save a property to my favorites">
+        </main>
+
+    {{/if}}
 
