@@ -32,49 +32,15 @@
             class="py-5 px-3 md:px-6  bg-white border flex justify-between w-32 md:w-64 font-bold  hover:bg-blue-100 "><span>Region</span>
             <img src="/assets/vector/down-arrow-black.svg" alt="Black down pointing arrow"></button>
 
-        {{#if this.region}}
-        <div class="triangle absolute w-64 mt-2 shadow-xl p-5 flex flex-col bg-white font-bold rounded">
-
-            <label class="inline-flex items-center mt-3">
-                <Input @type="checkbox" value="1,2,3,4,5" class="h-5 w-5 text-gray-600"
-                    @checked={{this.cbRegionAll}}
-                    {{ on 'click' (fn this.verifyRegion 'cbRegionAll')}} /><span
-                    class="ml-4 text-gray-700">All</span>
-            </label>
-            <div class="w-full border-b py-2"></div>
-
-            <label class="inline-flex items-center mt-3">
-                <Input @type="checkbox" value="1" class="h-5 w-5 text-gray-600" @checked={{this.cbBrux}}
-                    {{ on 'click' (fn this.verifyRegion 'cbBrux')}} /><span
-                    class="ml-4 text-gray-700">Brussels</span>
-            </label>
-            <label class="inline-flex items-center mt-3">
-                <Input @type="checkbox" value="2" class="h-5 w-5 text-gray-600" @checked={{this.cbFlem}}
-                    {{ on 'click' (fn this.verifyRegion 'cbFlem')}} /><span
-                    class="ml-4 text-gray-700">Flemish Brabant</span>
-            </label>
-            <label class="inline-flex items-center mt-3">
-                <Input @type="checkbox" value="3" class="h-5 w-5 text-gray-600" @checked={{this.cbWall}}
-                    {{ on 'click' (fn this.verifyRegion 'cbWall')}} /><span
-                    class="ml-4 text-gray-700">Walloon Brabant</span>
-            </label>
-            <label class="inline-flex items-center mt-3">
-                <Input @type="checkbox" value="4" class="h-5 w-5 text-gray-600" @checked={{this.cbFlan}}
-                    {{ on 'click' (fn this.verifyRegion 'cbFlan')}} /><span class="ml-4 text-gray-700">East
-                    Flanders</span>
-            </label>
-            <label class="inline-flex items-center mt-3">
-                <Input @type="checkbox" value="5" class="h-5 w-5 text-gray-600" @checked={{this.cbOther}}
-                    {{ on 'click' (fn this.verifyRegion 'cbOther')}} /><span
-                    class="ml-4 text-gray-700">Other</span>
-            </label>
+        {{!-- Component --}}
+        <div class="{{if this.region "flex" "hidden"}}">
+            <Home::QuickSearch::RegionDropdown @verifyRegion={{this.verifyRegion}} @cbAll={{this.cbRegionAll}} @cbBrux={{this.cbBrux}} @cbFlem={{this.cbFlem}} @cbWall={{this.cbWall}} @cbFlan={{this.cbFlan}} @cbOther={{this.cbOther}}/>
         </div>
-        {{/if}}
 
     </div>
         <LinkTo type="button" @route="search"
         @query={{hash buyRent=this.buyRent minPrice=this.minBudget maxPrice=this.maxBudget regions=this.regionList}}
-        class="py-5 px-5 md:px-12 bg-red-600 font-bold text-white hover:bg-blue-600 anim"
+        class="py-5 px-10 md:px-12 bg-red-600 font-bold text-white hover:bg-blue-600 anim"
         {{ on 'click' this.toggleAll}}>
         Search
     </LinkTo>
