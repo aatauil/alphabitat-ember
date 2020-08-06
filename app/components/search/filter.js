@@ -4,6 +4,8 @@ import { action } from '@ember/object';
 
 export default class SearchFilterComponent extends Component {
 
+    // TRACKED
+
     @tracked bedrooms = 1
     @tracked bathrooms = 1
 
@@ -30,13 +32,14 @@ export default class SearchFilterComponent extends Component {
     @tracked cbWall = this.checkRegion("3") || false
     @tracked cbFlan = this.checkRegion("4") || false
     @tracked cbOther = this.checkRegion("5") || false
+    @tracked filterState = true
 
     
     // BEDROOM LOGIC
 
     @action addBed(){
-        this.minBed = false
 
+        this.minBed = false
         if (this.bedrooms < 8){
         this.bedrooms++
         }
@@ -47,13 +50,12 @@ export default class SearchFilterComponent extends Component {
     }
 
     @action subBed(){
-        this.maxBed = false
 
+        this.maxBed = false
         if (this.bedrooms > 0){
         this.bedrooms--
-
         }
-        
+
         if (this.bedrooms == 0){
             this.minBed = true;
         }
@@ -65,8 +67,8 @@ export default class SearchFilterComponent extends Component {
 
 
     checkRegion(id){
+
         let exists = this.regionList.indexOf(id)
-        
         if (exists == -1){
             console.log("false")
             return false
@@ -81,8 +83,8 @@ export default class SearchFilterComponent extends Component {
     // BATHROOM LOGIC
 
     @action addBath(){
-        this.minBath = false
 
+        this.minBath = false
         if (this.bathrooms < 8){
         this.bathrooms++
         }
@@ -93,8 +95,8 @@ export default class SearchFilterComponent extends Component {
     }
 
     @action subBath(){
-        this.maxBath = false
 
+        this.maxBath = false
         if (this.bathrooms > 0){
         this.bathrooms--
         }
@@ -108,9 +110,10 @@ export default class SearchFilterComponent extends Component {
     // Shared Logic
 
     @action updateState(element){
-        console.log(element)
-        // Radio
 
+        console.log(element)
+
+        // Radio
         if(element == "For sale"){
             console.log(1)
             this.radioForSale = true
@@ -129,4 +132,15 @@ export default class SearchFilterComponent extends Component {
             this.maxPrice = "9999999"
         }
     }
+
+    // FILTER MOBILE
+
+
+
+    @action toggleFilter(){
+        this.filterState = !this.filterState
+    }
+    
+    
+
 }
