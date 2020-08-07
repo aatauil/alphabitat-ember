@@ -2,12 +2,12 @@
 <main class="flex gap-0 md:gap-5 md:container ">
 
     {{!-- Component --}}
-    <Search::filter @query={{this.myQuery}}/>
+    <Search::filter @query={{this.myQuery}} @refetch={{this.updateParam}}/>
 
     {{!-- Component --}}
     <Search::Results @estate={{@model}}/>
     
 </main>
 
-    <button class="px-2 py-6 bg-light-gray border" {{on 'click' (fn this.updateBuyRent "2")}}>change buyrent</button>
+    {{!-- <button class="px-2 py-6 bg-light-gray border" {{on 'click' (fn this.updateBuyRent "2")}}>change buyrent</button> --}}
 </div>
