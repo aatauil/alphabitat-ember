@@ -1,5 +1,5 @@
 <section
-    class="fixed top-0 w-full xl:block xl:relative h-full left-0 z-30 xl:w-1/3 xl:mt-6 bg-white py-6 px-4 font-bold xl:rounded pb-32 xl:pb-12 overflow-scroll  {{if this.filterState "hidden"}}">
+    class="fixed top-0 w-full xl:block xl:relative h-full left-0 z-30 xl:w-1/3 xl:mt-6 bg-white py-6 px-4 font-bold xl:rounded pb-32 xl:pb-12 overflow-scroll xl:overflow-hidden  {{if this.filterState "hidden"}}">
     <div class="md:container">
         <div class="flex justify-between items-center border-b pb-4">
             <h1 class="text-2xl text-gray-800">Filter</h1>
@@ -18,36 +18,30 @@
             <h2 class="text-gray-600 py-2">Purpose</h2>
             <div class="flex flex-col pl-2 ">
                 <label class="inline-flex items-center mt-3">
-                    <input type="radio" name="purpose" checked={{this.radioForSale}}
-                        {{on "change" (fn this.updateState 'For sale')}}class="h-5 w-5 text-gray-600"><span
+                    <input type="radio" name="purpose" checked={{if (not-eq @query.buyRent "2") true false}}
+                        {{on "change" (fn @refetch "buyRent" 1)}}class="h-5 w-5 text-gray-600"><span
                         class="ml-4 text-gray-500">For sale</span>
                 </label>
                 <label class="inline-flex items-center mt-3">
-                    <input type="radio" name="purpose" checked={{this.radioForRent}}
-                        {{on "change" (fn this.updateState 'For rent')}} class="h-5 w-5 text-gray-600"><span
+                    <input type="radio" name="purpose" checked={{if (eq @query.buyRent "2") true false}}
+                        {{on "change" (fn @refetch "buyRent" 2)}} class="h-5 w-5 text-gray-600"><span
                         class="ml-4 text-gray-500">For rent</span>
                 </label>
-                {{!-- <label class="inline-flex items-center mt-3">
-                <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Sold</span>
-            </label>
-            <label class="inline-flex items-center mt-3">
-                <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Rented</span>
-            </label> --}}
 
             </div>
         </div>
 
-    <div class="mt-6">
+    {{!-- <div class="mt-6">
         <h2 class="text-gray-600 py-3 flex items-end "><img src="/assets/vector/euro.svg" alt="bed icon" class="mr-2 opacity-50 h-5"> <span class="leading-tight"> Price </span></h2>
         <div class="flex justify-between item-center">
-                <select class="border w-5/12 py-2 px-2 rounded appearance-none" name="" id="" >
+                <select class="border w-5/12 py-2 px-2 rounded appearance-none" name="" id="" {{on 'change' (fn this.invokeRefetch "minPrice")}}>
                         <option value="0">Min</option>
 
-                        {{#if (not-eq this.minPrice "0")}}
-                             <option value={{this.minPrice}} selected class="hidden">€ {{this.minPrice}}</option>
+                        {{#if (not-eq @query.minPrice "0")}}
+                             <option value={{@query.minPrice}} selected class="hidden">€ {{@query.minPrice}}</option>
                         {{/if}}
                         
-                     {{#if this.radioForRent }}
+                     {{#if (if (eq @query.buyRent "2") true false) }}
 
                         <option value="500" >€ 500</option>
                         <option value="500" >€ 750</option>
@@ -65,7 +59,7 @@
                         <option value="3750" >€ 3750</option>
                     {{/if}}
 
-                    {{#if this.radioForSale }}
+                    {{#if (if (eq @query.buyRent "1") true false) }}
                     
 
                     <option value="100000" >€ 100 000</option>
@@ -87,14 +81,14 @@
 
                 <span class="text-gray-600 leading-10">to</span>
 
-                <select class="border w-5/12  py-2 px-2 rounded appearance-none">
+                <select class="border w-5/12  py-2 px-2 rounded appearance-none" {{on 'change' (fn this.invokeRefetch "maxPrice")}}>
                      <option default="" value="9999999">Max</option>
 
-                    {{#if (not-eq this.maxPrice "9999999")}}
-                            <option value={{this.maxPrice}} selected class="hidden">€ {{this.maxPrice}}</option>
+                    {{#if (not-eq @query.maxPrice "9999999")}}
+                            <option value={{@query.maxPrice}} selected class="hidden">€ {{@query.maxPrice}}</option>
                     {{/if}}
 
-                    {{#if this.radioForRent }}
+                    {{#if (if (eq @query.buyRent "2") true false) }}
                             
         
                     <option value="500" >€ 500</option>
@@ -113,7 +107,7 @@
                     <option value="3750" >€ 3750</option>
                     {{/if}}
 
-                    {{#if this.radioForSale }}
+                    {{#if (if (eq @query.buyRent "1") true false) }}
                     
                     <option value="100000" >€ 100 000</option>
                     <option value="150000" >€ 150 000</option>
@@ -132,60 +126,78 @@
                     {{/if}}
                 </select>
         </div>
-    </div>
+    </div> --}}
 
         <div class="mt-6">
             <h2 class="text-gray-600 py-2">Property Type</h2>
             <div class="flex flex-col pl-2 ">
+
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Houses</span>
+                    <input type="checkbox" class="h-5 w-5 text-gray-600" {{on "change" (pipe (fn this.Category.updateList "1") (fn @refetch "category" this.Category.categoryList))}}>
+                    <span class="ml-4 text-gray-500">Houses</span>
                 </label>
+
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Flats</span>
+                    <input type="checkbox" class="h-5 w-5 text-gray-600" {{on "change" (pipe (fn this.Category.updateList "2") (fn @refetch "category" this.Category.categoryList))}}>
+                    <span class="ml-4 text-gray-500">Flats</span>
                 </label>
+
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Plots</span>
+                    <input type="checkbox" class="h-5 w-5 text-gray-600" {{on "change" (pipe (fn this.Category.updateList "3") (fn @refetch "category" this.Category.categoryList))}}>
+                    <span class="ml-4 text-gray-500">Plots</span>
                 </label>
+
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Offices</span>
+                    <input type="checkbox" class="h-5 w-5 text-gray-600" {{on "change" (pipe (fn this.Category.updateList "4") (fn @refetch "category" this.Category.categoryList))}}>
+                    <span class="ml-4 text-gray-500">Offices</span>
                 </label>
+                
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Stores</span>
+                    <input type="checkbox" class="h-5 w-5 text-gray-600" {{on "change" (pipe (fn this.Category.updateList "5") (fn @refetch "category" this.Category.categoryList))}}>
+                    <span class="ml-4 text-gray-500">Stores</span>
                 </label>
+
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600"><span
+                    <input type="checkbox" class="h-5 w-5 text-gray-600" {{on "change" (pipe (fn this.Category.updateList "6") (fn @refetch "category" this.Category.categoryList))}}>
+                    <span
                         class="ml-4 text-gray-500">Industrial</span>
                 </label>
+
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">Garage &
-                        Parking
-                        lots</span>
+                    <input type="checkbox" class="h-5 w-5 text-gray-600" {{on "change" (pipe (fn this.Category.updateList "7") (fn @refetch "category" this.Category.categoryList))}}>
+                    <span class="ml-4 text-gray-500">Garage & Parking lots</span>
                 </label>
+
             </div>
         </div>
 
         <div class="mt-6">
-            <h2 class="text-gray-600 py-2" {{on 'click' this.debug}}>Region</h2>
+            <h2 class="text-gray-600 py-2">Region</h2>
             <div class="flex flex-col pl-2 ">
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600" checked={{this.cbBxl}} {{on "click" (set this.cbBxl (get _ "target.checked")) }}><span class="ml-4 text-gray-500">Brussels</span>
+                    <input type="checkbox" class="h-5 w-5 text-gray-600" {{on "change" (pipe (fn this.Region.updateList "1") (fn @refetch "regions" this.Region.regionList))}}>
+                    <span class="ml-4 text-gray-500">Brussels</span>
                 </label>
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600" checked={{this.cbFlem}} ><span class="ml-4 text-gray-500">Flemish Brabant</span>
+                    <input type="checkbox" class="h-5 w-5 text-gray-600" {{on "change" (pipe (fn this.Region.updateList "2") (fn @refetch "regions" this.Region.regionList))}}>
+                    <span class="ml-4 text-gray-500">Flemish Brabant</span>
                 </label>
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600" checked={{this.cbWall}} ><span class="ml-4 text-gray-500">Walloon Brabant</span>
+                    <input type="checkbox" class="h-5 w-5 text-gray-600" {{on "change" (pipe (fn this.Region.updateList "3") (fn @refetch "regions" this.Region.regionList))}}>
+                    <span class="ml-4 text-gray-500">Walloon Brabant</span>
                 </label>
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600" checked={{this.cbFlan}} ><span class="ml-4 text-gray-500">East Flanders</span>
+                    <input type="checkbox" class="h-5 w-5 text-gray-600" {{on "change" (pipe (fn this.Region.updateList "4") (fn @refetch "regions" this.Region.regionList))}}>
+                    <span class="ml-4 text-gray-500">East Flanders</span>
                 </label>
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600" checked={{this.cbOther}} ><span class="ml-4 text-gray-500">Other</span>
+                    <input type="checkbox" class="h-5 w-5 text-gray-600" {{on "change" (pipe (fn this.Region.updateList "5") (fn @refetch "regions" this.Region.regionList))}}>
+                    <span class="ml-4 text-gray-500">Other</span>
                 </label>
             </div>
         </div>
 
-        <div class="mt-6">
+        {{!-- <div class="mt-6">
             <h2 class="text-gray-600 py-3 flex items-end mb-2"> <img src="/assets/vector/bed.svg" alt="bed icon"
                     class="mr-2 opacity-50"> <span class="leading-none"> Bedrooms </span></h2>
             <div class="flex justify-start">
@@ -251,11 +263,11 @@
             </div>
 
 
-        </div>
+        </div> --}}
     </div>
 
 </section>
 
 <div class="fixed w-full  bottom-0 container flex justify-center items-center xl:hidden z-50">
-    <button type="button" class="z-50 md:w-1/3 md:rounded-full w-full mb-2 py-4 shadow-xl font-bold text-gray-100 rounded {{if this.filterState "bg-red-600 " "bg-blue-600 "}}" {{on 'click' this.toggleFilter}}>{{if this.filterState "Filter" "Search"}}</button>
+    <button type="button" class="z-50 md:w-1/3 md:rounded-full w-full mb-2 py-4 shadow-xl font-bold text-gray-100 rounded anim {{if this.filterState "bg-red-600  " "bg-blue-600  "}}" {{on 'click' this.toggleFilter}}>{{if this.filterState "Filter" "Search"}}</button>
 </div>
