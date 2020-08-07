@@ -2,46 +2,46 @@
 
     {{!-- PURPOSE SELECTOR --}}
     <div class="relative">
-        <button type="button" {{ on 'click' this.togglePurpose}}
-            class="py-5 px-3 md:px-6 bg-white border flex justify-between w-32 md:w-64 font-bold hover:bg-blue-100 ">{{this.purposeState}}<img
+        <button type="button" {{ on 'click' this.Dropdown.togglePurpose}}
+            class="py-5 px-3 md:px-6 bg-white border flex justify-between w-32 md:w-64 font-bold hover:bg-blue-100 ">{{this.Purpose.purposeState}}<img
                 src="/assets/vector/down-arrow-black.svg" alt="Black down pointing arrow"></button>
 
         {{!-- Component --}}
-        <div class="{{if this.purpose "flex" "hidden"}}">
-            <Home::QuickSearch::PurposeDropdown @openState={{this.purpose}} @setPurpose={{this.setPurpose}} @forSale={{this.radioForSale}} @forRent={{this.radioForRent}}/>
+        <div class="{{if this.Dropdown.purpose "flex" "hidden"}}">
+            <Home::QuickSearch::PurposeDropdown @setPurpose={{this.Purpose.setPurpose}} @forSale={{this.Purpose.radioForSale}} @forRent={{this.Purpose.radioForRent}}/>
         </div>
 
     </div>
 
   {{!-- PRICE SELECTOR --}}
     <div class="relative">
-        <button type="button" {{ on 'click' this.togglePrice}}
+        <button type="button" {{ on 'click' this.Dropdown.togglePrice}}
             class="py-5 px-6 bg-white border xl:flex justify-between w-64 font-bold hidden  hover:bg-blue-100 "><span>Price</span>
             <img src="/assets/vector/down-arrow-black.svg" alt="Black down pointing arrow"></button>
 
             {{!-- Component --}}
-            <div class="{{if this.price "flex" "hidden"}}">
-                <Home::QuickSearch::PriceDropdown @forSale={{this.radioForSale}} @forRent={{this.radioForRent}} @updateMin={{this.updateMinBudget}} @updateMax={{this.updateMaxBudget}}/>
+            <div class="{{if this.Dropdown.price "flex" "hidden"}}">
+                <Home::QuickSearch::PriceDropdown @forSale={{this.Purpose.radioForSale}} @forRent={{this.Purpose.radioForRent}} @updateMin={{this.Price.updateMinBudget}} @updateMax={{this.Price.updateMaxBudget}}/>
             </div>
             
     </div>
 
     {{!-- REGION SELECTOR --}}
     <div class="relative">
-        <button type="button" {{ on 'click' this.toggleRegion}}
+        <button type="button" {{ on 'click' this.Dropdown.toggleRegion}}
             class="py-5 px-3 md:px-6  bg-white border flex justify-between w-32 md:w-64 font-bold  hover:bg-blue-100 "><span>Region</span>
             <img src="/assets/vector/down-arrow-black.svg" alt="Black down pointing arrow"></button>
 
         {{!-- Component --}}
-        <div class="{{if this.region "flex" "hidden"}}">
-            <Home::QuickSearch::RegionDropdown @verifyRegion={{this.verifyRegion}} @cbAll={{this.cbRegionAll}} @cbBrux={{this.cbBrux}} @cbFlem={{this.cbFlem}} @cbWall={{this.cbWall}} @cbFlan={{this.cbFlan}} @cbOther={{this.cbOther}}/>
+        <div class="{{if this.Dropdown.region "flex" "hidden"}}">
+            <Home::QuickSearch::RegionDropdown @verifyRegion={{this.Region.verifyRegion}} @cbAll={{this.Region.cbRegionAll}} @cbBrux={{this.Region.cbBrux}} @cbFlem={{this.Region.cbFlem}} @cbWall={{this.Region.cbWall}} @cbFlan={{this.Region.cbFlan}} @cbOther={{this.Region.cbOther}}/>
         </div>
 
     </div>
         <LinkTo type="button" @route="search"
-        @query={{hash buyRent=this.buyRent minPrice=this.minBudget maxPrice=this.maxBudget regions=this.regionList}}
+        @query={{hash buyRent=this.Purpose.buyRent minPrice=this.Price.minBudget maxPrice=this.Price.maxBudget regions=this.Region.regionList}}
         class="py-5 px-10 md:px-12 bg-red-600 font-bold text-white hover:bg-blue-600 anim"
-        {{ on 'click' this.toggleAll}}>
+        {{ on 'click' this.Dropdown.toggleAll}}>
         Search
     </LinkTo>
 </div>
