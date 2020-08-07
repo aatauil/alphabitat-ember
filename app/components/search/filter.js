@@ -1,27 +1,91 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { inject as service } from '@ember/service';
+
+
+// class BedClass{
+//     @tracked minBed;
+//     @tracked maxBed;
+
+//     constructor(){
+//         this.minBed
+//         this.maxBed
+//     }
+// }
+
+// MANAGES CATEGORY LIST STATE===========================
+    class CategoryClass{
+        @tracked categoryList
+
+        constructor(){
+            this.categoryList = new Array
+        }
+
+        @action updateList(val, e){
+            let checkedState = e.target.checked
+
+            if(checkedState){
+                this.addItem(val)
+            } else if (!checkedState) {
+                this.removeItem(val)
+            }
+        }
+
+        addItem(val){
+            if(this.categoryList.indexOf(val) == -1){
+                this.categoryList.push(val)
+                console.log("item added to list")
+            }
+        }
+
+        removeItem(val){
+            let index = this.categoryList.indexOf(val)
+            if(this.categoryList.indexOf(val) != -1){
+                this.categoryList.splice(index, 1)
+                console.log("item removed to list")
+            }
+        }
+    }
+
+    // MANAGES REGION LIST STATE===========================
+    class RegionClass{
+        @tracked regionList
+        
+        constructor(){
+            this.regionList = new Array
+        }
+
+        @action updateList(val, e){
+            let checkedState = e.target.checked
+
+            if(checkedState){
+                this.addItem(val)
+            } else if (!checkedState) {
+                this.removeItem(val)
+            }
+        }
+
+        addItem(val){
+            if(this.regionList.indexOf(val) == -1){
+                this.regionList.push(val)
+                console.log("item added to list")
+            }
+        }
+
+        removeItem(val){
+            let index = this.regionList.indexOf(val)
+            if(this.regionList.indexOf(val) != -1){
+                this.regionList.splice(index, 1)
+                console.log("item removed to list")
+            }
+        }
+    }
 
 export default class SearchFilterComponent extends Component {
-
-    // TRACKED
-
-    @tracked bedrooms = 1
-    @tracked bathrooms = 1
-
-    @tracked minBed = false;
-    @tracked maxBed = false;
-
-    @tracked minBath = false;
-    @tracked maxBath = false;
-
-    @tracked minPrice = this.args.query.minPrice || "0"
-    @tracked maxPrice = this.args.query.maxPrice || "9999999"
-
-    @tracked radioForSale = this.args.query.sale || true;
-    @tracked radioForRent = this.args.query.rent || false;
-
-    @tracked regionList = this.args.query.regions
+    
+    @tracked Category = new CategoryClass()
+    @tracked Region = new RegionClass()
 
     @tracked garage = false;
     @tracked garden = false;
@@ -36,6 +100,9 @@ export default class SearchFilterComponent extends Component {
 
     
     // BEDROOM LOGIC
+
+
+
 
     @action addBed(){
 
@@ -61,21 +128,21 @@ export default class SearchFilterComponent extends Component {
         }
     }
     
-    @action debug(){
-        console.log(this.cbBxl)
+    @action invokeRefetch(elem, e){
+        this.args.refetch(elem, e.target.value)
     }
 
 
     checkRegion(id){
 
-        let exists = this.regionList.indexOf(id)
-        if (exists == -1){
-            console.log("false")
-            return false
-        } else {
-            console.log("true")
-            return true
-        }
+        // let exists = this.regionList.indexOf(id)
+        // if (exists == -1){
+        //     console.log("false")
+        //     return false
+        // } else {
+        //     console.log("true")
+        //     return true
+        // }
         
     }
 
