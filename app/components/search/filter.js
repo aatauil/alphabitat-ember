@@ -2,23 +2,84 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
+import Object from '@ember/object';
 
 
-// class BedClass{
-//     @tracked minBed;
-//     @tracked maxBed;
+// MANAGES Bedroom LIST STATE===========================
 
-//     constructor(){
-//         this.minBed
-//         this.maxBed
-//     }
-// }
+class BathClass{
+    @tracked bathrooms;
+    @tracked minBath;
+    @tracked maxBath;
+
+    constructor(val){
+        this.bathrooms = val || 0
+        this.minBath = false
+        this.maxBath = false
+    }
+
+    @action increment(){
+        this.minBath = false
+        if (this.bathrooms < 8){
+        this.bathrooms++
+        }
+
+        if (this.bathrooms == 8){
+            this.maxBath = true;
+        }
+    }
+
+    @action decrement(){
+        this.maxBath = false
+        if (this.bathrooms > 0){
+        this.bathrooms--
+        }
+
+        if (this.bathrooms == 0){
+            this.minBath = true;
+        }
+    }
+}
+
+    class BedClass{
+        @tracked bedrooms;
+        @tracked minBed;
+        @tracked maxBed;
+
+        constructor(val){
+            this.bedrooms = val || 0
+            this.minBed = false
+            this.maxBed = false
+        }
+
+        @action increment(){
+            this.minBed = false
+            if (this.bedrooms < 8){
+            this.bedrooms++
+            }
+    
+            if (this.bedrooms == 8){
+                this.maxBed = true;
+            }
+        }
+
+        @action decrement(){
+            this.maxBed = false
+            if (this.bedrooms > 0){
+            this.bedrooms--
+            }
+    
+            if (this.bedrooms == 0){
+                this.minBed = true;
+            }
+        }
+    }
 
 // MANAGES CATEGORY LIST STATE===========================
     class CategoryClass{
         @tracked categoryList
 
-        constructor(){
+        constructor(val){
             this.categoryList = new Array
         }
 
@@ -84,8 +145,10 @@ import { inject as service } from '@ember/service';
 
 export default class SearchFilterComponent extends Component {
     
-    @tracked Category = new CategoryClass()
+    @tracked Category = new CategoryClass(this.args.query.category)
     @tracked Region = new RegionClass()
+    @tracked Bed = new BedClass(this.args.query.minBed)
+    @tracked Bath = new BathClass()
 
     @tracked garage = false;
     @tracked garden = false;
@@ -101,7 +164,9 @@ export default class SearchFilterComponent extends Component {
     
     // BEDROOM LOGIC
 
-
+    @action debug(){
+        console.log()
+    }
 
 
     @action addBed(){
