@@ -3,7 +3,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 
-// MANAGES THE OPEN STATE OF EACH DROPDOWN ELEMENT=========
+// MANAGES THE OPEN/CLOSED STATE OF EACH DROPDOWN ELEMENT=========
 class DropDownClass {
     @tracked purpose;
     @tracked price;
@@ -40,6 +40,9 @@ class DropDownClass {
     }
 }
 
+
+
+
 // MANAGES PURPOSE DROPDOWN STATE===========================
 class PurposeClass {
     @tracked purposeState;
@@ -75,6 +78,9 @@ class PurposeClass {
     }
 }
 
+
+
+
 // MANAGES PRICE DROPDOWN STATE============================
 class PriceClass {
 
@@ -83,18 +89,39 @@ class PriceClass {
 
     constructor(){
         this.minBudget = 0;
-        this.maxBudget = 999999;
+        this.maxBudget = 9999999;
     }
 
     // PRICE LOGIC
     @action updateMinBudget(event){
+
+        if(event.target.value > this.maxBudget){
+            event.preventDefault();
+            console.log("1")
+            this.maxBudget = 9999999
+        }
+        console.log("min => " + this.minBudget)
+        console.log("max => " + this.maxBudget)
+
         this.minBudget = event.target.value;
+
     }
 
     @action updateMaxBudget(event){
+        console.log("min => " + this.minBudget)
+        console.log("max => " + this.maxBudget)
         this.maxBudget = event.target.value;
+
+        if(event.target.value < this.minBudget){
+            console.log("2")
+            this.minBudget = 0
+        }
     }
+    
 }
+
+
+
 
 // MANAGES REGION DROPDOWN STATE===========================
 class RegionClass {
