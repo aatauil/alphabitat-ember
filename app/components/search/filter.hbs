@@ -19,7 +19,7 @@
             <div class="flex flex-col pl-2 ">
                 <label class="inline-flex items-center mt-3">
                     <input type="radio" name="purpose" checked={{if (not-eq @query.buyRent "2") true false}}
-                        {{on "change" (fn @refetch "buyRent" 1)}}class="h-5 w-5 text-gray-600"><span
+                        {{on "change" (fn @refetch "buyRent" 1)}} class="h-5 w-5 text-gray-600"><span
                         class="ml-4 text-gray-500">For sale</span>
                 </label>
                 <label class="inline-flex items-center mt-3">
@@ -171,7 +171,7 @@
             </div>
         </div>
 
-        <div class="mt-6">
+        {{!-- <div class="mt-6">
             <h2 class="text-gray-600 py-2">Region</h2>
             <div class="flex flex-col pl-2 ">
                 <label class="inline-flex items-center mt-3">
@@ -195,22 +195,22 @@
                     <span class="ml-4 text-gray-500">Other</span>
                 </label>
             </div>
-        </div>
+        </div> --}}
 
-        {{!-- <div class="mt-6">
+        <div class="mt-6">
             <h2 class="text-gray-600 py-3 flex items-end mb-2"> <img src="/assets/vector/bed.svg" alt="bed icon"
                     class="mr-2 opacity-50"> <span class="leading-none"> Bedrooms </span></h2>
             <div class="flex justify-start">
                 <div class=" w-1/2 flex items-center justify-between">
-                    <button type="button" {{on 'click' this.subBed }}
-                        class="{{if this.minBed "opacity-25 cursor-not-allowed" }}">
+                    <button type="button" {{ on 'click' (pipe (fn this.Bed.decrement) (fn @refetch "minBed" this.Bed.bedrooms)) }}
+                        class="{{if this.Bed.minBed "opacity-25 cursor-not-allowed" }}">
                         <img src="/assets/vector/substract.svg" class="h-8 opacity-50 " alt="Black substract icon">
                     </button>
                     <div class="font-bold text-xl">
-                        > {{this.bedrooms}}
+                        > {{this.Bed.bedrooms}}
                     </div>
-                    <button type="button" {{on 'click' this.addBed }}
-                        class="{{if this.maxBed "opacity-25 cursor-not-allowed" }}">
+                    <button type="button" {{ on 'click' (pipe (fn this.Bed.increment) (fn @refetch "minBed" this.Bed.bedrooms)) }}
+                        class="{{if this.Bed.maxBed "opacity-25 cursor-not-allowed" }}">
                         <img src="/assets/vector/add.svg" class="h-8 opacity-50 " alt="Black add icon">
                     </button>
                 </div>
@@ -223,15 +223,15 @@
                     class="mr-2 opacity-50"> <span class="leading-none"> Bathrooms </span></h2>
             <div class="flex justify-start">
                 <div class=" w-1/2 flex items-center justify-between">
-                    <button type="button" {{on 'click' this.subBath }}
-                        class="{{if this.minBath "opacity-25 cursor-not-allowed" }}">
+                    <button type="button"  {{ on 'click' (pipe (fn this.Bath.decrement) (fn @refetch "minBath" this.Bath.bathrooms)) }}
+                        class="{{if this.Bath.minBath "opacity-25 cursor-not-allowed" }}">
                         <img src="/assets/vector/substract.svg" class="h-8 opacity-50 " alt="Black substract icon">
                     </button>
                     <div class="font-bold text-xl">
-                        > {{this.bathrooms}}
+                        > {{this.Bath.bathrooms}}
                     </div>
-                    <button type="button" {{on 'click' this.addBath }}
-                        class="{{if this.maxBath "opacity-25 cursor-not-allowed" }}">
+                    <button type="button"  {{ on 'click' (pipe (fn this.Bath.increment) (fn @refetch "minBath" this.Bath.bathrooms)) }}
+                        class="{{if this.Bath.maxBath "opacity-25 cursor-not-allowed" }}">
                         <img src="/assets/vector/add.svg" class="h-8 opacity-50" alt="Black add icon">
                     </button>
                 </div>
@@ -239,15 +239,20 @@
         </div>
 
         <div class="mt-6">
-            <h2 class="text-gray-600 py-3 flex items-end"><img src="/assets/vector/area.svg" alt="bed icon"
-                    class="mr-2 opacity-50"> <span class=""> Area </span></h2>
-            <div class="flex items-center">
-                <input type="number" class="border w-5/12  py-2 px-4 rounded" step="10" value="">
-                <span class="ml-2 font-bold text-xl text-gray-600"> m²</span>
-            </div>
-        </div>
+            <h2 class="text-gray-600 py-3 flex items-end">
+                <img src="/assets/vector/area.svg" alt="bed icon" class="mr-2 opacity-50"> 
+                <span class=""> Area </span>
+            </h2>
 
-        <div class="mt-6">
+            <div class="flex justify-start items-center">
+                <div class=" py-3 px-2 rounded flex-1">
+                    <Input type="range" min="10" max="500" steps="100" class="w-full" @value={{this.areaVal}}/>
+                </div>
+                <div class="b-gray py-2 px-3 rounded">{{this.areaVal}} m² </div>
+            </div>
+                
+
+        {{!-- <div class="mt-6">
             <h2 class="text-gray-600 pb-2">Options</h2>
             <div class="flex flex-col pl-2 ">
                 <label class="inline-flex items-center mt-3">
@@ -264,6 +269,7 @@
 
 
         </div> --}}
+        </div>
     </div>
 
 </section>
