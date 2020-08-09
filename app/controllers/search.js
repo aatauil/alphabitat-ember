@@ -44,22 +44,23 @@ import { action } from '@ember/object';
 
 export default class SearchController extends Controller {
     
-    queryParams= ['buyRent', 'minPrice', "maxPrice", "regions", "minBed", "category", "minBath", "area"]
+    queryParams= ['buyRent', 'minPrice', "maxPrice", "regions", "minBed", "category", "minBath", "minArea", "order"];
 
     //TRACKED
-    @tracked buyRent
-    @tracked minPrice
-    @tracked maxPrice
-    @tracked regions
-    @tracked minBed
-    @tracked minBath
-    @tracked category
-    @tracked area
+    @tracked buyRent;
+    @tracked minPrice;
+    @tracked maxPrice;
+    @tracked regions;
+    @tracked minBed;
+    @tracked minBath;
+    @tracked category;
+    @tracked minArea;
+    @tracked order;
 
     // ACTIONS
     @action updateParam(elem, id){
-        this[elem]= id
-        console.log(elem, id)
+        this[elem]= id;
+        console.log(elem, id);
     }
     
     //GETTER
@@ -67,13 +68,14 @@ export default class SearchController extends Controller {
 
         let obj = new Object();
 
-        obj.buyRent = this.buyRent
-        obj.minPrice = this.minPrice
-        obj.maxPrice = this.maxPrice
-        obj.minBed = this.minBed
-        obj.regions = this.regions
-        obj.category = this.category
-        obj.minBath = this.minBath
+        obj.buyRent = this.buyRent;
+        obj.minPrice = this.minPrice;
+        obj.maxPrice = this.maxPrice;
+        obj.minBed = this.minBed;
+        obj.regions = this.regions;
+        obj.category = this.category;
+        obj.minBath = this.minBath;
+        obj.order = this.order
 
         return obj
     }
