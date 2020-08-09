@@ -2,16 +2,15 @@
       <div class="flex justify-between items-center">  
         <h2 class="text-xl font-bold py-6 text-gray-800"> {{ @estate.length }} <span>search results </span> </h2>
         <div>
-          <select class="border px-4 py-2 rounded appearance-none" name="" id="">
-                      <option value={{0}}>Lowest price first</option>
-                      <option value={{1}}>Highest price first</option>
-                      <option value={{2}}>Relevance</option>
-                      <option value={{3}}>Most rooms</option>
-                      <option value={{4}}>Biggest area</option>
+          <select class="border px-4 py-2 rounded appearance-none"  name="" id="" {{on 'change' (fn this.invokeRefetch 'order')}}>
+                      <option value="" >Relevance</option>
+                      <option value="Price ASC" >Lowest price first</option>
+                      <option value="Price DESC" >Highest price first</option>
+                      <option value="Rooms DESC" >Most rooms</option>
+                      <option value="Area DESC" >Biggest Area</option>
             </select>
           </div>
       </div>
-    
       <section class="grid lg:grid-cols-2 gap-5 sm:grid-cols-2 grid-cols-1">
 
       {{#each @estate as |data|}}
