@@ -19,7 +19,7 @@
             <div class="flex flex-col pl-2 ">
                 <label class="inline-flex items-center mt-3">
                     <input type="radio" name="purpose" checked={{if (not-eq @query.buyRent "2") true false}}
-                        {{on "change" (fn @refetch "buyRent" 1)}} class="h-5 w-5 text-gray-600"><span
+                        {{on "change" (fn @refetch "buyRent" 1)}} class="h-5 w-5 text-gray-600 "><span
                         class="ml-4 text-gray-500">For sale</span>
                 </label>
                 <label class="inline-flex items-center mt-3">
@@ -246,9 +246,9 @@
 
             <div class="flex justify-start items-center">
                 <div class=" py-3 px-2 rounded flex-1">
-                    <Input type="range" min="10" max="500" steps="100" class="w-full" @value={{this.areaVal}}/>
+                    <Input type="range" min="10" max="300" step="10" class="w-full anim" {{on 'change' this.debug}} @value={{this.Area.minArea }} {{on 'change' (fn @refetch 'minArea' this.Area.minArea)}}/>
                 </div>
-                <div class="b-gray py-2 px-3 rounded">{{this.areaVal}} m² </div>
+                <div class="b-gray py-2 px-3 rounded">> {{this.Area.minArea}} m² </div>
             </div>
                 
 
