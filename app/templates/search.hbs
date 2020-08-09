@@ -5,7 +5,7 @@
     <Search::filter @query={{this.myQuery}} @refetch={{this.updateParam}}/>
 
     {{!-- Component --}}
-    <Search::Results @estate={{@model}}/>
+    <Search::Results @estate={{@model}}  @refetch={{this.updateParam}}/>
     
 </main>
 
