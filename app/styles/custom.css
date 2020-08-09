@@ -111,6 +111,10 @@
 }
 
 
+
+
+/* RANGE SLIDER STYLING */
+
 .range-control {
     position: relative;
   }
@@ -126,7 +130,7 @@
   input[type=range]::-webkit-slider-runnable-track {
     position: relative;
     height: 12px;
-    border: 1px solid #b2b2b2;
+    border: 1px solid #dfdfdf;
     border-radius: 5px;
     background-color: #e2e2e2;
     box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.1);
@@ -134,7 +138,7 @@
   
   input[type=range]::-webkit-slider-thumb {
     position: relative;
-    top: -5px;
+    top: -2px;
     width: 20px;
     height: 20px;
     border: 1px solid #999;
@@ -143,6 +147,12 @@
     box-shadow: inset 0 -1px 2px 0 rgba(0, 0, 0, 0.25);
     border-radius: 100%;
     cursor: pointer;
+  }
+
+  input[type=range]::-webkit-slider-thumb:active {
+    top: -5px;
+    width: 30px;
+    height: 30px;
   }
   
   output {
