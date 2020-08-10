@@ -2,7 +2,7 @@
       <div class="flex justify-between items-center">  
         <h2 class="text-xl font-bold py-6 text-gray-800"> {{ @estate.length }} <span>search results </span> </h2>
         <div>
-          <select class="border px-4 py-2 rounded appearance-none"  name="" id="" {{on 'change' (fn this.invokeRefetch 'order')}}>
+          <select class="border px-4 py-2 rounded appearance-none" value="" name="" id="" {{on 'change' (fn this.invokeRefetch 'order')}}>
                       <option value="" >Relevance</option>
                       <option value="Price ASC" >Lowest price first</option>
                       <option value="Price DESC" >Highest price first</option>
@@ -11,14 +11,27 @@
             </select>
           </div>
       </div>
-      <section class="grid lg:grid-cols-2 gap-5 sm:grid-cols-2 grid-cols-1">
 
-      {{#each @estate as |data|}}
+      {{!-- Checks if there are any results  --}}
+      {{#if (not-eq @estate.length 0)}}      
 
-        {{!-- Component --}}
-        <SingleEstate @item={{data}}/>
+        <section class="grid lg:grid-cols-2 gap-5 sm:grid-cols-2 grid-cols-1">
+          {{#each @estate as |data|}}
 
-      {{/each}}
+            {{!-- Component --}}
+            <SingleEstate @item={{data}}/>
+          {{/each}}
+        </section>
 
-      </section>
+
+      {{else}}
+          <div class="container mt-12 py-12 flex flex-col justify-center items-center text-center bg-white w-2/3 rounded">
+            <h1 class="font-bold text-2xl">No results where found.</h1>
+            <p class="font-bold text-gray-600" >Change the filter or click the reset button and try again</p>
+            <LinkTo type="reset" @route="search" @query={{null}}
+                    class="bg-red-200 text-gray-900 text-base font-bold mt-4 py-2 px-5 w-1/4 rounded hover:bg-red-800 hover:text-white anim">Reset
+                    filter</LinkTo>
+        </div>
+      {{/if}}
+
   </section>
