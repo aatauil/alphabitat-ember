@@ -1,4 +1,4 @@
- <section class="w-full mt-2 md:mt-6 p-4 md:p-0">
+ <section class="w-full my-2 md:my-6 p-4 md:p-0">
       <div class="flex justify-between items-center">  
         <h2 class="text-xl font-bold py-6 text-gray-800"> {{ @estate.length }} <span>search results </span> </h2>
         <div>
@@ -27,7 +27,7 @@
       {{else}}
           <div class="container mt-12 py-12 flex flex-col justify-center items-center text-center bg-white w-2/3 rounded">
             <h1 class="font-bold text-2xl">No results where found.</h1>
-            <p class="font-bold text-gray-600" >Change the filter or click the reset button and try again</p>
+            <p class="font-bold text-gray-600" >Change the search criteria or click the reset button and try again.</p>
             <LinkTo type="reset" @route="search" @query={{null}}
                     class="bg-red-200 text-gray-900 text-base font-bold mt-4 py-2 px-5 w-1/4 rounded hover:bg-red-800 hover:text-white anim">Reset
                     filter</LinkTo>
