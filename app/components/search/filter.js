@@ -260,6 +260,13 @@ export default class SearchFilterComponent extends Component {
 
     @action toggleFilter(){
         this.filterState = !this.filterState
+        let body = document.querySelector('body')
+        if(!this.filterState){
+            console.log("enter")
+            body.classList.add("overflow-hidden")
+        } else {
+            body.classList.remove("overflow-hidden")
+        }
     }
     
     
