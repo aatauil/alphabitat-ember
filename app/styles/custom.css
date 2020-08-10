@@ -174,3 +174,51 @@
     display: block;
     transform: translateX(-50%);
   }
+
+ /* SWIPER */
+
+ .swiper-button-next , .swiper-button-prev{
+   background: url('/assets/vector/down-arrow-white.svg');
+   background-size: 20px;
+   width: 40px;
+   height: 40px;
+   margin-right: 10px;
+   border-radius: 100%;
+   transform: rotate(-90deg);
+   background-position: center;
+   background-repeat: no-repeat;
+   background-color: #007aff;
+ }
+
+
+ .swiper-button-prev{
+  transform: rotate(90deg);
+  margin-left: 10px;
+ }
+
+ /* ANIM background */
+
+ .bg-loading {
+  background: linear-gradient(89deg, #aeaeae, #d5d5d5, #d7d7d7, #f7f7f7);
+  background-size: 800% 800%;
+
+  -webkit-animation: AnimationName 4s ease infinite;
+  -moz-animation: AnimationName 4s ease infinite;
+  animation: AnimationName 4s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+  0%{background-position:0% 49%}
+  50%{background-position:100% 52%}
+  100%{background-position:0% 49%}
+}
+@-moz-keyframes AnimationName {
+  0%{background-position:0% 49%}
+  50%{background-position:100% 52%}
+  100%{background-position:0% 49%}
+}
+@keyframes AnimationName {
+  0%{background-position:0% 49%}
+  50%{background-position:100% 52%}
+  100%{background-position:0% 49%}
+}
