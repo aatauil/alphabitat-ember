@@ -1,6 +1,7 @@
 import Route from '@ember/routing/route';
 import axios from 'axios';
 import ENV from 'alphabitat-ember/config/environment'
+import { action } from '@ember/object';
 
 
 export default class SearchRoute extends Route {
@@ -38,13 +39,13 @@ export default class SearchRoute extends Route {
         let minBedrooms = param.minBed
         let minBathrooms = param.minBath
         let minArea = param.minArea
-        let order = param.order
+        let order = param.order 
 
-
-        
-        const response = await axios.get(`${ENV.APP.API_URL}{"ClientId":"${ENV.APP.API_TOKEN}","Page":0,"Language":"en-gb","PurposeIDList": [${ purposeID || 1 }],"CategoryIDList":[${ categoryList || "" }], "RegionIDList": [${ regionList || "" }], "MinRooms": ${minBedrooms || null}, "MinBathRooms":${minBathrooms || null}, "AreaRange": [${minArea || 0}, 1000], "OrderByFields":["${order || ""}"] }`)
+        let controller = this.controllerFor('search');
+        controller.set('currentlyLoading', true);
+        const response = await axios.get(`${ENV.APP.API_URL}{"ClientId":"${ENV.APP.API_TOKEN}","Page":0,"Language":"en-gb","CategoryIDList":[${ categoryList || "" }], "RegionIDList": [${ regionList || "" }],"PurposeIDList": [${ purposeID || 1 }], "MinRooms": ${minBedrooms || null}, "MinBathRooms":${minBathrooms || null}, "AreaRange": [${minArea || 0}, 1000], "OrderByFields":["${order || ""}"] }`)
         const data = await response.data.d.EstateList
-        await console.log(data)
+        await controller.set('currentlyLoading', false);
         return data
       }
 }
