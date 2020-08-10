@@ -141,6 +141,11 @@ class CategoryClass{
 // MANAGES REGION LIST STATE======================
 class RegionClass{
     @tracked regionList
+    @tracked cbBxl = this.checkRegion("1") || false
+    @tracked cbFlem = this.checkRegion("2") || false
+    @tracked cbWall = this.checkRegion("3") || false
+    @tracked cbFlan = this.checkRegion("4") || false
+    @tracked cbOther = this.checkRegion("5") || false
     
     constructor(){
         this.regionList = new Array
@@ -188,12 +193,10 @@ export default class SearchFilterComponent extends Component {
 
     @tracked Options = new OptionsClass()
 
+    @tracked Region = new RegionClass()
 
-    @tracked cbBxl = this.checkRegion("1") || false
-    @tracked cbFlem = this.checkRegion("2") || false
-    @tracked cbWall = this.checkRegion("3") || false
-    @tracked cbFlan = this.checkRegion("4") || false
-    @tracked cbOther = this.checkRegion("5") || false
+
+
     @tracked filterState = true
 
     
