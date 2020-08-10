@@ -3,10 +3,16 @@
 
     {{!-- Component --}}
     <Search::filter @query={{this.myQuery}} @refetch={{this.updateParam}}/>
+    {{!-- Checks if fetch is still loading --}}
+    {{#if this.currentlyLoading}}
+        <Search::Loading/>
 
-    {{!-- Component --}}
-    <Search::Results @estate={{@model}}  @refetch={{this.updateParam}}/>
-    
+    {{else}}
+
+        {{!-- Checks if results are equal to 0 --}}
+        <Search::Results @estate={{@model}}  @refetch={{this.updateParam}}/>
+
+    {{/if}}
 </main>
 
     {{!-- <button class="px-2 py-6 bg-light-gray border" {{on 'click' (fn this.updateBuyRent "2")}}>change buyrent</button> --}}
