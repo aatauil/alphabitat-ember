@@ -12,6 +12,8 @@ export default class PropertyRoute extends Route {
 
         console.log(data)
 
+
+      // GENERAL LIST
         let general = detailsArray.filter(details => {
           let generalIDList = [374, 31, 32, 573, 52, 465]
 
@@ -21,6 +23,7 @@ export default class PropertyRoute extends Route {
           }
         )
 
+        // INTERIOR LIST
         let interior = detailsArray.filter(details => {
           let interiorIDList = [94, 88, 96]
 
@@ -30,7 +33,7 @@ export default class PropertyRoute extends Route {
           }
         )
 
-
+        // SURFACE LIST
         let surface = detailsArray.filter(details => {
           let surfaceIDList = [1028, 73, 117, 118, 119]
 
@@ -40,6 +43,7 @@ export default class PropertyRoute extends Route {
           }
         })
 
+        // ENERGY LIST
         let energy = detailsArray.filter(details => {
           let energyIDList = [1307]
 
@@ -49,6 +53,7 @@ export default class PropertyRoute extends Route {
         }
         )
 
+        //ENVIRONMENT LIST
         let environment= detailsArray.filter(details => {
           let envIDList = [925, 1180, 150, 151, 152, 158]
 
@@ -57,7 +62,7 @@ export default class PropertyRoute extends Route {
           }
         }
         )
-
+        // COORDINATES LIST
         let coordinates = detailsArray.filter(details => {
           let gpsIDList = [1211]
 
