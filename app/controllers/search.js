@@ -47,15 +47,15 @@ export default class SearchController extends Controller {
     queryParams= ['buyRent', 'minPrice', "maxPrice", "regions", "minBed", "category", "minBath", "minArea", "order"];
 
     //TRACKED
-    @tracked buyRent;
-    @tracked minPrice;
-    @tracked maxPrice;
-    @tracked regions;
-    @tracked minBed;
-    @tracked minBath;
-    @tracked category;
-    @tracked minArea;
-    @tracked order;
+    @tracked buyRent = 1
+    @tracked minPrice = 0
+    @tracked maxPrice = 9999999
+    @tracked regions = ""
+    @tracked minBed = 0
+    @tracked minBath = 0
+    @tracked category = ""
+    @tracked minArea = 0
+    @tracked order = ""
 
     // ACTIONS
     @action updateParam(elem, id){

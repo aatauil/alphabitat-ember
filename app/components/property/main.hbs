@@ -44,7 +44,7 @@
                             </li>
                         </ul>
                         <div class="flex gap-5">
-                            <button type="button" class="px-12 py-2 shadow rounded" {{on 'click' this.showList}}>Share</button>
+                            <button type="button" class="px-12 py-2 shadow rounded">Share</button>
                             <button type="button" class="px-6 py-2 shadow rounded  flex gap-3 items-center hover:bg-red-700 {{if this.Favorite.active "bg-red-700" "bg-grey"}}" {{on 'click' (fn this.Favorite.addRemove @estate.EstateID)}}><img src="/assets/vector/heart.svg" alt="white outline of a heart"> <span class="text-white">Favorite</span> </button>
                         </div>
                     </div>

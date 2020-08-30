@@ -30,7 +30,7 @@ class AreaClass{
     @tracked minArea
 
     constructor(val){
-        this.minArea = val || 0
+        this.minArea = val || 0;
     }
 }
 
@@ -41,15 +41,15 @@ class BathClass{
     @tracked maxBath;
 
     constructor(val){
-        this.bathrooms = val || 0
-        this.minBath = false
-        this.maxBath = false
+        this.bathrooms = val || 0;
+        this.minBath = false;
+        this.maxBath = false;
     }
 
     @action increment(){
-        this.minBath = false
+        this.minBath = false;
         if (this.bathrooms < 8){
-        this.bathrooms++
+        this.bathrooms++;
         }
 
         if (this.bathrooms == 8){
@@ -60,7 +60,7 @@ class BathClass{
     @action decrement(){
         this.maxBath = false
         if (this.bathrooms > 0){
-        this.bathrooms--
+        this.bathrooms--;
         }
 
         if (this.bathrooms == 0){
@@ -76,15 +76,15 @@ class BedClass{
     @tracked maxBed;
 
     constructor(val){
-        this.bedrooms = val || 0
-        this.minBed = false
-        this.maxBed = false
+        this.bedrooms = val || 0;
+        this.minBed = false;
+        this.maxBed = false;
     }
 
     @action increment(){
-        this.minBed = false
+        this.minBed = false;
         if (this.bedrooms < 8){
-        this.bedrooms++
+        this.bedrooms++;
         }
 
         if (this.bedrooms == 8){
@@ -93,9 +93,9 @@ class BedClass{
     }
 
     @action decrement(){
-        this.maxBed = false
+        this.maxBed = false;
         if (this.bedrooms > 0){
-        this.bedrooms--
+        this.bedrooms--;
         }
 
         if (this.bedrooms == 0){
@@ -106,34 +106,34 @@ class BedClass{
 
 // MANAGES CATEGORY LIST STATE====================
 class CategoryClass{
-    @tracked categoryList
+    @tracked categoryList;
 
     constructor(val){
-        this.categoryList = new Array
+        this.categoryList = new Array;
     }
 
     @action updateList(val, e){
-        let checkedState = e.target.checked
+        let checkedState = e.target.checked;
 
         if(checkedState){
-            this.addItem(val)
+            this.addItem(val);
         } else if (!checkedState) {
-            this.removeItem(val)
+            this.removeItem(val);
         }
     }
 
     addItem(val){
         if(this.categoryList.indexOf(val) == -1){
-            this.categoryList.push(val)
-            console.log("item added to list")
+            this.categoryList.push(val);
+            console.log("item added to list");
         }
     }
 
     removeItem(val){
         let index = this.categoryList.indexOf(val)
         if(this.categoryList.indexOf(val) != -1){
-            this.categoryList.splice(index, 1)
-            console.log("item removed to list")
+            this.categoryList.splice(index, 1);
+            console.log("item removed to list");
         }
     }
 }
@@ -141,77 +141,104 @@ class CategoryClass{
 // MANAGES REGION LIST STATE======================
 class RegionClass{
     @tracked regionList
-    @tracked cbBxl = this.checkRegion("1") || false
-    @tracked cbFlem = this.checkRegion("2") || false
-    @tracked cbWall = this.checkRegion("3") || false
-    @tracked cbFlan = this.checkRegion("4") || false
-    @tracked cbOther = this.checkRegion("5") || false
+    @tracked cbBxl = this.checkRegion("1") || false;
+    @tracked cbFlem = this.checkRegion("2") || false;
+    @tracked cbWall = this.checkRegion("3") || false;
+    @tracked cbFlan = this.checkRegion("4") || false;
+    @tracked cbOther = this.checkRegion("5") || false;
     
     constructor(){
-        this.regionList = new Array
+        this.regionList = new Array;
     }
 
     @action updateList(val, e){
-        let checkedState = e.target.checked
+        let checkedState = e.target.checked;
 
         if(checkedState){
-            this.addItem(val)
+            this.addItem(val);
         } else if (!checkedState) {
-            this.removeItem(val)
+            this.removeItem(val);
         }
     }
 
     addItem(val){
         if(this.regionList.indexOf(val) == -1){
-            this.regionList.push(val)
-            console.log("item added to list")
+            this.regionList.push(val);
+            console.log("item added to list");
         }
     }
 
     removeItem(val){
         let index = this.regionList.indexOf(val)
         if(this.regionList.indexOf(val) != -1){
-            this.regionList.splice(index, 1)
-            console.log("item removed to list")
+            this.regionList.splice(index, 1);
+            console.log("item removed to list");
+        }
+    }
+}
+
+class MobileFilterClass{
+
+    
+    @tracked filterState = true;
+
+    constructor(){
+        this.filterState;
+    }
+
+    @action toggleFilter(){
+        this.filterState = !this.filterState
+        let body = document.querySelector('body');
+        if(!this.filterState){
+            console.log("enter");
+            body.classList.add("overflow-hidden");
+        } else {
+            body.classList.remove("overflow-hidden");
         }
     }
 }
 
 export default class SearchFilterComponent extends Component {
 
-    @tracked Purpose = new PurposeClass()
 
-    @tracked Category = new CategoryClass(this.args.query.category)
+    // FILTER COMPONENTS
 
-    @tracked Region = new RegionClass()
+    @tracked execute = false 
 
-    @tracked Bed = new BedClass(this.args.query.minBed)
+    @tracked Purpose = new PurposeClass();
 
-    @tracked Bath = new BathClass(this.args.query.minBath)
+    @tracked Category = new CategoryClass(this.args.query.category);
 
-    @tracked Area = new AreaClass(this.args.query.minArea)
+    @tracked Region = new RegionClass();
 
-    @tracked Options = new OptionsClass()
+    @tracked Bed = new BedClass(this.args.query.minBed);
 
-    @tracked Region = new RegionClass()
+    @tracked Bath = new BathClass(this.args.query.minBath);
+
+    @tracked Area = new AreaClass(this.args.query.minArea);
+
+    @tracked Options = new OptionsClass();
+
+    @tracked Region = new RegionClass();
 
 
+    // UTILITY CLASSES
 
-    @tracked filterState = true
+    @tracked MobileFilter = new MobileFilterClass();
 
-    
-
-    @action debug(){
-        console.log("changed")
-    }
 
     // TRIGGERS MODEL REFETCH SEE ROUTE/SEARCH
     @action invokeRefetch(elem, e){
-        this.args.refetch(elem, e.target.value)
+        this.args.refetch(elem, e.target.value); 
+    }
+
+    @action debug(){
+        console.log("changed");
     }
 
 
-    checkRegion(id){
+
+    // checkRegion(id){
 
         // let exists = this.regionList.indexOf(id)
         // if (exists == -1){
@@ -222,7 +249,7 @@ export default class SearchFilterComponent extends Component {
         //     return true
         // }
         
-    }
+    // }
 
         
     // BATHROOM LOGIC
@@ -258,16 +285,7 @@ export default class SearchFilterComponent extends Component {
 
 
 
-    @action toggleFilter(){
-        this.filterState = !this.filterState
-        let body = document.querySelector('body')
-        if(!this.filterState){
-            console.log("enter")
-            body.classList.add("overflow-hidden")
-        } else {
-            body.classList.remove("overflow-hidden")
-        }
-    }
+
     
     
 

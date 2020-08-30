@@ -1,90 +1,102 @@
 <div class="triangle absolute mt-2 shadow-xl p-5 flex justify-between bg-white font-bold rounded">
-    <div class="w-48 mr-6">
+    <div class="w-48 mr-6 relative">
 
         <label for="price" class="block text-sm text-gray-800">min.
         </label>
+        <Input name="min-budget" placeholder="min" value={{@priceClass.minBudget}} {{ on 'focusin' @priceClass.debug }}
+            class="form-Input block w-full p-2 mt-2 border rounded appearance-none" />
 
-        <select name="min-budget" {{on 'change' @updateMin}}
-            class="form-Input block w-full p-2 mt-2 border rounded appearance-none">
-            {{#if @forRent }}
-            <option default="" value="0">Min</option>
-            <option value="500">€ 500</option>
-            <option value="500">€ 750</option>
-            <option value="1000">€ 1000</option>
-            <option value="1250">€ 1250</option>
-            <option value="1500">€ 1500</option>
-            <option value="1750">€ 1750</option>
-            <option value="2000">€ 2000</option>
-            <option value="2250">€ 2250</option>
-            <option value="2500">€ 2500</option>
-            <option value="2750">€ 2750</option>
-            <option value="3000">€ 3000</option>
-            <option value="3250">€ 3250</option>
-            <option value="3500">€ 3500</option>
-            <option value="3750">€ 3750</option>
-            {{/if}}
+        <ul
+            class="absolute bg-white p-3 w-full font-normal shadow rounded border border-t-0 {{if @priceClass.minOpenState "block" "hidden"}}" {{on 'click' @priceClass.updateMinBudget}}>
 
-            {{#if @forSale }}
 
-            <option default="" value="0">Min</option>
-            <option value="100000">€ 100 000</option>
-            <option value="150000">€ 150 000</option>
-            <option value="200000">€ 200 000</option>
-            <option value="250000">€ 250 000</option>
-            <option value="300000">€ 300 000</option>
-            <option value="350000">€ 350 000</option>
-            <option value="400000">€ 400 000</option>
-            <option value="450000">€ 450 000</option>
-            <option value="500000">€ 500 000</option>
-            <option value="550000">€ 550 000</option>
-            <option value="600000">€ 600 000</option>
-            <option value="650000">€ 650 000</option>
+            {{#if @purpose.radioForRent }}
+
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" default="" data-value="0">Min</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="500">€ 500</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="500">€ 750</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="1000">€ 1000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="1250">€ 1250</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="1500">€ 1500</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="1750">€ 1750</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="2000">€ 2000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="2250">€ 2250</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="2500">€ 2500</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="2750">€ 2750</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="3000">€ 3000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="3250">€ 3250</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="3500">€ 3500</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="3750">€ 3750</li>
 
             {{/if}}
 
-        </select>
+            {{#if @purpose.radioForSale }}
+
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" default="" data-value="0">Min</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="100000">€ 100 000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="150000">€ 150 000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="200000">€ 200 000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="250000">€ 250 000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="300000">€ 300 000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="350000">€ 350 000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="400000">€ 400 000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="450000">€ 450 000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="500000">€ 500 000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="550000">€ 550 000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="600000">€ 600 000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="650000">€ 650 000</li>
+
+
+            {{/if}}
+        </ul>
+
+
     </div>
-    <div class="w-48">
+    <div class="w-48 relative">
         <label for="price" class="block text-sm text-gray-800">max. </label>
-        <select name="max-budget" {{on 'change' @updateMax}}
-            class="form-Input block w-full p-2 mt-2 border rounded appearance-none">
-            {{#if @forRent }}
 
-            <option default="" value="9999999">Max</option>
-            <option value="500">€ 500</option>
-            <option value="500">€ 750</option>
-            <option value="1000">€ 1000</option>
-            <option value="1250">€ 1250</option>
-            <option value="1500">€ 1500</option>
-            <option value="1750">€ 1750</option>
-            <option value="2000">€ 2000</option>
-            <option value="2250">€ 2250</option>
-            <option value="2500">€ 2500</option>
-            <option value="2750">€ 2750</option>
-            <option value="3000">€ 3000</option>
-            <option value="3250">€ 3250</option>
-            <option value="3500">€ 3500</option>
-            <option value="3750">€ 3750</option>
-            {{/if}}
+        <Input name="max-budget" placeholder="max"
+            class="form-Input block w-full p-2 mt-2 border rounded appearance-none" />
+        <ul
+            class="absolute bg-white p-3 w-full font-normal shadow rounded border border-t-0 {{if @priceClass.openStateMax "block" "hidden"}}">
+            {{#if @purpose.radioForRent }}
 
-            {{#if @forSale}}
-
-            <option default="" value="9999999">Max</option>
-            <option value="100000">€ 100 000</option>
-            <option value="150000">€ 150 000</option>
-            <option value="200000">€ 200 000</option>
-            <option value="250000">€ 250 000</option>
-            <option value="300000">€ 300 000</option>
-            <option value="350000">€ 350 000</option>
-            <option value="400000">€ 400 000</option>
-            <option value="450000">€ 450 000</option>
-            <option value="500000">€ 500 000</option>
-            <option value="550000">€ 550 000</option>
-            <option value="600000">€ 600 000</option>
-            <option value="650000">€ 650 000</option>
-            <option value="700000">€ 700 000+</option>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" default="" data-value="9999999">Max</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="500">€ 500</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="500">€ 750</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="1000">€ 1000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="1250">€ 1250</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="1500">€ 1500</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="1750">€ 1750</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="2000">€ 2000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="2250">€ 2250</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="2500">€ 2500</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="2750">€ 2750</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="3000">€ 3000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="3250">€ 3250</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="3500">€ 3500</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="3750">€ 3750</li>
 
             {{/if}}
-        </select>
+
+            {{#if @purpose.radioForSale}}
+
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" default="" data-value="9999999">Max</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="100000">€ 100 000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="150000">€ 150 000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="200000">€ 200 000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="250000">€ 250 000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="300000">€ 300 000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="350000">€ 350 000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="400000">€ 400 000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="450000">€ 450 000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="500000">€ 500 000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="550000">€ 550 000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="600000">€ 600 000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="650000">€ 650 000</li>
+            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="700000">€ 700 000+</li>
+
+            {{/if}}
+        </ul>
     </div>
 </div>

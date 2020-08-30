@@ -53,26 +53,9 @@ class FavoritesClass{
 
 export default class PropertyMainComponent extends Component {
 
+    @tracked Favorite = new FavoritesClass(
+        this.args.estate.EstateID, 
+        JSON.parse(window.localStorage.getItem('favorites'))
+        )
 
-    @tracked Favorite = new FavoritesClass(this.args.estate.EstateID, JSON.parse(window.localStorage.getItem('favorites')))
-
-
-    @action
-    addRemove(id){
-        this.favorites.addRemove(id)
-    }
-
-    @action
-    showList(){
-        console.log(this.args.estate.EstateID)
-    }
-
-
-    // ACTIONS 
-  
-
-
-    // FUNCTIONS
-
-    
 }

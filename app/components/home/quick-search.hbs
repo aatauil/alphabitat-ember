@@ -7,8 +7,8 @@
                 src="/assets/vector/down-arrow-black.svg" alt="Black down pointing arrow"></button>
 
         {{!-- Component --}}
-        <div class="{{if this.Dropdown.purpose "flex" "hidden"}}">
-            <Home::QuickSearch::PurposeDropdown @setPurpose={{this.Purpose.setPurpose}} @forSale={{this.Purpose.radioForSale}} @forRent={{this.Purpose.radioForRent}}/>
+        <div class={{if this.Dropdown.purpose "flex" "hidden"}}>
+            <Home::QuickSearch::PurposeDropdown @purpose={{this.Purpose}}/>
         </div>
 
     </div>
@@ -21,7 +21,7 @@
 
             {{!-- Component --}}
             <div class="{{if this.Dropdown.price "flex" "hidden"}}">
-                <Home::QuickSearch::PriceDropdown @forSale={{this.Purpose.radioForSale}} @forRent={{this.Purpose.radioForRent}} @updateMin={{this.Price.updateMinBudget}} @updateMax={{this.Price.updateMaxBudget}}/>
+                <Home::QuickSearch::PriceDropdown @purpose={{this.Purpose}} @priceClass={{this.Price}} />
             </div>
             
     </div>
@@ -33,7 +33,7 @@
             <img src="/assets/vector/down-arrow-black.svg" alt="Black down pointing arrow"></button>
 
         {{!-- Component --}}
-        <div class="{{if this.Dropdown.region "flex" "hidden"}}">
+        <div class={{if this.Dropdown.region "flex" "hidden"}}>
             <Home::QuickSearch::RegionDropdown @verifyRegion={{this.Region.verifyRegion}} @cbAll={{this.Region.cbRegionAll}} @cbBrux={{this.Region.cbBrux}} @cbFlem={{this.Region.cbFlem}} @cbWall={{this.Region.cbWall}} @cbFlan={{this.Region.cbFlan}} @cbOther={{this.Region.cbOther}}/>
         </div>
 
@@ -41,7 +41,7 @@
         <LinkTo type="button" @route="search"
         @query={{hash buyRent=this.Purpose.buyRent minPrice=this.Price.minBudget maxPrice=this.Price.maxBudget regions=this.Region.regionList}}
         class="py-5 px-10 md:px-12 bg-red-600 font-bold text-white hover:bg-blue-600 anim"
-        {{ on 'click' this.Dropdown.toggleAll}}>
+        {{on 'click' this.Dropdown.toggleAll}}>
         Search
     </LinkTo>
 </div>

@@ -3,7 +3,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 
-// MANAGES THE OPEN/CLOSED STATE OF EACH DROPDOWN ELEMENT=========
+// MANAGES THE OPEN/CLOSED STATE OF EACH DROPDOWN ELEMENT=============
 class DropDownClass {
     @tracked purpose;
     @tracked price;
@@ -40,10 +40,7 @@ class DropDownClass {
     }
 }
 
-
-
-
-// MANAGES PURPOSE DROPDOWN STATE===========================
+// MANAGES PURPOSE DROPDOWN STATE=====================================
 class PurposeClass {
     @tracked purposeState;
     @tracked radioForSale;
@@ -78,52 +75,46 @@ class PurposeClass {
     }
 }
 
-
-
-
-// MANAGES PRICE DROPDOWN STATE============================
+// MANAGES PRICE DROPDOWN STATE========================================
 class PriceClass {
 
     @tracked minBudget;
     @tracked maxBudget;
+    @tracked minOpenState;
+    @tracked maxOpenState;
 
     constructor(){
-        this.minBudget = 0;
+        this.minBudget = "";
         this.maxBudget = 9999999;
+        this.minOpenState = false;
+        this.maxOpenState = false;
+    }
+
+    @action debug(){
+        console.log("debug")
     }
 
     // PRICE LOGIC
     @action updateMinBudget(event){
-
-        if(event.target.value > this.maxBudget){
-            event.preventDefault();
-            console.log("1")
-            this.maxBudget = 9999999
-        }
-        console.log("min => " + this.minBudget)
-        console.log("max => " + this.maxBudget)
-
-        this.minBudget = event.target.value;
+        console.log("triggered");
+        this.minOpenState = false;
 
     }
 
     @action updateMaxBudget(event){
-        console.log("min => " + this.minBudget)
-        console.log("max => " + this.maxBudget)
+     
         this.maxBudget = event.target.value;
+    }
 
-        if(event.target.value < this.minBudget){
-            console.log("2")
-            this.minBudget = 0
+    checkPrice(){
+        if(this.minBudget > this.maxBudget){
+            console.log('min budget exeeds max');
         }
     }
     
 }
 
-
-
-
-// MANAGES REGION DROPDOWN STATE===========================
+// MANAGES REGION DROPDOWN STATE=======================================
 class RegionClass {
 
     @tracked cbRegionAll;
@@ -256,11 +247,11 @@ class RegionClass {
 export default class HomeQuickSearchComponent extends Component {
 
     // Dropdown Open/Closed State Handler
-    @tracked Dropdown = new DropDownClass()
+    @tracked Dropdown = new DropDownClass();
 
     // Individual dropdown element handlers
-    @tracked Purpose = new PurposeClass()
-    @tracked Price = new PriceClass()
-    @tracked Region = new RegionClass()
+    @tracked Purpose = new PurposeClass();
+    @tracked Price = new PriceClass();
+    @tracked Region = new RegionClass();
 
 }

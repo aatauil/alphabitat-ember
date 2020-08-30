@@ -43,7 +43,7 @@ export default class SearchRoute extends Route {
 
         let controller = this.controllerFor('search');
         controller.set('currentlyLoading', true);
-        const response = await axios.get(`${ENV.APP.API_URL}{"ClientId":"${ENV.APP.API_TOKEN}","Page":0,"Language":"en-gb","CategoryIDList":[${ categoryList || "" }], "RegionIDList": [${ regionList || "" }],"PurposeIDList": [${ purposeID || 1 }], "MinRooms": ${minBedrooms || null}, "MinBathRooms":${minBathrooms || null}, "AreaRange": [${minArea || 0}, 1000], "OrderByFields":["${order || ""}"] }`)
+        const response = await axios.get(`${ENV.APP.API_URL}{"ClientId":"${ENV.APP.API_TOKEN}","Page":0,"Language":"en-gb","RowsPerPage":30,"CategoryIDList":[${ categoryList || "" }], "RegionIDList": [${ regionList || "" }],"PurposeIDList": [${ purposeID || 1 }], "MinRooms": ${minBedrooms || null}, "MinBathRooms":${minBathrooms || null}, "AreaRange": [${minArea || 0}, 1000], "OrderByFields":["${order || ""}"] }`)
         const data = await response.data.d.EstateList
         await controller.set('currentlyLoading', false);
         return data
