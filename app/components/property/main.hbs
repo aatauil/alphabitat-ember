@@ -53,7 +53,7 @@
         </div>
 
             <LeafletMap class="w-1/3 hidden map-height  lg:block" @lat={{@gps.Longitude}} @lng={{@gps.Latitude}} @zoom={{10}} as |layers| >
-                <layers.tile class="w-full h-full " @url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"/>
+                <layers.tile class="w-full h-full " @url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
                   <layers.marker @location={{@gps.List}} as |marker|>
                     <marker.popup>
                     <h3>{{@estate.City}}</h3>
