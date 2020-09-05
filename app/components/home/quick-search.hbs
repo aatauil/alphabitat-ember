@@ -34,12 +34,12 @@
 
         {{!-- Component --}}
         <div class={{if this.Dropdown.region "flex" "hidden"}}>
-            <Home::QuickSearch::RegionDropdown @verifyRegion={{this.Region.verifyRegion}} @cbAll={{this.Region.cbRegionAll}} @cbBrux={{this.Region.cbBrux}} @cbFlem={{this.Region.cbFlem}} @cbWall={{this.Region.cbWall}} @cbFlan={{this.Region.cbFlan}} @cbOther={{this.Region.cbOther}}/>
+            <Home::QuickSearch::RegionDropdown @region={{this.Region}} @cbAll={{this.Region.cbRegionAll}} @cbBrux={{this.Region.cbBrux}} @cbFlem={{this.Region.cbFlem}} @cbWall={{this.Region.cbWall}} @cbFlan={{this.Region.cbFlan}} @cbOther={{this.Region.cbOther}}/>
         </div>
 
     </div>
         <LinkTo type="button" @route="search"
-        @query={{hash buyRent=this.Purpose.buyRent minPrice=(if (eq this.Price.minBudget "") null (to-num this.Price.minBudget)) maxPrice=(if (eq this.Price.maxBudget "") null (to-num this.Price.maxBudget)) }}
+        @query={{hash buyRent=this.Purpose.buyRent minPrice=(if (eq this.Price.minBudget "") null (to-num this.Price.minBudget)) maxPrice=(if (eq this.Price.maxBudget "") null (to-num this.Price.maxBudget)) regions=this.Region.list}}
         class="py-5 px-10 md:px-12 bg-red-600 font-bold text-white hover:bg-blue-600 anim"
         {{on 'click' this.Dropdown.toggleAll}}>
         Search
