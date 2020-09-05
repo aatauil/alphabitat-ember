@@ -1,14 +1,14 @@
-<div class="triangle absolute w-64 mt-2 flex  shadow-xl p-5 flex-col bg-white font-bold rounded ">
+ <div class="triangle absolute w-64 mt-2 flex  shadow-xl p-5 flex-col bg-white font-bold rounded ">
 
     <label class="inline-flex items-center mt-3">
         <input type="radio" name="purpose" class="h-5 w-5 text-gray-600" value="1"
-            checked={{@purpose.radioForRent}} {{ on 'click'  (fn @purpose.setPurpose 'For sale')}} /><span
+            checked={{@purpose.radioForSale}} {{ on 'click'  (fn @purpose.setPurpose 'For sale')}} {{on 'change' @priceClass}}/><span
             class="ml-4 text-gray-700">For sale</span>
     </label>
 
     <label class="inline-flex items-center mt-3">
         <input type="radio" name="purpose" class="h-5 w-5 text-gray-600" value="2"
-            checked={{@purpose.radioForSale}} {{ on 'click' (fn @purpose.setPurpose 'For rent')}} /><span
+            checked={{@purpose.radioForRent}} {{ on 'click' (fn @purpose.setPurpose 'For rent')}} {{on 'change' @priceClass}}/><span
             class="ml-4 text-gray-700">For rent</span>
     </label>
 

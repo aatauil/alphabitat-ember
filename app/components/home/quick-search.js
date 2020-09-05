@@ -85,7 +85,7 @@ class PriceClass {
 
     constructor(){
         this.minBudget = "";
-        this.maxBudget = 9999999;
+        this.maxBudget = "";
         this.minOpenState = false;
         this.maxOpenState = false;
     }
@@ -96,19 +96,35 @@ class PriceClass {
 
     // PRICE LOGIC
     @action updateMinBudget(event){
-        console.log("triggered");
+        this.minBudget = event.target.dataset.value;
         this.minOpenState = false;
+        this.checkPrice( "maxBudget")
 
+    }
+
+    @action toggleOpenState(elem){
+      this[elem] = !this[elem]
     }
 
     @action updateMaxBudget(event){
-     
-        this.maxBudget = event.target.value;
+      
+        this.maxBudget = event.target.dataset.value;
+        this.maxOpenState = false;
+
+        this.checkPrice("minBudget")
     }
 
-    checkPrice(){
-        if(this.minBudget > this.maxBudget){
-            console.log('min budget exeeds max');
+    @action resetBudget(){
+      this.minBudget = ''
+      this.maxBudget = ''
+    }
+
+    
+
+    checkPrice(right){
+        if(this.maxBudget < this.minBudget){
+          console.log('again')
+            this[right] = ''
         }
     }
     

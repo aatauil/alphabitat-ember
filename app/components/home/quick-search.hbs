@@ -8,7 +8,7 @@
 
         {{!-- Component --}}
         <div class={{if this.Dropdown.purpose "flex" "hidden"}}>
-            <Home::QuickSearch::PurposeDropdown @purpose={{this.Purpose}}/>
+            <Home::QuickSearch::PurposeDropdown @purpose={{this.Purpose}}  @priceClass={{this.Price.resetBudget}}/>
         </div>
 
     </div>
@@ -39,7 +39,7 @@
 
     </div>
         <LinkTo type="button" @route="search"
-        @query={{hash buyRent=this.Purpose.buyRent minPrice=this.Price.minBudget maxPrice=this.Price.maxBudget regions=this.Region.regionList}}
+        @query={{hash buyRent=this.Purpose.buyRent minPrice=(to-num this.Price.minBudget) maxPrice=(to-num this.Price.maxBudget) regions=this.Region.regionList}}
         class="py-5 px-10 md:px-12 bg-red-600 font-bold text-white hover:bg-blue-600 anim"
         {{on 'click' this.Dropdown.toggleAll}}>
         Search
