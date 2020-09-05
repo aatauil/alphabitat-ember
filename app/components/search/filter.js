@@ -8,8 +8,8 @@ class PurposeClass{
     // LOGIC HAPPENS INSIDE .HBS
     @tracked buyRent;
 
-    constructor(args){
-      this.buyRent = args || 1
+    constructor(context){
+      this.buyRent = context.buyRent || 1
     }
 
 }
@@ -22,15 +22,12 @@ class PriceClass{
 
   constructor(context){
       this.context = context
-      this.minBudget = "";
-      this.maxBudget = "";
+      this.minBudget = context.query.minPrice || "";
+      this.maxBudget = context.query.maxPrice || "";
       this.minOpenState = false;
       this.maxOpenState = false;
   }
 
-  @action debug(){
-      console.log("debug")
-  }
 
   // PRICE LOGIC
   @action updateMinBudget(event){
@@ -67,8 +64,8 @@ class PriceClass{
   }
 
   refetchEstate(){
-    this.context.args.refetch("minPrice", this.minBudget ? parseInt(this.minBudget.replace(/ /g, '')) : 0)
-    this.context.args.refetch("maxPrice", this.maxBudget ? parseInt(this.maxBudget.replace(/ /g, '')) : 100000000)
+    this.context.refetch("minPrice", this.minBudget ? parseInt(this.minBudget.replace(/ /g, '')) : 0)
+    this.context.refetch("maxPrice", this.maxBudget ? parseInt(this.maxBudget.replace(/ /g, '')) : 100000000)
   }
 }
 
@@ -200,41 +197,34 @@ class CategoryClass{
 
 // MANAGES REGION LIST STATE======================
 class RegionClass{
-    @tracked regionList
-    @tracked cbBxl = this.checkRegion("1") || false;
-    @tracked cbFlem = this.checkRegion("2") || false;
-    @tracked cbWall = this.checkRegion("3") || false;
-    @tracked cbFlan = this.checkRegion("4") || false;
-    @tracked cbOther = this.checkRegion("5") || false;
+
+
+  @tracked list;
+  
+  constructor(context){
+    this.context = context
+      this.list = context.query.regions.split(",");
+      
+  }
+
+  @action regionLogic(event){
+    let state = event.target.checked
+    let elem = event.target.value
     
-    constructor(){
-        this.regionList = new Array;
+    if(state == true){
+      this.list.push(elem)
+    } else{
+      const index = this.list.indexOf(elem);
+      if(index != -1){
+          this.list.splice(index, 1);
+      }
     }
 
-    @action updateList(val, e){
-        let checkedState = e.target.checked;
+    this.context.refetch('regions', this.list)
 
-        if(checkedState){
-            this.addItem(val);
-        } else if (!checkedState) {
-            this.removeItem(val);
-        }
-    }
 
-    addItem(val){
-        if(this.regionList.indexOf(val) == -1){
-            this.regionList.push(val);
-            console.log("item added to list");
-        }
-    }
+  }
 
-    removeItem(val){
-        let index = this.regionList.indexOf(val)
-        if(this.regionList.indexOf(val) != -1){
-            this.regionList.splice(index, 1);
-            console.log("item removed to list");
-        }
-    }
 }
 
 class MobileFilterClass{
@@ -263,12 +253,12 @@ export default class SearchFilterComponent extends Component {
 
     // FILTER COMPONENTS
 
-    @tracked Purpose = new PurposeClass(this.args.query.buyRent);
-    @tracked Price = new PriceClass(this, this.args.query)
+    @tracked Purpose = new PurposeClass(this.args.query);
+    @tracked Price = new PriceClass(this.args)
+    @tracked Region = new RegionClass(this.args);
 
 //     @tracked Category = new CategoryClass(this.args.query.category);
 
-//     @tracked Region = new RegionClass();
 
 //     @tracked Bed = new BedClass(this.args.query.minBed);
 

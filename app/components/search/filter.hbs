@@ -89,7 +89,7 @@
 
         <span class="text-gray-600 mx-1" leading-10>to</span>
         <div class="relative">
-          <Input name="max-budget" readonly  placeholder="max" value={{this.Price.maxBudget}}  {{ on 'focusin' (fn this.Price.toggleOpenState 'maxOpenState') }}  {{on 'change' this.Price.debug}}
+          <Input name="max-budget" readonly  placeholder="max" value={{this.Price.maxBudget}}  {{ on 'focusin' (fn this.Price.toggleOpenState 'maxOpenState') }} 
             class="form-Input block w-full p-2 border rounded appearance-none" />
           <ul class="absolute w-full left-0 bg-white p-2 font-normal shadow rounded {{if this.Price.maxOpenState "block" "hidden"}}" {{on 'click' this.Price.updateMaxBudget}}>
 
@@ -177,35 +177,35 @@
                 </label>
 
             </div>
-        </div>
+        </div> --}}
 
         <div class="mt-6">
             <h2 class="text-gray-600 py-2">Region</h2>
             <div class="flex flex-col pl-2 ">
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600" {{on "change" (pipe (fn this.Region.updateList "1") (fn @refetch "regions" this.Region.regionList))}}>
+                    <input type="checkbox" value="1" checked={{contains "1" this.Region.list}} {{ on 'change' (fn this.Region.regionLogic)}} class="h-5 w-5 text-gray-600" >
                     <span class="ml-4 text-gray-500">Brussels</span>
                 </label>
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600" {{on "change" (pipe (fn this.Region.updateList "2") (fn @refetch "regions" this.Region.regionList))}}>
+                    <input type="checkbox" value="2" checked={{contains "2" this.Region.list}} {{ on 'change' (fn this.Region.regionLogic)}} class="h-5 w-5 text-gray-600" >
                     <span class="ml-4 text-gray-500">Flemish Brabant</span>
                 </label>
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600" {{on "change" (pipe (fn this.Region.updateList "3") (fn @refetch "regions" this.Region.regionList))}}>
+                    <input type="checkbox" value="3" checked={{contains "3" this.Region.list}} {{ on 'change' (fn this.Region.regionLogic)}} class="h-5 w-5 text-gray-600" >
                     <span class="ml-4 text-gray-500">Walloon Brabant</span>
                 </label>
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600" {{on "change" (pipe (fn this.Region.updateList "4") (fn @refetch "regions" this.Region.regionList))}}>
+                    <input type="checkbox" value="4" checked={{contains "4" this.Region.list}} {{ on 'change' (fn this.Region.regionLogic)}} class="h-5 w-5 text-gray-600" >
                     <span class="ml-4 text-gray-500">East Flanders</span>
                 </label>
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600" {{on "change" (pipe (fn this.Region.updateList "5") (fn @refetch "regions" this.Region.regionList))}}>
+                    <input type="checkbox"  value="5" checked={{contains "5" this.Region.list}} {{ on 'change' (fn this.Region.regionLogic)}} class="h-5 w-5 text-gray-600" >
                     <span class="ml-4 text-gray-500">Other</span>
                 </label>
             </div>
         </div>
 
-        <div class="mt-6">
+        {{!-- <div class="mt-6">
             <h2 class="text-gray-600 py-3 flex items-end mb-2"> <img src="/assets/vector/bed.svg" alt="bed icon"
                     class="mr-2 opacity-50"> <span class="leading-none"> Bedrooms </span></h2>
             <div class="flex justify-start">
