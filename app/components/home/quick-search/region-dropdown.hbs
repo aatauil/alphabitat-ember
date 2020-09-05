@@ -1,36 +1,28 @@
 <div class="triangle absolute w-64 mt-2 shadow-xl p-5 flex flex-col bg-white font-bold rounded">
 
     <label class="inline-flex items-center mt-3">
-        <Input @type="checkbox" value="1,2,3,4,5" class="h-5 w-5 text-gray-600"
-            @checked={{@cbAll}}
-            {{ on 'click' (fn @verifyRegion 'cbRegionAll')}} /><span
-            class="ml-4 text-gray-700">All</span>
-    </label>
-    <div class="w-full border-b py-2"></div>
-
-    <label class="inline-flex items-center mt-3">
-        <Input @type="checkbox" value="1" class="h-5 w-5 text-gray-600" @checked={{@cbBrux}}
-            {{ on 'click' (fn @verifyRegion 'cbBrux')}} /><span
+        <Input @type="checkbox" value="1" class="h-5 w-5 text-gray-600" 
+            {{ on 'change' (fn @region.regionLogic )}} /><span
             class="ml-4 text-gray-700">Brussels</span>
     </label>
     <label class="inline-flex items-center mt-3">
-        <Input @type="checkbox" value="2" class="h-5 w-5 text-gray-600" @checked={{@cbFlem}}
-            {{ on 'click' (fn @verifyRegion 'cbFlem')}} /><span
+        <Input @type="checkbox" value="2" class="h-5 w-5 text-gray-600"
+            {{ on 'change' (fn @region.regionLogic)}} /><span
             class="ml-4 text-gray-700">Flemish Brabant</span>
     </label>
     <label class="inline-flex items-center mt-3">
-        <Input @type="checkbox" value="3" class="h-5 w-5 text-gray-600" @checked={{@cbWall}}
-            {{ on 'click' (fn @verifyRegion 'cbWall')}} /><span
+        <Input @type="checkbox" value="3" class="h-5 w-5 text-gray-600" 
+            {{ on 'change' (fn @region.regionLogic)}} /><span
             class="ml-4 text-gray-700">Walloon Brabant</span>
     </label>
     <label class="inline-flex items-center mt-3">
-        <Input @type="checkbox" value="4" class="h-5 w-5 text-gray-600" @checked={{@cbFlan}}
-            {{ on 'click' (fn @verifyRegion 'cbFlan')}} /><span class="ml-4 text-gray-700">East
+        <Input @type="checkbox" value="4" class="h-5 w-5 text-gray-600" 
+            {{ on 'change' (fn @region.regionLogic)}} /><span class="ml-4 text-gray-700">East
             Flanders</span>
     </label>
     <label class="inline-flex items-center mt-3">
-        <Input @type="checkbox" value="5" class="h-5 w-5 text-gray-600" @checked={{@cbOther}}
-            {{ on 'click' (fn @verifyRegion 'cbOther')}} /><span
+        <Input @type="checkbox" value="5" class="h-5 w-5 text-gray-600"
+            {{ on 'change' (fn @region.regionLogic)}} /><span
             class="ml-4 text-gray-700">Other</span>
     </label>
 </div>
