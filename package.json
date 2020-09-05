@@ -72,5 +72,6 @@
   "ember": {
     "edition": "octane"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "ember-addon": {}
 }
