@@ -44,23 +44,18 @@ import { action } from '@ember/object';
 
 export default class SearchController extends Controller {
     
-    queryParams= ['buyRent', 'minPrice', "maxPrice", "regions", "minBed", "category", "minBath", "minArea", "order"];
+    queryParams= ['buyRent', 'minPrice', "maxPrice"];
 
     //TRACKED
     @tracked buyRent = 1
     @tracked minPrice = 0
     @tracked maxPrice = 9999999
-    @tracked regions = ""
-    @tracked minBed = 0
-    @tracked minBath = 0
-    @tracked category = ""
-    @tracked minArea = 0
-    @tracked order = ""
+
 
     // ACTIONS
     @action updateParam(elem, id){
         this[elem]= id;
-        console.log(elem, id);
+
     }
     
     //GETTER
@@ -71,11 +66,6 @@ export default class SearchController extends Controller {
         obj.buyRent = this.buyRent;
         obj.minPrice = this.minPrice;
         obj.maxPrice = this.maxPrice;
-        obj.minBed = this.minBed;
-        obj.regions = this.regions;
-        obj.category = this.category;
-        obj.minBath = this.minBath;
-        obj.order = this.order
 
         return obj
     }

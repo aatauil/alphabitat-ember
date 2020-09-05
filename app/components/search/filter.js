@@ -6,10 +6,70 @@ import { action } from '@ember/object';
 class PurposeClass{
 
     // LOGIC HAPPENS INSIDE .HBS
+    @tracked buyRent;
 
-    constructor(){
-
+    constructor(args){
+      this.buyRent = args || 1
     }
+
+}
+
+class PriceClass{
+  @tracked minBudget;
+  @tracked maxBudget;
+  @tracked minOpenState;
+  @tracked maxOpenState;
+
+  constructor(context){
+      this.context = context
+      this.minBudget = "";
+      this.maxBudget = "";
+      this.minOpenState = false;
+      this.maxOpenState = false;
+  }
+
+  @action debug(){
+      console.log("debug")
+  }
+
+  // PRICE LOGIC
+  @action updateMinBudget(event){
+      this.minBudget = event.target.dataset.value;
+      this.minOpenState = false;
+      this.checkPrice( "maxBudget")
+      this.refetchEstate()
+
+  }
+
+  @action toggleOpenState(elem){
+    this[elem] = !this[elem]
+  }
+
+  @action updateMaxBudget(event){
+    
+      this.maxBudget = event.target.dataset.value;
+      this.maxOpenState = false;
+      this.checkPrice("minBudget")
+      this.refetchEstate()
+  }
+
+  @action resetBudget(){
+    this.minBudget = ''
+    this.maxBudget = ''
+  }
+
+  checkPrice(right){
+    let parsedMin = this.minBudget ? parseInt(this.minBudget.replace(/ /g, '')) : 0
+    let parsedMax = this.maxBudget ? parseInt(this.maxBudget.replace(/ /g, '')) : 100000000
+    if(parsedMax  < parsedMin ){
+        this[right] = ''
+    }
+  }
+
+  refetchEstate(){
+    this.context.args.refetch("minPrice", this.minBudget ? parseInt(this.minBudget.replace(/ /g, '')) : 0)
+    this.context.args.refetch("maxPrice", this.maxBudget ? parseInt(this.maxBudget.replace(/ /g, '')) : 100000000)
+  }
 }
 
 // MANAGES OPTIONS STATE==========================
@@ -203,85 +263,84 @@ export default class SearchFilterComponent extends Component {
 
     // FILTER COMPONENTS
 
-    @tracked execute = false 
+    @tracked Purpose = new PurposeClass(this.args.query.buyRent);
+    @tracked Price = new PriceClass(this, this.args.query)
 
-    @tracked Purpose = new PurposeClass();
+//     @tracked Category = new CategoryClass(this.args.query.category);
 
-    @tracked Category = new CategoryClass(this.args.query.category);
+//     @tracked Region = new RegionClass();
 
-    @tracked Region = new RegionClass();
+//     @tracked Bed = new BedClass(this.args.query.minBed);
 
-    @tracked Bed = new BedClass(this.args.query.minBed);
+//     @tracked Bath = new BathClass(this.args.query.minBath);
 
-    @tracked Bath = new BathClass(this.args.query.minBath);
+//     @tracked Area = new AreaClass(this.args.query.minArea);
 
-    @tracked Area = new AreaClass(this.args.query.minArea);
+//     @tracked Options = new OptionsClass();
 
-    @tracked Options = new OptionsClass();
-
-    @tracked Region = new RegionClass();
+//     @tracked Region = new RegionClass();
 
 
-    // UTILITY CLASSES
+//     // UTILITY CLASSES
 
     @tracked MobileFilter = new MobileFilterClass();
 
 
-    // TRIGGERS MODEL REFETCH SEE ROUTE/SEARCH
-    @action invokeRefetch(elem, e){
-        this.args.refetch(elem, e.target.value); 
-    }
+//     // TRIGGERS MODEL REFETCH SEE ROUTE/SEARCH
+//     @action invokeRefetch(elem, e){
+//         this.args.refetch(elem, e.target.value); 
+//     }
 
-    @action debug(){
-        console.log("changed");
-    }
+//     @action debug(){
+//         console.log("changed");
+//     }
 
 
 
-    // checkRegion(id){
+//     // checkRegion(id){
 
-        // let exists = this.regionList.indexOf(id)
-        // if (exists == -1){
-        //     console.log("false")
-        //     return false
-        // } else {
-        //     console.log("true")
-        //     return true
-        // }
+//         // let exists = this.regionList.indexOf(id)
+//         // if (exists == -1){
+//         //     console.log("false")
+//         //     return false
+//         // } else {
+//         //     console.log("true")
+//         //     return true
+//         // }
         
-    // }
+//     // }
 
         
-    // BATHROOM LOGIC
+//     // BATHROOM LOGIC
 
     
-    // Shared Logic
+//     // Shared Logic
 
-    // @action updateState(element){
+//     // @action updateState(element){
 
-    //     console.log(element)
+//     //     console.log(element)
 
-    //     // Radio
-    //     if(element == "For sale"){
-    //         console.log(1)
-    //         this.radioForSale = true
-    //         this.radioForRent = false
-    //         this.buyRent = 1
-    //         this.minPrice = "0"
-    //         this.maxPrice = "9999999"
-    //     }
+//     //     // Radio
+//     //     if(element == "For sale"){
+//     //         console.log(1)
+//     //         this.radioForSale = true
+//     //         this.radioForRent = false
+//     //         this.buyRent = 1
+//     //         this.minPrice = "0"
+//     //         this.maxPrice = "9999999"
+//     //     }
 
-    //     if(element == "For rent"){
-    //         console.log(2)
-    //         this.radioForRent = true
-    //         this.radioForSale = false
-    //         this.buyRent = 2
-    //         this.minPrice = "0"
-    //         this.maxPrice = "9999999"
-    //     }
-    // }
+//     //     if(element == "For rent"){
+//     //         console.log(2)
+//     //         this.radioForRent = true
+//     //         this.radioForSale = false
+//     //         this.buyRent = 2
+//     //         this.minPrice = "0"
+//     //         this.maxPrice = "9999999"
+//     //     }
+//     // }
 
-    // FILTER MOBILE
+//     // FILTER MOBILE
 
 
 

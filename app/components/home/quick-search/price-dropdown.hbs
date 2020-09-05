@@ -3,14 +3,14 @@
 
         <label for="price" class="block text-sm text-gray-800">min.
         </label>
-        <Input name="min-budget" placeholder="min" value={{@priceClass.minBudget}} {{ on 'focusin' (fn @priceClass.toggleOpenState 'minOpenState') }}
+        <Input name="min-budget" readonly placeholder="min" value={{@priceClass.minBudget}} {{ on 'focusin' (fn @priceClass.toggleOpenState 'minOpenState') }}
             class="form-Input block w-full p-2 mt-2 border rounded appearance-none" />
 
         <ul
             class="absolute bg-white p-3 w-full font-normal shadow rounded border border-t-0 {{if @priceClass.minOpenState "block" "hidden"}}" {{on 'click' @priceClass.updateMinBudget}}>
 
 
-            {{#if @purpose.radioForRent }}
+            {{#if (eq @purpose 2) }}
 
             <li class="py-1 hover:bg-gray-100 cursor-pointer" default="" data-value="">Min</li>
             <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="500">€ 500</li>
@@ -30,7 +30,7 @@
 
             {{/if}}
 
-            {{#if @purpose.radioForSale }}
+            {{#if (eq @purpose 1) }}
 
             <li class="py-1 hover:bg-gray-100 cursor-pointer" default="" data-value="">Min</li>
             <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="100 000">€ 100 000</li>
@@ -55,11 +55,11 @@
     <div class="w-48 relative">
         <label for="price" class="block text-sm text-gray-800">max. </label>
 
-        <Input name="max-budget" placeholder="max" value={{@priceClass.maxBudget}}  {{ on 'focusin' (fn @priceClass.toggleOpenState 'maxOpenState') }}
+        <Input name="max-budget" readonly placeholder="max" value={{@priceClass.maxBudget}}  {{ on 'focusin' (fn @priceClass.toggleOpenState 'maxOpenState') }}
             class="form-Input block w-full p-2 mt-2 border rounded appearance-none" />
         <ul
             class="absolute bg-white p-3 w-full font-normal shadow rounded border border-t-0 {{if @priceClass.maxOpenState "block" "hidden"}}" {{on 'click' @priceClass.updateMaxBudget}}>
-            {{#if @purpose.radioForRent }}
+            {{#if (eq @purpose 2)  }}
 
             <li class="py-1 hover:bg-gray-100 cursor-pointer" default="" data-value="">Max</li>
             <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="500">€ 500</li>
@@ -79,7 +79,7 @@
 
             {{/if}}
 
-            {{#if @purpose.radioForSale}}
+            {{#if (eq @purpose 1) }}
 
             <li class="py-1 hover:bg-gray-100 cursor-pointer" default="" data-value="">Max</li>
             <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="100 000">€ 100 000</li>

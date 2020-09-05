@@ -42,36 +42,11 @@ class DropDownClass {
 
 // MANAGES PURPOSE DROPDOWN STATE=====================================
 class PurposeClass {
-    @tracked purposeState;
-    @tracked radioForSale;
-    @tracked radioForRent;
+
     @tracked buyRent;
 
     constructor(){
-        this.purposeState = "For sale";
-        this.radioForSale = true;
-        this.radioForRent = false;
         this.buyRent = 1;
-    }
-
-    @action setPurpose(element){
-        this.updateState(element);
-        this.purposeState = element;
-    }
-
-    
-    updateState(element){
-        if(element == "For sale"){
-            this.radioForSale = true;
-            this.radioForRent = false;
-            this.buyRent = 1;
-        }
-
-        if(element == "For rent"){
-            this.radioForSale = false;
-            this.radioForRent = true;
-            this.buyRent = 2;
-        }
     }
 }
 
@@ -122,8 +97,9 @@ class PriceClass {
     
 
     checkPrice(right){
-        if(this.maxBudget < this.minBudget){
-          console.log('again')
+        let parsedMin = this.minBudget ? parseInt(this.minBudget.replace(/ /g, '')) : 0
+        let parsedMax = this.maxBudget ? parseInt(this.maxBudget.replace(/ /g, '')) : 100000000
+        if(parsedMax  < parsedMin ){
             this[right] = ''
         }
     }

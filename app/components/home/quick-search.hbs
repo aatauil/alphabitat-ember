@@ -3,12 +3,12 @@
     {{!-- PURPOSE SELECTOR --}}
     <div class="relative">
         <button type="button" {{ on 'click' this.Dropdown.togglePurpose}}
-            class="py-5 px-3 md:px-6 bg-white border flex justify-between w-32 md:w-64 font-bold hover:bg-blue-100 ">{{this.Purpose.purposeState}}<img
+            class="py-5 px-3 md:px-6 bg-white border flex justify-between w-32 md:w-64 font-bold hover:bg-blue-100 ">{{if (eq this.Purpose.buyRent 1) "For sale" "For rent"}}<img
                 src="/assets/vector/down-arrow-black.svg" alt="Black down pointing arrow"></button>
 
         {{!-- Component --}}
         <div class={{if this.Dropdown.purpose "flex" "hidden"}}>
-            <Home::QuickSearch::PurposeDropdown @purpose={{this.Purpose}}  @priceClass={{this.Price.resetBudget}}/>
+            <Home::QuickSearch::PurposeDropdown @purpose={{this.Purpose}}  @resetBudget={{this.Price.resetBudget}}/>
         </div>
 
     </div>
@@ -21,7 +21,7 @@
 
             {{!-- Component --}}
             <div class="{{if this.Dropdown.price "flex" "hidden"}}">
-                <Home::QuickSearch::PriceDropdown @purpose={{this.Purpose}} @priceClass={{this.Price}} />
+                <Home::QuickSearch::PriceDropdown @purpose={{this.Purpose.buyRent}} @priceClass={{this.Price}} />
             </div>
             
     </div>
@@ -39,7 +39,7 @@
 
     </div>
         <LinkTo type="button" @route="search"
-        @query={{hash buyRent=this.Purpose.buyRent minPrice=(to-num this.Price.minBudget) maxPrice=(to-num this.Price.maxBudget) regions=this.Region.regionList}}
+        @query={{hash buyRent=this.Purpose.buyRent minPrice=(if (eq this.Price.minBudget "") null (to-num this.Price.minBudget)) maxPrice=(if (eq this.Price.maxBudget "") null (to-num this.Price.maxBudget)) }}
         class="py-5 px-10 md:px-12 bg-red-600 font-bold text-white hover:bg-blue-600 anim"
         {{on 'click' this.Dropdown.toggleAll}}>
         Search
