@@ -109,128 +109,26 @@ class PriceClass {
 // MANAGES REGION DROPDOWN STATE=======================================
 class RegionClass {
 
-    @tracked cbRegionAll;
-    @tracked cbBrux;
-    @tracked cbFlem;
-    @tracked cbWall;
-    @tracked cbFlan;
-    @tracked cbOther;
-    @tracked regionList;
+    @tracked list;
     
     constructor(){
-        this.cbRegionAll = false;
-        this.cbBrux = false;
-        this.cbFlem = false;
-        this.cbWall = false;
-        this.cbFlan = false;
-        this.cbOther = false;
-        this.regionList = [];
-    }
-    
-    @action regionAllLogic(){
-
-        if (!this.cbBrux || !this.cbFlem || !this.cbWall || !this.cbFlan || !this.cbOther){
-        this.cbRegionAll = false;
-        }
-
-        if (this.cbBrux && this.cbFlem && this.cbWall && this.cbFlan && this.cbOther){
-            this.cbRegionAll = true;
-            this.checkAllRegion();
-        }   
+        this.list = [];
     }
 
-    @action verifyRegion(element, event){
-        this.updateState(element, event.target.checked, event.target.value);
-    }
-
-    checkAllRegion(){
-        this.cbBrux = true;
-        this.cbFlem = true;
-        this.cbWall = true;
-        this.cbFlan = true;
-        this.cbOther = true;
-    }
-
-    unCheckAllRegion(){
-        this.cbBrux = false;
-        this.cbFlem = false;
-        this.cbWall = false;
-        this.cbFlan = false;
-        this.cbOther = false;
-    }
-
-    regionArray(state, value){
-        if(state == true ){
-            this.addRegion(value);
-        } else if (state == false){
-            this.removeRegion(value);
-        }
-    }
-
-    addRegion(value){
-        let split = value.split(",");
-        this.regionList.push(split);
-        console.log("regionlist added =" + this.regionList);
-    }
-
-    removeRegion(value){
-        const index = this.regionList.indexOf(value);
+    @action regionLogic(event){
+      let state = event.target.checked
+      let elem = event.target.value
+      
+      if(state == true){
+        this.list.push(elem)
+      } else{
+        const index = this.list.indexOf(elem);
         if(index != -1){
-            this.regionList.splice(index, 1);
+            this.list.splice(index, 1);
         }
-        console.log("regionlist spliced =" + this.regionList)
+      }
     }
 
-    addAllRegion(){
-        this.regionList = ["1", "2", "3", "4", "5"];
-    }
-
-    removeAllRegion(){
-        this.regionList = [];
-    }
-
-    updateState(element, state, value){
-        if (element == "cbRegionAll"){
-            this.cbRegionAll = state;
-            if (this.cbRegionAll == true) {
-                this.addAllRegion();
-                this.checkAllRegion();
-            } else {
-                this.removeAllRegion();
-                this.unCheckAllRegion();
-            }
-        }
-
-        if (element == "cbBrux"){
-            this.cbBrux = state;
-            this.regionArray(state, value);
-            this.regionAllLogic();
-        }
-
-        if (element == "cbFlem"){
-            this.cbFlem = state;
-            this.regionArray(state, value);
-            this.regionAllLogic();
-        }
-
-        if (element == "cbWall"){
-            this.cbWall = state;;
-            this.regionArray(state, value);;
-            this.regionAllLogic();;
-        }
-
-        if (element == "cbFlan"){
-            this.cbFlan = state;
-            this.regionArray(state, value);
-            this.regionAllLogic();
-        }
-
-        if (element == "cbOther"){
-            this.cbOther = state;
-            this.regionArray(state, value);
-            this.regionAllLogic();
-        }
-    }
 }
 
 // =====================================================================
