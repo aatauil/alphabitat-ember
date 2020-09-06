@@ -5,9 +5,8 @@
       <h1 class="text-2xl text-gray-800">Filter</h1>
       <div class="flex">
         <LinkTo type="reset" @route="search" @query={{null}}
-          class="bg-gray-200 text-gray-900 text-base font-bold py-2 px-5 rounded hover:bg-gray-800 hover:text-white anim">
-          Reset
-          filter</LinkTo>
+          class=" text-gray-600 border px-3 text-md font-bold py-1 rounded hover:bg-red-200 hover:border-red-200  hover:text-red-900 anim">
+          Reset</LinkTo>
         <button type="button" {{on 'click' this.MobileFilter.toggleFilter}}
           class="bg-gray-200 text-gray-900 text-base font-bold py-2 px-5 rounded block xl:hidden ml-3"><img
             src="/assets/vector/close.svg" alt="Black close icon"></button>
