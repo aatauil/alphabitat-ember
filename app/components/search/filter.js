@@ -262,12 +262,7 @@ export default class SearchFilterComponent extends Component {
     @tracked Bath = new BathClass(this.args.query.minBath);
     @tracked Bed = new BedClass(this.args.query.minBed);
     @tracked Category = new CategoryClass(this.args.query.category);
-
-
-
-
-
-//     @tracked Area = new AreaClass(this.args.query.minArea);
+    @tracked Area = new AreaClass(this.args.query.minArea);
 
 //     @tracked Options = new OptionsClass();
 

@@ -179,6 +179,19 @@
             </div>
         </div>
 
+                <div class="mt-6">
+            <h2 class="text-gray-600 py-3 flex items-end">
+                <img src="/assets/vector/area.svg" alt="bed icon" class="mr-2 opacity-50"> 
+                <span class=""> Area </span>
+            </h2>
+
+            <div class="flex justify-start items-center">
+                <div class=" py-3 px-2 rounded flex-1">
+                    <Input type="range" min="10" max="300" step="10" class="w-full anim" @value={{this.Area.minArea }} {{on 'change' (fn @refetch 'minArea' this.Area.minArea)}}/>
+                </div>
+                <div class="b-gray py-2 px-3 rounded">> {{this.Area.minArea}} m² </div>
+            </div>
+
         <div class="mt-6">
             <h2 class="text-gray-600 py-2">Region</h2>
             <div class="flex flex-col pl-2 ">
@@ -246,21 +259,10 @@
             </div>
         </div>
 
-        {{!-- <div class="mt-6">
-            <h2 class="text-gray-600 py-3 flex items-end">
-                <img src="/assets/vector/area.svg" alt="bed icon" class="mr-2 opacity-50"> 
-                <span class=""> Area </span>
-            </h2>
 
-            <div class="flex justify-start items-center">
-                <div class=" py-3 px-2 rounded flex-1">
-                    <Input type="range" min="10" max="300" step="10" class="w-full anim" {{on 'change' this.debug}} @value={{this.Area.minArea }} {{on 'change' (fn @refetch 'minArea' this.Area.minArea)}}/>
-                </div>
-                <div class="b-gray py-2 px-3 rounded">> {{this.Area.minArea}} m² </div>
-            </div>
                 
 
-        <div class="mt-6">
+        {{!-- <div class="mt-6">
             <h2 class="text-gray-600 pb-2">Options</h2>
             <div class="flex flex-col pl-2 ">
                 <label class="inline-flex items-center mt-3">
@@ -276,8 +278,8 @@
             </div>
 
 
-        </div>
         </div> --}}
+        </div>
   </div>
   <div class="h-64"></div>
 
