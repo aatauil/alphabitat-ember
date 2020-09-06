@@ -202,7 +202,7 @@ class RegionClass{
   @tracked list;
   
   constructor(context){
-    this.context = context
+      this.context = context
       this.list = context.query.regions.split(",");
       
   }

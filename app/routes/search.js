@@ -35,14 +35,46 @@ export default class SearchRoute extends Route {
       order: {
         refreshModel: true
       }
-    };
+    }
+
+     convertRegion(items) {
+       console.log(items)
+      let itemList = items.split(","); 
+      let newList = []
+
+      itemList.forEach(element => {
+        switch (element) {
+          case '1': 
+            newList.push(20341)
+            break;
+  
+          case '2':
+            newList.push(20705)
+            break;
+  
+          case '3':
+            newList.push(20706,20346,20347)
+            break;
+  
+          case '4': 
+            newList.push(51498)
+            break;
+          
+          case '5':
+            newList.push(20347,20346,20345,20344,20343,20342)
+            break;
+          }
+        }
+      );
+      return newList
+    }
 
 
   
     async model(param) { 
         let purposeID = param.buyRent
         let categoryList = param.category 
-        let regionList = param.regions
+        let regionList = this.convertRegion(param.regions)
         let minBedrooms = param.minBed
         let minBathrooms = param.minBath
         let minArea = param.minArea
