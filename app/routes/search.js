@@ -11,7 +11,7 @@ export default class SearchRoute extends Route {
       buyRent: {
         refreshModel: true
       },
-      category: {
+      categories: {
         refreshModel: true
       },
       minPrice: {
@@ -73,7 +73,7 @@ export default class SearchRoute extends Route {
   
     async model(param) { 
         let purposeID = param.buyRent
-        let categoryList = param.category 
+        let categoryList = param.categories
         let regionList = this.convertRegion(param.regions)
         let minBedrooms = param.minBed
         let minBathrooms = param.minBath
