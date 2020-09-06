@@ -6,13 +6,14 @@ import { action } from '@ember/object';
 
 export default class SearchController extends Controller {
     
-    queryParams= ['buyRent', 'minPrice', "maxPrice", "regions"];
+    queryParams= ['buyRent', 'minPrice', "maxPrice", "regions", "minBath"];
 
     //TRACKED
     @tracked buyRent = 1
     @tracked minPrice = ""
     @tracked maxPrice = ""
     @tracked regions = ""
+    @tracked minBath = 0
 
 
     // ACTIONS
@@ -30,6 +31,7 @@ export default class SearchController extends Controller {
         obj.minPrice = this.minPrice;
         obj.maxPrice = this.maxPrice;
         obj.regions = this.regions
+        obj.minBath = this.minBath
 
         return obj
     }

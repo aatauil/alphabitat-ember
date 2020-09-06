@@ -69,6 +69,38 @@ class PriceClass{
   }
 }
 
+// MANAGES REGION LIST STATE======================
+class RegionClass{
+
+
+  @tracked list;
+  
+  constructor(context){
+      this.context = context
+      this.list = context.query.regions.split(",");
+      
+  }
+
+  @action regionLogic(event){
+    let state = event.target.checked
+    let elem = event.target.value
+    
+    if(state == true){
+      this.list.push(elem)
+    } else{
+      const index = this.list.indexOf(elem);
+      if(index != -1){
+          this.list.splice(index, 1);
+      }
+    }
+
+    this.context.refetch('regions', this.list)
+
+
+  }
+
+}
+
 // MANAGES OPTIONS STATE==========================
 class OptionsClass{
     
@@ -195,38 +227,6 @@ class CategoryClass{
     }
 }
 
-// MANAGES REGION LIST STATE======================
-class RegionClass{
-
-
-  @tracked list;
-  
-  constructor(context){
-      this.context = context
-      this.list = context.query.regions.split(",");
-      
-  }
-
-  @action regionLogic(event){
-    let state = event.target.checked
-    let elem = event.target.value
-    
-    if(state == true){
-      this.list.push(elem)
-    } else{
-      const index = this.list.indexOf(elem);
-      if(index != -1){
-          this.list.splice(index, 1);
-      }
-    }
-
-    this.context.refetch('regions', this.list)
-
-
-  }
-
-}
-
 class MobileFilterClass{
 
     
@@ -256,19 +256,17 @@ export default class SearchFilterComponent extends Component {
     @tracked Purpose = new PurposeClass(this.args.query);
     @tracked Price = new PriceClass(this.args)
     @tracked Region = new RegionClass(this.args);
+    @tracked Bath = new BathClass(this.args.query.minBath);
 
 //     @tracked Category = new CategoryClass(this.args.query.category);
 
 
 //     @tracked Bed = new BedClass(this.args.query.minBed);
 
-//     @tracked Bath = new BathClass(this.args.query.minBath);
 
 //     @tracked Area = new AreaClass(this.args.query.minArea);
 
 //     @tracked Options = new OptionsClass();
-
-//     @tracked Region = new RegionClass();
 
 
 //     // UTILITY CLASSES
