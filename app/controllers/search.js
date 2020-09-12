@@ -22,7 +22,6 @@ export default class SearchController extends Controller {
     // ACTIONS
     @action updateParam(elem, id){
         this[elem]= id;
-
     }
     
     //GETTER

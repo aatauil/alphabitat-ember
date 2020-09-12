@@ -38,7 +38,6 @@ export default class SearchRoute extends Route {
     }
 
      convertRegion(items) {
-       console.log(items)
       let itemList = items.split(","); 
       let newList = []
 
@@ -81,7 +80,6 @@ export default class SearchRoute extends Route {
         let order = param.order 
         let minPrice = param.minPrice 
         let maxPrice = param.maxPrice 
-        console.log(param)
 
         let controller = this.controllerFor('search');
         controller.set('currentlyLoading', true);
