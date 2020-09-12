@@ -4,9 +4,9 @@
     <div class="flex justify-between items-center border-b pb-4">
       <h1 class="text-2xl text-gray-800">Filter</h1>
       <div class="flex">
-        <LinkTo type="reset" @route="search" @query={{null}}
-          class=" text-gray-600 border px-3 text-md font-bold py-1 rounded hover:bg-red-200 hover:border-red-200  hover:text-red-900 anim">
-          Reset</LinkTo>
+        <button type="reset" {{on 'click' this.reset}}
+          class=" text-gray-600 border px-3 text-md font-bold py-1 rounded hover:bg-red-200 hover:border  hover:text-red-900 anim">
+          Reset</button>
         <button type="button" {{on 'click' this.MobileFilter.toggleFilter}}
           class="bg-gray-200 text-gray-900 text-base font-bold py-2 px-5 rounded block xl:hidden ml-3"><img
             src="/assets/vector/close.svg" alt="Black close icon"></button>
@@ -195,11 +195,11 @@
             <h2 class="text-gray-600 py-2">Region</h2>
             <div class="flex flex-col pl-2 ">
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" value="1" checked={{contains "1" this.Region.list}} {{ on 'change' (fn this.Region.regionLogic)}} class="h-5 w-5 text-gray-600" >
+                    <Input type="checkbox" value="1" checked={{contains "1" this.Region.list}} {{ on 'change' (fn this.Region.regionLogic)}} class="h-5 w-5 text-gray-600" />
                     <span class="ml-4 text-gray-500">Brussels</span>
                 </label>
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" value="2" checked={{contains "2" this.Region.list}} {{ on 'change' (fn this.Region.regionLogic)}} class="h-5 w-5 text-gray-600" >
+                    <Input type="checkbox" value="2" checked={{contains "2" this.Region.list}} {{ on 'change' (fn this.Region.regionLogic)}} class="h-5 w-5 text-gray-600" />
                     <span class="ml-4 text-gray-500">Flemish Brabant</span>
                 </label>
                 <label class="inline-flex items-center mt-3">

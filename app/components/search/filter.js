@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import EmberArray from '@ember/array';
 
 // MANAGES PURPOSE STATE==========================
 class PurposeClass{
@@ -73,7 +74,7 @@ class PriceClass{
 class RegionClass{
 
 
-  @tracked list;
+  @tracked list = EmberArray
   
   constructor(context){
       this.context = context
@@ -98,6 +99,8 @@ class RegionClass{
 
 
   }
+
+
 
 }
 
@@ -265,7 +268,20 @@ export default class SearchFilterComponent extends Component {
     @tracked Area = new AreaClass(this.args.query.minArea);
 
 //     @tracked Options = new OptionsClass();
-
+  @action reset(){
+    this.Purpose.buyRent = 1
+    this.args.refetch('buyRent', 1)
+    this.Price.maxBudget = ""
+    this.args.refetch('maxPrice', "")
+    this.Price.minBudget = ""
+    this.args.refetch('minPrice', "")
+    this.Area.minArea = 0
+    this.args.refetch('minArea', 0)
+    this.Bath.bathrooms = 0
+    this.args.refetch('minBath', 0)
+    this.Bed.bedrooms = 0
+    this.args.refetch('minBed', 0)
+  }
 
 //     // UTILITY CLASSES
 
