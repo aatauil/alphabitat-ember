@@ -1,6 +1,6 @@
     
     
-<LinkTo @route='property' @query={{hash estateID=@item.EstateID}} class="rounded-lg bg-white b-gray hover:shadow-xl transform hover:-translate-y-1 p-2 anim">
+<LinkTo @route='property' @query={{hash estateID=@item.EstateID}} class="rounded-lg bg-white b-gray hover:shadow-xl transform hover:-translate-y-1 p-2 anim focus:border-blue-700 outline-none   ">
 
     <div style={{safe-string (concat "background-image: url('" @item.Pictures.[0].UrlLarge "')" )}} class="relative h-64 w-full rounded-lg bg-cover">
         <div class="absolute bottom-0 right-0 mr-0 mb-2 text-xl text-white px-4 py-1 font-bold bg-black rounded-l-lg">{{@item.Currency}} {{parse-price @item.Price}}</div>
