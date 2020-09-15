@@ -37,8 +37,12 @@ export default class SearchRoute extends Route {
       }
     }
 
-     convertRegion(items) {
-      let itemList = items.split(","); 
+    convertRegion(items) {
+    let itemList;
+      if(!items){
+      return []
+      }
+      itemList = items.split(","); 
       let newList = []
 
       itemList.forEach(element => {

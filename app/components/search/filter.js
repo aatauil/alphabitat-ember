@@ -1,7 +1,6 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import EmberArray from '@ember/array';
 
 // MANAGES PURPOSE STATE==========================
 class PurposeClass{
@@ -72,14 +71,13 @@ class PriceClass{
 
 // MANAGES REGION LIST STATE======================
 class RegionClass{
-
-
-  @tracked list = EmberArray
+  
+  @tracked list = []
   
   constructor(context){
-      this.context = context
-      this.list = context.query.regions.split(",");
-      
+      this.context = context   
+      this.list = context.query.regions.split(",")
+      console.log(this.list)
   }
 
   @action regionLogic(event){
@@ -95,7 +93,7 @@ class RegionClass{
       }
     }
 
-    this.context.refetch('regions', this.list)
+    this.context.refetch('regions', this.list.toString())
 
 
   }
@@ -176,34 +174,37 @@ class BedClass{
 
 // MANAGES CATEGORY LIST STATE====================
 class CategoryClass{
-  @tracked categoryList;
+  @tracked list = []
 
-  constructor(val){
-      this.categoryList = new Array;
-  }
+  constructor(context){
+    this.context = context   
+    this.list = context.query.categories ? context.query.categories.split(",") : []
+}
 
-  @action updateList(val, e){
-      let checkedState = e.target.checked;
+  @action updateList(event){
+      let checkedState = event.target.checked;
+      let elem = event.target.value
 
       if(checkedState){
-          this.addItem(val);
+          this.addItem(elem);
       } else if (!checkedState) {
-          this.removeItem(val);
+          this.removeItem(elem);
       }
+
+      this.context.refetch('categories', this.list)
   }
 
   addItem(val){
-      if(this.categoryList.indexOf(val) == -1){
-          this.categoryList.push(val);
-          console.log("item added to list");
+      if(this.list.indexOf(val) == -1){
+          this.list.push(val);
+
       }
   }
 
   removeItem(val){
-      let index = this.categoryList.indexOf(val)
-      if(this.categoryList.indexOf(val) != -1){
-          this.categoryList.splice(index, 1);
-          console.log("item removed to list");
+      let index = this.list.indexOf(val)
+      if(this.list.indexOf(val) != -1){
+          this.list.splice(index, 1);
       }
   }
 }
@@ -229,8 +230,6 @@ class AreaClass{
         this.minArea = val || 0;
     }
 }
-
-
 
 
 class MobileFilterClass{
@@ -264,7 +263,7 @@ export default class SearchFilterComponent extends Component {
     @tracked Region = new RegionClass(this.args);
     @tracked Bath = new BathClass(this.args.query.minBath);
     @tracked Bed = new BedClass(this.args.query.minBed);
-    @tracked Category = new CategoryClass(this.args.query.category);
+    @tracked Category = new CategoryClass(this.args);
     @tracked Area = new AreaClass(this.args.query.minArea);
 
 //     @tracked Options = new OptionsClass();
@@ -281,6 +280,10 @@ export default class SearchFilterComponent extends Component {
     this.args.refetch('minBath', 0)
     this.Bed.bedrooms = 0
     this.args.refetch('minBed', 0)
+    this.Region.list = []
+    this.args.refetch('regions', "")
+    this.Category.list = []
+    this.args.refetch('categories', null)
   }
 
 //     // UTILITY CLASSES

@@ -86,7 +86,7 @@
           </ul>
         </div>
 
-        <span class="text-gray-600 mx-1" leading-10>to</span>
+        <span class="text-gray-600 mx-1 leading-10" >to</span>
         <div class="relative">
           <Input name="max-budget" readonly  placeholder="max" value={{this.Price.maxBudget}}  {{ on 'focusin' (fn this.Price.toggleOpenState 'maxOpenState') }} 
             class="form-Input block w-full p-2 border rounded appearance-none" />
@@ -140,38 +140,38 @@
             <div class="flex flex-col pl-2 ">
 
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600" {{on "change" (pipe (fn this.Category.updateList "1") (fn @refetch "categories" this.Category.categoryList))}}>
+                    <Input @type="checkbox" class="h-5 w-5 text-gray-600" value="1" @checked={{contains "1" this.Category.list}} {{on "change" this.Category.updateList }}/>
                     <span class="ml-4 text-gray-500">Houses</span>
                 </label>
 
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600" {{on "change" (pipe (fn this.Category.updateList "2") (fn @refetch "categories" this.Category.categoryList))}}>
+                    <Input @type="checkbox" class="h-5 w-5 text-gray-600" value="2" @checked={{contains "2" this.Category.list}} {{on "change" this.Category.updateList }}/>
                     <span class="ml-4 text-gray-500">Flats</span>
                 </label>
 
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600" {{on "change" (pipe (fn this.Category.updateList "3") (fn @refetch "categories" this.Category.categoryList))}}>
+                    <Input @type="checkbox" class="h-5 w-5 text-gray-600" value="3" @checked={{contains "3" this.Category.list}} {{on "change" this.Category.updateList }}/>
                     <span class="ml-4 text-gray-500">Plots</span>
                 </label>
 
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600" {{on "change" (pipe (fn this.Category.updateList "4") (fn @refetch "categories" this.Category.categoryList))}}>
+                    <Input @type="checkbox" class="h-5 w-5 text-gray-600" value="4" @checked={{contains "4" this.Category.list}} {{on "change" this.Category.updateList }}/>
                     <span class="ml-4 text-gray-500">Offices</span>
                 </label>
                 
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600" {{on "change" (pipe (fn this.Category.updateList "5") (fn @refetch "categories" this.Category.categoryList))}}>
+                    <Input @type="checkbox" class="h-5 w-5 text-gray-600" value="5" @checked={{contains "5" this.Category.list}} {{on "change" this.Category.updateList }}/>
                     <span class="ml-4 text-gray-500">Stores</span>
                 </label>
 
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600" {{on "change" (pipe (fn this.Category.updateList "6") (fn @refetch "categories" this.Category.categoryList))}}>
+                    <Input @type="checkbox" class="h-5 w-5 text-gray-600" value="6" @checked={{contains "6" this.Category.list}} {{on "change" this.Category.updateList }}/>
                     <span
                         class="ml-4 text-gray-500">Industrial</span>
                 </label>
 
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" class="h-5 w-5 text-gray-600" {{on "change" (pipe (fn this.Category.updateList "7") (fn @refetch "categories" this.Category.categoryList))}}>
+                    <Input @type="checkbox" class="h-5 w-5 text-gray-600" value="7" @checked={{contains "7" this.Category.list}} {{on "change" this.Category.updateList }} />
                     <span class="ml-4 text-gray-500">Garage & Parking lots</span>
                 </label>
 
@@ -195,23 +195,23 @@
             <h2 class="text-gray-600 py-2">Region</h2>
             <div class="flex flex-col pl-2 ">
                 <label class="inline-flex items-center mt-3">
-                    <Input type="checkbox" value="1" checked={{contains "1" this.Region.list}} {{ on 'change' (fn this.Region.regionLogic)}} class="h-5 w-5 text-gray-600" />
+                    <Input @type="checkbox" value="1" @checked={{contains "1" this.Region.list}} {{ on 'change' this.Region.regionLogic passive=true}} class="h-5 w-5 text-gray-600" />
                     <span class="ml-4 text-gray-500">Brussels</span>
                 </label>
                 <label class="inline-flex items-center mt-3">
-                    <Input type="checkbox" value="2" checked={{contains "2" this.Region.list}} {{ on 'change' (fn this.Region.regionLogic)}} class="h-5 w-5 text-gray-600" />
+                    <Input @type="checkbox" value="2" @checked={{contains "2" this.Region.list}} {{ on 'change' this.Region.regionLogic passive=true}} class="h-5 w-5 text-gray-600" />
                     <span class="ml-4 text-gray-500">Flemish Brabant</span>
                 </label>
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" value="3" checked={{contains "3" this.Region.list}} {{ on 'change' (fn this.Region.regionLogic)}} class="h-5 w-5 text-gray-600" >
+                    <Input @type="checkbox" value="3" @checked={{contains "3" this.Region.list}} {{ on 'change' this.Region.regionLogic passive=true}} class="h-5 w-5 text-gray-600" />
                     <span class="ml-4 text-gray-500">Walloon Brabant</span>
                 </label>
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" value="4" checked={{contains "4" this.Region.list}} {{ on 'change' (fn this.Region.regionLogic)}} class="h-5 w-5 text-gray-600" >
+                    <Input @type="checkbox" value="4" @checked={{contains "4" this.Region.list}} {{ on 'change' this.Region.regionLogic passive=true}} class="h-5 w-5 text-gray-600" />
                     <span class="ml-4 text-gray-500">East Flanders</span>
                 </label>
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox"  value="5" checked={{contains "5" this.Region.list}} {{ on 'change' (fn this.Region.regionLogic)}} class="h-5 w-5 text-gray-600" >
+                    <Input @type="checkbox"  value="5" @checked={{contains "5" this.Region.list}} {{ on 'change' this.Region.regionLogic passive=true}} class="h-5 w-5 text-gray-600" />
                     <span class="ml-4 text-gray-500">Other</span>
                 </label>
             </div>

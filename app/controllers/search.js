@@ -32,7 +32,7 @@ export default class SearchController extends Controller {
         obj.buyRent = this.buyRent;
         obj.minPrice = this.minPrice;
         obj.maxPrice = this.maxPrice;
-        obj.regions =  JSON.stringify(this.regions).slice(1, -1)
+        obj.regions =  this.regions
         obj.minBath = this.minBath
         obj.minBed = this.minBed
         obj.categories = this.categories
