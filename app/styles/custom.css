@@ -259,3 +259,23 @@
   background-color: rgb(238, 238, 238);
   color: black;
 }
+
+/* CUSTOM SCROLLBAR */
+
+/* Specify width for the scrollbar */
+::-webkit-scrollbar {
+  width: .7rem;
+
+  }
+ /* Set the gray background for the Track (Progress Bar) */
+  ::-webkit-scrollbar-track {
+  background: LightGray;
+  }
+  /* choose a green background color for the thumb */
+  ::-webkit-scrollbar-thumb {
+  background: DodgerBlue;
+  }
+ /* I effect changing the red background color when hovering */
+  ::-webkit-scrollbar-thumb:hover {
+  background: #e53e3e;
+  }
