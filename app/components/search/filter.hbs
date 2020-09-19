@@ -38,99 +38,29 @@
           class="mr-2 opacity-50 h-5"> <span class="leading-tight"> Price </span></h2>
 
       <div class="flex justify-between items-center">
-        <div class="relative">
-          <Input name="min-budget" readonly placeholder="min" value={{this.Price.minBudget}}  {{ on 'focusin' (fn this.Price.toggleOpenState 'minOpenState') }} 
-            class="w-full p-2 border rounded appearance-none" />
+        <div class="relative flex-1">
+        <PowerSelect
+          @onChange={{this.Price.updateMinBudget}}
+          @options={{if (eq this.Purpose.buyRent 1 ) this.Price.buyList this.Price.rentList}}
+          @selected={{this.Price.minBudget}}
+          @placeholder="min"
+          as |price| >
+          € {{price}}
 
-          <ul
-            class="absolute w-full left-0 bg-white p-2 font-normal shadow rounded {{if this.Price.minOpenState "block" "hidden"}}" {{on 'click' this.Price.updateMinBudget }}>
-
-            {{#if (eq this.Purpose.buyRent 2) }}
-
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" default="" data-value="">Min</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="500">€ 500</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="500">€ 750</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="1 000">€ 1000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="1 250">€ 1250</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="1 500">€ 1500</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="1 750">€ 1750</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="2 000">€ 2000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="2 250">€ 2250</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="2 500">€ 2500</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="2 750">€ 2750</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="3 000">€ 3000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="3 250">€ 3250</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="3 500">€ 3500</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="3 750">€ 3750</li>
-
-            {{/if}}
-
-            {{#if (eq this.Purpose.buyRent 1) }}
-
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" default="" data-value="">Min</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="100 000">€ 100 000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="150 000">€ 150 000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="200 000">€ 200 000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="250 000">€ 250 000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="300 000">€ 300 000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="350 000">€ 350 000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="400 000">€ 400 000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="450 000">€ 450 000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="500 000">€ 500 000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="550 000">€ 550 000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="600 000">€ 600 000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="650 000">€ 650 000</li>
-
-
-            {{/if}}
-          </ul>
+        </PowerSelect>
         </div>
 
-        <span class="text-gray-600 mx-1 leading-10" >to</span>
-        <div class="relative">
-          <Input name="max-budget" readonly  placeholder="max" value={{this.Price.maxBudget}}  {{ on 'focusin' (fn this.Price.toggleOpenState 'maxOpenState') }} 
-            class="form-Input block w-full p-2 border rounded appearance-none" />
-          <ul class="absolute w-full left-0 bg-white p-2 font-normal shadow rounded {{if this.Price.maxOpenState "block" "hidden"}}" {{on 'click' this.Price.updateMaxBudget}}>
+        <span class="text-gray-600 mx-2 leading-10" >to</span>
+        <div class="relative flex-1">
+          <PowerSelect
+            @onChange={{this.Price.updateMaxBudget}}
+            @options={{if (eq this.Purpose.buyRent 1 ) this.Price.buyList this.Price.rentList}}
+            @selected={{this.Price.maxBudget}}
+            @placeholder="max"
+            as |price| >
+            € {{price}}
 
-            {{#if (eq this.Purpose.buyRent 2) }}
-
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" default="" data-value="">Max</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="500">€ 500</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="750">€ 750</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="1000">€ 1000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="1 250">€ 1250</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="1 500">€ 1500</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="1 750">€ 1750</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="2 000">€ 2000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="2 250">€ 2250</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="2 500">€ 2500</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="2 750">€ 2750</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="3 000">€ 3000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="3 250">€ 3250</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="3 500">€ 3500</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="3 750">€ 3750</li>
-
-            {{/if}}
-
-            {{#if (eq this.Purpose.buyRent 1) }}
-
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" default="" data-value="">Max</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="100 000">€ 100 000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="150 000">€ 150 000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="200 000">€ 200 000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="250 000">€ 250 000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="300 000">€ 300 000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="350 000">€ 350 000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="400 000">€ 400 000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="450 000">€ 450 000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="500 000">€ 500 000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="550 000">€ 550 000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="600 000">€ 600 000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="650 000">€ 650 000</li>
-            <li class="py-1 hover:bg-gray-100 cursor-pointer" data-value="700 000">€ 700 000+</li>
-
-            {{/if}}
-          </ul>
+          </PowerSelect>
         </div>
       </div>
     </div>

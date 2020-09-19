@@ -19,6 +19,8 @@ class PriceClass{
   @tracked maxBudget;
   @tracked minOpenState;
   @tracked maxOpenState;
+  @tracked rentList = [ "500", "750", "1 000", "1 250", "1 500", "1 750", "2 000", "2 250", "2 500", "2 750", "3 000", "3 250", "3 500", "3 750"]
+  @tracked buyList = ["100 000", "150 000", "200 000", "250 000", "300 000", "400 000", "450 000", "500 000", "550 000", "600 000", "650 000", "700 000"]
 
   constructor(context){
       this.context = context
@@ -30,8 +32,8 @@ class PriceClass{
 
 
   // PRICE LOGIC
-  @action updateMinBudget(event){
-      this.minBudget = event.target.dataset.value;
+  @action updateMinBudget(value){
+      this.minBudget = value;
       this.minOpenState = false;
       this.checkPrice( "maxBudget")
       this.refetchEstate()
@@ -42,9 +44,9 @@ class PriceClass{
     this[elem] = !this[elem]
   }
 
-  @action updateMaxBudget(event){
+  @action updateMaxBudget(value){
     
-      this.maxBudget = event.target.dataset.value;
+      this.maxBudget = value;
       this.maxOpenState = false;
       this.checkPrice("minBudget")
       this.refetchEstate()
