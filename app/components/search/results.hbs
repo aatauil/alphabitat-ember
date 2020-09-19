@@ -1,15 +1,17 @@
  <section class="w-full my-2 md:my-6 p-4 md:p-0">
       <div class="flex justify-between items-center">  
         <h2 class="text-xl font-bold py-6 text-gray-800"> {{ @estate.length }} <span>search results </span> </h2>
-        <div>
-          <select class="border px-4 py-2 rounded appearance-none" value="" name="" id="" {{on 'change' (fn this.invokeRefetch 'order')}}>
-                      <option value="" >Relevance</option>
-                      <option value="Price ASC" >Lowest price first</option>
-                      <option value="Price DESC" >Highest price first</option>
-                      <option value="Rooms DESC" >Most rooms</option>
-                      <option value="Area DESC" >Largest Area</option>
-            </select>
-          </div>
+          <div class="w-48">
+            <PowerSelect
+            @onChange={{fn this.invokeRefetch "order"}}
+            @options={{this.orderList}}
+            @selected={{this.selectedOrder}}
+            @placeholder="Relevance"
+            as |options| >
+            {{options.name}}
+
+            </PowerSelect>
+            </div>
       </div>
 
       {{!-- Checks if there are any results  --}}
