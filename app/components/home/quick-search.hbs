@@ -1,4 +1,4 @@
-<div class="flex justify-center">
+<div class="flex justify-center"  {{on-click-outside this.Dropdown.toggleAll}}>
 
     {{!-- PURPOSE SELECTOR --}}
     <div class="relative">
@@ -8,14 +8,14 @@
 
         {{!-- Component --}}
         <div class={{if this.Dropdown.purpose "flex" "hidden"}}>
-            <Home::QuickSearch::PurposeDropdown @purpose={{this.Purpose}}  @resetBudget={{this.Price.resetBudget}}/>
+            <Home::QuickSearch::PurposeDropdown @purpose={{this.Purpose}}  @resetBudget={{this.Price.resetBudget}} />
         </div>
 
     </div>
 
   {{!-- PRICE SELECTOR --}}
     <div class="relative">
-        <button type="button" {{ on 'click' this.Dropdown.togglePrice}}
+        <button type="button"  {{ on 'click' this.Dropdown.togglePrice}}
             class="py-5 px-6 bg-white border xl:flex justify-between w-64 font-bold hidden  hover:bg-blue-100 "><span>Price</span>
             <img src="/assets/vector/down-arrow-black.svg" alt="Black down pointing arrow"></button>
 
@@ -28,7 +28,7 @@
 
     {{!-- REGION SELECTOR --}}
     <div class="relative">
-        <button type="button" {{ on 'click' this.Dropdown.toggleRegion}}
+        <button type="button"  {{ on 'click' this.Dropdown.toggleRegion}}
             class="py-5 px-3 md:px-6  bg-white border flex justify-between w-32 md:w-64 font-bold  hover:bg-blue-100 "><span>Region</span>
             <img src="/assets/vector/down-arrow-black.svg" alt="Black down pointing arrow"></button>
 
@@ -41,7 +41,7 @@
         <LinkTo type="button" @route="search"
         @query={{hash buyRent=this.Purpose.buyRent minPrice=(if (eq this.Price.minBudget "") null (to-num this.Price.minBudget)) maxPrice=(if (eq this.Price.maxBudget "") null (to-num this.Price.maxBudget)) regions=this.Region.list}}
         class="py-5 px-10 md:px-12 bg-red-600 font-bold text-white hover:bg-blue-600 anim"
-        {{on 'click' this.Dropdown.toggleAll}}>
+        >
         Search
     </LinkTo>
 </div>

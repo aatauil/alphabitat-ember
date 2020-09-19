@@ -34,9 +34,12 @@ class DropDownClass {
     }
 
     @action toggleAll(){
+      if(this.price || this.purpose || this.region){
         this.price = false;
         this.purpose = false;
         this.region = false ;
+      }
+
     }
 }
 
