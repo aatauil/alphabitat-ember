@@ -19,12 +19,12 @@
       <div class="flex flex-col pl-2 ">
         <label class="inline-flex items-center mt-3">
           <input type="radio" name="purpose" checked={{if (eq this.Purpose.buyRent 1) true }}
-            {{on "change" (pipe (fn @refetch "buyRent" 1) this.Price.resetBudget (set this.Purpose.buyRent 1)) }} class="h-5 w-5 text-gray-600 "><span
+            {{on "change" (queue this.Price.resetBudget (set this.Purpose.buyRent 1) (fn @refetch "buyRent" 1)  ) }} class="h-5 w-5 text-gray-600 "><span
             class="ml-4 text-gray-500">For sale</span>
         </label>
         <label class="inline-flex items-center mt-3">
           <input type="radio" name="purpose" checked={{if (eq this.Purpose.buyRent 2) true }} 
-            {{on "change" (pipe (fn @refetch "buyRent" 2) this.Price.resetBudget (set this.Purpose.buyRent 2))}} class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">For
+            {{on "change" (queue  this.Price.resetBudget (set this.Purpose.buyRent 2) (fn @refetch "buyRent" 2) )}} class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">For
             rent</span>
         </label>
 

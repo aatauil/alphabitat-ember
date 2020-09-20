@@ -55,19 +55,21 @@ class PriceClass{
   @action resetBudget(){
     this.minBudget = ''
     this.maxBudget = ''
+    this.context.refetch("minPrice", "")
+    this.context.refetch("maxPrice", "")
   }
 
   checkPrice(right){
-    let parsedMin = this.minBudget ? parseInt(this.minBudget.replace(/ /g, '')) : 0
-    let parsedMax = this.maxBudget ? parseInt(this.maxBudget.replace(/ /g, '')) : 100000000
+    let parsedMin = this.minBudget ? parseInt(this.minBudget.replace(/ /g, '')) : ""
+    let parsedMax = this.maxBudget ? parseInt(this.maxBudget.replace(/ /g, '')) : ""
     if(parsedMax  < parsedMin ){
         this[right] = ''
     }
   }
 
   refetchEstate(){
-    this.context.refetch("minPrice", this.minBudget ? parseInt(this.minBudget.replace(/ /g, '')) : 0)
-    this.context.refetch("maxPrice", this.maxBudget ? parseInt(this.maxBudget.replace(/ /g, '')) : 100000000)
+    this.context.refetch("minPrice", this.minBudget ? parseInt(this.minBudget.replace(/ /g, '')) : "")
+    this.context.refetch("maxPrice", this.maxBudget ? parseInt(this.maxBudget.replace(/ /g, '')) : "")
   }
 }
 

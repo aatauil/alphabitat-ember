@@ -5,8 +5,8 @@
             <PowerSelect
             @onChange={{fn this.invokeRefetch "order"}}
             @options={{this.orderList}}
-            @selected={{this.selectedOrder}}
-            @placeholder="Relevance"
+            @selected={{find-by "value" this.selectedOrder this.orderList}}
+            @placeholder="order"
             as |options| >
             {{options.name}}
 
@@ -27,7 +27,7 @@
 
 
       {{else}}
-          <div class="container mt-12 py-12 flex flex-col justify-center items-center text-center w-2/3 rounded bg-white  shadow-md">
+          <div class="container mt-12 py-12 flex flex-col justify-center items-center text-center w-2/3 rounded b-gray">
             <h1 class="font-bold text-2xl">No results where found.</h1>
             <p class="font-bold text-gray-600" >Change the search criteria or click the reset button and try again.</p>
             <LinkTo type="reset" @route="search" @query={{null}}
