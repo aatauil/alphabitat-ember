@@ -279,3 +279,9 @@
   ::-webkit-scrollbar-thumb:hover {
   background: #e53e3e;
   }
+
+
+.magic-anim {
+	transition: transform 200ms ease-in-out;
+	will-change: transform;
+}

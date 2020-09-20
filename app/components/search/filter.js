@@ -24,8 +24,8 @@ class PriceClass{
 
   constructor(context){
       this.context = context
-      this.minBudget = context.query.minPrice || "";
-      this.maxBudget = context.query.maxPrice || "";
+      this.minBudget = context.query.minPrice ? context.query.minPrice.replace(/\B(?=(\d{3})+(?!\d))/g," ") : "";
+      this.maxBudget = context.query.maxPrice ? context.query.maxPrice.replace(/\B(?=(\d{3})+(?!\d))/g," ") : "";
       this.minOpenState = false;
       this.maxOpenState = false;
   }
