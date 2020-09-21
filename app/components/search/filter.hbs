@@ -161,10 +161,10 @@
               <span class="leading-none"> Bedrooms </span>
             </h2>
             <div class="flex justify-start">
-                <div class=" w-2/3 flex items-center justify-between bg-white b-gray py-2 px-4">
+                <div class=" w-2/3 flex items-center justify-between bg-white b-gray-alt rounded py-2 px-4">
                     <button type="button" {{ on 'click' (pipe (fn this.Bed.decrement) (fn @refetch "minBed" this.Bed.bedrooms)) }}
                         class="{{if this.Bed.minBed "opacity-25 cursor-not-allowed" }}">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 b-gray text-gray-700 hover:bg-red-500 hover:text-white" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 13H5v-2h14v2z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 b-gray border-gray-900 text-gray-700 hover:bg-red-500 hover:text-white" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 13H5v-2h14v2z"/></svg>
                     </button>
                     <div class="font-bold text-xl">
                         > {{this.Bed.bedrooms}}
