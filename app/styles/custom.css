@@ -1,4 +1,6 @@
-
+svg {
+  fill: currentColor;
+}
 .bg-hero{
     background: url("../../assets/pixel/Alphabitat-hero-min.jpg") rgba(34, 34, 34, 0.356);
     background-position: right;
@@ -10,6 +12,11 @@
 .b-gray{
     border-width: 2px;
     border-color: rgba(128, 128, 128, 0.178);
+}
+
+.b-gray-alt{
+  border-width: 1px;
+  border-color: rgb(190, 190, 190);
 }
 
 
