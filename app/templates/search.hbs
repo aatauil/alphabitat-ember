@@ -10,7 +10,7 @@
     {{else}}
 
         {{!-- Checks if results are equal to 0 --}}
-        <Search::Results @query={{this.myQuery}} @estate={{@model}}  @refetch={{this.updateParam}}/>
+        <Search::Results @query={{this.myQuery}} @estate={{@model.data}} @meta={{@model.meta}}  @refetch={{this.updateParam}}/>
 
     {{/if}}
 </main>
