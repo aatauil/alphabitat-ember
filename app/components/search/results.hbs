@@ -1,6 +1,7 @@
  <section class="w-full my-2 md:my-6 p-4 md:p-0">
       <div class="flex justify-between items-center">  
-        <h2 class="text-xl font-bold py-6 text-gray-800"> {{ @meta.RowCount }} <span>search results </span> </h2>
+        <h2 class="font-bold py-6 text-gray-800"> {{ @meta.RowCount }} <span class="font-normal mx-1">search results </span> </h2>
+          <Search::Pagination @nav={{this.Navigation}} @refetch={{this.invokeRefetch}}/>
           <div class="w-48">
             <PowerSelect
             @onChange={{fn this.invokeRefetch "order"}}
@@ -15,7 +16,8 @@
       </div>
 
       {{!-- Checks if there are any results  --}}
-      {{#if (not-eq @estate.length 0)}}      
+      {{#if (not-eq @estate.length 0)}}     
+
 
         <section class="grid lg:grid-cols-2 gap-5 sm:grid-cols-2 grid-cols-1">
           {{#each @estate as |data|}}
@@ -24,6 +26,9 @@
             <SingleEstate @item={{data}}/>
           {{/each}}
         </section>
+        <div class="my-6">
+          <Search::Pagination @nav={{this.Navigation}} @refetch={{this.invokeRefetch}}/>
+        </div>
 
 
       {{else}}
@@ -36,5 +41,5 @@
         </div>
       {{/if}}
 
-      <Search::Pagination/>
+
   </section>
