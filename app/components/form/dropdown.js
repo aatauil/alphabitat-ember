@@ -28,7 +28,6 @@ export default class FormDropdownComponent extends Component {
     @action toggleAll(){
         this.openStateMax = false;
         this.openStateMin = false;
-        console.log("toggle all");
     }
 
     @action selectMin(item){

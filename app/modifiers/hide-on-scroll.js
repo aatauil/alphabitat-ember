@@ -8,7 +8,6 @@ export default class HideOnScrollModifier extends Modifier {
   didInstall() {
     this.height = this.element.offsetHeight
     var prevScroll = 0
-    console.log('invoke')
     
     if (window.innerWidth < 640){
       window.addEventListener("scroll", () => {
@@ -17,7 +16,6 @@ export default class HideOnScrollModifier extends Modifier {
             prevScroll = window.pageYOffset
            
       })
-      console.log('something')
     }
 
 
@@ -27,10 +25,8 @@ export default class HideOnScrollModifier extends Modifier {
 
     if (prevScrollPos  > window.pageYOffset ) {
       this.element.style.transform = `none`
-      console.log('up')
     } else {
       this.element.style.transform =  `translateY(-${elementHeight}px)`
-      console.log('down')
     }
 
   }

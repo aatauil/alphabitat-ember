@@ -11,7 +11,7 @@ export default class FavoritesRoute extends Route {
         if(window.localStorage.getItem('favorites') && window.localStorage.getItem('favorites') != "[]"){
             const response = await axios.get(`${ENV.APP.API_URL}{"ClientId":"${ENV.APP.API_TOKEN}","Language":"en-gb","Page":0,"RemoveRowLimit":true, "EstateIDList": ${favoritesList}}`)
             const data = await response.data.d.EstateList
-            console.log(data)
+            // console.log(data)
             return data
         } else {
             return false

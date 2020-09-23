@@ -10,7 +10,7 @@ export default class PropertyRoute extends Route {
         const data = await response.data.d.EstateList
         const detailsArray = data[0].Details
 
-        console.log(data)
+        // console.log(data)
 
 
       // GENERAL LIST
@@ -38,7 +38,6 @@ export default class PropertyRoute extends Route {
           let surfaceIDList = [1028, 73, 117, 118, 119]
 
           if (surfaceIDList.indexOf(details.DetailId) !== -1){
-            console.log(details.DetailId)
             return true
           }
         })

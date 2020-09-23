@@ -18,20 +18,19 @@ export default class FormDropdownComponent extends Component {
 
     get minList(){
         let position = this.list.indexOf(this.maxValue)
-        console.log(position)
-        console.log(1)
+
         const newArray = () => { 
             if (position == -1){
-                console.log(2)
+ 
                 return false
                 
             } else {
-                console.log(3)
+   
                 return this.list.slice(-position)
             }
           
         }
-        console.log(4)
+
         return newArray() ? newArray() : this.list
     }
 
