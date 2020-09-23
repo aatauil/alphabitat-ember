@@ -81,7 +81,6 @@ class RegionClass{
   constructor(context){
       this.context = context   
       this.list = context.query.regions.split(",")
-      console.log(this.list)
   }
 
   @action regionLogic(event){
@@ -249,7 +248,6 @@ class MobileFilterClass{
         this.filterState = !this.filterState
         let body = document.querySelector('body');
         if(!this.filterState){
-            console.log("enter");
             body.classList.add("overflow-hidden");
         } else {
             body.classList.remove("overflow-hidden");
@@ -288,6 +286,7 @@ export default class SearchFilterComponent extends Component {
     this.args.refetch('regions', "")
     this.Category.list = []
     this.args.refetch('categories', null)
+    this.args.refetch('page', 0)
   }
 
 //     // UTILITY CLASSES
