@@ -87,15 +87,21 @@ export default class SearchRoute extends Route {
         let order = param.order 
         let minPrice = param.minPrice 
         let maxPrice = param.maxPrice 
-        let page = param.page
+        let page;
+        if( param.page != 0){
+          page = param.page - 1
+        } else {
+          page = param.page
+        }
+       
 
 
         let controller = this.controllerFor('search');
         controller.set('currentlyLoading', true);
-        const response = await axios.get(`${ENV.APP.API_URL}{"ClientId":"${ENV.APP.API_TOKEN}","Page": ${ page || 0 },"Language":"en-gb","RowsPerPage":20,"CategoryIDList":[${ categoryList || "" }], "PriceRange": [${ minPrice || 0 }, ${ maxPrice || 1000000000 }] ,"RegionIDList": [${ regionList || "" }],"PurposeStatusIDList": [${ purposeID || 1 }], "MinRooms": ${minBedrooms || null}, "MinBathRooms":${minBathrooms || null}, "AreaRange": [${minArea || 0}, 1000], "OrderByFields":["${order || ""}"] }`)
+        const response = await axios.get(`${ENV.APP.API_URL}{"ClientId":"${ENV.APP.API_TOKEN}","Page": ${ page || 0 },"Language":"en-gb","RowsPerPage":10,"CategoryIDList":[${ categoryList || "" }], "PriceRange": [${ minPrice || 0 }, ${ maxPrice || 1000000000 }] ,"RegionIDList": [${ regionList || "" }],"PurposeStatusIDList": [${ purposeID || 1 }], "MinRooms": ${minBedrooms || null}, "MinBathRooms":${minBathrooms || null}, "AreaRange": [${minArea || 0}, 1000], "OrderByFields":["${order || ""}"] }`)
         const data = await response.data.d.EstateList
         const meta = await response.data.d.QueryInfo
-        console.log(response)
+        // console.log(response)
         await controller.set('currentlyLoading', false);
         return {data, meta}
       }
