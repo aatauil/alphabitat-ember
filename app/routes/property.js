@@ -9,8 +9,20 @@ export default class PropertyRoute extends Route {
         const response = await axios.get(`${ENV.APP.API_URL}{"ClientId":"${ENV.APP.API_TOKEN}","Page":0,"Language":"en-gb", "EstateID":${estateID}, "ShowDetails":true}`)
         const data = await response.data.d.EstateList
         const detailsArray = data[0].Details
+        console.log(data)
 
         // console.log(data)
+
+      // TITLE
+      let title = detailsArray.filter(details => {
+        let titleIDList = [1244]
+
+        if(titleIDList.indexOf(details.DetailId) !== -1){
+          return true
+        }
+      })
+
+      console.log(title)
 
 
       // GENERAL LIST
@@ -82,6 +94,6 @@ export default class PropertyRoute extends Route {
 
         console.log(gps)
 
-        return {data , general, interior, energy, surface, environment, gps}
+        return {data , general, title, interior, energy, surface, environment, gps}
       }
 }

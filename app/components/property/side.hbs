@@ -1,7 +1,10 @@
 <div class="bg-light-gray">
     <section class="container flex flex-col gap-6 py-16 lg:flex-row">
         <div class="flex flex-col gap-6 lg:w-2/3">
-            <article class="bg-white px-12 py-6 rounded shadow-sm  b-gray-alt">
+          <article class="bg-white px-10 py-3 text-center rounded shadow-sm b-gray">
+                <h1 class="font-bold text-xl text-gray-900 py-3">{{@estate.title.[0].Subdetails.[0].Value}}</h1>
+            </article>
+            <article class="bg-white px-10 py-6 rounded shadow-sm  b-gray-alt">
                 <div class="flex justify-between h-auto ">
                     <h2 class="font-bold text-xl text-gray-900 py-3"> Description</h2>
                     <img src="/assets/vector/down-arrow-black.svg " alt="black down pointing arrow" class="anim md:hidden {{unless this.dcptState "transform rotate-180"}}">
