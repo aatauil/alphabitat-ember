@@ -1,15 +1,15 @@
 <div class="bg-light-gray">
     <section class="container flex flex-col gap-6 py-16 lg:flex-row">
         <div class="flex flex-col gap-6 lg:w-2/3">
-            <article class="bg-white px-12 py-6 rounded shadow-sm">
-                <div class="flex justify-between h-auto " {{on "click" this.toggleDcptState }}>
-                    <h2 class="font-bold text-xl text-gray-900 py-3" > Description</h2>
+            <article class="bg-white px-12 py-6 rounded shadow-sm  b-gray-alt">
+                <div class="flex justify-between h-auto ">
+                    <h2 class="font-bold text-xl text-gray-900 py-3"> Description</h2>
                     <img src="/assets/vector/down-arrow-black.svg " alt="black down pointing arrow" class="anim md:hidden {{unless this.dcptState "transform rotate-180"}}">
                 </div>
                 <p class="text-sm {{if this.dcptState "hidden" "block my-6"}}">{{ safe-string @estate.data.[0].ShortDescription  }}</p>
             </article>
             <div class="grid grid-cols-2 gap-6">
-                 <article class="bg-white px-6 py-6 rounded shadow-sm">
+                 <article class="bg-white px-6 py-6 rounded shadow-sm  b-gray-alt">
                     <div class="flex flex-col justify-between h-auto ">
                         <div class="flex gap-3">
                             <img src="/assets/vector/interior.svg" alt="icon of a couch">
@@ -24,7 +24,7 @@
                         </ul>
                     </div>
                 </article>
-                    <article class="bg-white px-6 py-6 rounded shadow-sm">
+                    <article class="bg-white px-6 py-6 rounded shadow-sm  b-gray-alt">
                     <div class="flex flex-col justify-between h-auto ">
                         <div class="flex gap-3">
                             <img src="/assets/vector/interior.svg" alt="icon of a couch">
@@ -39,7 +39,7 @@
                         </ul>
                     </div>
                 </article>
-                <article class="bg-white px-6 py-6 rounded shadow-sm">
+                <article class="bg-white px-6 py-6 rounded shadow-sm  b-gray-alt">
                     <div class="flex flex-col justify-between h-auto " >
                         <div class="flex gap-3">
                             <img src="/assets/vector/interior.svg" alt="icon of a couch">
@@ -53,7 +53,7 @@
                         </ul>
                     </div>
                 </article>
-                 <article class="bg-white px-6 py-6 rounded shadow-sm">
+                 <article class="bg-white px-6 py-6 rounded shadow-sm  b-gray-alt">
                     <div class="flex flex-col justify-between h-auto ">
                         <div class="flex gap-3">
                             <img src="/assets/vector/interior.svg" alt="icon of a couch">
@@ -68,7 +68,7 @@
                     </div>
                 </article>
                 
-                <article class="bg-white px-6 py-6 rounded shadow-sm">
+                <article class="bg-white px-6 py-6 rounded shadow-sm  b-gray-alt">
                     <div class="flex flex-col justify-between h-auto ">
                         <div class="flex gap-3">
                             <img src="/assets/vector/interior.svg" alt="icon of a couch">
@@ -89,7 +89,7 @@
         </div>
         <div class="lg:w-1/3 shadow-sm ">
           
-            <form action="" class=" row-span-3 col-span-1 bg-white p-10 flex flex-col gap-5">
+            <form action="" class=" row-span-3 col-span-1 bg-white p-10 flex flex-col gap-5  b-gray-alt">
                 <h2 class="text-xl font-bold pb-6">I am interested!</h2>
                 <label class=" tracking-wide text-black text-xs font-bold flex-1">
                     Choose
