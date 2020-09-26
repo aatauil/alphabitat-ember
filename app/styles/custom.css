@@ -19,6 +19,10 @@ svg {
   border-color: rgb(190, 190, 190);
 }
 
+.b-gray-alt-bottom{
+  border-bottom: 1px solid rgb(190, 190, 190);
+}
+
 
 .bg-white-trans{
     background-color: rgba(255, 255, 255, 0.274);
