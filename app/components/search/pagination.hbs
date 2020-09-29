@@ -1,11 +1,12 @@
 <div class="px-4 py-3 flex items-center justify-between sm:px-6">
-  <div class="flex-1 flex justify-between sm:hidden">
-    <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:bg-blue-500 hover:text-white focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
+  <div class="flex  sm:hidden">Page {{@nav.currentPage}} of {{@nav.maxPage}}</div>
+    <div class="flex  sm:hidden">
+    <button class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:bg-blue-500 hover:text-white focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 anim">
       Previous
-    </a>
-    <a href="#" class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:bg-blue-500 hover:text-white focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
+    </button>
+    <button class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:bg-blue-500 hover:text-white focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 anim">
       Next
-    </a>
+    </button>
   </div>
   <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-center">
     <div>
@@ -16,7 +17,7 @@
           </svg>
         </button>
         {{#each @nav.list as |page|}}
-          <button type="button" {{on 'click' (fn @nav.refetch page) }} class=" relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 hover:bg-blue-500 hover:text-white focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
+          <button type="button" {{on 'click' (fn @nav.refetch page) }} class="{{if (eq page @nav.currentPage) "bg-blue-600 text-white" "hover:bg-blue-500 hover:text-white text-gray-700" }} relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium  focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
             {{page}}
           </button>
         {{/each}}

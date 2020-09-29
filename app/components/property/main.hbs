@@ -23,22 +23,22 @@
                         <div>
                             <span class="text-3xl leading-none">{{@estate.City}}</span> <span class="text-sm ml-2">ref {{@estate.EstateID}}</span>
                         </div>
-                        <span class="text-3xl leading-none">{{ parse-price @estate.Price }} €</span>
+                        <span class="text-3xl font-bold  leading-none">{{ parse-price @estate.Price }} €</span>
                     </div>
                     <div class="text-gray-500 pb-2 font-bold">
                         {{category-converter @estate.CategoryId}} {{@estate.Purposes.[0].Name}}
                     </div>
                     <div class="mt-6 flex justify-between">
-                        <ul class="flex gap-3">
-                            <li class="flex justify-between bg-light-gray py-3 px-5 w-20">
+                        <ul class="flex gap-3 ">
+                            <li class="flex justify-between bg-light-gray gap-2 py-3 px-5 ">
                                 <img src="assets/vector/bath.svg" alt="icon of a shower">
                                 <span>{{@estate.BathRooms}}</span>
                             </li>
-                            <li class="flex justify-between bg-light-gray py-3 px-5 w-20">
+                            <li class="flex justify-between bg-light-gray gap-2 py-3 px-5 ">
                                 <img src="assets/vector/bed.svg" alt="icon of a shower">
                                 <span>{{@estate.Rooms}}</span>
                             </li> 
-                            <li class="flex justify-between bg-light-gray py-3 px-5 w-auto">
+                            <li class="flex justify-between bg-light-gray gap-2 py-3 px-5 w-auto">
                                 <img src="assets/vector/area.svg" alt="icon of a shower">
                                 <span>{{@estate.Area}} m²</span>
                             </li>

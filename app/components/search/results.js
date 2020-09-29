@@ -13,7 +13,7 @@ class Navigation {
   constructor(context){
     this.context = context
     this.resultCount = this.context.meta.RowCount
-    this.currentPage = this.context.query.page || 0
+    this.currentPage = this.context.query.page || 1
     this.maxPage = Math.ceil(this.context.meta.RowCount / 10)
     this.calculateList()
   }
