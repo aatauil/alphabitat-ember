@@ -4,6 +4,5 @@ export default class PropertyController extends Controller {
 
     queryParams = ["estateID"]
 
-    randomNumber = 21
 
 }
