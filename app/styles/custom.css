@@ -5,7 +5,7 @@
   font-family: 'Lato', sans-serif;
 }
 
-h1, h2, h3 {
+h1, h2, h3, .font-josefin {
   font-family: 'Josefin Sans', sans-serif;
 }
 svg {
@@ -251,6 +251,7 @@ svg {
   margin: 0;
   box-sizing: border-box;
   font-weight: normal;
+  border-radius: 0;
 
 
 }

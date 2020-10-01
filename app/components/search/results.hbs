@@ -2,9 +2,9 @@
       <div class="flex justify-between items-center">  
         <h2 class="font-bold py-6 text-gray-800"> {{ @meta.RowCount }} <span class="font-normal mx-1">search results </span> </h2>
           <div class="hidden md:block">
-          <Search::Pagination @nav={{this.Navigation}} @refetch={{this.invokeRefetch}}/>
+          {{!-- <Search::Pagination @nav={{this.Navigation}} @refetch={{this.invokeRefetch}}/> --}}
           </div>
-          <div class="w-48">
+          <div class="w-48 rounded-none">
             <PowerSelect
             @onChange={{fn this.invokeRefetch "order"}}
             @options={{this.orderList}}
