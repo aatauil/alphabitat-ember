@@ -2,40 +2,40 @@
 
 <main class="bg-gray-100">
     <div class="container flex justify-center items-center relative">
-        <section class="flex flex-col justify-center items-center mt-6 p-6 gap-10 w-5/6 rounded ">
-            <div class="w-2/3 ">
+        <section class="flex flex-col justify-center items-center mt-6 lg:p-6 gap-10 lg:w-5/6 rounded ">
+            <div class="lg:w-2/3 ">
                 <h2 class="text-5xl font-bold py-2 text-center">Estimation</h2>
-                <p class="pb-4 font-bold text-sm opacity-50 text-center">The real estate agency Immo Alphabitat offers over 25 years of experience. The real estate agency Immo Alphabitat has a large database of clients searching for real estate in the municipalities of Woluwe-Saint-Pierre, Woluwe-Saint-Lambert, Auderghem, Watermael-Boitsfort and surrounding municipalities. Do not hesitate to call us or fill out this form. One of our staff will call you back ASAP.</p>
+                <p class="lg:pb-4 font-bold text-sm opacity-50 text-center">The real estate agency Immo Alphabitat offers over 25 years of experience. The real estate agency Immo Alphabitat has a large database of clients searching for real estate in the municipalities of Woluwe-Saint-Pierre, Woluwe-Saint-Lambert, Auderghem, Watermael-Boitsfort and surrounding municipalities. Do not hesitate to call us or fill out this form. One of our staff will call you back ASAP.</p>
             </div>
-            <form name="contact" action="#" method="POST" class="flex flex-col w-2/3 p-10  rounded-lg" >
+            <form name="contact" action="#" method="POST" class="flex flex-col lg:w-2/3 p-3 lg:p-10 " >
                 <input type="hidden" name="form-name" value="contact">
 
                 <div class="w-full flex gap-8">
                     <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="grid-password">
-                        Name
+                        Name <span class="text-red-700">*</span>
                         <input
-                            class="appearance-none w-full bg-light-gray border border-gray-800 mt-2  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            class="appearance-none w-full border border-gray-800 mt-1  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                             id="grid-password" type="input" placeholder="">
                     </label>
                     <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="grid-password">
                         Lastname
                         <input
-                            class="appearance-none w-full bg-light-gray border border-gray-800 mt-2  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            class="appearance-none w-full border border-gray-800 mt-1  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                             id="grid-password" type="password" placeholder="">
                     </label>
                 </div>
 
                 <div class="w-full flex gap-8">
                     <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="grid-password">
-                        E-mail
+                        E-mail <span class="text-red-700">*</span>
                         <input
-                            class="appearance-none w-full bg-light-gray border border-gray-800 mt-2 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            class="appearance-none w-full border border-gray-800 mt-1 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                             id="grid-password" type="input" placeholder="">
                     </label>
                     <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="grid-password">
-                        Tel.
+                        Tel. 
                         <input
-                            class="appearance-none w-full bg-light-gray border border-gray-800 mt-2  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            class="appearance-none w-full border border-gray-800 mt-1  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                             id="grid-password" type="password" placeholder="">
                     </label>
                 </div>
@@ -44,12 +44,12 @@
                 </div>
                 <label class="uppercase tracking-wide text-xs font-bold mb-4 flex-1">Message
                     <textarea name="" id="" cols="30" rows="10"
-                        class="appearance-none w-full bg-light-gray mt-2  border border-gray-800 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"></textarea>
+                        class="appearance-none w-full mt-1  border border-gray-800 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"></textarea>
                 </label>
                 <label class="text-center m-auto pb-6 ">
                     <input type="checkbox" name="" id="" class="p-2"> I agreed to the terms & services of Alphabitat
                 </label>
-                <input type="submit" value="Send" class="py-4 bg-red-600 font-bold text-white">
+                <input type="submit" value="Send" class="py-4 bg-red-600 font-bold text-white cursor-pointer hover:bg-blue-600 anim">
             </form>
         </section>
     </div>
