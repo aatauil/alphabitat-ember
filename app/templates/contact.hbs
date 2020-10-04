@@ -1,19 +1,9 @@
-<main class="flex items-center bg-top flex flex-col">
-            <LeafletMap class="w-full h-64 py-24 " @lat="50.830110" @lng="4.454553" @zoom={{20}} as |layers| >
-                <layers.tile class="w-full h-full " @url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
-                  <layers.marker @location={{@gps.List}} as |marker|>
-                    <marker.popup>
-                    <h3>{{@estate.City}}</h3>
-                    {{@estate.Address1}}
-                    </marker.popup>
-                </layers.marker>
-
-        </LeafletMap>
-<div class="container flex justify-center items-center relative py-24">
-    <section class="flex flex-col py-12 w-2/3">
-        <h2 class="text-3xl text-center font-bold  ">We care for you!</h2>
+<main class="bg-gray-100">
+<div class="container flex-col  flex justify-center items-center relative py-12">
+    <section class="flex flex-col items-center py-12 w-2/3">
+        <h1 class="text-5xl text-center font-bold  ">Contact</h1>
         <p class="pb-10 text-center font-bold opacity-50">Contact us and we will get back to you as soon as possible</p>
-            <form name="contact" action="#" method="POST" class="flex flex-col">
+            <form name="estimation" action="#" method="POST" class="flex flex-col w-2/3 p-10  rounded-lg" >
                 <input type="hidden" name="form-name" value="contact"> 
 
                 <div class="w-full flex gap-8">
