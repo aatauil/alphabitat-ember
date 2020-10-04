@@ -5,16 +5,14 @@
         <button type="button" class="py-1 px-4 m-2 ml-0 border bg-gray-900 border-gray-800 text-gray-200 text-xs md:text-sm  hover:text-gray-800 hover:bg-gray-200 anim">info@alphabitat.be</button>
       </address>
 
-      <div class="flex">
-        <LinkTo @route="estimation" type="button" class="mr-2 py-1 px-6 bg-red-600 font-bold text-gray-100 text-sm hidden md:block hover:bg-red-100 hover:text-gray-800 anim">Sell your house!</LinkTo>
-        <div class="">
-          <button type="button" class="relative py-1 pl-4 pr-3 bg-gray-900 text-gray-100  flex items-center justify-between border border-gray-800 text-gray-200 font-bold text-xs md:text-sm  hover:text-gray-800 hover:bg-gray-200 anim"> EN  <img src="../../assets/vector/down-arrow-white.svg" width="20px" alt="arrow pointing downwards"></button>
-            <div class="absolute text-gray-900 flex flex-col z-30 hidden">
-                <button type="button" class="py-1 pl-4 pr-3 bg-gray-900" value="en-GB">EN</button>
-                <button type="button" class="py-1 pl-4 pr-3 bg-gray-900" value="fr-BE">FR</button>
-                <button type="button" class="py-1 pl-4 pr-3 bg-gray-900" value="nl-BE">NL</button>
-            </div>
-        </div>
-      </div>
+      <div class="flex items-center">
+        <LinkTo @route="estimation" type="button" class="py-1 px-4 m-2 ml-0 bg-red-600 text-gray-100 text-sm hidden md:block hover:bg-blue-700 hover:text-white anim">Sell your house!</LinkTo>
+        <ul class="flex text-sm cursor-pointer border-l ml-3 pl-3 ">
+            <li class="bg-blue-700 font-bold py-1 px-4 ml-1 hover:bg-white hover:text-gray-800 anim">en</li>
+            <li class="bg-gray-900 py-1 px-4 ml-1 hover:bg-white hover:text-gray-800 anim">fr</li>
+            <li class="bg-gray-900 py-1 px-4 ml-1 hover:bg-white hover:text-gray-800 anim">nl</li>
+        </ul>
     </div>
+
   </div>
+</div>
