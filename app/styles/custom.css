@@ -33,6 +33,10 @@ svg {
   border-bottom: 1px solid rgb(190, 190, 190);
 }
 
+.min-h-nav{
+  height: calc(100vh - 50px);
+}
+
 
 .bg-white-trans{
     background-color: rgba(255, 255, 255, 0.274);
