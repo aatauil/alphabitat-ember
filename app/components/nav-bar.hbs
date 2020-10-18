@@ -1,65 +1,70 @@
- <nav class="relative z-20 bg-white shadow-xs fixed sm:relative magic-anim" {{hide-on-scroll}}>
-      <div class="container m-auto flex justify justify-between items-center relative">
-        <img src="../../assets/pixel/logo-light.png" class="h-12 my-2" alt="Alphabitat triangle symbol">
-        
-        <ul class="font-bold hidden lg:flex text-gray-900 stroke anim">
-            <li>
-              <LinkTo @route="home" class="mx-2 py-2 px-4">Home</LinkTo>
-            </li>
+<nav class="relative z-20 bg-white shadow-xs fixed sm:relative magic-anim" {{hide-on-scroll}}>
+  <div class="container m-auto flex justify justify-between items-center">
+    <img src="../../assets/pixel/logo-light.png" class="h-12 my-2" alt="Alphabitat triangle symbol">
 
-            <li>
-              <LinkTo @route="search" @query={{hash buyRent=1}} class="mx-2 py-2 px-4">For sale</LinkTo>
-              
-            </li>
+    <ul class="font-bold hidden lg:flex text-gray-900 stroke anim">
+      <li>
+        <LinkTo @route="home" class="mx-2 py-2 px-4">Home</LinkTo>
+      </li>
 
-            <li>
-              <LinkTo @route="search" @query={{hash buyRent=2}} class="mx-2 py-2 px-4">For rent</LinkTo>
-            </li>
+      <li>
+        <LinkTo @route="search" @query={{hash buyRent=1}} class="mx-2 py-2 px-4">For sale</LinkTo>
 
-            <li>
-              <LinkTo @route="estimation" class="mx-2 py-2 px-4">Estimation</LinkTo>
-            </li>
+      </li>
 
-            <li>
-              <LinkTo @route="contact" class="mx-2 py-2 px-4">Contact</LinkTo>
-            </li>
+      <li>
+        <LinkTo @route="search" @query={{hash buyRent=2}} class="mx-2 py-2 px-4">For rent</LinkTo>
+      </li>
 
-            <li class="nav-fav">
-              <LinkTo @route="favorites" class="ml-2 py-2 pl-4 ">My Favorites</LinkTo>
-            </li>
-        </ul>
-        <div class="w-full p-2 absolute right-0 top-0 mt-16 ">
-              {{!-- <ul class="w-full h-full bg-white rounded shadow-xl p-5 font-bold">
-                <li class="flex justify-center py-2 bg-light-gray">
-                  <div class="bg-white rounded-full py-2 w-24 shadow text-center mx-2">EN</div>
-                  <div class="bg-white rounded-full h-12 w-24 shadow text-center mx-2">NL</div>
-                  <div class="bg-white rounded-full h-12 w-24 shadow text-center mx-2">FR</div>
-                </li>
-                <li class="block w-full p-4 b-gray-alt-bottom  my-3">
-                  <span class="text-xl">Home</span> <br>
-                  <span class="font-normal text-gray-500">Starting point of the website</span>
-                </li>
-                <li class="block w-full p-4 b-gray-alt-bottom  my-3">
-                  <span class="text-xl">For sale</span> <br>
-                  <span class="font-normal text-gray-500">Appartment, garages, houses..</span>
-                </li>             
-                <li class="block w-full p-4 b-gray-alt-bottom  my-3">
-                  <span class="text-xl">For rent</span> <br>
-                  <span class="font-normal text-gray-500">Appartment, garages, houses..</span>
-                </li>              
-                <li class="block w-full p-4 b-gray-alt-bottom  my-3">
-                  <span class="text-xl">Contact</span> <br>
-                  <span class="font-normal text-gray-500">Get in touch with us.</span>
-                </li>              
-                <li class="block w-full p-4 b-gray-alt-bottom  my-3">
-                  <span class="text-xl">Estimation</span> <br>
-                  <span class="font-normal text-gray-500">We will estimate the price of your property</span>
-                </li>
-              </ul> --}}
-         </div>
-        <div class="border rounded bg-light-gray lg:hidden cursor-pointer">
-          <img src="/assets/vector/menu.svg"  class="h-14 p-2 " alt="menu opening button icon">
-        </div>
-      </div>
-    
+      <li>
+        <LinkTo @route="estimation" class="mx-2 py-2 px-4">Estimation</LinkTo>
+      </li>
+
+      <li>
+        <LinkTo @route="contact" class="mx-2 py-2 px-4">Contact</LinkTo>
+      </li>
+
+      <li class="nav-fav">
+        <LinkTo @route="favorites" class="ml-2 py-2 pl-4 ">My Favorites</LinkTo>
+      </li>
+    </ul>
+    {{#if this.openState}}
+    <div class="w-full absolute min-h-screen bg-white flex flex-col right-0 top-0 mt-16 overflow-auto">
+      <ul class="flex justify-center py-2 bg-light-gray border ">
+        <li class="bg-white py-2 bg-blue-700 text-white w-24 text-center mx-2">EN</li>
+        <li class="bg-white py-2 w-24 bg-gray-200 text-gray-700 text-center mx-2">NL</li>
+        <li class="bg-white py-2 w-24 bg-gray-200 text-gray-700 text-center mx-2">FR</li>
+      </ul>
+      <ul class="w-full bg-white text-center p-5 font-bold text-xl" {{on 'click' this.toggleMenu}}>
+        <li>
+          <LinkTo class="block w-full p-4 bg-gray-100 border rounded my-3" @route="home">Home</LinkTo>
+        </li>
+        <li>
+          <LinkTo class="block w-full p-4 my-3" @route="search" @query={{hash buyRent=1}}>For sale</LinkTo>
+        </li>
+        <li>
+          <LinkTo class="block w-full p-4 my-3" @route="search" @query={{hash buyRent=2}}>For rent</LinkTo>
+        </li>
+        <li>
+          <LinkTo class="block w-full p-4 my-3" @route="estimation">Estimation</LinkTo>
+        </li>
+        <li>
+          <LinkTo class="block w-full p-4 my-3" @route="contact">Contact</LinkTo>
+        </li>
+        <li>
+          <LinkTo class="block w-full p-4 my-3" @route="favorites">My Favorites</LinkTo>
+        </li>
+      </ul>
+      <ul class="flex flex-1 items-center justify-center bg-gray-900 py-2">
+        <li><button type="button" class="py-1 px-4 m-2 ml-0 border-r border-gray-700 bg-gray-900 text-gray-200 ">+32 (2)
+            770 31 21</button></li>
+        <li><button type="button" class="py-1 px-4 m-2 ml-0 bg-gray-900 text-gray-200 ">info@alphabitat.be</button></li>
+      </ul>
+    </div>
+    {{/if}}
+    <button type="button" class="border rounded bg-light-gray lg:hidden cursor-pointer" {{on 'click' this.toggleMenu}}>
+      <img src="/assets/vector/menu.svg" class="h-14 p-2 " alt="menu opening button icon">
+    </button>
+  </div>
+
 </nav>
