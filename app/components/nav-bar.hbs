@@ -1,70 +1,65 @@
-<nav class="bg-white shadow" {{hide-on-scroll}}>
+ <nav class="relative z-20 bg-white shadow-xs fixed sm:relative magic-anim" {{hide-on-scroll}}>
+      <div class="container m-auto flex justify justify-between items-center relative">
+        <img src="../../assets/pixel/logo-light.png" class="h-12 my-2" alt="Alphabitat triangle symbol">
+        
+        <ul class="font-bold hidden lg:flex text-gray-900 stroke anim">
+            <li>
+              <LinkTo @route="home" class="mx-2 py-2 px-4">Home</LinkTo>
+            </li>
 
-    <div class="flex justify-between h-16 container">
-      <div class="flex w-full justify-between px-2 lg:px-0">
-        <div class="flex-grow flex items-center">
-          <img class="block h-12  w-auto" src="../../assets/pixel/logo-light.png" alt="Workflow logo">
-        </div>
-        <div class="hidden lg:ml-6 lg:flex">
-          <LinkTo @route="home" class="ml-8 pb-0 inline-flex  items-center px-1 pt-1 border-b-2 font-bold text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 anim">
-          Home
-          </LinkTo>
-          <LinkTo @route="search" class="ml-8 pb-0 inline-flex items-center px-1 pt-1 border-b-2 font-bold text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 anim" @query={{hash buyRent=1}}>
-          For sale
-          </LinkTo>
-          
-          <LinkTo @route="search" class="ml-8 pb-0 inline-flex items-center px-1 pt-1 border-b-2 font-bold text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 anim" @query={{hash buyRent=2}}>
-          For rent
-          </LinkTo>
+            <li>
+              <LinkTo @route="search" @query={{hash buyRent=1}} class="mx-2 py-2 px-4">For sale</LinkTo>
+              
+            </li>
 
-          <LinkTo @route="estimation" class="ml-8 pb-0 inline-flex items-center px-1 pt-1 border-b-2 font-bold text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 anim">
-          Estimation
-          </LinkTo>
+            <li>
+              <LinkTo @route="search" @query={{hash buyRent=2}} class="mx-2 py-2 px-4">For rent</LinkTo>
+            </li>
 
-           <LinkTo @route="favorites" class="ml-8 pb-0 inline-flex items-center px-1 pt-1 border-b-2 font-bold text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 anim">
-           My Favorites
-           </LinkTo>
+            <li>
+              <LinkTo @route="estimation" class="mx-2 py-2 px-4">Estimation</LinkTo>
+            </li>
+
+            <li>
+              <LinkTo @route="contact" class="mx-2 py-2 px-4">Contact</LinkTo>
+            </li>
+
+            <li class="nav-fav">
+              <LinkTo @route="favorites" class="ml-2 py-2 pl-4 ">My Favorites</LinkTo>
+            </li>
+        </ul>
+        <div class="w-full p-2 absolute right-0 top-0 mt-16 ">
+              {{!-- <ul class="w-full h-full bg-white rounded shadow-xl p-5 font-bold">
+                <li class="flex justify-center py-2 bg-light-gray">
+                  <div class="bg-white rounded-full py-2 w-24 shadow text-center mx-2">EN</div>
+                  <div class="bg-white rounded-full h-12 w-24 shadow text-center mx-2">NL</div>
+                  <div class="bg-white rounded-full h-12 w-24 shadow text-center mx-2">FR</div>
+                </li>
+                <li class="block w-full p-4 b-gray-alt-bottom  my-3">
+                  <span class="text-xl">Home</span> <br>
+                  <span class="font-normal text-gray-500">Starting point of the website</span>
+                </li>
+                <li class="block w-full p-4 b-gray-alt-bottom  my-3">
+                  <span class="text-xl">For sale</span> <br>
+                  <span class="font-normal text-gray-500">Appartment, garages, houses..</span>
+                </li>             
+                <li class="block w-full p-4 b-gray-alt-bottom  my-3">
+                  <span class="text-xl">For rent</span> <br>
+                  <span class="font-normal text-gray-500">Appartment, garages, houses..</span>
+                </li>              
+                <li class="block w-full p-4 b-gray-alt-bottom  my-3">
+                  <span class="text-xl">Contact</span> <br>
+                  <span class="font-normal text-gray-500">Get in touch with us.</span>
+                </li>              
+                <li class="block w-full p-4 b-gray-alt-bottom  my-3">
+                  <span class="text-xl">Estimation</span> <br>
+                  <span class="font-normal text-gray-500">We will estimate the price of your property</span>
+                </li>
+              </ul> --}}
+         </div>
+        <div class="border rounded bg-light-gray lg:hidden cursor-pointer">
+          <img src="/assets/vector/menu.svg"  class="h-14 p-2 " alt="menu opening button icon">
         </div>
       </div>
-
-  </div>
-
-  <div class="hidden lg:hidden absolute bg-white w-full">
-    <div class="pt-2 pb-3">
-      <LinkTo @route="home" class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-bold text-gray-600 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 anim">
-          Home
-          </LinkTo>
-          <LinkTo @route="search" class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-bold text-gray-600 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 anim" @query={{hash buyRent=1}}>
-          For sale
-          </LinkTo>
-          
-          <LinkTo @route="search" class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-bold text-gray-600 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 anim" @query={{hash buyRent=2}}>
-          For rent
-          </LinkTo>
-
-          <LinkTo @route="estimation" class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-bold text-gray-600focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 anim">
-          Estimation
-          </LinkTo>
-
-           <LinkTo @route="favorites" class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-bold text-gray-600 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 anim">
-           My Favorites
-           </LinkTo>
-    </div>
-    <div class="pt-4 pb-3 border-t border-gray-200">
-      <div class="flex items-center px-4">
-        <div class="flex-shrink-0">
-          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-        </div>
-        <div class="ml-3">
-          <div class="text-base font-bold leading-6 text-gray-800">Tom Cook</div>
-          <div class="text-sm font-medium leading-5 text-gray-500">tom@example.com</div>
-        </div>
-      </div>
-      <div class="mt-3">
-        <a href="#" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100 focus:outline-none focus:text-gray-800 focus:bg-gray-100 transition duration-150 ease-in-out">Your Profile</a>
-        <a href="#" class="mt-1 block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100 focus:outline-none focus:text-gray-800 focus:bg-gray-100 transition duration-150 ease-in-out">Settings</a>
-        <a href="#" class="mt-1 block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100 focus:outline-none focus:text-gray-800 focus:bg-gray-100 transition duration-150 ease-in-out">Sign out</a>
-      </div>
-    </div>
-  </div>
+    
 </nav>
