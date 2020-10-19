@@ -7,7 +7,7 @@ import { action } from '@ember/object';
 export default class SearchController extends Controller {
     
     queryParams= ['buyRent', 'minPrice', "maxPrice", "regions", "minBath", "minBed", "categories", "minArea", "order", "page"];
-
+    preserveScrollPosition = false;
     //TRACKED
     @tracked buyRent = 1
     @tracked minPrice = ""
@@ -23,6 +23,7 @@ export default class SearchController extends Controller {
 
     // ACTIONS
     @action updateParam(elem, id){
+        this.set('preserveScrollPosition', true);
         this[elem]= id;
     }
     
