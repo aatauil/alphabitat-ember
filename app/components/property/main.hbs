@@ -1,5 +1,5 @@
-<section class="container flex gap-6 pb-10 mt-6 md:mt-0">
-  <div class=" w-full lg:w-2/3">
+<section class="md:container flex gap-6 pb-10 md:mt-6 md:mt-0">
+  <div class=" w-full h-full lg:w-2/3">
     <article>
       <div class="relative">
 
@@ -20,17 +20,17 @@
 
       </div>
       <div>
-        <div class="flex w-full flex justify-between items-end pt-6">
+        <div class="flex w-full flex-col md:flex-row flex justify-between items-center md:items-end pt-6">
           <div>
-            <span class="text-3xl leading-none">{{@estate.City}}</span> <span class="text-sm ml-2">ref
+            <span class="text-3xl leading-none">{{@estate.City}}</span> <span class="text-sm ml-2 hidden md:inline-block">ref
               {{@estate.EstateID}}</span>
           </div>
-          <span class="text-3xl font-bold  leading-none">{{ parse-price @estate.Price }} €</span>
+          <span class="text-3xl font-bold p-3 md:p-0 leading-none">{{ parse-price @estate.Price }} €</span>
         </div>
-        <div class="text-gray-500 pb-2 font-bold">
+        <div class="text-gray-500 pb-2 font-bold text-center md:text-left">
           {{category-converter @estate.CategoryId}} {{@estate.Purposes.[0].Name}}
         </div>
-        <div class="mt-6 flex justify-between">
+        <div class="mt-6 flex flex-col md:flex-row justify-center items-center justify-between">
           <ul class="flex gap-3 ">
             <li class="flex justify-between bg-light-gray gap-2 py-3 px-5 ">
               <img src="assets/vector/bath.svg" alt="icon of a shower">
@@ -46,7 +46,7 @@
             </li>
           </ul>
           <button type="button"
-            class="px-6 py-2 shadow rounded flex gap-3 items-center  "
+            class="px-6 py-2 mt-6 md:mt-0 shadow rounded flex gap-3 items-center  "
             {{on 'click' (fn this.Favorite.addRemove @estate.EstateID)}}><svg class="w-6 h-6" fill="red"
               stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
