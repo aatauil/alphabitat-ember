@@ -1,9 +1,9 @@
-<div class="flex justify-center"  {{on-click-outside this.Dropdown.toggleAll}}>
+<div class="flex justify-center flex-col gap-4 md:gap-0 md:flex-row"  {{on-click-outside this.Dropdown.toggleAll}}>
 
     {{!-- PURPOSE SELECTOR --}}
     <div class="relative">
         <button type="button" {{ on 'click' this.Dropdown.togglePurpose}}
-            class="py-5 px-3 md:px-6 bg-white border flex justify-between w-32 md:w-64 font-bold hover:bg-blue-100 ">{{if (eq this.Purpose.buyRent 1) "For sale" "For rent"}}<img
+            class="py-5 px-3 md:px-6 bg-white border flex justify-between w-full md:w-64 font-bold hover:bg-blue-100 ">{{if (eq this.Purpose.buyRent 1) "For sale" "For rent"}}<img
                 src="/assets/vector/down-arrow-black.svg" alt="Black down pointing arrow"></button>
 
         {{!-- Component --}}
@@ -14,7 +14,7 @@
     </div>
 
   {{!-- PRICE SELECTOR --}}
-    <div class="relative">
+    <div class="relative hidden md:block">
         <button type="button"  {{ on 'click' this.Dropdown.togglePrice}}
             class="py-5 px-6 bg-white border xl:flex justify-between w-64 font-bold hidden  hover:bg-blue-100 "><span>Price</span>
             <img src="/assets/vector/down-arrow-black.svg" alt="Black down pointing arrow"></button>
@@ -29,7 +29,7 @@
     {{!-- REGION SELECTOR --}}
     <div class="relative">
         <button type="button"  {{ on 'click' this.Dropdown.toggleRegion}}
-            class="py-5 px-3 md:px-6  bg-white border flex justify-between w-32 md:w-64 font-bold  hover:bg-blue-100 "><span>Region</span>
+            class="py-5 px-3 md:px-6  bg-white border flex justify-between w-full md:w-64 font-bold  hover:bg-blue-100 "><span>Region</span>
             <img src="/assets/vector/down-arrow-black.svg" alt="Black down pointing arrow"></button>
 
         {{!-- Component --}}
