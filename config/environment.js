@@ -48,7 +48,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    // here you can enable a production-specific feature
+    ENV.APP.API_URL = "https://sbs.whise.eu/websiteservices/EstateService.svc/GetEstateList?EstateServiceGetEstateListRequest=" 
+    ENV.APP.API_TOKEN = "e211fe6d9f374b6f9760";
   }
 
   return ENV;
