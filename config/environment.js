@@ -6,6 +6,12 @@ module.exports = function(environment) {
     environment,
     rootURL: '/',
     locationType: 'auto',
+
+    // GOOGLE TAG MANAGER
+    googleTagManager: {
+      appId: "GTM-M9BFWNS",
+    },
+    
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -22,6 +28,7 @@ module.exports = function(environment) {
       // when it is created
     }
   };
+  
 
   if (environment === 'development') {
         ENV.APP.API_URL = "https://sbs.whise.eu/websiteservices/EstateService.svc/GetEstateList?EstateServiceGetEstateListRequest=" 
