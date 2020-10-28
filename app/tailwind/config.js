@@ -1,7 +1,10 @@
 /*global module*/
 
 module.exports = {
-    purge: [],
+    future: {
+      purgeLayersByDefault: true,
+      removeDeprecatedGapUtilities: true,
+    },
     theme: {
           screens: {
             sm: '640px',
