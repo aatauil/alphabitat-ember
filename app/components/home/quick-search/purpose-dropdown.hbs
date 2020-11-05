@@ -3,13 +3,13 @@
     <label class="inline-flex items-center mt-3">
         <input type="radio" name="purpose" class="h-5 w-5 text-gray-600" {{on 'click' (set @purpose.buyRent 1)}} {{on 'change' @resetBudget}}
             checked={{if (eq @purpose.buyRent 1) true}} /><span
-            class="ml-4 text-gray-700">For sale</span>
+            class="ml-4 text-gray-700">{{t "nav.sale"}}</span>
     </label>
 
     <label class="inline-flex items-center mt-3">
         <input type="radio" name="purpose" class="h-5 w-5 text-gray-600"  {{on 'click' (set @purpose.buyRent 2)}} {{on 'change' @resetBudget}}
             checked={{if (eq @purpose.buyRent 2) true }}/><span
-            class="ml-4 text-gray-700">For rent</span>
+            class="ml-4 text-gray-700">{{t "nav.rent"}}</span>
     </label>
 
 </div>

@@ -16,7 +16,7 @@
   {{!-- PRICE SELECTOR --}}
     <div class="relative hidden md:block">
         <button type="button"  {{ on 'click' this.Dropdown.togglePrice}}
-            class="py-5 px-6 bg-white border xl:flex justify-between w-64 font-bold hidden  hover:bg-blue-100 "><span>Price</span>
+            class="py-5 px-6 bg-white border xl:flex justify-between w-64 font-bold hidden  hover:bg-blue-100 "><span>{{t "search.filter.price"}}</span>
             <img src="/assets/vector/down-arrow-black.svg" alt="Black down pointing arrow"></button>
 
             {{!-- Component --}}
@@ -29,7 +29,7 @@
     {{!-- REGION SELECTOR --}}
     <div class="relative">
         <button type="button"  {{ on 'click' this.Dropdown.toggleRegion}}
-            class="py-5 px-3 md:px-6  bg-white border flex justify-between w-full md:w-64 font-bold  hover:bg-blue-100 "><span>Region</span>
+            class="py-5 px-3 md:px-6  bg-white border flex justify-between w-full md:w-64 font-bold  hover:bg-blue-100 "><span>{{t "search.filter.region"}}</span>
             <img src="/assets/vector/down-arrow-black.svg" alt="Black down pointing arrow"></button>
 
         {{!-- Component --}}
@@ -42,6 +42,6 @@
         @query={{hash buyRent=this.Purpose.buyRent minPrice=(if (eq this.Price.minBudget "") null (to-num this.Price.minBudget)) maxPrice=(if (eq this.Price.maxBudget "") null (to-num this.Price.maxBudget)) regions=this.Region.list}}
         class="py-5 px-10 md:px-12 bg-red-600 font-bold text-white hover:bg-blue-600 anim"
         >
-        Search
+        {{t "home.search"}}
     </LinkTo>
 </div>
