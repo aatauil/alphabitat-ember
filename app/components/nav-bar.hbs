@@ -35,13 +35,13 @@
       <div class="h-12 my-1" {{on 'click' this.toggleMenu}} ></div>
       <ul class="flex justify-center py-2 bg-light-gray border ">
         <li>
-          <button type="button" class="bg-white py-2 bg-blue-700 text-white w-24 text-center mx-2">EN</button>
+          <button type="button" {{on 'click' (fn this.setLang "en-us")}} class="{{if (eq this.currentLang "en-us") "bg-blue-700 font-bold text-white" "text-gray-700" }} bg-white py-2 w-24 bg-gray-200  text-center mx-2">EN</button>
         </li>
         <li>
-          <button type="button" class="bg-white py-2 w-24 bg-gray-200 text-gray-700 text-center mx-2">FR</button>
+          <button type="button" {{on 'click' (fn this.setLang "fr-be")}} class="{{if (eq this.currentLang "fr-be") "bg-blue-700 font-bold text-white" "text-gray-700"}} bg-white py-2 w-24 bg-gray-200  text-center mx-2">FR</button>
         </li>
         <li>
-          <button type="button" class="bg-white py-2 w-24 bg-gray-200 text-gray-700 text-center mx-2">NL</button>
+          <button type="button" {{on 'click' (fn this.setLang "nl-be")}} class="{{if (eq this.currentLang "nl-be") "bg-blue-700 font-bold text-white"  "text-gray-700"}} bg-white py-2 w-24 bg-gray-200  text-center mx-2">NL</button>
         </li>
       </ul>
       <ul class="w-full  flex-1  bg-white p-5 font-bold text-md" {{on 'click' this.toggleMenu}}>

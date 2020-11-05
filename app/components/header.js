@@ -10,4 +10,8 @@ export default class HeaderComponent extends Component {
     this.intl.set('locale', lang)
 
   }
+  
+  get currentLang() {
+    return this.intl.get('primaryLocale')
+  }
 }
