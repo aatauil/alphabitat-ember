@@ -23,7 +23,9 @@ export default class SearchController extends Controller {
 
     // ACTIONS
     @action updateParam(elem, id){
+      if(elem != "page"){
         this.set('preserveScrollPosition', true);
+      }
         this[elem]= id;
     }
     
