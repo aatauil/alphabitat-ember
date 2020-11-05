@@ -11,22 +11,27 @@
         <div class="text-sm text-gray-600 pb-2 font-bold">{{category-converter @item.CategoryId}} {{@item.Purposes.[0].Name}}</div>
 
         <div class="flex py-2">
-
+          {{#if (and (not-eq @item.Rooms 0) (not-eq @item.Rooms 0))}}
             <div class="inline-block pr-3 text-sm text-gray-600 border-r flex items-end">
                 <img src="../../assets/vector/bed.svg" alt="icon of a bed" class="mr-4">
                 <span>{{@item.Rooms}}</span> 
                 
             </div>
+          {{/if}}
 
+           {{#if (and (not-eq @item.BathRooms 0) (not-eq @item.BathRooms null))}}
             <div class="inline-block px-3 text-sm text-gray-600 border-r flex items-end">
                 <img src="../../assets/vector/bath.svg" alt="icon of a bath" class="mr-4 h-5">
                 <span> {{@item.BathRooms}} </span>
             </div>
+          {{/if}}
 
+           {{#if (and (not-eq @item.Area 0) (not-eq @item.Area null))}}
             <div class="inline-block px-3 text-sm text-gray-600 border-r flex items-end">
                 <img src="../../assets/vector/area.svg" alt="icon of a bath" class="mr-4 h-5">
                 <span>{{@item.Area}} m²</span>
             </div>
+          {{/if}}
 
         </div>
     </div>

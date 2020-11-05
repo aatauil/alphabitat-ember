@@ -32,21 +32,29 @@
         </div>
         <div class="mt-6 flex flex-col md:flex-row justify-center items-center justify-between">
           <ul class="flex gap-3 ">
-            <li class="flex justify-between bg-light-gray gap-2 py-3 px-5 ">
-              <img src="assets/vector/bath.svg" alt="icon of a shower">
-              <span>{{@estate.BathRooms}}</span>
-            </li>
-            <li class="flex justify-between bg-light-gray gap-2 py-3 px-5 ">
-              <img src="assets/vector/bed.svg" alt="icon of a shower">
-              <span>{{@estate.Rooms}}</span>
-            </li>
-            <li class="flex justify-between bg-light-gray gap-2 py-3 px-5 w-auto">
-              <img src="assets/vector/area.svg" alt="icon of a shower">
-              <span>{{@estate.Area}} m²</span>
-            </li>
+            {{#if (and (not-eq @estate.Rooms 0) (not-eq @estate.Rooms 0))}}
+              <li class="flex justify-between bg-light-gray gap-2 py-3 px-5 ">
+                <img src="assets/vector/bed.svg" alt="icon of a shower">
+                <span>{{@estate.Rooms}}</span>
+              </li>
+            {{/if}}
+            
+            {{#if (and (not-eq @estate.BathRooms 0) (not-eq @estate.BathRooms 0))}}
+              <li class="flex justify-between bg-light-gray gap-2 py-3 px-5 ">
+                <img src="assets/vector/bath.svg" alt="icon of a shower">
+                <span>{{@estate.BathRooms}}</span>
+              </li>
+            {{/if}}
+
+            {{#if (and (not-eq @estate.Area 0) (not-eq @estate.Area 0))}}
+              <li class="flex justify-between bg-light-gray gap-2 py-3 px-5 w-auto">
+                <img src="assets/vector/area.svg" alt="icon of a shower">
+                <span>{{@estate.Area}} m²</span>
+              </li>
+            {{/if}}
           </ul>
           <button type="button"
-            class="px-6 py-2 mt-6 md:mt-0 shadow rounded flex gap-3 items-center  "
+            class="px-6 py-3 mt-6 md:mt-0 rounded text-red-500 flex gap-3 items-center anim  hover:text-red-900"
             {{on 'click' (fn this.Favorite.addRemove @estate.EstateID)}}><svg class="w-6 h-6" fill="red"
               stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
