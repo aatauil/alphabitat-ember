@@ -1,1 +1,42 @@
-price_banner: The {product} costs {price, number, USD}
+header:
+  sell: Sell your house!
+nav:
+  home: "Home"
+  sale: "For sale"
+  rent: "For rent"
+  estimation: "Estimation"
+  contact: "Contact"
+  favorites: "My favorites"
+footer:
+  title: Your Favorites Real Estate Agency.
+  address: Address
+  street: Avenue Jules du Jardin 43
+  city: 1150 Woluwe-Saint-Pierre
+  opening: Opening Hours
+  week: Lundi-Samedi
+  hours: 09:00-18:00
+  general: General
+  home: Home
+  properties: Properties
+  contact: Contact
+  favorites: Favorites
+  legal: Legal
+  terms: General terms & services
+  privacy: Privacy Policy
+  cookie: Cookie Policy
+
+types:
+  houses: Houses
+  flats: Flats
+  plots: Plots
+  offices: Offices
+  stores: Stores
+  industrial: Industrial
+  garages: Garage & parking lots
+
+regions:
+  brussels: Brussels
+  flemish: Flemish Brabant
+  walloon: Walloon Brabant
+  flanders: East Flanders
+  other: Other

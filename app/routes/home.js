@@ -6,7 +6,6 @@ export default class HomeRoute extends Route {
     async model() {
       const response = await axios.get(`${ENV.APP.API_URL}{"ClientId":"${ENV.APP.API_TOKEN}","Page":0,"RowsPerPage":6,"Language":"en-gb","displayStatusIdList":3}`)
       const data = await response.data.d.EstateList
-      await console.log(data)
       return data
     }
 }

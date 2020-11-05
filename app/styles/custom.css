@@ -135,6 +135,10 @@ svg {
     min-height: 640px;
 }
 
+button{
+  appearance: none;
+}
+
 
 
 

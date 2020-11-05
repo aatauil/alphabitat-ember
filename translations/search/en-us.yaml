@@ -1,0 +1,20 @@
+filter:
+  title: Filter
+  purpose: Purpose
+  price: Price
+  to: to
+  type: Property Type
+  area: Area
+  region: Region
+  bedrooms: Bedrooms
+  bathrooms: Bathrooms
+results: Search results
+sort:
+  relevance: Relevance
+  lowest: Lowest price first
+  highest: Highest price first
+  rooms: Most rooms
+  area: Largest area
+found:
+  title: No results where found.
+  text: Change the search criteria or click the reset button and try again.

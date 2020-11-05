@@ -4,12 +4,12 @@
       <article class="bg-white px-10 py-3 text-center rounded b-gray">
         <h1 class="font-bold text-xl text-gray-900 py-3">{{@estate.title.[0].Subdetails.[0].Value}}</h1>
       </article>
-      <Property::Card @title='Description'>
+      <Property::Card @title={{t "property.sub.description"}}>
         <p class="text-sm p-6 md:px-8">
           {{ safe-string @estate.data.[0].ShortDescription  }}</p>
       </Property::Card>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <Property::Card @title="General">
+        <Property::Card @title={{t "property.sub.general"}}>
           <ul class="text-sm p-6 md:px-8">
             {{#each @estate.general as |item|}}
 
@@ -19,7 +19,7 @@
             {{/each}}
           </ul>
         </Property::Card>
-        <Property::Card @title="Interior">
+        <Property::Card @title={{t "property.sub.interior"}}>
           <ul class="text-sm p-6 md:px-8">
             {{#each @estate.interior as |item|}}
 
@@ -29,7 +29,7 @@
             {{/each}}
           </ul>
         </Property::Card>
-        <Property::Card @title="Surfaces">
+        <Property::Card @title={{t "property.sub.surfaces"}}>
           <ul class="text-sm p-6 md:px-8">
             {{#each @estate.surface as |item|}}
             <li class="flex justify-between py-3 b-gray-alt-bottom "> <span
@@ -38,7 +38,7 @@
             {{/each}}
           </ul>
         </Property::Card>
-        <Property::Card @title="Energy">
+        <Property::Card @title={{t "property.sub.energy"}}>
           <ul class="text-sm p-6 md:px-8">
             {{#each @estate.energy as |item|}}
             <li class="flex justify-between py-3 border-b b-gray-alt-bottom"> <span
@@ -48,7 +48,7 @@
           </ul>
         </Property::Card>
 
-        <Property::Card @title="Environment">
+        <Property::Card @title={{t "property.sub.environment"}}>
           <ul class="text-sm p-6 md:px-8">
             {{#each @estate.environment as |item|}}
             <li class="flex justify-between py-3 border-b b-gray-alt-bottom"> <span
@@ -77,15 +77,15 @@
             </label>
             <select name="" id=""
               class=" w-full text-black b-gray-alt bg-white mt-1 py-3 px-2 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-              <option value="">Ask for more information</option>
-              <option value="">Ask for a visit</option>
-              <option value="">Ask to be called back</option>
+              <option value="">{{t "property.form.info"}}</option>
+              <option value="">{{t "property.form.visit"}}</option>
+              <option value="">{{t "property.form.call"}}</option>
             </select>
           </div>
 
           <div class="tracking-wide text-black text-xs font-bold h-auto  mb-6">
             <label>
-              Full Name <span class="text-red-700">*</span>
+              {{t "property.form.name"}} <span class="text-red-700">*</span>
             </label>
             <input
               class="appearance-none w-full rounded bg-light-gray text-black b-gray-alt mt-1 py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -95,7 +95,7 @@
 
           <div class="tracking-wide text-black text-xs font-bold mb-6">
             <label for="grid-password">
-              E-mail
+              {{t "property.form.mail"}}
             </label>
             <span class="text-red-700">*</span>
             <input
@@ -105,7 +105,7 @@
 
           <div class="tracking-wide text-black text-xs font-bold mb-6">
             <label for="grid-password">
-              Phone Number
+              {{t "property.form.number"}}
             </label>
             <input
               class="appearance-none w-full rounded bg-light-gray text-black b-gray-alt mt-1 py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -114,7 +114,7 @@
 
           <div class=" tracking-wide text-black text-xs font-bold">
             <label>
-              Message
+              {{t "property.form.message"}}
             </label>
             <textarea name="" id="" rows="8"
               class="appearance-none w-full rounded bg-light-gray text-black b-gray-alt mt-1 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 resize-none"
@@ -123,7 +123,7 @@
           </div>
 
         </div>
-        <input type="submit" value="Send" class="bg-red-700 hover:bg-blue-700 text-white py-5 anim cursor-pointer ">
+        <input type="submit" value={{t "property.form.send"}} class="bg-red-700 hover:bg-blue-700 text-white py-5 anim cursor-pointer ">
       </form>
     </div>
   </section>

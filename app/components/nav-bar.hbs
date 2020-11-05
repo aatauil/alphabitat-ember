@@ -6,28 +6,28 @@
 
     <ul class="font-bold hidden lg:flex text-gray-900 stroke anim">
       <li>
-        <LinkTo @route="home" class="mx-2 py-2 px-4">Home</LinkTo>
+        <LinkTo @route="home" class="mx-2 py-2 px-4">{{t "nav.home"}}</LinkTo>
       </li>
 
       <li>
-        <LinkTo @route="search" @query={{hash buyRent=1}} class="mx-2 py-2 px-4">For sale</LinkTo>
+        <LinkTo @route="search" @query={{hash buyRent=1}} class="mx-2 py-2 px-4">{{t "nav.sale"}}</LinkTo>
 
       </li>
 
       <li>
-        <LinkTo @route="search" @query={{hash buyRent=2}} class="mx-2 py-2 px-4">For rent</LinkTo>
+        <LinkTo @route="search" @query={{hash buyRent=2}} class="mx-2 py-2 px-4">{{t "nav.rent"}}</LinkTo>
       </li>
 
       <li>
-        <LinkTo @route="estimation" class="mx-2 py-2 px-4">Estimation</LinkTo>
+        <LinkTo @route="estimation" class="mx-2 py-2 px-4">{{t "nav.estimation"}}</LinkTo>
       </li>
 
       <li>
-        <LinkTo @route="contact" class="mx-2 py-2 px-4">Contact</LinkTo>
+        <LinkTo @route="contact" class="mx-2 py-2 px-4">{{t "nav.contact"}}</LinkTo>
       </li>
 
       <li class="nav-fav">
-        <LinkTo @route="favorites" class="ml-2 py-2 pl-4 ">My Favorites</LinkTo>
+        <LinkTo @route="favorites" class="ml-2 py-2 pl-4 ">{{t "nav.favorites"}}</LinkTo>
       </li>
     </ul>
     {{#if this.openState}}
@@ -46,22 +46,22 @@
       </ul>
       <ul class="w-full  flex-1  bg-white p-5 font-bold text-md" {{on 'click' this.toggleMenu}}>
         <li>
-          <LinkTo class="block w-full p-4 pl-0 my-3 border-b" @route="home">Home</LinkTo>
+          <LinkTo class="block w-full p-4 pl-0 my-3 border-b" @route="home">{{t "nav.home"}}</LinkTo>
         </li>
         <li>
-          <LinkTo class="block w-full p-4 pl-0 my-3 border-b" @route="search" @query={{hash buyRent=1}}>For sale</LinkTo>
+          <LinkTo class="block w-full p-4 pl-0 my-3 border-b" @route="search" @query={{hash buyRent=1}}>{{t "nav.sale"}}</LinkTo>
         </li>
         <li>
-          <LinkTo class="block w-full p-4 pl-0 my-3 border-b" @route="search" @query={{hash buyRent=2}}>For rent</LinkTo>
+          <LinkTo class="block w-full p-4 pl-0 my-3 border-b" @route="search" @query={{hash buyRent=2}}>{{t "nav.rent"}}</LinkTo>
         </li>
         <li>
-          <LinkTo class="block w-full p-4 pl-0 my-3 border-b" @route="estimation">Estimation</LinkTo>
+          <LinkTo class="block w-full p-4 pl-0 my-3 border-b" @route="estimation">{{t "nav.estimation"}}</LinkTo>
         </li>
         <li>
-          <LinkTo class="block w-full p-4 pl-0 my-3 border-b" @route="contact">Contact</LinkTo>
+          <LinkTo class="block w-full p-4 pl-0 my-3 border-b" @route="contact">{{t "nav.contact"}}</LinkTo>
         </li>
         <li>
-          <LinkTo class="block w-full p-4 pl-0 my-3" @route="favorites">My Favorites</LinkTo>
+          <LinkTo class="block w-full p-4 pl-0 my-3" @route="favorites">{{t "nav.favorites"}}</LinkTo>
         </li>
       </ul>
       <ul class="flex items-center justify-center bg-gray-900 py-2">

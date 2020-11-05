@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking'
+import { inject as service } from '@ember/service';
 
 class Navigation {
 
@@ -34,17 +35,17 @@ class Navigation {
 }
 
 export default class SearchResultsComponent extends Component {
-  
+    @service intl;
 
     @tracked order = decodeURIComponent(this.args.query.order) || "";
     @tracked selectedOrder = this.order
 
     @tracked orderList = [
-      { name: "Relevance", value: "" },
-      { name: "Lowest price first", value: "Price ASC" },
-      { name: "Highest price first", value: "Price DESC" },
-      { name: "Most rooms", value: "Rooms DESC" },
-      { name: "Largest Area", value: "Area DESC" },
+      { name: this.intl.t('search.sort.relevance'), value: "" },
+      { name: this.intl.t('search.sort.lowest'), value: "Price ASC" },
+      { name: this.intl.t('search.sort.highest'), value: "Price DESC" },
+      { name: this.intl.t('search.sort.rooms'), value: "Rooms DESC" },
+      { name: this.intl.t('search.sort.area'), value: "Area DESC" },
     ]
 
 
