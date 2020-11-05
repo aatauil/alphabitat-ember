@@ -1,6 +1,6 @@
 <nav class="relative z-20 bg-white shadow sm:shadow-xs fixed sm:relative magic-anim">
   <div class="container m-auto flex justify justify-between items-center">
-    <img src="../../assets/pixel/logo-light.png" class="h-12 my-2" alt="Alphabitat triangle symbol">
+    <img src="../../assets/pixel/logo-light.png" class="h-10 my-2" alt="Alphabitat triangle symbol">
 
     <ul class="font-bold hidden lg:flex text-gray-900 stroke anim">
       <li>
@@ -29,7 +29,8 @@
       </li>
     </ul>
     {{#if this.openState}}
-    <div class="w-full absolute min-h-screen bg-white flex flex-col right-0 top-0 mt-16 overflow-auto z-50">
+    <div class="w-full absolute h-screen flex flex-col right-0 top-0 z-50">
+      <div class="h-12 my-1" {{on 'click' this.toggleMenu}} ></div>
       <ul class="flex justify-center py-2 bg-light-gray border ">
         <li>
           <button type="button" class="bg-white py-2 bg-blue-700 text-white w-24 text-center mx-2">EN</button>
@@ -41,27 +42,27 @@
           <button type="button" class="bg-white py-2 w-24 bg-gray-200 text-gray-700 text-center mx-2">NL</button>
         </li>
       </ul>
-      <ul class="w-full bg-white text-center p-5 font-bold text-xl" {{on 'click' this.toggleMenu}}>
+      <ul class="w-full  flex-1  bg-white p-5 font-bold text-md" {{on 'click' this.toggleMenu}}>
         <li>
-          <LinkTo class="block w-full p-4 bg-gray-100 border rounded my-3" @route="home">Home</LinkTo>
+          <LinkTo class="block w-full p-4 pl-0 my-3 border-b" @route="home">Home</LinkTo>
         </li>
         <li>
-          <LinkTo class="block w-full p-4 my-3" @route="search" @query={{hash buyRent=1}}>For sale</LinkTo>
+          <LinkTo class="block w-full p-4 pl-0 my-3 border-b" @route="search" @query={{hash buyRent=1}}>For sale</LinkTo>
         </li>
         <li>
-          <LinkTo class="block w-full p-4 my-3" @route="search" @query={{hash buyRent=2}}>For rent</LinkTo>
+          <LinkTo class="block w-full p-4 pl-0 my-3 border-b" @route="search" @query={{hash buyRent=2}}>For rent</LinkTo>
         </li>
         <li>
-          <LinkTo class="block w-full p-4 my-3" @route="estimation">Estimation</LinkTo>
+          <LinkTo class="block w-full p-4 pl-0 my-3 border-b" @route="estimation">Estimation</LinkTo>
         </li>
         <li>
-          <LinkTo class="block w-full p-4 my-3" @route="contact">Contact</LinkTo>
+          <LinkTo class="block w-full p-4 pl-0 my-3 border-b" @route="contact">Contact</LinkTo>
         </li>
         <li>
-          <LinkTo class="block w-full p-4 my-3" @route="favorites">My Favorites</LinkTo>
+          <LinkTo class="block w-full p-4 pl-0 my-3" @route="favorites">My Favorites</LinkTo>
         </li>
       </ul>
-      <ul class="flex flex-1 items-center justify-center bg-gray-900 py-2">
+      <ul class="flex items-center justify-center bg-gray-900 py-2">
         <li><button type="button" class="py-1 px-4 m-2 ml-0 border-r border-gray-700 bg-gray-900 text-gray-200 ">+32 (2)
             770 31 21</button></li>
         <li><button type="button" class="py-1 px-4 m-2 ml-0 bg-gray-900 text-gray-200 ">info@alphabitat.be</button></li>
