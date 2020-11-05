@@ -8,9 +8,9 @@
       <div class="flex items-center">
         <LinkTo @route="estimation" type="button" class="py-1 px-4 m-2 ml-0 bg-red-600 text-gray-100 font-bold text-sm hidden md:block hover:bg-blue-700 hover:text-white anim">{{t "header.sell"}}</LinkTo>
         <ul class="flex text-sm cursor-pointer border-l ml-3 pl-3 ">
-            <li class="bg-blue-700 font-bold py-1 px-4 ml-1 hover:bg-white hover:text-gray-800 anim">en</li>
-            <li class="bg-gray-900 py-1 px-4 ml-1 hover:bg-white hover:text-gray-800 anim">fr</li>
-            <li class="bg-gray-900 py-1 px-4 ml-1 hover:bg-white hover:text-gray-800 anim">nl</li>
+            <li {{on 'click' (fn this.setLang "en-us")}} class="bg-blue-700 font-bold py-1 px-4 ml-1 hover:bg-white hover:text-gray-800 anim">en</li>
+            <li {{on 'click' (fn this.setLang "fr-be")}} class="bg-gray-900 py-1 px-4 ml-1 hover:bg-white hover:text-gray-800 anim">fr</li>
+            <li {{on 'click' (fn this.setLang "nl-be")}} class="bg-gray-900 py-1 px-4 ml-1 hover:bg-white hover:text-gray-800 anim">nl</li>
         </ul>
     </div>
 
