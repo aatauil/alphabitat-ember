@@ -1,0 +1,20 @@
+filter:
+  title: Filter
+  purpose: Categorie
+  price: Prijs
+  to: tot
+  type: Pand type
+  area: Oppervlakte
+  region: Regio
+  bedrooms: Slaapkamer
+  bathrooms: Badkamer
+results: Zoek resulaten
+sort:
+  relevance: Relevantie
+  lowest: Laagste prijs eerst
+  highest: Hoogste prijs eerst
+  rooms: Meeste kamers
+  area: Grootste oppervlate
+found:
+  title: Er werden geen zoekresultaten gevonden.
+  text: Verander uw zoek criteria of druk op de reset knop and probeer het nog eens.

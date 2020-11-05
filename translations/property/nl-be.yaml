@@ -1,0 +1,18 @@
+favorite: Favorieten
+sub:
+  description: Beschrijving
+  general: Algmeneen
+  interior: Interieur
+  surfaces: Oppervlakte
+  energy: Energie
+  environment: Omgeving
+form:
+  choose: Kies
+  info: Vraag voor meer informatie
+  visit: Vraag om een bezoek
+  call: Vraag om terug gebeld to worden
+  name: Naam
+  mail: E-mail
+  number: Telefoon nummer
+  message: Omschrijving
+  send: Verstuur

@@ -1,0 +1,10 @@
+title: Schatting
+text: Het Vastgoedkantoor Immo Alphabitat biedt meer dan 25 jaar ervaring. Het vastgoedkantoor Immo Alphabitat heeft een grote klantenkring op zoek naar vastgoed in de gemeenten Sint-Pieters-Woluwe, Sint-Lambrechts-Woluwe, Oudergem, Watermaal-Bosvoorde en de omliggende gemeenten. Aarzel niet om ons te bellen of vul dit formulier in. Eén van onze medewerkers zal met u zo spoedig mogelijk contact opnemen.
+form:
+  name: Naam
+  last: Achternaam
+  mail: E-mail
+  tel: Tel.
+  message: Bericht
+  terms: Ik ga akkoord met Alphabitat's privacy verklaring.
+  send: Verstuur

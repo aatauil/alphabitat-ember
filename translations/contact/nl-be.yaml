@@ -1,0 +1,9 @@
+text: Contacteer ons en wij zullen u zo spoedig mogelijk antwoorden.
+form:
+  name: Naam
+  last: Achternaam
+  mail: E-mail
+  tel: Tel.
+  message: Bericht
+  terms: Ik ga akkoord met Alphabitat's privacy verklaring.
+  send: Verstuur

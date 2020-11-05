@@ -1,0 +1,42 @@
+header:
+  sell: Verkoop u huis!
+nav:
+  home: "Startpagina"
+  sale: "Te koop"
+  rent: "Te huur"
+  estimation: "Schatting"
+  contact: "Contact"
+  favorites: "Mijn favorieten"
+footer:
+  title: Uw geliefde vastgoed kantoor.
+  address: adres
+  street: Jules Du Jardinlaan 43
+  city: 1150 Sint-Pieters-Woluwe
+  opening: Openingsuren
+  week: Maandag tot zaterdag
+  hours: 09:00-18:00
+  general: Algmeen
+  home: Startpagina
+  properties: Panden
+  contact: Contact
+  favorites: Favorieten
+  legal: Legal
+  terms: General terms & services
+  privacy: Privacy Policy
+  cookie: Cookie Policy
+
+types:
+  houses: Huizen
+  flats: Appartementen
+  plots: Gronden
+  offices: Kantoren
+  stores: Winkels
+  industrial: Industrieel
+  garages: Garages & parkings
+
+regions:
+  brussels: Brussel
+  flemish: Vlaams-Brabant
+  walloon: Waals-Brabant
+  flanders: Oost-Vlaanderen
+  other: Anderen
