@@ -1,0 +1,20 @@
+filter:
+  title: Filtre
+  purpose: Catégorie
+  price: Prix
+  to: à
+  type: Type de propriété
+  area: Surface
+  region: Région
+  bedrooms: Chambres
+  bathrooms: Salles de bain
+results: Résultats de recherche
+sort:
+  relevance: Pertinence
+  lowest: Prix le plus bas en premier
+  highest: Prix le plus élevé en premier
+  rooms: Les plus des chambres
+  area: Plus grande surface
+found:
+  title: Aucun resultat n'a été trouvé.
+  text: Modifiez les critères de recherche ou cliquez sur le bouton reset et réessayez.

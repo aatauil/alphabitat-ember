@@ -1,0 +1,10 @@
+title: Estimation
+text: L'agence immobilière Alphabitat met à votre disposition plus de 25 ans d'expérience. L'agence immobilière Alphabitat dispose d'une large clientèle à la recherche de biens immobiliers essentiellement dans les communes de Woluwe-Saint-Pierre, Woluwe-Saint-Lambert, Auderghem, Watermael-Boitsfort et les communes avoisinantes. N'hésitez pas à nous appeler ou à remplir ce formulaire de contact. Un de nos collaborateurs se fera le plaisir de vous rappeler au plus vite.
+form:
+  name: Prenom
+  last: Nom
+  mail: E-mail
+  tel: Tel.
+  message: Message
+  terms: I agreed to the terms & services of Alphabitat
+  send: Envoyer

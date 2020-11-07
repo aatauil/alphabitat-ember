@@ -1,0 +1,9 @@
+text: Contactez-nous et nous vous répondrons dans les plus brefs délais.
+form:
+  name: Nom
+  last: Prenom
+  mail: E-mail
+  tel: Tel.
+  message: Message
+  terms: I agreed to the terms & services of Alphabitat
+  send: Envoyer

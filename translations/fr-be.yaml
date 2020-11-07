@@ -1,0 +1,42 @@
+header:
+  sell: Vendez votre maison!
+nav:
+  home: "Accueil"
+  sale: "A vendre"
+  rent: "A louer"
+  estimation: "Estimation"
+  contact: "Contact"
+  favorites: "Mes favoris"
+footer:
+  title: Votre agence immobilière préférée.
+  address: Adresse
+  street: Avenue Jules du Jardin 43
+  city: 1150 Woluwe-Saint-Pierre
+  opening: Heures d'ouverture
+  week: Lundi à Samedi
+  hours: 09:00-18:00
+  general: Général
+  home: Accueil
+  properties: Les biens
+  contact: Contact
+  favorites: Mes favoris
+  legal: Legal
+  terms: General terms & services
+  privacy: Privacy Policy
+  cookie: Cookie Policy
+
+types:
+  houses: Maisons
+  flats: Appartements
+  plots: Terrains
+  offices: Bureaux
+  stores: Commerces
+  industrial: Industriel
+  garages: Garages & parkings
+
+regions:
+  brussels: Bruxelles
+  flemish: Brabant Flamand
+  walloon: Brabant Wallon
+  flanders: Flandre Orientale
+  other: Autre

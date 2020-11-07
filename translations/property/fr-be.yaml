@@ -1,0 +1,18 @@
+favorite: Favorite
+sub:
+  description: Description
+  general: General
+  interior: intérieur
+  surfaces: Surfaces
+  energy: Énergie
+  environment: Environnement
+form:
+  choose: Choisir
+  info: Demander plus d'informations
+  visit: Demandez une visite
+  call: Demander à être rappelé
+  name: Nom
+  mail: E-mail
+  number:  Numéro de téléphone
+  message: Message
+  send: Envoyer
