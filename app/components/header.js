@@ -8,6 +8,7 @@ export default class HeaderComponent extends Component {
   @action setLang(lang){
 
     this.intl.set('locale', lang)
+    localStorage.setItem("userLanguage", lang);
 
   }
   
