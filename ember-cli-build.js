@@ -6,6 +6,7 @@ const isProduction = EmberApp.env() === 'production';
 const purgeCSS = {
   module: require('@fullhuman/postcss-purgecss'),
   options: {
+    safelist: ["ember-power-select-trigger", "ember-power-select-option", "ember-power-select-status-icon", "ember-power-select-dropdown", "ember-power-select-option"],
     content: [
       // add extra paths here for components/controllers which include tailwind classes
       './app/index.html',
