@@ -23,3 +23,7 @@
 /.node_modules.ember-try/
 /bower.json.ember-try
 /package.json.ember-try
+
+tests/unit/controllers/application-test.js
+
+tests/unit/routes/application-test.js

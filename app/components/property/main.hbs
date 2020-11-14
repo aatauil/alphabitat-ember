@@ -28,7 +28,7 @@
           <span class="text-3xl font-bold p-3 md:p-0 leading-none">{{ parse-price @estate.Price }} €</span>
         </div>
         <div class="text-gray-500 pb-2 font-bold text-center md:text-left">
-          {{category-converter @estate.CategoryId}} {{@estate.Purposes.[0].Name}}
+          {{this.propertyType}} {{@estate.Purposes.[0].Name}}
         </div>
         <div class="mt-6 flex flex-col md:flex-row justify-center items-center justify-between">
           <ul class="flex gap-3 ">

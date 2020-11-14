@@ -8,5 +8,4 @@ export default helper(function toNum([param]) {
     return parseInt(param)
   }
   
-
 });

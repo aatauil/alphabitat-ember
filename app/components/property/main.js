@@ -46,16 +46,45 @@ class FavoritesClass{
             return true
         }
     }
-
-
-    
 }
 
 export default class PropertyMainComponent extends Component {
+  @service intl;
 
-    @tracked Favorite = new FavoritesClass(
-        this.args.estate.EstateID, 
-        JSON.parse(window.localStorage.getItem('favorites'))
-        )
+  @tracked Favorite = new FavoritesClass(
+      this.args.estate.EstateID, 
+      JSON.parse(window.localStorage.getItem('favorites'))
+    )
+
+  get propertyType(){
+    let transformed;
+    switch (this.args.estate.CategoryId) {
+      case 1:
+          transformed = this.intl.t('types.houses');
+          break;
+      case 2:
+          transformed = this.intl.t('types.flats')
+          break;
+      case 3:
+          transformed = "Villa"
+          break;
+      case 4:
+          transformed = this.intl.t('types.offices')
+          break;
+      case 5:
+          transformed = this.intl.t('types.stores')
+          break;
+      case 6:
+          transformed = this.intl.t('types.industrial')
+          break;
+      case 7:
+          transformed = this.intl.t('types.garages')
+          break;
+      default:
+          break;
+  }
+
+  return transformed
+  }
 
 }
