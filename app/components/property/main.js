@@ -18,6 +18,7 @@ class FavoritesClass{
     }
 
     @action addRemove(id){
+      console.log(id)
 
         let itemIndex = this.favoritesList.indexOf(this.propertyID)
         if(itemIndex == -1){
@@ -52,7 +53,7 @@ export default class PropertyMainComponent extends Component {
   @service intl;
 
   @tracked Favorite = new FavoritesClass(
-      this.args.estate.EstateID, 
+      this.args.estate.id, 
       JSON.parse(window.localStorage.getItem('favorites'))
     )
 
