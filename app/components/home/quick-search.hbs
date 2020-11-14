@@ -3,8 +3,13 @@
     {{!-- PURPOSE SELECTOR --}}
     <div class="relative">
         <button type="button" {{ on 'click' this.Dropdown.togglePurpose}}
-            class="py-5 px-3 md:px-6 bg-white border flex justify-between w-full md:w-64 font-bold hover:bg-blue-100 ">{{if (eq this.Purpose.buyRent 1) "For sale" "For rent"}}<img
-                src="/assets/vector/down-arrow-black.svg" alt="Black down pointing arrow"></button>
+            class="py-5 px-3 md:px-6 bg-white border flex justify-between w-full md:w-64 font-bold hover:bg-blue-100 ">
+            {{#if (eq this.Purpose.buyRent 1)}} 
+              {{t "nav.sale"}}
+            {{else}}
+              {{t "nav.rent"}}
+            {{/if}}
+            <img src="/assets/vector/down-arrow-black.svg" alt="Black down pointing arrow"></button>
 
         {{!-- Component --}}
         <div class={{if this.Dropdown.purpose "flex" "hidden"}}>
