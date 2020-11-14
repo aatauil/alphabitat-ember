@@ -35,7 +35,7 @@
       <div class="h-12 my-1" {{on 'click' this.toggleMenu}} ></div>
       <ul class="flex justify-center py-2 bg-light-gray border ">
         <li>
-          <button type="button" {{on 'click' (fn this.setLang "en-us")}} class="{{if (eq this.currentLang "en-us") "bg-blue-700 font-bold text-white" "text-gray-700" }} bg-white py-2 w-24 bg-gray-200  text-center mx-2">EN</button>
+          <button type="button" {{on 'click' (fn this.setLang "en-gb")}} class="{{if (eq this.currentLang "en-gb") "bg-blue-700 font-bold text-white" "text-gray-700" }} bg-white py-2 w-24 bg-gray-200  text-center mx-2">EN</button>
         </li>
         <li>
           <button type="button" {{on 'click' (fn this.setLang "fr-be")}} class="{{if (eq this.currentLang "fr-be") "bg-blue-700 font-bold text-white" "text-gray-700"}} bg-white py-2 w-24 bg-gray-200  text-center mx-2">FR</button>
