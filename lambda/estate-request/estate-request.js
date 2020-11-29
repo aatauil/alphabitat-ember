@@ -1,10 +1,12 @@
 const axios = require('axios')
 
 const handler = async function (event) {
-
+  const regex = /API_TOKEN/g
   const { API_URL, API_TOKEN } = process.env
 
-  const params = event.queryStringParameters.params
+  var params = event.queryStringParameters.params
+  var params = params.replace(regex, API_TOKEN);
+
   const URL = `${API_URL}=${params}`
 
   try{
@@ -14,10 +16,9 @@ const handler = async function (event) {
       body: JSON.stringify(data)
     }
   } catch (error) {
-    const { status, statusText, headers, data } = error.response
     return {
-      statusCode: error.response.status,
-      body: JSON.stringify({ status, statusText, headers, data })
+      statusCode: "500",
+      body: JSON.stringify(error)
     }
   }
 }
