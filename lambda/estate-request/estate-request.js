@@ -4,23 +4,25 @@ const handler = async function (event) {
   const regex = /API_TOKEN/g
   const { API_URL, API_TOKEN } = process.env
 
-  console.log(process.env)
-
   var params = event.queryStringParameters.params
   var params = params.replace(regex, API_TOKEN);
 
   const URL = `${API_URL}=${params}`
 
-  try{
+  try {
     const { data } = await axios.get(URL)
+    // refer to axios docs for other methods if you need them
+    // for example if you want to POST data:
+    //    axios.post('/user', { firstName: 'Fred' })
     return {
       statusCode: 200,
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     }
   } catch (error) {
+    const { status, statusText, headers, data } = error.response
     return {
-      statusCode: "500",
-      body: JSON.stringify(error)
+      statusCode: error.response.status,
+      body: JSON.stringify({ status, statusText, headers, data }),
     }
   }
 }
