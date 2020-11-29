@@ -31,8 +31,6 @@ module.exports = function(environment) {
   
 
   if (environment === 'development') {
-        ENV.APP.API_URL = "https://sbs.whise.eu/websiteservices/EstateService.svc/GetEstateList?EstateServiceGetEstateListRequest=" 
-        ENV.APP.API_TOKEN = "e211fe6d9f374b6f9760";
   }
 
   if (environment === 'test') {
