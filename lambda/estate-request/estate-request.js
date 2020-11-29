@@ -4,6 +4,8 @@ const handler = async function (event) {
   const regex = /API_TOKEN/g
   const { API_URL, API_TOKEN } = process.env
 
+  console.log(process.env)
+
   var params = event.queryStringParameters.params
   var params = params.replace(regex, API_TOKEN);
 
