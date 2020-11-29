@@ -8,10 +8,9 @@ const handler = async function (event) {
   var params = params.replace(regex, API_TOKEN);
 
   const URL = `${API_URL}=${params}`
-  console.log(process.env)
 
   console.log('Constructed URL is ...', URL)
-  
+
   try {
     const { data } = await axios.get(URL)
     // refer to axios docs for other methods if you need them
