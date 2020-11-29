@@ -12,7 +12,7 @@ export default class HomeRoute extends Route {
   }
 
   async model() {
-    const response = await axios.get(`${ENV.APP.API_URL}{"ClientId":"${ENV.APP.API_TOKEN}","Page":0,"RowsPerPage":6,"Language":"${this.currentLang}","displayStatusIdList":3}`)
+    const response = await axios.post(`/.netlify/functions/estate-request?params={"ClientId":"${ENV.APP.API_TOKEN}","Page":0,"RowsPerPage":6,"Language":"${this.currentLang}","displayStatusIdList":3}`)
     const data = await response.data.d.EstateList
     return data
   }
