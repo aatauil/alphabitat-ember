@@ -1,8 +1,11 @@
 const axios = require('axios')
 
 const handler = async function (event) {
+
+  const { API_URL, API_TOKEN } = process.env
+
   const params = event.queryStringParameters.params
-  const URL = `${process.env.API_URL}=${params}`
+  const URL = `${API_URL}=${params}`
 
   try{
     const { data } = await axios.get(URL)
