@@ -15,7 +15,7 @@ export default class FavoritesRoute extends Route {
       console.log(window.localStorage.getItem('favorites') != "[]")
 
       if(window.localStorage.getItem('favorites') && window.localStorage.getItem('favorites') != "[]"){
-          const response = await axios.get(`${ENV.APP.API_URL}{"ClientId":"${ENV.APP.API_TOKEN}","Language":"${this.currentLang}","Page":0,"RemoveRowLimit":true, "EstateIDList": ${favoritesList}}`)
+          const response = await axios.get(`/.netlify/functions/estate-request?params={"ClientId":"API_TOKEN","Language":"${this.currentLang}","Page":0,"RemoveRowLimit":true, "EstateIDList": ${favoritesList}}`)
           const data = await response.data.d.EstateList
           // console.log(data)
           return data

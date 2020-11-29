@@ -14,7 +14,7 @@ export default class PropertyRoute extends Route {
 
       let id = param.id
       console.log(param.id)
-      const response = await axios.get(`${ENV.APP.API_URL}{"ClientId":"${ENV.APP.API_TOKEN}","Page":0,"Language":"${this.currentLang}", "estateID":${id}, "ShowDetails":true}`)
+      const response = await axios.get(`/.netlify/functions/estate-request?params={"ClientId":"API_TOKEN","Page":0,"Language":"${this.currentLang}", "estateID":${id}, "ShowDetails":true}`)
       const data = await response.data.d.EstateList
       const detailsArray = data[0].Details
       console.log(data)
