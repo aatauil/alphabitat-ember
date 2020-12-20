@@ -17,17 +17,6 @@ const purgeCSS = {
 }
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
-    'ember-cli-prerender': {
-      sitemap: {
-
-        /**
-         * Your Ember app's internet address.
-         * All relative paths in your sitemap will be prefixed with this.
-         */
-        rootUrl: 'https://alphabitat.netlify.app/',
-
-      },
-    },
     postcssOptions: {
       compile: {
         plugins: [

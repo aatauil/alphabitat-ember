@@ -8,8 +8,6 @@ export default class Router extends EmberRouterScroll {
 }
 
 Router.map(function() {
-  this.route('sitemap-txt', { path: 'sitemap.txt' }); // Required by ember-cli-prerender
-  this.route('sitemap-xml', { path: 'sitemap.xml' }); // Optional
   this.route('home', {path: '/'})
   this.route('search', {path: '/searchpage'})
   this.route('estimation', {path: '/estimation'})
