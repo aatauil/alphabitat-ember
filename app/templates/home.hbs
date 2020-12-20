@@ -1,49 +1,55 @@
 <main>
 
-    {{!-- HERO SECTION --}}
-    <section class="w-full h-full bg-hero ">
-        <div class="container z-10 relative">
+  {{!-- HERO SECTION --}}
 
-            <article class="flex justify-center py-24 flex flex-col">
-                <h1 class="hero-title text-3xl md:text-5xl text-center pb-12 font-bold text-gray-100 "> {{t "home.hero.title"}}</h1>
-                
-                {{!-- Component --}}
-                <Home::QuickSearch />
+  <section class="w-full h-full bg-hero ">
+    <div class="container z-10 relative">
 
-                <div class="flex justify-center mt-6 " >
-                    <LinkTo @route="search"
-                        class="font-bold text-gray-100 border px-6 py-2 border-gray-500 hover:bg-blue-600 anim ">{{t "home.hero.advanced"}}</LinkTo>
-                </div>
+      <article class="flex justify-center py-24 flex flex-col">
+        <h1 class="hero-title text-3xl md:text-5xl text-center pb-12 font-bold text-gray-100 "> {{t "home.hero.title"}}
+        </h1>
 
-            </article>
+        {{!-- Component --}}
+        <Home::QuickSearch />
+
+        <div class="flex justify-center mt-6 ">
+          <LinkTo @route="search"
+            class="font-bold text-gray-100 border px-6 py-2 border-gray-500 hover:bg-blue-600 anim ">
+            {{t "home.hero.advanced"}}</LinkTo>
         </div>
-    </section>
 
-    {{!-- NEW PROPERTY SECTION --}}
-    <section class="container py-16">
-            <h2 class="text-3xl font-bold py-6 text-gray-800">{{t "home.new.title"}}</h2>
-        <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 sm:grid-cols-2 grid-cols-1">
+      </article>
+    </div>
+  </section>
 
-        {{#each @model as |data|}}
+  {{!-- NEW PROPERTY SECTION --}}
 
-            {{!-- Component --}}
-            <SingleEstate @item={{data}}/>
+  <section class="container py-16">
+    <h2 class="text-3xl font-bold py-6 text-gray-800">{{t "home.new.title"}}</h2>
+    <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 sm:grid-cols-2 grid-cols-1">
 
+      {{#async-await this.estates as |data|}}
+        {{#each data as |estate|}}
+          <SingleEstate @item={{estate}} /> 
         {{/each}}
-        
-        </section>
-    </section>
+      {{else}}
+          <LoadingEstate/>
+      {{/async-await}}
 
-    {{!-- ABOUT SECTION --}}
-    <section class="bg-light-gray relative overflow-hidden">
-        <img src="/assets/pixel/building-mask.png" class="absolute top-0 right-0 h-full opacity-25 md:opacity-50 lg:opacity-100" alt="buildings">
-        <article class="container relative font-bold text-gray-900 py-16 md:py-40">
-        <div class=" w-full md:w-2/3">
-            <h2 class="text-3xl md:text-5xl py-6">{{t "home.experience.title"}}</h2>
-            <p class="text-base w-2/3">
-            {{t "home.experience.text"}}
-            </p>
-            </div>
-        </article>
     </section>
+  </section>
+
+  {{!-- ABOUT SECTION --}}
+  <section class="bg-light-gray relative overflow-hidden">
+    <img src="/assets/pixel/building-mask.png"
+      class="absolute top-0 right-0 h-full opacity-25 md:opacity-50 lg:opacity-100" alt="buildings">
+    <article class="container relative font-bold text-gray-900 py-16 md:py-40">
+      <div class=" w-full md:w-2/3">
+        <h2 class="text-3xl md:text-5xl py-6">{{t "home.experience.title"}}</h2>
+        <p class="text-base w-2/3">
+          {{t "home.experience.text"}}
+        </p>
+      </div>
+    </article>
+  </section>
 </main>
