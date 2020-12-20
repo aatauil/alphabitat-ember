@@ -28,12 +28,16 @@
     <h2 class="text-3xl font-bold py-6 text-gray-800">{{t "home.new.title"}}</h2>
     <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 sm:grid-cols-2 grid-cols-1">
 
-      {{#async-await this.estates as |data|}}
+      {{#async-await this.estates onReject=this.handleError  as |data|}}
         {{#each data as |estate|}}
           <SingleEstate @item={{estate}} /> 
         {{/each}}
       {{else}}
+          {{#if this.isError}}
+            <Error/>
+          {{else}}
           <LoadingEstate/>
+          {{/if}}
       {{/async-await}}
 
     </section>

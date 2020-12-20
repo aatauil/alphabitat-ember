@@ -1,6 +1,5 @@
 import Route from '@ember/routing/route';
 import axios from 'axios';
-import ENV from 'alphabitat-ember/config/environment'
 import { inject as service } from '@ember/service';
 
 
@@ -99,13 +98,9 @@ export default class SearchRoute extends Route {
       page = param.page
     }
 
-    let controller = this.controllerFor('search');
-    controller.set('currentlyLoading', true);
     const response = await axios.get(`/.netlify/functions/estate-request?params={"ClientId":"API_TOKEN","Page": ${ page || 0 },"Language":"${this.currentLang}","RowsPerPage":10,"CategoryIDList":[${ categoryList || "" }], "PriceRange": [${ minPrice || 0 }, ${ maxPrice || 1000000000 }] ,"RegionIDList": [${ regionList || "" }],"PurposeStatusIDList": [${ purposeID || 1 }], "MinRooms": ${minBedrooms || null}, "MinBathRooms":${minBathrooms || null}, "AreaRange": [${minArea || 0}, 1000], "OrderByFields":["${order || ""}"] }`)
     const data = await response.data.d.EstateList
     const meta = await response.data.d.QueryInfo
-    // console.log(response)
-    await controller.set('currentlyLoading', false);
     return {data, meta}
   }
 }
