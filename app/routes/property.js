@@ -1,7 +1,6 @@
 import Route from '@ember/routing/route';
-import axios from 'axios';
-import ENV from 'alphabitat-ember/config/environment' 
 import { inject as service } from '@ember/service';
+import axios from 'axios';
 
 export default class PropertyRoute extends Route {
   @service intl;
@@ -13,13 +12,9 @@ export default class PropertyRoute extends Route {
   async model(param) {
 
       let id = param.id
-      console.log(param.id)
       const response = await axios.get(`/.netlify/functions/estate-request?params={"ClientId":"API_TOKEN","Page":0,"Language":"${this.currentLang}", "estateID":${id}, "ShowDetails":true}`)
       const data = await response.data.d.EstateList
       const detailsArray = data[0].Details
-      console.log(data)
-
-      // console.log(data)
 
     // TITLE
     let title = detailsArray.filter(details => {
@@ -29,9 +24,6 @@ export default class PropertyRoute extends Route {
         return true
       }
     })
-
-    console.log(title)
-
 
     // GENERAL LIST
       let general = detailsArray.filter(details => {
@@ -99,8 +91,6 @@ export default class PropertyRoute extends Route {
       gps.Longitude = commaToPoint(coordinates[0].Subdetails[0].Value)
       gps.Latitude = commaToPoint(coordinates[0].Subdetails[1].Value)
       gps.List = new Array(commaToPoint(coordinates[0].Subdetails[0].Value), commaToPoint(coordinates[0].Subdetails[1].Value))
-
-      console.log(gps)
 
       return {data , general, title, interior, energy, surface, environment, gps}
   }
