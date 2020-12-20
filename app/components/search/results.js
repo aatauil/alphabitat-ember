@@ -30,7 +30,6 @@ class Navigation {
       this.list.push(i + 1)
 
     }
-    console.log(this.list)
   }
 }
 

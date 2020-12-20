@@ -10,7 +10,6 @@ export default class SearchPaginationComponent extends Component {
 
   @action nextPage(page){
     let next = page + 1
-    console.log(page)
     this.args.nav.context.refetch("page", next)
   }
 }

@@ -70,10 +70,6 @@ class PriceClass {
         this.maxOpenState = false;
     }
 
-    @action debug(){
-        console.log("debug")
-    }
-
     // PRICE LOGIC
     @action updateMinBudget(value){
         this.minBudget = value;

@@ -18,20 +18,17 @@ class FavoritesClass{
     }
 
     @action addRemove(id){
-      console.log(id)
 
         let itemIndex = this.favoritesList.indexOf(this.propertyID)
         if(itemIndex == -1){
             // Item does not exist in array, item will be added
             this.active = true
             this.favoritesList.push(id)
-            console.log("item has been added")
 
         } else {
             // Item does exist in array, item will be removed
             this.active = false
             this.favoritesList.splice(itemIndex, 1)
-            console.log("item has been removed")
         }
 
         window.localStorage.setItem("favorites" , JSON.stringify(this.favoritesList))
