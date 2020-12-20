@@ -7,15 +7,15 @@
                 <h2 class="text-5xl font-bold py-2 text-center">{{t "estimation.title"}}</h2>
                 <p class="xl:pb-4 font-bold text-sm opacity-50 text-center">{{t "estimation.text"}}</p>
             </div>
-            <form name="contact" method="POST" class="flex flex-col xl:w-2/3 p-3 xl:p-10 " data-netlify="true" >
-                <input type="hidden" name="form-name" value="contact">
+            <form name="estimation" method="POST" class="flex flex-col xl:w-2/3 p-3 xl:p-10 " data-netlify="true" >
+                <input type="hidden" name="form-name" value="estimation">
 
                 <div class="w-full flex gap-8">
                     <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="name" >
                         {{t "estimation.form.name"}} <span class="text-red-700">*</span>
                         <input
                             class="appearance-none w-full border border-gray-800 mt-1  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            name="name" id="name" type="input" placeholder="">
+                            name="name" id="name" type="input" placeholder="" required>
                     </label>
                     <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="lastname">
                         {{t "estimation.form.last"}}
@@ -30,7 +30,7 @@
                         {{t "estimation.form.mail"}} <span class="text-red-700">*</span>
                         <input
                             class="appearance-none w-full border border-gray-800 mt-1 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            name="email" id="email" type="input" placeholder="">
+                            name="email" id="email" type="input" placeholder="" required>
                     </label>
                     <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="tel">
                         {{t "estimation.form.tel"}} 
@@ -47,7 +47,7 @@
                         class="appearance-none w-full mt-1  border border-gray-800 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"></textarea>
                 </label>
                 <label class="text-center m-auto pb-6 " for="terms">
-                    <input type="checkbox" name="terms" id="terms" class="p-2"> {{t "estimation.form.terms"}}
+                    <input type="checkbox" name="terms" id="terms" class="p-2" required> {{t "estimation.form.terms"}} <span class="text-red-700">*</span>
                 </label>
                 <input type="submit" value={{t "estimation.form.send"}} class="py-4 bg-red-600 font-bold text-white cursor-pointer hover:bg-blue-600 anim">
             </form>
