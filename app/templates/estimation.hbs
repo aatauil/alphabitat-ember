@@ -11,43 +11,43 @@
                 <input type="hidden" name="form-name" value="contact">
 
                 <div class="w-full flex gap-8">
-                    <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="grid-password">
+                    <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="name" >
                         {{t "estimation.form.name"}} <span class="text-red-700">*</span>
                         <input
                             class="appearance-none w-full border border-gray-800 mt-1  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="grid-password" type="input" placeholder="">
+                            name="name" id="name" type="input" placeholder="">
                     </label>
-                    <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="grid-password">
+                    <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="lastname">
                         {{t "estimation.form.last"}}
                         <input
                             class="appearance-none w-full border border-gray-800 mt-1  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="grid-password" type="password" placeholder="">
+                            name="lastname" id="lastname" type="password" placeholder="">
                     </label>
                 </div>
 
                 <div class="w-full flex gap-8">
-                    <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="grid-password">
+                    <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="email">
                         {{t "estimation.form.mail"}} <span class="text-red-700">*</span>
                         <input
                             class="appearance-none w-full border border-gray-800 mt-1 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="grid-password" type="input" placeholder="">
+                            name="email" id="email" type="input" placeholder="">
                     </label>
-                    <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="grid-password">
+                    <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="tel">
                         {{t "estimation.form.tel"}} 
                         <input
                             class="appearance-none w-full border border-gray-800 mt-1  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="grid-password" type="password" placeholder="">
+                            name="tel" id="grid-password" type="password" placeholder="">
                     </label>
                 </div>
                 <div class="w-full flex ">
 
                 </div>
-                <label class="uppercase tracking-wide text-xs font-bold mb-4 flex-1">{{t "estimation.form.message"}}
-                    <textarea name="" id="" cols="30" rows="10"
+                <label class="uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="message">{{t "estimation.form.message"}}
+                    <textarea name="message" id="message" cols="30" rows="10"
                         class="appearance-none w-full mt-1  border border-gray-800 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"></textarea>
                 </label>
-                <label class="text-center m-auto pb-6 ">
-                    <input type="checkbox" name="" id="" class="p-2"> {{t "estimation.form.terms"}}
+                <label class="text-center m-auto pb-6 " for="terms">
+                    <input type="checkbox" name="terms" id="terms" class="p-2"> {{t "estimation.form.terms"}}
                 </label>
                 <input type="submit" value={{t "estimation.form.send"}} class="py-4 bg-red-600 font-bold text-white cursor-pointer hover:bg-blue-600 anim">
             </form>

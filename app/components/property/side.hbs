@@ -72,10 +72,10 @@
         </div>
         <div class=" px-10 py-5 mb-4">
           <div class=" tracking-wide text-black text-xs font-bold mb-6">
-            <label>
+            <label for="reason">
               Choose
             </label>
-            <select name="" id=""
+            <select name="reason" id="reason"
               class=" w-full text-black b-gray-alt bg-white mt-1 py-3 px-2 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
               <option value="">{{t "property.form.info"}}</option>
               <option value="">{{t "property.form.visit"}}</option>
@@ -84,39 +84,39 @@
           </div>
 
           <div class="tracking-wide text-black text-xs font-bold h-auto  mb-6">
-            <label>
+            <label for="name">
               {{t "property.form.name"}} <span class="text-red-700">*</span>
             </label>
             <input
               class="appearance-none w-full rounded bg-light-gray text-black b-gray-alt mt-1 py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              id="grid-password" type="input" placeholder="">
+              name="name" id="name" type="input" placeholder="">
 
           </div>
 
           <div class="tracking-wide text-black text-xs font-bold mb-6">
-            <label for="grid-password">
+            <label for="email">
               {{t "property.form.mail"}}
             </label>
             <span class="text-red-700">*</span>
             <input
               class="appearance-none w-full rounded bg-light-gray text-black b-gray-alt mt-1 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              id="grid-password" type="email" placeholder="">
+              name="email" id="email" type="email" placeholder="">
           </div>
 
           <div class="tracking-wide text-black text-xs font-bold mb-6">
-            <label for="grid-password">
+            <label for="tel">
               {{t "property.form.number"}}
             </label>
             <input
               class="appearance-none w-full rounded bg-light-gray text-black b-gray-alt mt-1 py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              id="grid-password" type="tel" placeholder="">
+              name="tel" id="tel" type="tel" placeholder="">
           </div>
 
           <div class=" tracking-wide text-black text-xs font-bold">
-            <label>
+            <label for="message">
               {{t "property.form.message"}}
             </label>
-            <textarea name="" id="" rows="8"
+            <textarea name="message" id="message" rows="8"
               class="appearance-none w-full rounded bg-light-gray text-black b-gray-alt mt-1 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 resize-none"
               value="">
               </textarea>
