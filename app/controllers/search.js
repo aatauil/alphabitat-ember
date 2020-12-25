@@ -17,7 +17,7 @@ export default class SearchController extends Controller {
     @tracked minBed = 0
     @tracked categories
     @tracked minArea = 0
-    @tracked order = ""
+    @tracked order = "Price ASC"
     @tracked page = 0
 
 
