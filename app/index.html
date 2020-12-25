@@ -17,18 +17,15 @@
   <body>
     {{content-for "body"}}
 
-    <form name="contact" method="POST" hidden data-netlify="true" netlify-honeypot="bot-field">
-      <input type="hidden" name="hiddenfield" value="contact">
-
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
       <div class="w-full flex gap-8">
           <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="name">
-              {{t "contact.form.name"}}<span class="text-red-700">*</span>
+              <span class="text-red-700">*</span>
               <input
                   class="appearance-none w-full border border-gray-800 mt-1  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   name="name" id="name" type="input" placeholder="" required>
           </label>
           <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="lastname">
-              {{t "contact.form.last"}}
               <input
                   class="appearance-none w-full border border-gray-800 mt-1  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   name="lastname" id="lastname" type="input" placeholder="">
@@ -37,13 +34,13 @@
 
       <div class="w-full flex gap-8">
           <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="email">
-              {{t "contact.form.mail"}} <span class="text-red-700">*</span>
+              <span class="text-red-700">*</span>
               <input
                   class="appearance-none w-full border border-gray-800 mt-1 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   name="email" id="email" type="email" placeholder="" required>
           </label>
           <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="tel">
-              {{t "contact.form.tel"}} 
+              
               <input
                   class="appearance-none w-full border border-gray-800 mt-1  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   name="tel" id="tel" type="password" placeholder="">
@@ -52,12 +49,12 @@
       <div class="w-full flex ">
 
       </div>
-      <label class="uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="message">{{t "contact.form.message"}}
+      <label class="uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="message">
           <textarea name="message" id="message" cols="30" rows="10"
               class="appearance-none w-full mt-1  border border-gray-800 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"></textarea>
       </label>
       <label class="text-center m-auto pb-6 " for="terms">
-          <input type="checkbox" name="terms" id="terms" class="p-2" required> {{t "contact.form.terms"}} <span class="text-red-700">*</span>
+          <input type="checkbox" name="terms" id="terms" class="p-2" required> <span class="text-red-700">*</span>
       </label>
       <input type="submit" class="py-4 bg-red-600 font-bold text-white cursor-pointer hover:bg-blue-600 anim">
   </form>
