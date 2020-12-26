@@ -96,6 +96,51 @@
     <input type="submit">
 </form>
 
+
+<form name="estate" netlify netlify-honeypot="bot-field" hidden>
+  <div>
+    <div >
+      <label for="reason">
+        Choose <span >*</span>
+      </label>
+      <select name="reason" id="reason" required>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+      </select>
+    </div>
+
+    <div >
+      <label for="name"><span >*</span>
+      </label>
+      <input name="name" id="name" type="input" placeholder="" required>
+
+    </div>
+
+    <div >
+      <label for="email">
+      </label>
+      <span class="text-red-700">*</span>
+      <input name="email" id="email" type="email" placeholder="" required>
+    </div>
+
+    <div >
+      <label for="tel">
+      </label>
+      <input name="tel" id="tel" type="tel" placeholder="">
+    </div>
+
+    <div class=" tracking-wide text-black text-xs font-bold">
+      <label for="message">
+      </label>
+      <textarea name="message" id="message" rows="8" value="">
+        </textarea>
+    </div>
+
+  </div>
+  <input type="submit">
+</form>
+
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/alphabitat-ember.js"></script>
 
