@@ -8,3 +8,8 @@ form:
   message: Bericht
   terms: Ik ga akkoord met Alphabitat's privacy verklaring.
   send: Verstuur
+  typeholder: Huis, appartement...
+  city: Stad
+  cityholder: Brussel, Aalst...
+  purpose: Intentie
+  purposeholder: Verkopen, verhuren

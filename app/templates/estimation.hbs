@@ -36,12 +36,32 @@
                         {{t "estimation.form.tel"}} 
                         <input
                             class="appearance-none w-full border border-gray-800 mt-1  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            name="tel" id="grid-password" type="password" placeholder="">
+                            name="tel" id="tel" type="tel" placeholder="">
                     </label>
                 </div>
-                <div class="w-full flex ">
-
+                <div class="w-full flex gap-8">
+                   <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="type">
+                        Type
+                        <input
+                            class="appearance-none w-full border border-gray-800 mt-1  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            name="type" id="type" type="text" placeholder={{t "estimation.form.typeholder"}}>
+                    </label>
+                     <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="regio">
+                        {{t "estimation.form.city"}}
+                        <input
+                            class="appearance-none w-full border border-gray-800 mt-1  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            name="regio" id="regio" type="password" placeholder={{t "estimation.form.cityholder"}}>
+                    </label>
                 </div>
+                <div class="w-full flex gap-8">
+                   <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="purpose">
+                        {{t "estimation.form.purpose"}}
+                        <input
+                            class="appearance-none w-full border border-gray-800 mt-1  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            name="purpose" id="purpose" type="text" placeholder={{t "estimation.form.purposeholder"}}>
+                    </label>
+                </div>
+                
                 <label class="uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="message">{{t "estimation.form.message"}}
                     <textarea name="message" id="message" cols="30" rows="10"
                         class="appearance-none w-full mt-1  border border-gray-800 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"></textarea>

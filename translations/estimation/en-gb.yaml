@@ -8,3 +8,8 @@ form:
   message: Message
   terms: I agreed to the terms & services of Alphabitat
   send: Send
+  typeholder: House, appartment...
+  city: City
+  cityholder: Brussels, Charleroi...
+  purpose: Purpose
+  purposeholder: Sell, rent
