@@ -1,14 +1,14 @@
     
     
-<LinkTo @route='property' @query={{hash id=@item.EstateID}} class="rounded-lg bg-white b-gray hover:shadow-xl transform hover:-translate-y-1 p-2 anim focus:border-blue-700 outline-none   ">
+<LinkTo @route='property' @query={{hash id=@item.EstateID}} class=" sm:rounded-lg bg-white b-gray sm:hover:shadow-xl sm:transform sm:hover:-translate-y-1 p-2 anim focus:border-blue-700 outline-none   ">
 
     <div style={{safe-string (concat "background-image: url('" @item.Pictures.[0].UrlLarge "')" )}} class="relative h-64 w-full rounded-lg bg-cover">
         <div class="absolute bottom-0 right-0 mr-0 mb-2 text-xl text-white px-4 py-1 font-bold bg-black rounded-l-lg">{{@item.Currency}} {{parse-price @item.Price}}</div>
     </div>
     
     <div class="p-3">
-        <h3 class="text-xl font-bold">{{@item.City}}</h3>
-        <div class="text-sm text-gray-600 pb-2 font-bold">{{this.propertyType}} {{@item.Purposes.[0].Name}}</div>
+        <h3 class="text-base sm:text-xl font-bold">{{@item.City}}</h3>
+        <div class=" text-xs sm:text-sm text-gray-600 pb-2 font-bold">{{this.propertyType}} {{@item.Purposes.[0].Name}}</div>
 
         <div class="flex py-2">
           {{#if (and (not-eq @item.Rooms 0) (not-eq @item.Rooms 0))}}
