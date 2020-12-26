@@ -1,4 +1,4 @@
- <section class="w-full my-2 md:my-6  md:p-0">
+ <section class="w-full my-2 md:my-6 md:p-0">
       <div class="flex justify-between items-center p-4 ">  
         <h2 class="font-bold py-6 text-gray-800"> {{ @meta.RowCount }} <span class="font-normal mx-1">{{t "search.results"}}</span> </h2>
           <div class="hidden md:block">
@@ -21,7 +21,7 @@
       {{#if (not-eq @estate.length 0)}}     
 
 
-        <section class="grid lg:grid-cols-2 gap-5 sm:grid-cols-2 grid-cols-1 px-0 sm:p-4">
+        <section class="grid lg:grid-cols-2 gap-5 sm:grid-cols-2 grid-cols-1 px-0 sm:px-4">
           {{#each @estate as |data|}}
 
             {{!-- Component --}}
