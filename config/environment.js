@@ -6,11 +6,6 @@ module.exports = function(environment) {
     environment,
     rootURL: '/',
     locationType: 'auto',
-
-    // GOOGLE TAG MANAGER
-    googleTagManager: {
-      appId: "GTM-M9BFWNS",
-    },
     
     EmberENV: {
       FEATURES: {
