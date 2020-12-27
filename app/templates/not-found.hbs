@@ -7,10 +7,10 @@
       		<div class="text-6xl font-dark font-bold">404</div>
             <p
               class="text-xl md:text-2xl font-josefin"
-            >Sorry we couldn't find this page. </p>
-          <p class="mb-8">But dont worry, you can find plenty of other things on our homepage.</p>
+            >{{t "not-found.title"}}</p>
+          <p class="mb-8">{{t "not-found.text"}}</p>
           <LinkTo @route="home">
-            <button class="px-4 inline py-2 text-sm font-medium leading-5 shadow text-white focus:outline-none focus:shadow-outline-blue bg-blue-600 active:bg-blue-600 hover:bg-red-700 anim">back to homepage</button>
+            <button type="button" class="px-4 inline py-2 text-sm font-medium leading-5 shadow text-white focus:outline-none focus:shadow-outline-blue bg-blue-600 active:bg-blue-600 hover:bg-red-700 anim">{{t "not-found.button"}}</button>
           </LinkTo>
     </div>
       <div class="max-w-lg">
