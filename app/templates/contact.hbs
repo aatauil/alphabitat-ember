@@ -1,53 +1,82 @@
-<main class="bg-gray-100">
-<div class="container flex-col  flex justify-center items-center relative py-12">
+<main class="bg-gray-900 border-b border-gray-800">
+  <div class="container flex justify-center items-center relative py-12">
     <section class="flex flex-col items-center py-12 md:w-2/3">
-        <h1 class="text-5xl text-center font-bold  ">Contact</h1>
-        <p class="pb-10 text-center font-bold opacity-50">{{t "contact.text"}}</p>
-           <form name="contact" method="POST" class="flex flex-col xl:w-2/3 p-3 xl:p-10 ">
-                <input type="hidden" name="form-name" value="contact" />
+      <h1 class="text-5xl font-bold text-white ">Contact</h1>
+      <p class="pb-10 opacity-75 text-white">{{t "contact.text"}}</p>
+      <div class="flex w-full justify-between flex-col md:flex-row mb-6">
+        <div class="text-white flex flex-col justify-center items-center flex-1 b-gray px-4 py-6 mr-3 mb-2 rounded text-sm">
+          <svg class="w-8 h-8 mb-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <span class="text-center"> Avenue Jules du Jardin 43
+          </span>
+        </div>
+        <div class=" text-white flex flex-col justify-center items-center flex-1 b-gray px-4 py-6 mr-3 mb-2  rounded text-sm">
+          <svg class="w-8 h-8 mb-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z">
+            </path>
+          </svg>
+          <span class="text-center">+32 (2) 770 31 21</span>
+        </div>
+        <div class=" text-white flex flex-col justify-center items-center flex-1 b-gray px-4 py-6 mb-2  rounded text-sm">
+          <svg class="w-8 h-8 mb-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+          </svg>
+          <span class="text-center">info@alphabitat.be </span>
+        </div>
+      </div>
+      <form name="contact" method="POST" class="flex w-full flex-col px-6 py-10 xl:p-12 bg-white rounded md:rounded-lg">
+        <input type="hidden" name="form-name" value="contact" />
 
-                <div class="w-full flex gap-8">
-                    <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="name">
-                        {{t "contact.form.name"}}<span class="text-red-700">*</span>
-                        <input
-                            class="appearance-none w-full border border-gray-800 mt-1  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            name="name" id="name" type="input" placeholder="" required>
-                    </label>
-                    <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="lastname">
-                        {{t "contact.form.last"}}
-                        <input
-                            class="appearance-none w-full border border-gray-800 mt-1  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            name="lastname" id="lastname" type="input" placeholder="">
-                    </label>
-                </div>
+        <div class="w-full flex gap-8">
+          <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="name">
+            {{t "contact.form.name"}} <span class="text-red-700">*</span>
+            <input
+              class="appearance-none w-full border b-gray mt-1  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              name="name" id="name" type="input" placeholder="" required>
+          </label>
+          <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="lastname">
+            {{t "contact.form.last"}}
+            <input
+              class="appearance-none w-full border b-gray mt-1  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              name="lastname" id="lastname" type="input" placeholder="">
+          </label>
+        </div>
 
-                <div class="w-full flex gap-8">
-                    <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="email">
-                        {{t "contact.form.mail"}} <span class="text-red-700">*</span>
-                        <input
-                            class="appearance-none w-full border border-gray-800 mt-1 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            name="email" id="email" type="email" placeholder="" required>
-                    </label>
-                    <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="tel">
-                        {{t "contact.form.tel"}} 
-                        <input
-                            class="appearance-none w-full border border-gray-800 mt-1  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            name="tel" id="tel" type="password" placeholder="">
-                    </label>
-                </div>
-                <div class="w-full flex ">
+        <div class="w-full flex gap-8">
+          <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="email">
+            {{t "contact.form.mail"}} <span class="text-red-700">*</span>
+            <input
+              class="appearance-none w-full border b-gray mt-1 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              name="email" id="email" type="email" placeholder="" required>
+          </label>
+          <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="tel">
+            {{t "contact.form.tel"}}
+            <input
+              class="appearance-none w-full border b-gray mt-1  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              name="tel" id="tel" type="password" placeholder="">
+          </label>
+        </div>
+        <div class="w-full flex ">
 
-                </div>
-                <label class="uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="message">{{t "contact.form.message"}}
-                    <textarea name="message" id="message" cols="30" rows="10"
-                        class="appearance-none w-full mt-1  border border-gray-800 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"></textarea>
-                </label>
-                <label class="text-center m-auto pb-6 " for="terms">
-                    <input type="checkbox" name="terms" id="terms" class="p-2" required> {{t "contact.form.terms"}} <span class="text-red-700">*</span>
-                </label>
-                <input type="submit" value={{t "contact.form.send"}} class="py-4 bg-red-600 font-bold text-white cursor-pointer hover:bg-blue-600 anim">
-            </form>
+        </div>
+        <label class="uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="message">{{t "contact.form.message"}}
+          <span class="text-red-700">*</span>
+          <textarea name="message" id="message" cols="30" rows="10" required
+            class="appearance-none w-full mt-1  border b-gray py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"></textarea>
+        </label>
+        <label class="text-center m-auto pb-6 " for="terms">
+          <input type="checkbox" name="terms" id="terms" class="p-2" required> {{t "contact.form.terms"}} <span
+            class="text-red-700">*</span>
+        </label>
+        <input type="submit" value={{t "contact.form.send" }}
+          class="py-4 bg-red-600 font-bold text-white cursor-pointer hover:bg-blue-600 anim">
+      </form>
     </section>
-    </div>
-</main>
 
+  </div>
+</main>
