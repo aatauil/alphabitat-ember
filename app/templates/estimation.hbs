@@ -41,24 +41,24 @@
                 </div>
                 <div class="w-full flex gap-8">
                    <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="type">
-                        Type
+                        Type  <span class="text-red-700">*</span>
                         <input
                             class="appearance-none w-full border border-gray-800 mt-1  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            name="type" id="type" type="text" placeholder={{t "estimation.form.typeholder"}}>
+                            name="type" id="type" type="text" placeholder={{t "estimation.form.typeholder"}} required>
                     </label>
                      <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="regio">
-                        {{t "estimation.form.city"}}
+                        {{t "estimation.form.city"}}  <span class="text-red-700">*</span>
                         <input
                             class="appearance-none w-full border border-gray-800 mt-1  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            name="regio" id="regio" type="password" placeholder={{t "estimation.form.cityholder"}}>
+                            name="regio" id="regio" type="password" placeholder={{t "estimation.form.cityholder"}} required>
                     </label>
                 </div>
                 <div class="w-full flex gap-8">
                    <label class=" uppercase tracking-wide text-xs font-bold mb-4 flex-1" for="purpose">
-                        {{t "estimation.form.purpose"}}
+                        {{t "estimation.form.purpose"}}  <span class="text-red-700">*</span>
                         <input
                             class="appearance-none w-full border border-gray-800 mt-1  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            name="purpose" id="purpose" type="text" placeholder={{t "estimation.form.purposeholder"}}>
+                            name="purpose" id="purpose" type="text" placeholder={{t "estimation.form.purposeholder"}} required>
                     </label>
                 </div>
                 
