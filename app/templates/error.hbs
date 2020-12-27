@@ -4,10 +4,10 @@
    		<div class="max-w-md">
             <p
               class="text-xl md:text-2xl font-josefin"
-            >Something went wrong while handling your request </p>
-          <p class="mb-8">Try again later or contact info@alphabitat.be</p>
+            >{{t "error.title"}}</p>
+          <p class="mb-8">{{t "error.text"}}</p>
           <LinkTo @route="home">
-            <button type="button" class="px-4 inline py-2 text-sm font-medium leading-5 shadow text-white focus:outline-none focus:shadow-outline-blue bg-blue-600 active:bg-blue-600 hover:bg-red-700 anim">back to homepage</button>
+            <button type="button" class="px-4 inline py-2 text-sm font-medium leading-5 shadow text-white focus:outline-none focus:shadow-outline-blue bg-blue-600 active:bg-blue-600 hover:bg-red-700 anim">{{t "error.button"}}</button>
           </LinkTo>
     </div>
       <div class="max-w-lg">
