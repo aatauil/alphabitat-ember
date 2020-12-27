@@ -34,9 +34,23 @@ types:
   industrial: Industrial
   garages: Garage & parking lots
 
+type:
+  house: House
+  flat: Flat
+  plot: Plot
+  office: Office
+  store: Store
+  industrial: Industrial
+  garage: Garage/parking lot
+
+
 regions:
   brussels: Brussels
   flemish: Flemish Brabant
   walloon: Walloon Brabant
   flanders: East Flanders
   other: Other
+
+error:
+  title: Oops. Something went wrong
+  text: Try again later or contact info@alphabitat.be

@@ -1,5 +1,6 @@
 header:
   sell: Vendez votre maison!
+
 nav:
   home: "Accueil"
   sale: "A vendre"
@@ -7,6 +8,7 @@ nav:
   estimation: "Estimation"
   contact: "Contact"
   favorites: "Mes favoris"
+
 footer:
   title: Votre agence immobilière préférée.
   address: Adresse
@@ -34,9 +36,22 @@ types:
   industrial: Industriel
   garages: Garages & parkings
 
+type:
+  house: Maison
+  flat: Appartement
+  plot: Terrain
+  office: Bureau
+  store: Commerce
+  industrial: Industriel
+  garage: Garage/parking
+
 regions:
   brussels: Bruxelles
   flemish: Brabant Flamand
   walloon: Brabant Wallon
   flanders: Flandre Orientale
   other: Autre
+
+error:
+  title: Oups, un problème est survenu.
+  text: Réessayez plus tard ou contactez info@alphabitat.be

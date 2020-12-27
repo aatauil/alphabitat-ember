@@ -34,9 +34,22 @@ types:
   industrial: Industrieel
   garages: Garages & parkings
 
+type:
+  house: Huis
+  flat: Appartement
+  plot: Grond
+  office: Kantoor
+  store: Winkel
+  industrial: Industrieel
+  garage: Garage/parking
+
 regions:
   brussels: Brussel
   flemish: Vlaams-Brabant
   walloon: Waals-Brabant
   flanders: Oost-Vlaanderen
   other: Anderen
+
+error:
+  title: Oeps! Er is iets misgegaan.
+  text: Probeer het later opnieuw of contacteer info@alphabitat.be

@@ -8,25 +8,25 @@ export default class SingleEstateComponent extends Component {
     let transformed;
     switch (this.args.item.CategoryId) {
       case 1:
-          transformed = this.intl.t('types.houses');
+          transformed = this.intl.t('type.house');
           break;
       case 2:
-         transformed = this.intl.t('types.flats')
+         transformed = this.intl.t('type.flat')
           break;
       case 3:
           transformed = "Villa"
           break;
       case 4:
-          transformed = this.intl.t('types.offices')
+          transformed = this.intl.t('type.office')
           break;
       case 5:
-          transformed = this.intl.t('types.stores')
+          transformed = this.intl.t('type.store')
           break;
       case 6:
-          transformed = this.intl.t('types.industrial')
+          transformed = this.intl.t('type.industrial')
           break;
       case 7:
-          transformed = this.intl.t('types.garages')
+          transformed = this.intl.t('type.garage')
           break;
       default:
           break;
