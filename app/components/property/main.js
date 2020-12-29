@@ -6,15 +6,13 @@ import { inject as service } from '@ember/service';
 
 class FavoritesClass{
 
-    @service('favorites') favorites;
     @tracked propertyID
-    @tracked favoritesList
-    @tracked active
+    @tracked isActive;
 
     constructor(id, list){
         this.propertyID = id
-        this.favoritesList = list || []
-        this.active = this.checkActive()
+        this.favoritesList = JSON.parse(list) || []
+        this.isActive = this.favoritesList.indexOf(this.propertyID) == -1 ? false : true
     }
 
     @action addRemove(id){
@@ -22,37 +20,29 @@ class FavoritesClass{
         let itemIndex = this.favoritesList.indexOf(this.propertyID)
         if(itemIndex == -1){
             // Item does not exist in array, item will be added
-            this.active = true
             this.favoritesList.push(id)
+            this.isActive = true
 
         } else {
             // Item does exist in array, item will be removed
-            this.active = false
             this.favoritesList.splice(itemIndex, 1)
+            this.isActive = false
         }
 
         window.localStorage.setItem("favorites" , JSON.stringify(this.favoritesList))
 
     }
 
-    checkActive(){
-        let itemIndex = this.favoritesList.indexOf(this.propertyID)
-
-        if(itemIndex == -1){
-            return false
-        } else {
-            return true
-        }
-    }
 }
 
 export default class PropertyMainComponent extends Component {
   @service intl;
 
   @tracked Favorite = new FavoritesClass(
-      this.args.estate.id, 
-      JSON.parse(window.localStorage.getItem('favorites'))
+      this.args.estate.EstateID, 
+      window.localStorage.getItem('favorites')
     )
+
 
   get propertyType(){
     let transformed;
