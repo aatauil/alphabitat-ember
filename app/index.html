@@ -106,17 +106,8 @@
 </form>
 
 
-<form method="POST" name="estate" class=" row-span-3 col-span-1 bg-white flex flex-col gap-10 border sticky top-0">
+<form name="estate" netlify netlify-honeypot="bot-field" hidden class=" row-span-3 col-span-1 bg-white flex flex-col gap-10 border sticky top-0">
     <div class=" tracking-wide text-black text-xs font-bold mb-6">
-      <label for="reason">
-        Choose <span class="text-red-700">*</span>
-        <select name="reason" id="reason" 
-          class=" w-full text-black b-gray-alt bg-white mt-1 py-3 px-2 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-          <option>{{t "property.form.info"}}</option>
-          <option>{{t "property.form.visit"}}</option>
-          <option>{{t "property.form.call"}}</option>
-        </select>
-       </label>
     </div>
 
     <div class="tracking-wide text-black text-xs font-bold h-auto  mb-6">
