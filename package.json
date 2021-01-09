@@ -76,6 +76,8 @@
   "ember": {
     "edition": "octane"
   },
-  "dependencies": {},
+  "dependencies": {
+    "caniuse-lite": "^1.0.30001173"
+  },
   "ember-addon": {}
 }
