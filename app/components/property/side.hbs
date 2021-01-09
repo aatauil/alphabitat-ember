@@ -74,52 +74,52 @@
           <div class=" tracking-wide text-black text-xs font-bold mb-6">
             <label for="reason">
               Choose <span class="text-red-700">*</span>
-            </label>
-            <select name="reason" id="reason" 
-              class=" w-full text-black b-gray-alt bg-white mt-1 py-3 px-2 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-              <option value={{t "property.form.info"}}>{{t "property.form.info"}}</option>
-              <option value={{t "property.form.info"}}>{{t "property.form.visit"}}</option>
-              <option value={{t "property.form.info"}}>{{t "property.form.call"}}</option>
-            </select>
+              <select name="reason" id="reason" 
+                class=" w-full text-black b-gray-alt bg-white mt-1 py-3 px-2 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                <option value={{t "property.form.info"}}>{{t "property.form.info"}}</option>
+                <option value={{t "property.form.info"}}>{{t "property.form.visit"}}</option>
+                <option value={{t "property.form.info"}}>{{t "property.form.call"}}</option>
+              </select>
+             </label>
           </div>
 
           <div class="tracking-wide text-black text-xs font-bold h-auto  mb-6">
             <label for="name">
               {{t "property.form.name"}} <span class="text-red-700">*</span>
+              <input
+                class="appearance-none w-full rounded bg-light-gray text-black b-gray-alt mt-1 py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                name="name" id="name" type="input" placeholder="" required />
             </label>
-            <input
-              class="appearance-none w-full rounded bg-light-gray text-black b-gray-alt mt-1 py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              name="name" id="name" type="input" placeholder="" required>
-
           </div>
 
           <div class="tracking-wide text-black text-xs font-bold mb-6">
             <label for="email">
               {{t "property.form.mail"}}
-            </label>
+         
             <span class="text-red-700">*</span>
             <input
               class="appearance-none w-full rounded bg-light-gray text-black b-gray-alt mt-1 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              name="email" id="email" type="email" placeholder="" required>
+              name="email" id="email" type="email" placeholder="" required />
+            </label>
           </div>
 
           <div class="tracking-wide text-black text-xs font-bold mb-6">
             <label for="tel">
               {{t "property.form.number"}}
+              <input
+                class="appearance-none w-full rounded bg-light-gray text-black b-gray-alt mt-1 py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                name="tel" id="tel" type="tel" placeholder="">
             </label>
-            <input
-              class="appearance-none w-full rounded bg-light-gray text-black b-gray-alt mt-1 py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              name="tel" id="tel" type="tel" placeholder="">
           </div>
 
           <div class=" tracking-wide text-black text-xs font-bold">
             <label for="message">
               {{t "property.form.message"}}
+              <textarea name="message" id="message" rows="8"
+                class="appearance-none w-full rounded bg-light-gray text-black b-gray-alt mt-1 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 resize-none"
+                value="">
+                </textarea>
             </label>
-            <textarea name="message" id="message" rows="8"
-              class="appearance-none w-full rounded bg-light-gray text-black b-gray-alt mt-1 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 resize-none"
-              value="">
-              </textarea>
           </div>
 
         </div>

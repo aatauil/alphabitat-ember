@@ -106,48 +106,54 @@
 </form>
 
 
-<form name="estate" netlify netlify-honeypot="bot-field" hidden>
-    <div>
+<form method="POST" name="estate" class=" row-span-3 col-span-1 bg-white flex flex-col gap-10 border sticky top-0">
+    <div class=" tracking-wide text-black text-xs font-bold mb-6">
       <label for="reason">
-        Choose <span >*</span>
-
-      <input name="reason" id="reason" >
-        <option >1</option>
-        <option >2</option>
-        <option >3</option>
-      </select>
-    </label>
+        Choose <span class="text-red-700">*</span>
+        <select name="reason" id="reason" 
+          class=" w-full text-black b-gray-alt bg-white mt-1 py-3 px-2 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+          <option>{{t "property.form.info"}}</option>
+          <option>{{t "property.form.visit"}}</option>
+          <option>{{t "property.form.call"}}</option>
+        </select>
+       </label>
     </div>
 
-    <div >
-      <label for="name"><span >*</span>
-      <input name="name" id="name" type="input" placeholder="" required>
-    </label>
-    </div>
-
-    <div >
-      <label for="email">
+    <div class="tracking-wide text-black text-xs font-bold h-auto  mb-6">
+      <label for="name">
+        <span class="text-red-700">*</span>
+        <input
+          class="appearance-none w-full rounded bg-light-gray text-black b-gray-alt mt-1 py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          name="name" id="name" type="input" placeholder="" required />
       </label>
-      <span class="text-red-700">*</span>
-      <input name="email" id="email" type="email" placeholder="" required>
     </div>
 
-    <div >
-      <label for="tel">
+    <div class="tracking-wide text-black text-xs font-bold mb-6">
+      <label for="email">   
+      <span class="text-red-700">*</span>
+      <input
+        class="appearance-none w-full rounded bg-light-gray text-black b-gray-alt mt-1 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+        name="email" id="email" type="email" placeholder="" required />
+      </label>
+    </div>
 
-      <input name="tel" id="tel" type="tel" placeholder="">
-    </label>
+    <div class="tracking-wide text-black text-xs font-bold mb-6">
+      <label for="tel">
+        <input
+          class="appearance-none w-full rounded bg-light-gray text-black b-gray-alt mt-1 py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          name="tel" id="tel" type="tel" placeholder="">
+      </label>
     </div>
 
     <div class=" tracking-wide text-black text-xs font-bold">
-      <label for="message">
-
-      <textarea name="message" id="message" rows="8" value="">
-        </textarea>
+      <label for="message">}
+        <textarea name="message" id="message" rows="8"
+          class="appearance-none w-full rounded bg-light-gray text-black b-gray-alt mt-1 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 resize-none"
+          value="">
+          </textarea>
       </label>
     </div>
-
-  <input type="submit">
+  <input type="submit" class="bg-red-700 hover:bg-blue-700 text-white py-5 anim cursor-pointer ">
 </form>
 
     <script src="{{rootURL}}assets/vendor.js"></script>
