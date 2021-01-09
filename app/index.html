@@ -82,17 +82,17 @@
     <div class="w-full flex gap-8">
       <label for="type">
             Type
-            <input name="type" id="type" type="text" placeholder={{t "estimation.form.typeholder"}}>
+            <input name="type" id="type" type="text">
         </label>
         <label for="regio">
        
-            <input name="regio" id="regio" type="password" placeholder={{t "estimation.form.cityholder"}}>
+            <input name="regio" id="regio" type="password">
         </label>
     </div>
     <div class="w-full flex gap-8">
       <label for="purpose">
          
-            <input name="purpose" id="purpose" type="text" placeholder={{t "estimation.form.purposeholder"}}>
+            <input name="purpose" id="purpose" type="text" >
         </label>
     </div>
     
@@ -107,23 +107,22 @@
 
 
 <form name="estate" netlify netlify-honeypot="bot-field" hidden>
-  <div>
-    <div >
+    <div>
       <label for="reason">
         Choose <span >*</span>
-      </label>
+
       <select name="reason" id="reason" required>
         <option value=""></option>
         <option value=""></option>
         <option value=""></option>
       </select>
+    </label>
     </div>
 
     <div >
       <label for="name"><span >*</span>
-      </label>
       <input name="name" id="name" type="input" placeholder="" required>
-
+    </label>
     </div>
 
     <div >
@@ -135,18 +134,19 @@
 
     <div >
       <label for="tel">
-      </label>
+
       <input name="tel" id="tel" type="tel" placeholder="">
+    </label>
     </div>
 
     <div class=" tracking-wide text-black text-xs font-bold">
       <label for="message">
-      </label>
+
       <textarea name="message" id="message" rows="8" value="">
         </textarea>
+      </label>
     </div>
 
-  </div>
   <input type="submit">
 </form>
 
