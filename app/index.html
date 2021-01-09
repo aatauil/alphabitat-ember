@@ -29,7 +29,6 @@
     <form name="contact" netlify netlify-honeypot="bot-field" hidden>
       <div>
           <label for="name">
-              <span >*</span>
               <input name="name" id="name" type="input" placeholder="" required>
           </label>
           <label for="lastname">
@@ -39,7 +38,6 @@
 
       <div>
           <label for="email">
-              <span >*</span>
               <input name="email" id="email" type="email" placeholder="" required>
           </label>
           <label>
@@ -53,7 +51,7 @@
           <textarea name="message" id="message" cols="30" rows="10"></textarea>
       </label>
       <label class="text-center m-auto pb-6 " for="terms">
-          <input type="checkbox" name="terms" id="terms" required> <span>*</span>
+          <input type="checkbox" name="terms" id="terms" required>
       </label>
       <input type="submit">
   </form>
@@ -61,7 +59,6 @@
   <form name="estimation" netlify netlify-honeypot="bot-field" hidden>
     <div >
         <label for="name" >
-            <span >*</span>
             <input name="name" id="name" type="input" placeholder="" required>
         </label>
         <label for="lastname">
@@ -71,7 +68,6 @@
 
     <div class="w-full flex gap-8">
         <label for="email">
-           <span class="text-red-700">*</span>
             <input name="email" id="email" type="input" placeholder="" required>
         </label>
         <label for="tel">
@@ -106,13 +102,12 @@
 </form>
 
 
-<form name="estate" netlify netlify-honeypot="bot-field" hidden class=" row-span-3 col-span-1 bg-white flex flex-col gap-10 border sticky top-0">
-    <div class=" tracking-wide text-black text-xs font-bold mb-6">
+<form name="estate" netlify netlify-honeypot="bot-field" hidden >
+    <div>
     </div>
 
-    <div class="tracking-wide text-black text-xs font-bold h-auto  mb-6">
+    <div >
       <label for="name">
-        <span class="text-red-700">*</span>
         <input
           class="appearance-none w-full rounded bg-light-gray text-black b-gray-alt mt-1 py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
           name="name" id="name" type="input" placeholder="" required />
