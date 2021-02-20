@@ -9,75 +9,11 @@
           {{ safe-string @estate.data.[0].ShortDescription }}</p>
       </Property::Card>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <Property::Card @title={{t "property.sub.general" }}>
-          <ul class="text-sm p-6 md:px-8">
-            {{#each @estate.general as |item|}}
-
-            <li class="flex justify-between py-3 b-gray-alt-bottom"> <span
-                class="capitalize text-gray-700">{{item.Name}}</span>
-                {{#if (eq item.Subdetails.[0].Type "yes/no")}}
-                {{#if (eq item.Subdetails.[0].Value "1")}}
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                  <path fill="none" d="M0 0h24v24H0z" />
-                  <path d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
-                    fill="rgba(65,195,87,1)" />
-                </svg>
-                {{else}}
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                  <path fill="none" d="M0 0h24v24H0z" />
-                  <path
-                    d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"
-                    fill="rgba(218,55,55,1)" />
-                </svg>
-                {{/if}}
-              {{else}}
-              <span class="font-bold text-gray-700">{{item.Subdetails.[0].Value}}</span>
-              {{/if}}
-            </li>
-            {{/each}}
-          </ul>
-        </Property::Card>
-        <Property::Card @title={{t "property.sub.interior" }}>
-          <ul class="text-sm p-6 md:px-8">
-            {{#each @estate.interior as |item|}}
-
-            <li class="flex justify-between py-3 b-gray-alt-bottom"> <span
-                class="capitalize text-gray-700">{{item.Name}}</span><span
-                class="font-bold text-gray-700">{{item.Subdetails.[0].Value}}</span></li>
-            {{/each}}
-          </ul>
-        </Property::Card>
-        <Property::Card @title={{t "property.sub.surfaces" }}>
-          <ul class="text-sm p-6 md:px-8">
-            {{#each @estate.surface as |item|}}
-            <li class="flex justify-between py-3 b-gray-alt-bottom "> <span
-                class="capitalize text-gray-700">{{item.Name}}</span><span
-                class="font-bold text-gray-700">{{item.Subdetails.[0].Value}} m²</span></li>
-            {{/each}}
-          </ul>
-        </Property::Card>
-        <Property::Card @title={{t "property.sub.energy" }}>
-          <ul class="text-sm p-6 md:px-8">
-            {{#each @estate.energy as |item|}}
-            <li class="flex justify-between py-3 border-b b-gray-alt-bottom"> <span
-                class="capitalize text-gray-700">{{item.Name}}</span><span
-                class="font-bold text-gray-700">{{item.Subdetails.[0].Value}}</span></li>
-            {{/each}}
-          </ul>
-        </Property::Card>
-
-        <Property::Card @title={{t "property.sub.environment" }}>
-          <ul class="text-sm p-6 md:px-8">
-            {{#each @estate.environment as |item|}}
-            <li class="flex justify-between py-3 border-b b-gray-alt-bottom"> <span
-                class="capitalize text-gray-700">{{item.Name}}</span><span class="font-bold text-gray-700">{{if (eq
-                item.Subdetails.[0].Type "yes/no") "yes" item.Subdetails.[0].Value }}</span>
-            </li>
-            {{/each}}
-          </ul>
-        </Property::Card>
-
-
+        <Property::Card @title={{t "property.sub.general" }} @list={{@estate.general}} />
+        <Property::Card @title={{t "property.sub.interior" }} @list={{@estate.interior}} />
+        <Property::Card @title={{t "property.sub.surfaces" }} @list={{@estate.surface}} />
+        <Property::Card @title={{t "property.sub.energy" }} @list={{@estate.energy}} />
+        <Property::Card @title={{t "property.sub.environment" }} @list={{@estate.environment}} />
       </div>
 
     </div>
