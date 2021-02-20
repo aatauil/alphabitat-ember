@@ -1,10 +1,10 @@
 favorite: Sauvegarde
 sub:
   description: Description
-  general: General
-  interior: intérieur
+  general: Général
+  interior: Intérieur
   surfaces: Surfaces
-  energy: Énergie
+  energy: Energie
   environment: Environnement
 form:
   choose: Choisir

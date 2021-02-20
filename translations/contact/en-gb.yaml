@@ -1,6 +1,6 @@
 text: Contact us and we will get back to you as soon as possible.
 form:
-  name: Name
+  name: Firstname
   last: Lastname
   mail: E-mail
   tel: Tel.

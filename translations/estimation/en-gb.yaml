@@ -1,12 +1,12 @@
 title: Estimation
 text: The real estate agency Immo Alphabitat offers over 25 years of experience. The real estate agency Immo Alphabitat has a large database of clients searching for real estate in the municipalities of Woluwe-Saint-Pierre, Woluwe-Saint-Lambert, Auderghem, Watermael-Boitsfort and surrounding municipalities. Do not hesitate to call us or fill out this form. One of our staff will call you back ASAP.
 form:
-  name: Name
+  name: Firstname
   last: Lastname
   mail: E-mail
   tel: Tel.
   message: Message
-  terms: I agreed to the terms & services of Alphabitat
+  terms: I declare having read the Termes et Conditions of use of Alphabitat.
   send: Send
   typeholder: House, appartment...
   city: City

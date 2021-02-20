@@ -91,7 +91,7 @@ export default class PropertyRoute extends Route {
       gps.Longitude = commaToPoint(coordinates[0].Subdetails[0].Value)
       gps.Latitude = commaToPoint(coordinates[0].Subdetails[1].Value)
       gps.List = new Array(commaToPoint(coordinates[0].Subdetails[0].Value), commaToPoint(coordinates[0].Subdetails[1].Value))
-
+      console.log(general)
       return {data , general, title, interior, energy, surface, environment, gps}
   }
 }
