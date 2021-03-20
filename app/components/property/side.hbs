@@ -1,13 +1,22 @@
 <div class="bg-light-gray">
   <section class="container flex flex-col gap-6 py-16 lg:flex-row">
     <div class="flex flex-col gap-6 lg:w-2/3">
+      {{#if @estate.title.[0].Subdetails.[0].Value}}
       <article class="bg-white px-10 py-3 text-center rounded b-gray">
         <h1 class="font-bold text-xl text-gray-900 py-3">{{@estate.title.[0].Subdetails.[0].Value}}</h1>
       </article>
-      <Property::Card @title={{t "property.sub.description" }}>
+      {{/if}}
+      {{#if @estate.data.[0].ShortDescription}}
+      <article class="bg-white rounded b-gray-alt">
+        <div class=" h-auto">
+          <div class="flex px-6 md:px-8 py-4 md:py-5 justify-between b-gray-alt-bottom">
+            <h2 class="font-bold text-xl text-gray-900 ">{{t "property.sub.description" }}</h2>
+          </div>
+        </div>
         <p class="text-sm p-6 md:px-8">
           {{ safe-string @estate.data.[0].ShortDescription }}</p>
-      </Property::Card>
+      </article>
+      {{/if}}
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Property::Card @title={{t "property.sub.general" }} @list={{@estate.general}} />
         <Property::Card @title={{t "property.sub.interior" }} @list={{@estate.interior}} />
