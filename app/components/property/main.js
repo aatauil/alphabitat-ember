@@ -38,8 +38,17 @@ class FavoritesClass{
 export default class PropertyMainComponent extends Component {
   @service intl;
 
+  @tracked iconOptions = L.icon({
+    iconUrl: '/assets/pixel/pin.png',
+
+    iconSize:     [40, 40], // size of the icon // size of the shadow
+    iconAnchor:   [20, 50], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
   @tracked Favorite = new FavoritesClass(
-      this.args.estate.EstateID, 
+      this.args.estate.EstateID,
       window.localStorage.getItem('favorites')
     )
 
