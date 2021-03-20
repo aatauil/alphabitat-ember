@@ -3,7 +3,7 @@
     <article>
       <div class="relative">
 
-        {{#swiper-container pagination=true navigation=true}}
+        {{#swiper-container pagination=true navigation=true loop=true}}
 
         {{#each @estate.Pictures as |picture|}}
         {{#swiper-slide}}
@@ -38,7 +38,7 @@
                 <span>{{@estate.Rooms}}</span>
               </li>
             {{/if}}
-            
+
             {{#if (and (not-eq @estate.BathRooms 0) (not-eq @estate.BathRooms 0))}}
               <li class="flex justify-between bg-light-gray gap-2 py-3 px-5 ">
                 <img src="assets/vector/bath.svg" alt="icon of a shower">
