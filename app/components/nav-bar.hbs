@@ -10,12 +10,12 @@
       </li>
 
       <li>
-        <LinkTo @route="search" @query={{hash buyRent=1}} class="mx-2 py-2 px-4">{{t "nav.sale"}}</LinkTo>
+        <LinkTo @route="search" @query={{hash buyRent=1 page=0}} class="mx-2 py-2 px-4">{{t "nav.sale"}}</LinkTo>
 
       </li>
 
       <li>
-        <LinkTo @route="search" @query={{hash buyRent=2}} class="mx-2 py-2 px-4">{{t "nav.rent"}}</LinkTo>
+        <LinkTo @route="search" @query={{hash buyRent=2 page=0}} class="mx-2 py-2 px-4">{{t "nav.rent"}}</LinkTo>
       </li>
 
       <li>
@@ -49,10 +49,10 @@
           <LinkTo class="block w-full p-4 pl-0 my-3 border-b" @route="home">{{t "nav.home"}}</LinkTo>
         </li>
         <li>
-          <LinkTo class="block w-full p-4 pl-0 my-3 border-b" @route="search" @query={{hash buyRent=1}}>{{t "nav.sale"}}</LinkTo>
+          <LinkTo class="block w-full p-4 pl-0 my-3 border-b" @route="search" @query={{hash buyRent=1 page=0}}>{{t "nav.sale"}}</LinkTo>
         </li>
         <li>
-          <LinkTo class="block w-full p-4 pl-0 my-3 border-b" @route="search" @query={{hash buyRent=2}}>{{t "nav.rent"}}</LinkTo>
+          <LinkTo class="block w-full p-4 pl-0 my-3 border-b" @route="search" @query={{hash buyRent=2 page=0}}>{{t "nav.rent"}}</LinkTo>
         </li>
         <li>
           <LinkTo class="block w-full p-4 pl-0 my-3 border-b" @route="estimation">{{t "nav.estimation"}}</LinkTo>
