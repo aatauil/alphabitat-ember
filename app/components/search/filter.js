@@ -45,7 +45,7 @@ class PriceClass{
   }
 
   @action updateMaxBudget(value){
-    
+
       this.maxBudget = value;
       this.maxOpenState = false;
       this.checkPrice("minBudget")
@@ -68,6 +68,7 @@ class PriceClass{
   }
 
   refetchEstate(){
+    this.context.refetch('page', 0)
     this.context.refetch("minPrice", this.minBudget ? parseInt(this.minBudget.replace(/ /g, '')) : "")
     this.context.refetch("maxPrice", this.maxBudget ? parseInt(this.maxBudget.replace(/ /g, '')) : "")
   }
@@ -75,18 +76,18 @@ class PriceClass{
 
 // MANAGES REGION LIST STATE======================
 class RegionClass{
-  
+
   @tracked list = []
-  
+
   constructor(context){
-      this.context = context   
+      this.context = context
       this.list = context.query.regions.split(",")
   }
 
   @action regionLogic(event){
     let state = event.target.checked
     let elem = event.target.value
-    
+
     if(state == true){
       this.list.push(elem)
     } else{
@@ -95,7 +96,7 @@ class RegionClass{
           this.list.splice(index, 1);
       }
     }
-
+    this.context.refetch('page', 0)
     this.context.refetch('regions', this.list.toString())
 
 
@@ -180,7 +181,7 @@ class CategoryClass{
   @tracked list = []
 
   constructor(context){
-    this.context = context   
+    this.context = context
     this.list = context.query.categories ? context.query.categories.split(",") : []
 }
 
@@ -193,7 +194,7 @@ class CategoryClass{
       } else if (!checkedState) {
           this.removeItem(elem);
       }
-
+      this.context.refetch('page', 0)
       this.context.refetch('categories', this.list)
   }
 
@@ -214,7 +215,7 @@ class CategoryClass{
 
 // MANAGES OPTIONS STATE==========================
 class OptionsClass{
-    
+
     @tracked garage = false;
     @tracked garden = false;
     @tracked furnished = false;
@@ -237,7 +238,7 @@ class AreaClass{
 
 class MobileFilterClass{
 
-    
+
     @tracked filterState = true;
 
     constructor(){

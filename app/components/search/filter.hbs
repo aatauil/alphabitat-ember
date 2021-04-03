@@ -19,12 +19,12 @@
       <div class="flex flex-col pl-2 ">
         <label class="inline-flex items-center mt-3">
           <input type="radio" name="purpose" checked={{if (eq this.Purpose.buyRent 1) true }}
-            {{on "change" (queue this.Price.resetBudget (set this.Purpose.buyRent 1) (fn @refetch "buyRent" 1)  ) }} class="h-5 w-5 text-gray-600 "><span
+            {{on "change" (queue this.Price.resetBudget (set this.Purpose.buyRent 1) (fn @refetch "buyRent" 1) (fn @refetch "page" 0)  )}} class="h-5 w-5 text-gray-600 "><span
             class="ml-4 text-gray-500">For sale</span>
         </label>
         <label class="inline-flex items-center mt-3">
-          <input type="radio" name="purpose" checked={{if (eq this.Purpose.buyRent 2) true }} 
-            {{on "change" (queue  this.Price.resetBudget (set this.Purpose.buyRent 2) (fn @refetch "buyRent" 2) )}} class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">For
+          <input type="radio" name="purpose" checked={{if (eq this.Purpose.buyRent 2) true }}
+            {{on "change" (queue  this.Price.resetBudget (set this.Purpose.buyRent 2) (fn @refetch "buyRent" 2) (fn @refetch "page" 0) )}} class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">For
             rent</span>
         </label>
 
@@ -89,7 +89,7 @@
                     <Input @type="checkbox" class="h-5 w-5 text-gray-600" value="4" @checked={{contains "4" this.Category.list}} {{on "change" this.Category.updateList }}/>
                     <span class="ml-4 text-gray-500">{{t "types.offices"}}</span>
                 </label>
-                
+
                 <label class="inline-flex items-center mt-3">
                     <Input @type="checkbox" class="h-5 w-5 text-gray-600" value="5" @checked={{contains "5" this.Category.list}} {{on "change" this.Category.updateList }}/>
                     <span class="ml-4 text-gray-500">{{t "types.stores"}}</span>
@@ -117,7 +117,7 @@
 
             <div class="flex justify-start items-center">
                 <div class=" py-3 px-2 rounded flex-1">
-                    <Input type="range" min="10" max="300" step="10" class="w-full anim" @value={{this.Area.minArea }} {{on 'change' (fn @refetch 'minArea' this.Area.minArea)}}/>
+                    <Input type="range" min="10" max="300" step="10" class="w-full anim" @value={{this.Area.minArea }} {{on 'change' (pipe  (fn @refetch 'minArea' this.Area.minArea) (fn @refetch "page" 0))}}/>
                 </div>
                 <div class="b-gray py-2 px-3 rounded">> {{this.Area.minArea}} m² </div>
             </div>
@@ -149,7 +149,7 @@
         </div>
 
         <div class="mt-6">
-            <h2 class="text-gray-600 py-3 flex items-end mb-2"> 
+            <h2 class="text-gray-600 py-3 flex items-end mb-2">
               <svg id="bed" xmlns="http://www.w3.org/2000/svg" class="mr-2" width="24" height="24" viewBox="0 0 24 24">
                 <g id="Group_1" data-name="Group 1">
                   <rect id="Rectangle_11" data-name="Rectangle 11" width="24" height="24" fill="none"/>
@@ -157,19 +157,19 @@
                 <g id="Group_2" data-name="Group 2" transform="translate(0 -1.4)">
                   <path id="Path_1" data-name="Path 1" d="M24,12.7a2.206,2.206,0,0,0-2.2-2.2V7.2A2.206,2.206,0,0,0,19.6,5H6.4A2.206,2.206,0,0,0,4.2,7.2v3.3A2.206,2.206,0,0,0,2,12.7v5.5H3.463L4.2,20.4H5.3l.737-2.2H19.974l.726,2.2h1.1l.737-2.2H24Zm-4.4-2.2H14.1V7.2h5.5ZM6.4,7.2h5.5v3.3H6.4ZM4.2,12.7H21.8V16H4.2Z" transform="translate(-1 5)"/>
                 </g>
-              </svg>     
+              </svg>
               <span class="leading-none"> {{t "search.filter.bedrooms"}}</span>
             </h2>
             <div class="flex justify-start">
                 <div class=" w-2/3 flex items-center justify-between bg-white b-gray-alt rounded py-2 px-4">
-                    <button type="button" {{ on 'click' (pipe (fn this.Bed.decrement) (fn @refetch "minBed" this.Bed.bedrooms)) }}
+                    <button type="button" {{ on 'click' (pipe (fn this.Bed.decrement) (fn @refetch "minBed" this.Bed.bedrooms) (fn @refetch "page" 0)) }}
                         class="{{if this.Bed.minBed "opacity-25 cursor-not-allowed" }}">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 b-gray border-gray-900 text-gray-700 hover:bg-red-500 hover:text-white" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 13H5v-2h14v2z"/></svg>
                     </button>
                     <div class="font-bold text-xl">
                         > {{this.Bed.bedrooms}}
                     </div>
-                    <button type="button" {{ on 'click' (pipe (fn this.Bed.increment) (fn @refetch "minBed" this.Bed.bedrooms)) }}
+                    <button type="button" {{ on 'click' (pipe (fn this.Bed.increment) (fn @refetch "minBed" this.Bed.bedrooms) (fn @refetch "page" 0)) }}
                         class="{{if this.Bed.maxBed "opacity-25 cursor-not-allowed" }}">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 b-gray text-gray-700 hover:bg-blue-500 hover:text-white" fill="currentColor" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
                     </button>
@@ -193,14 +193,14 @@
               <span class="leading-none">{{t "search.filter.bathrooms"}}</span></h2>
             <div class="flex justify-start ">
                 <div class=" w-2/3 flex items-center justify-between bg-white b-gray-alt rounded py-2 px-4">
-                    <button type="button"  {{ on 'click' (pipe (fn this.Bath.decrement) (fn @refetch "minBath" this.Bath.bathrooms)) }}
+                    <button type="button"  {{ on 'click' (pipe (fn this.Bath.decrement) (fn @refetch "minBath" this.Bath.bathrooms) (fn @refetch "page" 0)) }}
                         class="{{if this.Bath.minBath "opacity-25 cursor-not-allowed" }}">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 b-gray text-gray-700 hover:bg-red-500 hover:text-white" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 13H5v-2h14v2z"/></svg>
                     </button>
                     <div class="font-bold text-xl">{{this.Bed.bathrooms}}
                         > {{this.Bath.bathrooms}}
                     </div>
-                    <button type="button"  {{ on 'click' (pipe (fn this.Bath.increment) (fn @refetch "minBath" this.Bath.bathrooms)) }}
+                    <button type="button"  {{ on 'click' (pipe (fn this.Bath.increment) (fn @refetch "minBath" this.Bath.bathrooms) (fn @refetch "page" 0)) }}
                         class="{{if this.Bath.maxBath "opacity-25 cursor-not-allowed" }}">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 b-gray text-gray-700 hover:bg-blue-500 hover:text-white" fill="currentColor" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
                     </button>
@@ -209,7 +209,7 @@
         </div>
 
 
-                
+
 
         {{!-- <div class="mt-6">
             <h2 class="text-gray-600 pb-2">Options</h2>
