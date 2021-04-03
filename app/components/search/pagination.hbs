@@ -2,28 +2,28 @@
   <div class="flex sm:hidden text-gray-700">Page {{@nav.currentPage}} of {{@nav.maxPage}}</div>
     <div class="flex sm:hidden">
 
-    <button type="button" {{on 'click' (fn this.previousPage @nav.currentPage)}} class="{{if (eq @nav.currentPage 1) "hidden" "block" }} relative inline-flex items-center px-4 py-2  text-sm leading-5 font-medium border bg-white hover:bg-blue-500 hover:text-white focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 anim">
+    <button type="button" {{on 'click' (fn this.previousPage @nav.currentPage)}} class="{{if (eq @nav.currentPage 1) "hidden" "block" }} relative inline-flex items-center px-4 py-2  text-sm leading-5 font-medium border bg-white hover:bg-blue-500 hover:text-white focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 anim">
       Previous
     </button>
 
-    <button type="button" {{on 'click' (fn this.nextPage @nav.currentPage)}} class="{{if (eq @nav.currentPage @nav.maxPage) "hidden" "block" }} ml-3 relative inline-flex items-center px-4 py-2  text-sm leading-5 font-medium border bg-white hover:bg-blue-500 hover:text-white focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 anim">
+    <button type="button" {{on 'click' (fn this.nextPage @nav.currentPage)}} class="{{if (eq @nav.currentPage @nav.maxPage) "hidden" "block" }} ml-3 relative inline-flex items-center px-4 py-2  text-sm leading-5 font-medium border bg-white hover:bg-blue-500 hover:text-white focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 anim">
       Next
     </button>
   </div>
   <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-center">
     <div>
       <nav class="relative z-0 inline-flex shadow-sm">
-        <button type="button" {{on 'click' (fn this.previousPage @nav.currentPage)}} class="{{if (eq @nav.currentPage 1) "hidden" "block" }} mr-2 relative inline-flex items-center px-2 py-2 border-gray-300 bg-gray-200 text-sm leading-5 font-medium text-gray-500 hover:bg-red-500 hover:text-white focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150" aria-label="Previous page">
+        <button type="button" {{on 'click' (fn this.previousPage @nav.currentPage)}} class="{{if (eq @nav.currentPage 1) "hidden" "block" }} mr-2 relative inline-flex items-center px-2 py-2 border-gray-300 bg-gray-200 text-sm leading-5 font-medium text-gray-500 hover:bg-red-500 hover:text-white focus:z-10 focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150" aria-label="Previous page">
           <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
           </svg>
         </button>
         {{#each @nav.list as |page|}}
-          <button type="button" {{on 'click' (fn @nav.refetch page) }} class="{{if (eq page @nav.currentPage) "bg-blue-600 text-white" "hover:bg-blue-500 hover:text-white text-gray-700" }} relative inline-flex items-center mx-1 px-4 py-2 bg-white text-sm leading-5 font-medium  focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
+          <button type="button" {{on 'click' (fn @nav.refetch page) }} class="{{if (eq page @nav.currentPage) "bg-blue-600 text-white" "hover:bg-blue-500 hover:text-white text-gray-700" }} relative inline-flex items-center mx-1 px-4 py-2 bg-white text-sm leading-5 font-medium  focus:z-10 focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
             {{page}}
           </button>
         {{/each}}
-        <button type="button" {{on 'click' (fn this.nextPage @nav.currentPage)}} class="{{if (eq @nav.currentPage @nav.maxPage) "hidden" "block" }} ml-2 relative bg-gray-200 inline-flex items-center px-2 py-2 border-gray-300 text-sm leading-5 font-medium text-gray-500 hover:bg-red-500 hover:text-white focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150" aria-label="Next page">
+        <button type="button" {{on 'click' (fn this.nextPage @nav.currentPage)}} class="{{if (eq @nav.currentPage @nav.maxPage) "hidden" "block" }} ml-2 relative bg-gray-200 inline-flex items-center px-2 py-2 border-gray-300 text-sm leading-5 font-medium text-gray-500 hover:bg-red-500 hover:text-white focus:z-10 focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150" aria-label="Next page">
           <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
           </svg>
