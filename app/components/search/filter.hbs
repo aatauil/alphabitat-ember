@@ -10,7 +10,6 @@
         <button type="button" {{on 'click' this.MobileFilter.toggleFilter}}
           class="bg-gray-200 text-gray-900 text-base font-bold py-2 px-5 rounded block xl:hidden ml-3"><img
             src="/assets/vector/close.svg" alt="Black close icon"></button>
-
       </div>
     </div>
 
@@ -27,7 +26,6 @@
             {{on "change" (queue  this.Price.resetBudget (set this.Purpose.buyRent 2) (fn @refetch "buyRent" 2) (fn @refetch "page" 0) )}} class="h-5 w-5 text-gray-600"><span class="ml-4 text-gray-500">For
             rent</span>
         </label>
-
       </div>
     </div>
 

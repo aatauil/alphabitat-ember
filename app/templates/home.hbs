@@ -30,7 +30,7 @@
 
       {{#async-await this.estates onReject=this.handleError  as |data|}}
         {{#each data as |estate|}}
-          <SingleEstate @item={{estate}} /> 
+          <SingleEstate @item={{estate}} />
         {{/each}}
       {{else}}
           {{#if this.isError}}
