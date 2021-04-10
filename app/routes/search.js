@@ -50,12 +50,12 @@ export default class SearchRoute extends Route {
     if(!items){
     return []
     }
-    itemList = items.split(","); 
+    itemList = items.split(",");
     let newList = []
 
     itemList.forEach(element => {
       switch (element) {
-        case '1': 
+        case '1':
           newList.push(20341)
           break;
 
@@ -67,10 +67,10 @@ export default class SearchRoute extends Route {
           newList.push(20706,20346,20347)
           break;
 
-        case '4': 
+        case '4':
           newList.push(51498)
           break;
-        
+
         case '5':
           newList.push(20347,20346,20345,20344,20343,20342)
           break;
@@ -79,18 +79,20 @@ export default class SearchRoute extends Route {
     );
     return newList
   }
- 
-  async model(param) { 
-    let purposeID = param.buyRent
-    let categoryList = param.categories
-    let regionList = this.convertRegion(param.regions)
-    let minBedrooms = param.minBed
-    let minBathrooms = param.minBath
-    let minArea = param.minArea
-    let order = param.order 
-    let minPrice = param.minPrice 
-    let maxPrice = param.maxPrice 
+
+  async model(param) {
+    let paramsList = [];
     let page;
+
+    if(param.categories) paramsList.push(`"CategoryIDList":[${ param.categories }]`);
+    if(param.buyRent) paramsList.push(`"PurposeStatusIDList": [${ param.buyRent }]`);
+    if(param.regions) paramsList.push(`"RegionIDList": [${ this.convertRegion(param.regions) }]`);
+    if(param.minPrice || param.maxPrice) paramsList.push(`"PriceRange": [${ param.minPrice || 0 }, ${ param.maxPrice || 1000000000 }]`);
+    if(param.minBed) paramsList.push(`"MinRooms": ${param.minBed}`);
+    if(param.minBath) paramsList.push(`"MinBathRooms":${param.minBath}`);
+    if(param.minArea) paramsList.push(`"AreaRange": [${param.minArea}, 1000]`);
+    if(param.order) paramsList.push(`"OrderByFields":["${param.order}"]`);
+
 
     if( param.page != 0){
       page = param.page - 1
@@ -100,7 +102,7 @@ export default class SearchRoute extends Route {
 
     let controller = this.controllerFor('search');
     controller.set('currentlyLoading', true);
-    const response = await axios.get(`/.netlify/functions/estate-request?params={"ClientId":"API_TOKEN","Page": ${ page || 0 },"Language":"${this.currentLang}","RowsPerPage":10,"CategoryIDList":[${ categoryList || "" }], "PriceRange": [${ minPrice || 0 }, ${ maxPrice || 1000000000 }] ,"RegionIDList": [${ regionList || "" }],"PurposeStatusIDList": [${ purposeID || 1 }], "MinRooms": ${minBedrooms || null}, "MinBathRooms":${minBathrooms || null}, "AreaRange": [${minArea || 0}, 1000], "OrderByFields":["${order || ""}"] }`)
+    const response = await axios.get(`/.netlify/functions/estate-request?params={"ClientId":"API_TOKEN","Page": ${ page || 0 },"Language":"${this.currentLang}","RowsPerPage":10, ${paramsList.join()} }`)
     const data = await response.data.d.EstateList
     const meta = await response.data.d.QueryInfo
     await controller.set('currentlyLoading', false);
@@ -108,5 +110,3 @@ export default class SearchRoute extends Route {
   }
 }
 
-
-// "PriceRange":["${param.minPrice}", "${param.maxPrice}"}],
