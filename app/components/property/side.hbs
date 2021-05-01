@@ -18,6 +18,23 @@
       </article>
       {{/if}}
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <article class="bg-white rounded b-gray-alt">
+          <div class=" h-auto">
+            <div class="flex px-6 md:px-8 py-4 md:py-5 justify-between b-gray-alt-bottom">
+              <h2 class="font-bold text-xl text-gray-900 ">{{t "property.address.title"}}</h2>
+            </div>
+          </div>
+          <ul class="text-sm p-6 md:px-8 divide-y">
+            <li class="flex justify-between py-3"> <span
+                class="capitalize text-gray-700">{{t "property.address.city"}}</span>
+              <span class="font-bold text-gray-700">{{@estate.address.zip}} {{@estate.address.city}} </span>
+            </li>
+            <li class="flex justify-between py-3"> <span
+                class="capitalize text-gray-700">{{t "property.address.street"}}</span>
+              <span class="font-bold text-gray-700">{{@estate.address.street}} {{@estate.address.number}}</span>
+            </li>
+          </ul>
+        </article>
         <Property::Card @title={{t "property.sub.general" }} @list={{@estate.general}} />
         <Property::Card @title={{t "property.sub.interior" }} @list={{@estate.interior}} />
         <Property::Card @title={{t "property.sub.surfaces" }} @list={{@estate.surface}} />

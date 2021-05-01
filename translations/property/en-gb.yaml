@@ -16,3 +16,8 @@ form:
   number: Phone Number
   message: Message
   send: Send
+
+address:
+  title: Address
+  city: City
+  street: Street

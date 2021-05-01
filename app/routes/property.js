@@ -82,6 +82,12 @@ export default class PropertyRoute extends Route {
         }
       })
 
+      const address = new Object()
+      address.street = data[0].Address1
+      address.city = data[0].City
+      address.zip = data[0].Zip
+      address.number = data[0].Number
+
       // LEAFLET COORDINATED
       var commaToPoint = (val) => {
         return val.replace(",", ".");
@@ -91,6 +97,6 @@ export default class PropertyRoute extends Route {
       gps.Longitude = commaToPoint(coordinates[0].Subdetails[0].Value)
       gps.Latitude = commaToPoint(coordinates[0].Subdetails[1].Value)
       gps.List = new Array(commaToPoint(coordinates[0].Subdetails[0].Value), commaToPoint(coordinates[0].Subdetails[1].Value))
-      return {data , general, title, interior, energy, surface, environment, gps}
+      return {data , general, title, interior, energy, surface, environment, gps, address}
   }
 }

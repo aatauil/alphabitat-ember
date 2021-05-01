@@ -16,3 +16,8 @@ form:
   number: Telefoon nummer
   message: Omschrijving
   send: Verstuur
+
+address:
+  title: Adres
+  city: Stad
+  street: Straat
