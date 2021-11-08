@@ -12,7 +12,11 @@ const handler = async function (event) {
   console.log('Constructed URL is ...', URL)
 
   try {
-    const { data } = await axios.get(URL)
+    const { data } = await axios.get(URL, {
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+    }})
 
     return {
       statusCode: 200,
