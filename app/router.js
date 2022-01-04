@@ -15,4 +15,6 @@ Router.map(function() {
   this.route('favorites', {path: '/favorites'})
   this.route('property', {path: '/property'});
   this.route('not-found', {path: '/*path'});
+  this.route('privacy-policy');
+  this.route('cookie-policy');
 });
