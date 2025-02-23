@@ -13,7 +13,7 @@ export default class HomeController extends Controller {
   }
 
   get estates(){
-    return axios.get(`/.netlify/functions/estate-request?params={"ClientId":"API_TOKEN","Page":0,"RowsPerPage":6,"Language":"${this.currentLang}","displayStatusIdList":[3]}`)
+    return axios.get(`/.netlify/functions/estate-request?params={"ClientId":"API_TOKEN","Page":0,"RowsPerPage":6,"Language":"${this.currentLang}","displayStatusIdList":[1]}`)
       .then(responds => responds.data.d.EstateList)
   }
 
