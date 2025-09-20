@@ -15,8 +15,17 @@ export default class HomeController extends Controller {
   get estates() {
     const body = {
       Field: {
-        excluded: [
-          "longDescription"
+        included: [
+          "address",
+          "bathrooms",
+          "pictures",
+          "area",
+          "city",
+          "currency",
+          "price",
+          "rooms",
+          "purposeId",
+          "categoryId"
         ]
       },
       Page: {

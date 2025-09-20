@@ -144,8 +144,17 @@ export default class SearchRoute extends Route {
     const body = {
       Filter: filter,
       Field: {
-        excluded: [
-          "longDescription"
+        included: [
+          "address",
+          "bathrooms",
+          "pictures",
+          "area",
+          "city",
+          "currency",
+          "price",
+          "rooms",
+          "purposeId",
+          "categoryId"
         ]
       },
       Page: {
