@@ -11,17 +11,20 @@ const handler = async function (event) {
     },
   }
 
-  // Log constructed URL after all headers & body have been added
-  console.log('Constructed URL is ...', API_URL)
-  console.log('Request headers:', axiosConfig.headers)
-  if (event.body) {
-    console.log('Request body:', event.body)
-  }
+  // Parse the body if present, otherwise use undefined
+  const requestBody = event.body ? JSON.parse(event.body) : undefined;
+
+  // Log the full request details in one console log
+  console.log(
+    '[EstateRequest] Axios POST Request:',
+    JSON.stringify({
+      url: API_URL,
+      headers: axiosConfig.headers,
+      body: requestBody
+    }, null, 2)
+  );
 
   try {
-    // Parse the body if present, otherwise use undefined
-    const requestBody = event.body ? JSON.parse(event.body) : undefined;
-
     // Use POST and pass the body
     const { data } = await axios.post(API_URL, requestBody, axiosConfig)
 
@@ -30,10 +33,19 @@ const handler = async function (event) {
       body: JSON.stringify(data),
     }
   } catch (error) {
-    const { status, statusText, headers, data } = error.response
-    return {
-      statusCode: error.response.status,
-      body: JSON.stringify({ status, statusText, headers, data }),
+    if (error.response) {
+      console.error('[EstateRequest] Error:', error.response.status, error.response.statusText);
+      const { status, statusText, headers, data } = error.response;
+      return {
+        statusCode: status,
+        body: JSON.stringify({ status, statusText, headers, data }),
+      };
+    } else {
+      console.error('[EstateRequest] Error:', error.message);
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ error: error.message }),
+      };
     }
   }
 }
