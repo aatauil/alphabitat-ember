@@ -8,7 +8,7 @@ const handler = async function (event) {
       'Content-Type': 'application/json',
       Accept: 'application/json',
       Authorization: `Bearer ${API_TOKEN}`
-    }
+    },
   }
 
   // Log constructed URL after all headers & body have been added
@@ -19,7 +19,11 @@ const handler = async function (event) {
   }
 
   try {
-    const { data } = await axios.get(API_URL, axiosConfig)
+    // Parse the body if present, otherwise use undefined
+    const requestBody = event.body ? JSON.parse(event.body) : undefined;
+
+    // Use POST and pass the body
+    const { data } = await axios.post(API_URL, requestBody, axiosConfig)
 
     return {
       statusCode: 200,
