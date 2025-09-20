@@ -1,11 +1,7 @@
 const axios = require('axios')
 
 const handler = async function (event) {
-  const regex = /API_TOKEN/g
   const { API_URL, API_TOKEN } = process.env
-
-  var params = event.queryStringParameters.params
-  var params = params.replace(regex, API_TOKEN);
 
   const URL = `${API_URL}=${params}`
 
@@ -15,8 +11,10 @@ const handler = async function (event) {
     const { data } = await axios.get(URL, {
       headers: {
         'Content-Type': 'application/json',
-        Accept: 'application/json'
-    }})
+        Accept: 'application/json',
+        Authorization: `Bearer ${API_TOKEN}`
+      }
+    })
 
     return {
       statusCode: 200,
@@ -32,4 +30,3 @@ const handler = async function (event) {
 }
 
 module.exports = { handler }
-
