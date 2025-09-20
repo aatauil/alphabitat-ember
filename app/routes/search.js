@@ -2,13 +2,12 @@ import Route from '@ember/routing/route';
 import axios from 'axios';
 import { inject as service } from '@ember/service';
 
-
 export default class SearchRoute extends Route {
 
   @service intl;
 
   get currentLang() {
-    return this.intl.get('primaryLocale')
+    return this.intl.get('primaryLocale');
   }
 
   // SEARCH QUERY PARAMS
@@ -20,10 +19,10 @@ export default class SearchRoute extends Route {
       refreshModel: true
     },
     minPrice: {
-      refreshModel : true
+      refreshModel: true
     },
     maxPrice: {
-      refreshModel : true
+      refreshModel: true
     },
     regions: {
       refreshModel: true
@@ -43,70 +42,128 @@ export default class SearchRoute extends Route {
     page: {
       refreshModel: true
     }
-  }
+  };
 
   convertRegion(items) {
-  let itemList;
-    if(!items){
-    return []
+    let itemList;
+    if (!items) {
+      return [];
     }
     itemList = items.split(",");
-    let newList = []
+    let newList = [];
 
     itemList.forEach(element => {
       switch (element) {
         case '1':
-          newList.push(20341)
+          newList.push(20341);
           break;
-
         case '2':
-          newList.push(20705)
+          newList.push(20705);
           break;
-
         case '3':
-          newList.push(20706,20346,20347)
+          newList.push(20706, 20346, 20347);
           break;
-
         case '4':
-          newList.push(51498)
+          newList.push(51498);
           break;
-
         case '5':
-          newList.push(20347,20346,20345,20344,20343,20342)
+          newList.push(20347, 20346, 20345, 20344, 20343, 20342);
           break;
-        }
       }
-    );
-    return newList
+    });
+    return newList;
   }
 
   async model(param) {
-    let paramsList = [];
+    // Ensure filter is always defined
+    let filter = {};
     let page;
 
-    if(param.categories) paramsList.push(`"CategoryIDList":[${ param.categories }]`);
-    if(param.buyRent) paramsList.push(`"PurposeStatusIDList": [${ param.buyRent }]`);
-    if(param.regions) paramsList.push(`"RegionIDList": [${ this.convertRegion(param.regions) }]`);
-    if(param.minPrice || param.maxPrice) paramsList.push(`"PriceRange": [${ param.minPrice || 0 }, ${ param.maxPrice || 1000000000 }]`);
-    if(param.minBed) paramsList.push(`"MinRooms": ${param.minBed}`);
-    if(param.minBath) paramsList.push(`"MinBathRooms":${param.minBath}`);
-    if(param.minArea) paramsList.push(`"AreaRange": [${param.minArea}, 1000]`);
-    if(param.order) paramsList.push(`"OrderByFields":["${param.order}"]`);
-
-
-    if( param.page != 0){
-      page = param.page - 1
-    } else {
-      page = param.page
+    // Convert parameters to proper filter object
+    if (param.categories) {
+      const categoryIds = param.categories.split(',').map(id => parseInt(id.trim()));
+      filter.CategoryIds = categoryIds;
     }
+    if (param.buyRent) {
+      filter.PurposeStatusIds = [param.buyRent];
+    }
+    if (param.regions && typeof param.regions === 'string') {
+      filter.RegionIds = this.convertRegion(param.regions);
+    }
+    if (param.minPrice || param.maxPrice) {
+      filter.PriceRange = {
+        Min: param.minPrice ? parseInt(param.minPrice) : 0,
+        Max: param.maxPrice ? parseInt(param.maxPrice) : 9999999
+      };
+    }
+    if (param.minBed) {
+      filter.MinRooms = parseInt(param.minBed);
+    }
+    if (param.minBath) {
+      filter.MinBathRooms = parseInt(param.minBath);
+    }
+    if (param.minArea) {
+      filter.AreaRange = {
+        Min: parseInt(param.minArea),
+        Max: 1000
+      };
+    }
+
+    // Set default display status to show online estates
+    if (!filter.DisplayStatusIds) {
+      filter.DisplayStatusIds = [2]; // Online status
+    }
+
+    if (param.page != 0) {
+      page = param.page - 1;
+    } else {
+      page = param.page;
+    }
+
+    // Create proper API request body
+    // Map allowed sort options to API fields and directions
+    let sortField = "PutOnlineDateTime";
+    let ascending = false;
+
+    if (param.order) {
+      // Only allow specific fields and directions
+      // Example: "Price_ASC" or "Price_DESC"
+      const allowedSorts = {
+        "PRICE_ASC": { Field: "Price", Ascending: true },
+        "PRICE_DESC": { Field: "Price", Ascending: false },
+        "PUTONLINEDATETIME_ASC": { Field: "PutOnlineDateTime", Ascending: true },
+        "PUTONLINEDATETIME_DESC": { Field: "PutOnlineDateTime", Ascending: false }
+      };
+      const sortKey = param.order.replace(" ", "_").toUpperCase();
+      if (allowedSorts[sortKey]) {
+        sortField = allowedSorts[sortKey].Field;
+        ascending = allowedSorts[sortKey].Ascending;
+      }
+    }
+
+    const body = {
+      Filter: filter,
+      Field: {
+        excluded: [
+          "longDescription"
+        ]
+      },
+      Page: {
+        Limit: 6,
+        Offset: page * 6
+      },
+      Sort: [{
+        Field: sortField,
+        Ascending: ascending
+      }]
+    };
 
     let controller = this.controllerFor('search');
     controller.set('currentlyLoading', true);
-    const response = await axios.get(`/.netlify/functions/estate-request?params={"ClientId":"API_TOKEN","Page": ${ page || 0 },"Language":"${this.currentLang}","RowsPerPage":10, ${paramsList.join()} }`)
-    const data = await response.data.d.EstateList
-    const meta = await response.data.d.QueryInfo
+    const response = await axios.post(`/.netlify/functions/estate-request`, body);
+    const data = await response.data.estates;
+    const meta = await response.data;
     await controller.set('currentlyLoading', false);
-    return {data, meta}
+    return { data, meta };
   }
 }
-
