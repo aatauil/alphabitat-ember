@@ -5,12 +5,12 @@
 
         {{#swiper-container pagination=true navigation=true loop=true}}
 
-        {{#each @estate.Pictures as |picture|}}
+        {{#each @estate.pictures as |picture|}}
         {{#swiper-slide}}
-        <div style={{safe-string (concat "background-image: url('" picture.UrlSmall "')" )}}
+        <div style={{safe-string (concat "background-image: url('" picture.urlSmall "')" )}}
           class=" rounded bg-no-repeat bg-cover ">
           <div class="w-full bg-blur">
-            <img alt="House/appartment inside and outside" src={{picture.UrlLarge}} class="rounded object-fit m-auto h-64 md:h-auto" />
+            <img alt="House/appartment inside and outside" src={{picture.urlLarge}} class="rounded object-fit m-auto h-64 md:h-auto" />
           </div>
         </div>
         {{/swiper-slide}}
@@ -22,34 +22,34 @@
       <div class="py-6">
         <div class="flex w-full flex-col md:flex-row flex justify-between items-center md:items-end pt-6">
           <div>
-            <span class="text-3xl leading-none">{{@estate.City}}</span> <span class="text-sm ml-2 hidden md:inline-block">ref
-              {{@estate.EstateID}}</span>
+            <span class="text-3xl leading-none">{{@estate.city}}</span> <span class="text-sm ml-2 hidden md:inline-block">ref
+              {{@estate.id}}</span>
           </div>
-          <span class="text-3xl font-bold p-3 md:p-0 leading-none">{{ parse-price @estate.Price }} €</span>
+          <span class="text-3xl font-bold p-3 md:p-0 leading-none">{{ parse-price @estate.price }} €</span>
         </div>
         <div class="text-gray-500 pb-2 font-bold text-center md:text-left">
-          {{this.propertyType}} {{@estate.Purposes.[0].Name}}
+          {{this.propertyType}} {{this.purposeType}}
         </div>
         <div class="mt-6 flex flex-col md:flex-row justify-center items-center justify-between">
           <ul class="flex gap-3 ">
-            {{#if (and (not-eq @estate.Rooms 0) (not-eq @estate.Rooms 0))}}
+            {{#if (and (not-eq @estate.rooms 0) (not-eq @estate.rooms 0))}}
               <li class="flex justify-between bg-light-gray gap-2 py-3 px-5 ">
                 <img src="assets/vector/bed.svg" alt="icon of a shower">
-                <span>{{@estate.Rooms}}</span>
+                <span>{{@estate.rooms}}</span>
               </li>
             {{/if}}
 
-            {{#if (and (not-eq @estate.BathRooms 0) (not-eq @estate.BathRooms 0))}}
+            {{#if (and (not-eq @estate.bathRooms 0) (not-eq @estate.bathRooms 0))}}
               <li class="flex justify-between bg-light-gray gap-2 py-3 px-5 ">
                 <img src="assets/vector/bath.svg" alt="icon of a shower">
-                <span>{{@estate.BathRooms}}</span>
+                <span>{{@estate.bathRooms}}</span>
               </li>
             {{/if}}
 
-            {{#if (and (not-eq @estate.Area 0) (not-eq @estate.Area 0))}}
+            {{#if (and (not-eq @estate.area 0) (not-eq @estate.area 0))}}
               <li class="flex justify-between bg-light-gray gap-2 py-3 px-5 w-auto">
                 <img src="assets/vector/area.svg" alt="icon of a shower">
-                <span>{{@estate.Area}} m²</span>
+                <span>{{@estate.area}} m²</span>
               </li>
             {{/if}}
           </ul>
@@ -71,8 +71,8 @@
     <layers.tile class="w-full h-full " @url="https://api.mapbox.com/styles/v1/aatauil/ckofvgb515cya17rykfxk202j/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiYWF0YXVpbCIsImEiOiJja29mdjdrNW8wY3p6Mm5tYTFpOGIzeXMyIn0.lQtGhWtzVQ48jpT9KpBqtg" />
     <layers.marker @location={{@gps.List}}  @icon={{this.iconOptions}} as |marker|>
       <marker.popup>
-        <h3>{{@estate.City}}</h3>
-        {{@estate.Address1}}
+        <h3>{{@estate.city}}</h3>
+        {{@estate.address}} {{@estate.number}}
       </marker.popup>
     </layers.marker>
 
