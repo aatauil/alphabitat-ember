@@ -12,9 +12,26 @@ export default class HomeController extends Controller {
     return this.intl.get('primaryLocale')
   }
 
-  get estates(){
-    return axios.get(`/.netlify/functions/estate-request?params={"ClientId":"API_TOKEN","Page":0,"RowsPerPage":6,"Language":"${this.currentLang}","displayStatusIdList":[1]}`)
-      .then(responds => responds.data.d.EstateList)
+  get estates() {
+    const body = {
+      Field: {
+        excluded: [
+          "longDescription"
+        ]
+      },
+      Page: {
+        Limit: "6"
+      },
+      Sort: [{
+        Field: "putOnlineDateTime",
+        Ascending: false
+      }]
+    };
+
+    return axios.post(
+      '/.netlify/functions/estate-request',
+      body,
+    ).then(responds => responds.data.estates);
   }
 
   @action
