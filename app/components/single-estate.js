@@ -6,7 +6,7 @@ export default class SingleEstateComponent extends Component {
   
   get propertyType(){
     let transformed;
-    switch (this.args.item.CategoryId) {
+    switch (this.args.item.category.id) {
       case 1:
           transformed = this.intl.t('type.house');
           break;
@@ -30,8 +30,22 @@ export default class SingleEstateComponent extends Component {
           break;
       default:
           break;
+     }
+     return transformed
   }
 
-  return transformed
+  get purposeType(){
+    let transformed;
+    switch (this.args.item.purpose.id) {
+      case 1:
+          transformed = this.intl.t('nav.sale');
+          break;
+      case 2:
+         transformed = this.intl.t('nav.rent')
+          break;
+      default:
+          break;
+     }
+     return transformed ? transformed.toLowerCase() : transformed
   }
 }
