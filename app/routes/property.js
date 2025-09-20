@@ -12,15 +12,26 @@ export default class PropertyRoute extends Route {
   async model(param) {
 
       let id = param.id
-      const response = await axios.get(`/.netlify/functions/estate-request?params={"ClientId":"API_TOKEN","Page":0,"Language":"${this.currentLang}", "estateID":${id}, "ShowDetails":true}`)
-      const data = await response.data.d.EstateList
-      const detailsArray = data[0].Details
+      const body = {
+        Filter: {
+          EstateIds: [parseInt(id)],
+          DisplayStatusIds: [2] // Online status
+        },
+        Page: {
+          Limit: 1,
+          Offset: 0
+        }
+      };
+      
+      const response = await axios.post(`/.netlify/functions/estate-request`, body)
+      const data = await response.data.estates
+      const detailsArray = data[0].details
 
     // TITLE
     let title = detailsArray.filter(details => {
       let titleIDList = [1244]
 
-      if(titleIDList.indexOf(details.DetailId) !== -1){
+      if(titleIDList.indexOf(details.id) !== -1){
         return true
       }
     })
@@ -29,7 +40,7 @@ export default class PropertyRoute extends Route {
       let general = detailsArray.filter(details => {
         let generalIDList = [374, 31, 32, 573, 52, 465]
 
-          if (generalIDList.indexOf(details.DetailId) !== -1){
+          if (generalIDList.indexOf(details.id) !== -1){
             return true
           }
         }
@@ -39,7 +50,7 @@ export default class PropertyRoute extends Route {
       let interior = detailsArray.filter(details => {
         let interiorIDList = [94, 88, 96]
 
-          if (interiorIDList.indexOf(details.DetailId) !== -1){
+          if (interiorIDList.indexOf(details.id) !== -1){
             return true
           }
         }
@@ -49,7 +60,7 @@ export default class PropertyRoute extends Route {
       let surface = detailsArray.filter(details => {
         let surfaceIDList = [1028, 73, 117, 118, 119]
 
-        if (surfaceIDList.indexOf(details.DetailId) !== -1){
+        if (surfaceIDList.indexOf(details.id) !== -1){
           return true
         }
       })
@@ -58,7 +69,7 @@ export default class PropertyRoute extends Route {
       let energy = detailsArray.filter(details => {
         let energyIDList = [1307]
 
-        if (energyIDList.indexOf(details.DetailId) !== -1){
+        if (energyIDList.indexOf(details.id) !== -1){
           return true
         }
       }
@@ -68,35 +79,27 @@ export default class PropertyRoute extends Route {
       let environment= detailsArray.filter(details => {
         let envIDList = [925, 1180, 150, 151, 152, 158]
 
-        if (envIDList.indexOf(details.DetailId) !== -1){
+        if (envIDList.indexOf(details.id) !== -1){
           return true
         }
       }
       )
-      // COORDINATES LIST
-      let coordinates = detailsArray.filter(details => {
-        let gpsIDList = [1211]
-
-        if (gpsIDList.indexOf(details.DetailId) !== -1){
-          return true
-        }
-      })
 
       const address = new Object()
-      address.street = data[0].Address1
-      address.city = data[0].City
-      address.zip = data[0].Zip
-      address.number = data[0].Number
+      address.street = data[0].address
+      address.city = data[0].city
+      address.zip = data[0].zip
+      address.number = data[0].number
 
-      // LEAFLET COORDINATED
-      var commaToPoint = (val) => {
-        return val.replace(",", ".");
-      }
+      // COORDINATES OBJECTS
+      let longitude = detailsArray.find(details => details.id === 1849)?.value;
+      let latitude = detailsArray.find(details => details.id === 1850)?.value;
+
 
       let gps = new Object()
-      gps.Longitude = commaToPoint(coordinates[0].Subdetails[0].Value)
-      gps.Latitude = commaToPoint(coordinates[0].Subdetails[1].Value)
-      gps.List = new Array(commaToPoint(coordinates[0].Subdetails[0].Value), commaToPoint(coordinates[0].Subdetails[1].Value))
+      gps.Longitude = longitude
+      gps.Latitude = latitude
+      gps.List = new Array(longitude, latitude)
       return {data , general, title, interior, energy, surface, environment, gps, address}
   }
 }
