@@ -17,6 +17,11 @@ export default class PropertyRoute extends Route {
           EstateIds: [parseInt(id)],
           DisplayStatusIds: [2] // Online status
         },
+        Field: {
+          excluded: [
+            "comments"
+          ]
+        },
         Page: {
           Limit: 1,
           Offset: 0
