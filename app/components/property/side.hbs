@@ -1,9 +1,9 @@
 <div class="bg-light-gray">
   <section class="container flex flex-col gap-6 py-16 lg:flex-row">
     <div class="flex flex-col gap-6 lg:w-2/3">
-      {{#if @estate.title.[0].Subdetails.[0].Value}}
-        <article class="bg-white px-10 py-3 text-center rounded b-gray-alt">
-          <h1 class="font-bold text-xl text-gray-900 py-3">{{@estate.title.[0].Subdetails.[0].Value}}</h1>
+      {{#if @estate.title.[0].value}}
+        <article class="bg-white px-10 py-3 text-start rounded b-gray-alt">
+          <h1 class="font-bold text-xl text-gray-900 py-3">{{@estate.title.[0].value}}</h1>
         </article>
       {{/if}}
       {{#if @estate.data.[0].shortDescription}}
