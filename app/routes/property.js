@@ -15,7 +15,7 @@ export default class PropertyRoute extends Route {
       const body = {
         Filter: {
           EstateIds: [parseInt(id)],
-          DisplayStatusIds: [2] // Online status
+          DisplayStatusIds: [2], // Online status
         },
         Field: {
           excluded: [
@@ -34,7 +34,7 @@ export default class PropertyRoute extends Route {
 
     // TITLE
     let title = detailsArray.filter(details => {
-      let titleIDList = [1244]
+      let titleIDList = [1914]
 
       if(titleIDList.indexOf(details.id) !== -1){
         return true
@@ -43,7 +43,7 @@ export default class PropertyRoute extends Route {
 
     // GENERAL LIST
       let general = detailsArray.filter(details => {
-        let generalIDList = [374, 31, 32, 573, 52, 465]
+        let generalIDList = [15, 20, 2, 55, 301, 372, 585]
 
           if (generalIDList.indexOf(details.id) !== -1){
             return true
@@ -53,7 +53,7 @@ export default class PropertyRoute extends Route {
 
       // INTERIOR LIST
       let interior = detailsArray.filter(details => {
-        let interiorIDList = [94, 88, 96]
+        let interiorIDList = [1596]
 
           if (interiorIDList.indexOf(details.id) !== -1){
             return true
@@ -63,7 +63,7 @@ export default class PropertyRoute extends Route {
 
       // SURFACE LIST
       let surface = detailsArray.filter(details => {
-        let surfaceIDList = [1028, 73, 117, 118, 119]
+        let surfaceIDList = []
 
         if (surfaceIDList.indexOf(details.id) !== -1){
           return true
@@ -72,7 +72,7 @@ export default class PropertyRoute extends Route {
 
       // ENERGY LIST
       let energy = detailsArray.filter(details => {
-        let energyIDList = [1307]
+        let energyIDList = [2090, 2089, 2056]
 
         if (energyIDList.indexOf(details.id) !== -1){
           return true
@@ -82,13 +82,12 @@ export default class PropertyRoute extends Route {
 
       //ENVIRONMENT LIST
       let environment= detailsArray.filter(details => {
-        let envIDList = [925, 1180, 150, 151, 152, 158]
+        let envIDList = [795]
 
         if (envIDList.indexOf(details.id) !== -1){
           return true
         }
-      }
-      )
+      })
 
       const address = new Object()
       address.street = data[0].address
@@ -105,6 +104,8 @@ export default class PropertyRoute extends Route {
       gps.Longitude = longitude
       gps.Latitude = latitude
       gps.List = new Array(longitude, latitude)
+
+      console.log(title)
       return {data , general, title, interior, energy, surface, environment, gps, address}
   }
 }
